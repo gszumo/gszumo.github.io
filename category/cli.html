@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>'Gregg Szumowski</title>
+        <meta charset="utf-8" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="'Gregg Szumowski Full Atom Feed" />
+        <link href="/feeds/cli.atom.xml" type="application/atom+xml" rel="alternate" title="'Gregg Szumowski Categories Atom Feed" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">'Gregg Szumowski <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+        </ul></nav><!-- /#menu -->
+<section id="content">
+<h2>Articles in the cli category</h2>
+
+<ol id="post-list">
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/count-occurences-of-a-character-in-a-string.html" rel="bookmark" title="Permalink to "Count Occurences of a Character in a String"">"Count Occurences of a Character in a String"</a></h2> </header>
+                <footer class="post-info">
+                    <time class="published" datetime="2017-11-04T21:07:52-05:00"> Sat 04 November 2017 </time>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/gregg-szumowski.html">Gregg Szumowski</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>Sometimes I need to know how many times a specific character occurs in a string. The best tool to use for something like that is AWK. Let's say we're looking for the count of commas in a string:</p>
+<div class="highlight"><pre><span></span> string=&quot;text,text,text,text&quot;
+ char=&quot;,&quot;
+ echo &quot;<span class="cp">${</span><span class="n">string</span><span class="cp">}</span>&quot; | awk -F&quot;<span class="cp">${</span><span class="n">char</span><span class="cp">}</span>&quot; &#39;{print …</pre></div> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/getting-rid-of-m-line-endings-in-a-text-file.html" rel="bookmark" title="Permalink to "Getting Rid of ^M Line Endings in a Text File"">"Getting Rid of ^M Line Endings in a Text File"</a></h2> </header>
+                <footer class="post-info">
+                    <time class="published" datetime="2017-10-30T22:01:00-05:00"> Mon 30 October 2017 </time>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/gregg-szumowski.html">Gregg Szumowski</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>If you have a text file that has funny looking ^M characters at the end of each line, in most cases, you have to get rid of them before they can be used. This is especially the case when you've copied or transferred a file from a Windows-based system to …</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/running-docker-on-fedora-26-for-the-first-time.html" rel="bookmark" title="Permalink to "Running Docker on Fedora 26 for the First Time"">"Running Docker on Fedora 26 for the First Time"</a></h2> </header>
+                <footer class="post-info">
+                    <time class="published" datetime="2017-10-15T21:48:02-05:00"> Sun 15 October 2017 </time>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/gregg-szumowski.html">Gregg Szumowski</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>OK, so I want to start using docker on my Fedora laptop: How do we get started? Well, the Fedora Workstation page says that it comes with built-in Docker support so let's see if we can start it up:</p>
+<div class="highlight"><pre><span></span>[gszumo@asus-laptop ~]$ which docker
+/usr/bin/docker
+[gszumo@asus-laptop ~]$ docker login …</pre></div> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/sort-directory-by-file-size.html" rel="bookmark" title="Permalink to "Sort Directory by File Size"">"Sort Directory by File Size"</a></h2> </header>
+                <footer class="post-info">
+                    <time class="published" datetime="2017-03-04T21:55:12-05:00"> Sat 04 March 2017 </time>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/gregg-szumowski.html">Gregg Szumowski</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>To sort files in a directory and to list them by the biggest file first:</p>
+<div class="highlight"><pre><span></span>$ du -a <span class="p">|</span> sort -n -r <span class="p">|</span> more
+</pre></div> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/get-the-hash-of-a-file-on-different-operating-systems.html" rel="bookmark" title="Permalink to "Get the Hash of a File on Different Operating Systems"">"Get the Hash of a File on Different Operating Systems"</a></h2> </header>
+                <footer class="post-info">
+                    <time class="published" datetime="2017-03-03T09:13:51-05:00"> Fri 03 March 2017 </time>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/gregg-szumowski.html">Gregg Szumowski</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>Sometimes you just need to hash something. Here are some command lines to do just that.</p>
+<p>Windows PowerShell:</p>
+<div class="highlight"><pre><span></span>Get-FileHash C:\path\to\file.iso -Algorithm [MD5|SHA1|SHA256|SHA384|SHA512|MACTripleDES|RIPEMD160]
+</pre></div>
+
+
+<p>(SHA256 is the default if the parameter is omitted) </p>
+<p>Linux: </p>
+<div class="highlight"><pre><span></span>md5sum /path/to/file
+sha1sum /path/to/file …</pre></div> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/alternative-to-using-cp.html" rel="bookmark" title="Permalink to "Alternative to Using cp"">"Alternative to Using cp"</a></h2> </header>
+                <footer class="post-info">
+                    <time class="published" datetime="2017-02-09T09:21:02-05:00"> Thu 09 February 2017 </time>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/gregg-szumowski.html">Gregg Szumowski</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>To backup files from a source directory to a backup directory:</p>
+<div class="highlight"><pre><span></span>$ mkdir /path/to/backup/directory
+$ <span class="nb">cd</span> <span class="nv">$HOME</span>/source/directory
+$ tar cf - . <span class="p">|</span> <span class="o">(</span><span class="nb">cd</span> /path/to/backup/directory <span class="o">&amp;&amp;</span> tar xBvf -<span class="o">)</span>
+</pre></div>
+
+
+<p>Define the following alias:</p>
+<div class="highlight"><pre><span></span>tar cvf - . | ( cd \!* ; tar xvf - )
+</pre></div>
+
+
+<p>or as an alias:</p>
+<div class="highlight"><pre><span></span>alias cpbytar=&#39;tar cvf - . | ( cd \!* ; tar xvf - )&#39;
+</pre></div>
+
+
+<p>(The …</p> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/removing-m-characters-from-multiple-files.html" rel="bookmark" title="Permalink to "Removing ^M Characters From Multiple Files"">"Removing ^M Characters From Multiple Files"</a></h2> </header>
+                <footer class="post-info">
+                    <time class="published" datetime="2016-07-05T11:06:20-05:00"> Tue 05 July 2016 </time>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/gregg-szumowski.html">Gregg Szumowski</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>In my day job I find that I frequently need to remove those pesky '^M' line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing</p>
+<div class="highlight"><pre><span></span>:%s …</pre></div> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/copy-entire-directory-structure-using-tar.html" rel="bookmark" title="Permalink to "Copy Entire Directory Structure Using Tar"">"Copy Entire Directory Structure Using Tar"</a></h2> </header>
+                <footer class="post-info">
+                    <time class="published" datetime="2016-04-02T11:56:07-05:00"> Sat 02 April 2016 </time>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/gregg-szumowski.html">Gregg Szumowski</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>Sometimes you need to copy an entire directory structure to another location on the command line. Here is a quick way to do it using the tar command:</p>
+<div class="highlight"><pre><span></span>tar cf - * | ( cd /target; tar xfp -)
+</pre></div> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="/learning-the-command-line.html" rel="bookmark" title="Permalink to "Learning the Command Line"">"Learning the Command Line"</a></h2> </header>
+                <footer class="post-info">
+                    <time class="published" datetime="2016-01-30T11:51:00-05:00"> Sat 30 January 2016 </time>
+                    <address class="vcard author">By
+                        <a class="url fn" href="/author/gregg-szumowski.html">Gregg Szumowski</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <p>A good beginner's article on using the command line to manage your files can be found [here]
+(http://www.linux.com/learn/tutorials/842251-must-know-linux-commands-for-new-users)</p> </div><!-- /.entry-content -->
+        </article></li>
+</ol><!-- /#posts-list -->
+</section><!-- /#content -->
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+</body>
+</html>

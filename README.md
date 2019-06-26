@@ -1,1 +1,0 @@
-# gszumo.github.io

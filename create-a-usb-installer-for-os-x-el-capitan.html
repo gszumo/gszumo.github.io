@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>'Gregg Szumowski</title>
+        <meta charset="utf-8" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="'Gregg Szumowski Full Atom Feed" />
+        <link href="/feeds/macos.atom.xml" type="application/atom+xml" rel="alternate" title="'Gregg Szumowski Categories Atom Feed" />
+
+
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">'Gregg Szumowski <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/create-a-usb-installer-for-os-x-el-capitan.html" rel="bookmark"
+         title="Permalink to "Create a USB Installer for OS X El Capitan"">"Create a USB Installer for OS X El Capitan"</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2016-05-31T11:19:58-05:00">
+      Tue 31 May 2016
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/gregg-szumowski.html">Gregg Szumowski</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>Here's a command line method to create a USB installer for OS X El Capitan:</p>
+<p>Requirements:
+A blank USB drive that is at least 8GB in size.
+The El Capitan installer, which you can download for free from the Apple App Store.
+Steps:
+Place the USB stick in you Mac. It will probably show up in the sidebar as "Untitled". Rename it to something more memorable by right-clicking (or 2 finger tap) on it and select "Rename..." from the dialog. In my example, I have renamed it to "ElCapitan" (without the quotes).
+Open Terminal (or iTerm if you prefer that) and enter the following command changing the "/Volumes/ElCapitan" to "/Volumes/". Please note that this is a single command:</p>
+<div class="highlight"><pre><span></span>$ sudo /Applications/Install<span class="se">\ </span>OS<span class="se">\ </span>X<span class="se">\ </span>El<span class="se">\ </span>Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/ElCapitan --applicationpath /Applications/Install<span class="se">\ </span>OS<span class="se">\ </span>X<span class="se">\ </span>El<span class="se">\ </span>Capitan.app --nointeraction
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">Password</span><span class="o">:</span>
+<span class="n">Erasing</span> <span class="n">Disk</span><span class="o">:</span> <span class="mi">0</span><span class="o">%...</span> <span class="mi">10</span><span class="o">%...</span> <span class="mi">20</span><span class="o">%...</span> <span class="mi">30</span><span class="o">%...</span><span class="mi">100</span><span class="o">%...</span>
+<span class="n">Copying</span> <span class="n">installer</span> <span class="n">files</span> <span class="n">to</span> <span class="n">disk</span><span class="o">...</span>
+<span class="n">Copy</span> <span class="n">complete</span><span class="o">.</span>
+<span class="n">Making</span> <span class="n">disk</span> <span class="n">bootable</span><span class="o">...</span>
+<span class="n">Copying</span> <span class="n">boot</span> <span class="n">files</span><span class="o">...</span>
+<span class="n">Copy</span> <span class="n">complete</span><span class="o">.</span>
+<span class="n">Done</span><span class="o">.</span>
+</pre></div>
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+</body>
+</html>

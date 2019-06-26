@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>'Gregg Szumowski</title>
+        <meta charset="utf-8" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="'Gregg Szumowski Full Atom Feed" />
+        <link href="/feeds/linux.atom.xml" type="application/atom+xml" rel="alternate" title="'Gregg Szumowski Categories Atom Feed" />
+
+
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">'Gregg Szumowski <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/solus-os-how-to-prevent-your-laptop-from-going-to-sleep-when-you-close-the-lid.html" rel="bookmark"
+         title="Permalink to "Solus OS: How to Prevent Your Laptop from Going to Sleep When You Close the Lid"">"Solus OS: How to Prevent Your Laptop from Going to Sleep When You Close the Lid"</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2017-12-14T19:07:10-05:00">
+      Thu 14 December 2017
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/gregg-szumowski.html">Gregg Szumowski</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>If you're using a laptop with an external monitor and you've recently installed Solus OS you might have noticed that the laptop goes to sleep when you close the lid and there is no way to adjust for this in the power settings. You can get around this by manually editing <code>/etc/systemd/logind.conf</code> and changing the line:</p>
+<div class="highlight"><pre><span></span> #HandleLidSwitch=suspend
+ to
+ HandleLidSwitch=ignore
+</pre></div>
+
+
+<p>Note the '#' at the beginning of the line needs to be removed.</p>
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+</body>
+</html>

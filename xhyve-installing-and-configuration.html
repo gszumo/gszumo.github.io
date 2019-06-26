@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>'Gregg Szumowski</title>
+        <meta charset="utf-8" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="'Gregg Szumowski Full Atom Feed" />
+        <link href="/feeds/macos.atom.xml" type="application/atom+xml" rel="alternate" title="'Gregg Szumowski Categories Atom Feed" />
+
+
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">'Gregg Szumowski <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/xhyve-installing-and-configuration.html" rel="bookmark"
+         title="Permalink to "xhyve Installing and Configuration"">"xhyve Installing and Configuration"</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2019-06-20T21:34:06-05:00">
+      Thu 20 June 2019
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/gregg-szumowski.html">Gregg Szumowski</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>Recently, I've been trying to improve the performance of virtualization on my 2012 MacBook Pro. I've heard about a virtualization tool called bhyve on FreeBSD and understood that it was being ported to macOS. I found this article, <a href="https://dan.langille.org/2018/10/02/running-freebsd-on-osx-using-xhyve-a-port-of-bhyve/">Running FreeBSD on OSX using xhyve, a port of bhyve</a> on Dan Langille's blog and decided to have a go at installing it.</p>
+<p>At first I just figured that I would check if it could be installed via Homebrew and to my surprise I found that I had already installed it quite some time ago. So the next thing was to see if I could get it to work. I checked Homebrew to see if there were any other package available that would offer me some sort of GUI for xhyve, but unfortunately the only other package available was related to a driver for Docker. That's OK though, since I like using the command line better for these situations because you really get a better understanding of how the tool really works that way. So I commenced work.</p>
+<p>I decided to start with Langille's scripts to see if I could get FreeBSD up and running.</p>
+<ul>
+<li>Download the latest FreeBSD 12.0 ISO file</li>
+<li>Create an image (img file) to be used as the target drive</li>
+<li>Use Langille's first script to install the ISO to the img file</li>
+<li>Convert the installation script to a run script</li>
+</ul>
+<p>Seems simple enough. But....</p>
+<p>I downloaded the FreeBSD ISO image from freebsd.org as instructed. He used an older version but I wanted to use the latest. Who can argue with that?</p>
+<p>Step 1. <a href="https://download.freebsd.org/ftp/releases/amd64/amd64/ISO-IMAGES/12.0/">Download FreeBS from here</a></p>
+<p>Step 2. Create the target image:</p>
+<div class="highlight"><pre><span></span>$ mkfile -nv 50g fbsd.img
+fbsd.img <span class="m">53687091200</span> bytes
+</pre></div>
+
+
+<p>This is where you will be installing FreeBSD, so make sure that you create a image large enough for your needs. In my case I don't really need much space.</p>
+<p>Step 3. Modify Langille's script to your needs.</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="nv">BOOTVOLUME</span><span class="o">=</span><span class="s2">&quot;FreeBSD-12.0-RELEASE-amd64-disc1.iso&quot;</span>
+<span class="nv">IMG</span><span class="o">=</span><span class="s2">&quot;fbsd.img&quot;</span>
+
+<span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;../build/Release:build:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+
+../build/xhyve <span class="se">\</span>
+    -A <span class="se">\</span>
+    -m 2G <span class="se">\</span>
+    -c <span class="m">2</span> <span class="se">\</span>
+    -s <span class="m">0</span>:0,hostbridge <span class="se">\</span>
+    -s <span class="m">2</span>:0,virtio-net <span class="se">\</span>
+    -s <span class="m">3</span>:0,ahci-cd,<span class="nv">$BOOTVOLUME</span> <span class="se">\</span>
+    -s <span class="m">4</span>:0,virtio-blk,<span class="nv">$IMG</span> <span class="se">\</span>
+    -s <span class="m">31</span>,lpc <span class="se">\</span>
+    -l com1,stdio <span class="se">\</span>
+    -f fbsd,../test/userboot.so,<span class="nv">$BOOTVOLUME</span>,<span class="s2">&quot;&quot;</span>
+</pre></div>
+
+
+<p>Run your installation script:</p>
+<div class="highlight"><pre><span></span>$ sudo ./xhyveinstall-freebsd.sh
+</pre></div>
+
+
+<p>You should now get a boot screen:</p>
+<div class="highlight"><pre><span></span>______               ____   _____ _____
+|  ____|             |  _ \ / ____|  __ \
+| |___ _ __ ___  ___ | |_) | (___ | |  | |
+|  ___| &#39;__/ _ \/ _ \|  _ &lt; \___ \| |  | |
+| |   | | |  __/  __/| |_) |____) | |__| |
+| |   | | |    |    ||     |      |      |
+|_|   |_|  \___|\___||____/|_____/|_____/    ```                        `
+                                           s` `.....---.......--.```   -/
++============Welcome to FreeBSD===========+ +o   .--`         /y:`      +.
+|                                         |  yo`:.            :o      `+-
+|  1. Boot Multi User [Enter]             |   y/               -/`   -o/
+|  2. Boot [S]ingle User                  |  .-                  ::/sy+:.
+|  3. [Esc]ape to loader prompt           |  /                     `--  /
+|  4. Reboot                              | `:                          :`
+|                                         | `:                          :`
+|  Options:                               |  /                          /
+|  5. [K]ernel: kernel (1 of 2)           |  .-                        -.
+|  6. Configure Boot [O]ptions...         |   --                      -.
+|                                         |    `:`                  `:`
+|                                         |      .--             `--.
+|                                         |         .---.....----.
++=========================================+
+</pre></div>
+
+
+<p>Complete the installation as you normally would for FreeBSD and return to the shell prompt. Then modify the installation script that you just ran and fix it so it becomes a run script:</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+
+<span class="nv">IMG</span><span class="o">=</span><span class="s2">&quot;fbsd.img&quot;</span>
+<span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;../build/Release:build:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+
+xhyve <span class="se">\</span>
+    -A <span class="se">\</span>
+    -m 2G <span class="se">\</span>
+    -c <span class="m">2</span> <span class="se">\</span>
+    -s <span class="m">0</span>:0,hostbridge <span class="se">\</span>
+    -s <span class="m">2</span>:0,virtio-net <span class="se">\</span>
+    -s <span class="m">4</span>:0,virtio-blk,<span class="nv">$IMG</span> <span class="se">\</span>
+    -s <span class="m">31</span>,lpc <span class="se">\</span>
+    -l com1,stdio <span class="se">\</span>
+    -f fbsd,../test/userboot.so,<span class="nv">$IMG</span>,<span class="s2">&quot;&quot;</span>
+</pre></div>
+
+
+<p>Run your run script:</p>
+<div class="highlight"><pre><span></span>$ sudo ./xhyverun-freebsd.sh
+</pre></div>
+
+
+<p>Congratulations! You're running FreeBSD under xhyve!</p>
+<p>Next time: Ubuntu 18.04 under xhyve.</p>
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+</body>
+</html>

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>'Gregg Szumowski - cli</title><link href="/" rel="alternate"></link><link href="/feeds/cli.atom.xml" rel="self"></link><id>/</id><updated>2017-11-04T21:07:52-05:00</updated><entry><title>"Count Occurences of a Character in a String"</title><link href="/count-occurences-of-a-character-in-a-string.html" rel="alternate"></link><published>2017-11-04T21:07:52-05:00</published><updated>2017-11-04T21:07:52-05:00</updated><author><name>Gregg Szumowski</name></author><id>tag:None,2017-11-04:/count-occurences-of-a-character-in-a-string.html</id><summary type="html">&lt;p&gt;Sometimes I need to know how many times a specific character occurs in a string. The best tool to use for something like that is AWK. Let's say we're looking for the count of commas in a string:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; string=&amp;quot;text,text,text,text&amp;quot;
+ char=&amp;quot;,&amp;quot;
+ echo &amp;quot;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&amp;quot; | awk -F&amp;quot;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;char&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&amp;quot; &amp;#39;{print …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Sometimes I need to know how many times a specific character occurs in a string. The best tool to use for something like that is AWK. Let's say we're looking for the count of commas in a string:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; string=&amp;quot;text,text,text,text&amp;quot;
+ char=&amp;quot;,&amp;quot;
+ echo &amp;quot;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&amp;quot; | awk -F&amp;quot;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;char&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&amp;quot; &amp;#39;{print NF-1}&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>"Getting Rid of ^M Line Endings in a Text File"</title><link href="/getting-rid-of-m-line-endings-in-a-text-file.html" rel="alternate"></link><published>2017-10-30T22:01:00-05:00</published><updated>2017-10-30T22:01:00-05:00</updated><author><name>Gregg Szumowski</name></author><id>tag:None,2017-10-30:/getting-rid-of-m-line-endings-in-a-text-file.html</id><summary type="html">&lt;p&gt;If you have a text file that has funny looking ^M characters at the end of each line, in most cases, you have to get rid of them before they can be used. This is especially the case when you've copied or transferred a file from a Windows-based system to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you have a text file that has funny looking ^M characters at the end of each line, in most cases, you have to get rid of them before they can be used. This is especially the case when you've copied or transferred a file from a Windows-based system to a &lt;em&gt;nix-based one. If these files are shell scripts meant to run on the &lt;/em&gt;nix-based system they more often than not won't work. There are various solutions to this problem.&lt;/p&gt;
+&lt;p&gt;First, let's create two text files: one with ^M line endings and one without:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="k"&gt;for&lt;/span&gt; line in &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="m"&gt;4&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;This is line &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;^M&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt;file1.txt&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;done&lt;/span&gt;
+$ &lt;span class="k"&gt;for&lt;/span&gt; line in &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="m"&gt;4&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;This is line &lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;line&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt;file2.txt&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now let's see what's different between these two text files:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ls -l
+total &lt;span class="m"&gt;8&lt;/span&gt;
+-rw-rw-r--. &lt;span class="m"&gt;1&lt;/span&gt; gszumo gszumo &lt;span class="m"&gt;80&lt;/span&gt; Oct &lt;span class="m"&gt;29&lt;/span&gt; &lt;span class="m"&gt;17&lt;/span&gt;:43 file1.txt
+-rw-rw-r--. &lt;span class="m"&gt;1&lt;/span&gt; gszumo gszumo &lt;span class="m"&gt;75&lt;/span&gt; Oct &lt;span class="m"&gt;29&lt;/span&gt; &lt;span class="m"&gt;17&lt;/span&gt;:44 file2.txt
+
+$ file file1.txt
+file1.txt: ASCII text, with CRLF line terminators
+
+$ file file2.txt
+file2.txt: ASCII text
+
+$ diff file1.txt file2.txt
+&lt;span class="m"&gt;1&lt;/span&gt;,5c1,5
+&amp;lt; This is line &lt;span class="m"&gt;1&lt;/span&gt;
+&amp;lt; This is line &lt;span class="m"&gt;2&lt;/span&gt;
+&amp;lt; This is line &lt;span class="m"&gt;3&lt;/span&gt;
+&amp;lt; This is line &lt;span class="m"&gt;4&lt;/span&gt;
+&amp;lt; This is line &lt;span class="m"&gt;5&lt;/span&gt;
+---
+&amp;gt; This is line &lt;span class="m"&gt;1&lt;/span&gt;
+&amp;gt; This is line &lt;span class="m"&gt;2&lt;/span&gt;
+&amp;gt; This is line &lt;span class="m"&gt;3&lt;/span&gt;
+&amp;gt; This is line &lt;span class="m"&gt;4&lt;/span&gt;
+&amp;gt; This is line &lt;span class="m"&gt;5&lt;/span&gt;
+$
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;What does this tell us?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The ls command tells us the file sizes are different even though the visible text is the same.&lt;/li&gt;
+&lt;li&gt;The file command tells us that both files are ASCII text  but file1.txt has CRLF line terminators, and&lt;/li&gt;
+&lt;li&gt;The diff command tells us that each line is indeed showing us that it's different.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So, how do we fix this?&lt;/p&gt;
+&lt;p&gt;&lt;img alt="alt text" src="/images/file1-txt.png" title="Screen shot image"&gt;&lt;/p&gt;
+&lt;p&gt;My favorite solution is to use vi or vim interactively. There are 2 easy ways to get rid of the ^M from a single file using vim:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Enter the command:
+&lt;code&gt;:%s/^M//g&lt;/code&gt;
+on the vim command line then save the file, or&lt;/li&gt;
+&lt;li&gt;Enter the command:
+&lt;code&gt;:fileformat=unix&lt;/code&gt;
+on the vim command line and save the file.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;However, if you have a whole directory or directory tree full of these kinds of files using vim on each one individually will become quite tedious. For this you need the scripting capability of the command line!&lt;/p&gt;
+&lt;p&gt;The 'tr' command is one quick way of getting rid of them using the Linux or macOS command line:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cat somefile | tr -d &amp;#39;^M&amp;#39; &amp;gt;outputfile
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We can use this as a template in order to determine whether or not the file needs to be updated:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;for i in *
+do
+  string=$(file &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;)
+  test &amp;quot;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="c1"&gt;#*&amp;#39;CRLF&amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&amp;quot; != &amp;quot;&lt;span class="nv"&gt;$string&lt;/span&gt;&amp;quot; &lt;span class="err"&gt;&amp;amp;&amp;amp;&lt;/span&gt; echo &amp;quot;CRLF found in &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&amp;quot;
+done
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If the 'echo' part of this snippet only gets called when the first part of the test is true, so then we know that the file has '^M' line endings. We have to turn the second part of the test into a script that will massage the file to remove the line endings. Here's a bash snippet that will put the two together and do the job:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;for i in *
+do
+  string=$(file &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;)
+  if [ &amp;quot;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="c1"&gt;#*&amp;#39;CRLF&amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;&amp;quot; != &amp;quot;&lt;span class="nv"&gt;$string&lt;/span&gt;&amp;quot; ];then
+    cp &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt; &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;.bak
+    cat &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;.bak|tr -d &amp;#39;^M&amp;#39; &amp;gt;&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+    rm &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;.bak
+  fi
+done
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is a bare-bones piece of code which doesn't do any error checking, which should be added in the event that the user running this script doesn't have the necessary permissions to copy, write or remove files that match the test.&lt;/p&gt;
+&lt;p&gt;Remember, in order to create a '^M' character in the terminal hold down the CTRL key while  typing vm.&lt;/p&gt;
+&lt;p&gt;You can also use 'ex' to replace a string in a file using:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ex -s -c &amp;#39;%s/old-str/new-str/g|x&amp;#39; filename.txt
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Alternately, we can use sed to do the same thing. At the command line you can replace any string in a file dynamically by entering:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sed -i &amp;#39;s/old-str/new-str/&amp;#39; filename.txt
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So to remove the ^M charaters just do:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sed -i &amp;#39;s/^M//&amp;#39; filename.txt
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;to remove the ^M characters. You can use the same for/do/done loop structure as mentioned above to iterate over multiple files:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;for i in *.txt
+do
+  sed -i &amp;#39;s/^M//&amp;#39; &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+done
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;'Nuff said.&lt;/p&gt;</content></entry><entry><title>"Running Docker on Fedora 26 for the First Time"</title><link href="/running-docker-on-fedora-26-for-the-first-time.html" rel="alternate"></link><published>2017-10-15T21:48:02-05:00</published><updated>2017-10-15T21:48:02-05:00</updated><author><name>Gregg Szumowski</name></author><id>tag:None,2017-10-15:/running-docker-on-fedora-26-for-the-first-time.html</id><summary type="html">&lt;p&gt;OK, so I want to start using docker on my Fedora laptop: How do we get started? Well, the Fedora Workstation page says that it comes with built-in Docker support so let's see if we can start it up:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[gszumo@asus-laptop ~]$ which docker
+/usr/bin/docker
+[gszumo@asus-laptop ~]$ docker login …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;OK, so I want to start using docker on my Fedora laptop: How do we get started? Well, the Fedora Workstation page says that it comes with built-in Docker support so let's see if we can start it up:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[gszumo@asus-laptop ~]$ which docker
+/usr/bin/docker
+[gszumo@asus-laptop ~]$ docker login
+/usr/bin/docker: line 13: /usr/bin/docker-latest: No such file or directory
+[gszumo@asus-laptop ~]$ docker image pull nginx
+/usr/bin/docker: line 13: /usr/bin/docker-latest: No such file or directory
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;OK, so that's weird. Apparently not everything works as advertised. The command line tells me that there's a docker command installed on the laptop by default but it doesn't see to do anything that I want. So, let's try to (re-)install docker to see if that helps:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[gszumo@asus-laptop ~]$ sudo dnf install docker
+[sudo] password for gszumo: 
+Last metadata expiration check: 0:36:07 ago on Sun 15 Oct 2017 08:11:13 AM EDT.
+Dependencies resolved.
+================================================================================
+ Package                   Arch    Version                       Repository
+                                                                           Size
+================================================================================
+Installing:
+ docker                    x86_64  2:1.13.1-22.gitb5e3294.fc26   updates   20 M
+Installing dependencies:
+ atomic-registries         x86_64  1.18.1-5.fc26                 fedora    45 k
+ container-selinux         noarch  2:2.24-1.fc26                 updates   33 k
+ container-storage-setup   noarch  0.8.0-1.git1d27ecf.fc26       updates   36 k
+ docker-rhel-push-plugin   x86_64  2:1.13.1-22.gitb5e3294.fc26   updates  1.6 M
+ libnet                    x86_64  1.1.6-12.fc26                 fedora    63 k
+ libyaml                   x86_64  0.1.7-2.fc26                  fedora    57 k
+ oci-umount                x86_64  2:2.0.0-2.gitf90b64c.fc26     updates   30 k
+ python-rhsm-certificates  x86_64  1.20.1-1.fc26                 updates   44 k
+ skopeo-containers         x86_64  0.1.23-6.git1bbd87f.fc26      updates   13 k
+Installing weak dependencies:
+ criu                      x86_64  3.5-1.fc26                    updates  450 k
+ oci-register-machine      x86_64  0-5.11.gitcd1e331.fc26        updates  1.0 M
+ oci-systemd-hook          x86_64  1:0.1.13-1.gitafe4b4a.fc26    updates   35 k
+
+Transaction Summary
+================================================================================
+Install  13 Packages
+
+Total download size: 23 M
+Installed size: 78 M
+Is this ok [y/N]: y
+Downloading Packages:
+(1/13): atomic-registries-1.18.1-5.fc26.x86_64.rpm             179 kB/s |  45 kB     00:00    
+(2/13): libyaml-0.1.7-2.fc26.x86_64.rpm                        209 kB/s |  57 kB     00:00    
+(3/13): docker-rhel-push-plugin-1.13.1-22.gitb5e3294.fc26.x86_ 2.1 MB/s | 1.6 MB     00:00    
+(4/13): container-selinux-2.24-1.fc26.noarch.rpm               129 kB/s |  33 kB     00:00    
+(5/13): container-storage-setup-0.8.0-1.git1d27ecf.fc26.noarch 812 kB/s |  36 kB     00:00    
+(6/13): oci-umount-2.0.0-2.gitf90b64c.fc26.x86_64.rpm          527 kB/s |  30 kB     00:00    
+(7/13): python-rhsm-certificates-1.20.1-1.fc26.x86_64.rpm      730 kB/s |  44 kB     00:00    
+(8/13): skopeo-containers-0.1.23-6.git1bbd87f.fc26.x86_64.rpm  295 kB/s |  13 kB     00:00    
+(9/13): criu-3.5-1.fc26.x86_64.rpm                             1.9 MB/s | 450 kB     00:00    
+(10/13): oci-systemd-hook-0.1.13-1.gitafe4b4a.fc26.x86_64.rpm  648 kB/s |  35 kB     00:00    
+(11/13): libnet-1.1.6-12.fc26.x86_64.rpm                       165 kB/s |  63 kB     00:00    
+(12/13): oci-register-machine-0-5.11.gitcd1e331.fc26.x86_64.rp 1.9 MB/s | 1.0 MB     00:00    
+(13/13): docker-1.13.1-22.gitb5e3294.fc26.x86_64.rpm           3.0 MB/s |  20 MB     00:06    
+-----------------------------------------------------------------------------------------------
+Total                                                          3.0 MB/s |  23 MB     00:07     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                                       1/1 
+  Installing       : libnet-1.1.6-12.fc26.x86_64                                          1/13 
+  Running scriptlet: libnet-1.1.6-12.fc26.x86_64                                          1/13 
+  Installing       : skopeo-containers-0.1.23-6.git1bbd87f.fc26.x86_64                    2/13 
+  Installing       : python-rhsm-certificates-1.20.1-1.fc26.x86_64                        3/13 
+  Installing       : oci-umount-2:2.0.0-2.gitf90b64c.fc26.x86_64                          4/13 
+  Installing       : container-storage-setup-0.8.0-1.git1d27ecf.fc26.noarch               5/13 
+  Installing       : container-selinux-2:2.24-1.fc26.noarch                               6/13 
+  Running scriptlet: container-selinux-2:2.24-1.fc26.noarch                               6/13 
+  Installing       : libyaml-0.1.7-2.fc26.x86_64                                          7/13 
+  Running scriptlet: libyaml-0.1.7-2.fc26.x86_64                                          7/13 
+  Installing       : atomic-registries-1.18.1-5.fc26.x86_64                               8/13 
+  Installing       : docker-rhel-push-plugin-2:1.13.1-22.gitb5e3294.fc26.x86_64           9/13 
+  Running scriptlet: docker-rhel-push-plugin-2:1.13.1-22.gitb5e3294.fc26.x86_64           9/13 
+  Installing       : docker-2:1.13.1-22.gitb5e3294.fc26.x86_64                           10/13 
+  Running scriptlet: docker-2:1.13.1-22.gitb5e3294.fc26.x86_64                           10/13 
+  Installing       : criu-3.5-1.fc26.x86_64                                              11/13 
+  Running scriptlet: criu-3.5-1.fc26.x86_64                                              11/13 
+  Installing       : oci-register-machine-0-5.11.gitcd1e331.fc26.x86_64                  12/13 
+  Installing       : oci-systemd-hook-1:0.1.13-1.gitafe4b4a.fc26.x86_64                  13/13 
+  Running scriptlet: docker-2:1.13.1-22.gitb5e3294.fc26.x86_64                           13/13 
+  Running scriptlet: oci-systemd-hook-1:0.1.13-1.gitafe4b4a.fc26.x86_64                  13/13 
+  Verifying        : docker-2:1.13.1-22.gitb5e3294.fc26.x86_64                            1/13 
+  Verifying        : docker-rhel-push-plugin-2:1.13.1-22.gitb5e3294.fc26.x86_64           2/13 
+  Verifying        : atomic-registries-1.18.1-5.fc26.x86_64                               3/13 
+  Verifying        : libyaml-0.1.7-2.fc26.x86_64                                          4/13 
+  Verifying        : container-selinux-2:2.24-1.fc26.noarch                               5/13 
+  Verifying        : container-storage-setup-0.8.0-1.git1d27ecf.fc26.noarch               6/13 
+  Verifying        : oci-umount-2:2.0.0-2.gitf90b64c.fc26.x86_64                          7/13 
+  Verifying        : python-rhsm-certificates-1.20.1-1.fc26.x86_64                        8/13 
+  Verifying        : skopeo-containers-0.1.23-6.git1bbd87f.fc26.x86_64                    9/13 
+  Verifying        : criu-3.5-1.fc26.x86_64                                              10/13 
+  Verifying        : libnet-1.1.6-12.fc26.x86_64                                         11/13 
+  Verifying        : oci-systemd-hook-1:0.1.13-1.gitafe4b4a.fc26.x86_64                  12/13 
+  Verifying        : oci-register-machine-0-5.11.gitcd1e331.fc26.x86_64                  13/13 
+
+Installed:
+  docker.x86_64 2:1.13.1-22.gitb5e3294.fc26                                                    
+  criu.x86_64 3.5-1.fc26                                                                       
+  oci-register-machine.x86_64 0-5.11.gitcd1e331.fc26                                           
+  oci-systemd-hook.x86_64 1:0.1.13-1.gitafe4b4a.fc26                                           
+  atomic-registries.x86_64 1.18.1-5.fc26                                                       
+  container-selinux.noarch 2:2.24-1.fc26                                                       
+  container-storage-setup.noarch 0.8.0-1.git1d27ecf.fc26                                       
+  docker-rhel-push-plugin.x86_64 2:1.13.1-22.gitb5e3294.fc26                                   
+  libnet.x86_64 1.1.6-12.fc26                                                                  
+  libyaml.x86_64 0.1.7-2.fc26                                                                  
+  oci-umount.x86_64 2:2.0.0-2.gitf90b64c.fc26                                                  
+  python-rhsm-certificates.x86_64 1.20.1-1.fc26                                                
+  skopeo-containers.x86_64 0.1.23-6.git1bbd87f.fc26                                            
+
+Complete!
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So now lets fire it up and see what happens:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[gszumo@asus-laptop ~]$ sudo systemctl start docker
+[gszumo@asus-laptop ~]$ sudo docker run hello-world
+Unable to find image &amp;#39;hello-world:latest&amp;#39; locally
+Trying to pull repository registry.fedoraproject.org/hello-world ... 
+Trying to pull repository registry.access.redhat.com/hello-world ... 
+Trying to pull repository docker.io/library/hello-world ... 
+sha256:07d5f7800dfe37b8c2196c7b1c524c33808ce2e0f74e7aa00e603295ca9a0972: Pulling from docker.io/library/hello-world
+5b0f327be733: Pull complete 
+Digest: sha256:07d5f7800dfe37b8c2196c7b1c524c33808ce2e0f74e7aa00e603295ca9a0972
+Status: Downloaded newer image for docker.io/hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the &amp;quot;hello-world&amp;quot; image from the Docker Hub.
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://cloud.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/engine/userguide/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Bingo, we're good to go. Let's setup the daemon so that it survives a reboot:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[gszumo@asus-laptop ~]$ sudo systemctl enable docker
+[sudo] password for gszumo: 
+Created symlink /etc/systemd/system/multi-user.target.wants/docker.service -&amp;gt; /usr/lib/systemd/system/docker.service.
+[gszumo@asus-laptop ~]$ 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now we're ready to rock 'n roll!&lt;/p&gt;</content></entry><entry><title>"Sort Directory by File Size"</title><link href="/sort-directory-by-file-size.html" rel="alternate"></link><published>2017-03-04T21:55:12-05:00</published><updated>2017-03-04T21:55:12-05:00</updated><author><name>Gregg Szumowski</name></author><id>tag:None,2017-03-04:/sort-directory-by-file-size.html</id><summary type="html">&lt;p&gt;To sort files in a directory and to list them by the biggest file first:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ du -a &lt;span class="p"&gt;|&lt;/span&gt; sort -n -r &lt;span class="p"&gt;|&lt;/span&gt; more
+&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;To sort files in a directory and to list them by the biggest file first:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ du -a &lt;span class="p"&gt;|&lt;/span&gt; sort -n -r &lt;span class="p"&gt;|&lt;/span&gt; more
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>"Get the Hash of a File on Different Operating Systems"</title><link href="/get-the-hash-of-a-file-on-different-operating-systems.html" rel="alternate"></link><published>2017-03-03T09:13:51-05:00</published><updated>2017-03-03T09:13:51-05:00</updated><author><name>Gregg Szumowski</name></author><id>tag:None,2017-03-03:/get-the-hash-of-a-file-on-different-operating-systems.html</id><summary type="html">&lt;p&gt;Sometimes you just need to hash something. Here are some command lines to do just that.&lt;/p&gt;
+&lt;p&gt;Windows PowerShell:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Get-FileHash C:\path\to\file.iso -Algorithm [MD5|SHA1|SHA256|SHA384|SHA512|MACTripleDES|RIPEMD160]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(SHA256 is the default if the parameter is omitted) &lt;/p&gt;
+&lt;p&gt;Linux: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;md5sum /path/to/file
+sha1sum /path/to/file …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Sometimes you just need to hash something. Here are some command lines to do just that.&lt;/p&gt;
+&lt;p&gt;Windows PowerShell:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Get-FileHash C:\path\to\file.iso -Algorithm [MD5|SHA1|SHA256|SHA384|SHA512|MACTripleDES|RIPEMD160]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(SHA256 is the default if the parameter is omitted) &lt;/p&gt;
+&lt;p&gt;Linux: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;md5sum /path/to/file
+sha1sum /path/to/file
+sha256sum /path/to/file
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;macOS:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;MD5&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;md5&lt;/span&gt; &lt;span class="sr"&gt;/path/to/&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;
+&lt;span class="n"&gt;SHA1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;shasum&lt;/span&gt; &lt;span class="sr"&gt;/path/to/file or shasum -a 1 /path/to/&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;
+&lt;span class="n"&gt;SHA&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;256&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;shasum&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="mi"&gt;256&lt;/span&gt; &lt;span class="sr"&gt;/path/to/&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>"Alternative to Using cp"</title><link href="/alternative-to-using-cp.html" rel="alternate"></link><published>2017-02-09T09:21:02-05:00</published><updated>2017-02-09T09:21:02-05:00</updated><author><name>Gregg Szumowski</name></author><id>tag:None,2017-02-09:/alternative-to-using-cp.html</id><summary type="html">&lt;p&gt;To backup files from a source directory to a backup directory:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mkdir /path/to/backup/directory
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/source/directory
+$ tar cf - . &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /path/to/backup/directory &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; tar xBvf -&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Define the following alias:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;tar cvf - . | ( cd \!* ; tar xvf - )
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or as an alias:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;alias cpbytar=&amp;#39;tar cvf - . | ( cd \!* ; tar xvf - )&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(The …&lt;/p&gt;</summary><content type="html">&lt;p&gt;To backup files from a source directory to a backup directory:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ mkdir /path/to/backup/directory
+$ &lt;span class="nb"&gt;cd&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/source/directory
+$ tar cf - . &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /path/to/backup/directory &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; tar xBvf -&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Define the following alias:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;tar cvf - . | ( cd \!* ; tar xvf - )
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or as an alias:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;alias cpbytar=&amp;#39;tar cvf - . | ( cd \!* ; tar xvf - )&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(The alias definition above is for Bash)&lt;/p&gt;
+&lt;p&gt;To do a recursive copy of a directory to another location, preserving the PERMISSIONS and OWNERSHIP of the files.  "cd" to the source location and invoke the following alias:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cpbytar
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>"Removing ^M Characters From Multiple Files"</title><link href="/removing-m-characters-from-multiple-files.html" rel="alternate"></link><published>2016-07-05T11:06:20-05:00</published><updated>2016-07-05T11:06:20-05:00</updated><author><name>Gregg Szumowski</name></author><id>tag:None,2016-07-05:/removing-m-characters-from-multiple-files.html</id><summary type="html">&lt;p&gt;In my day job I find that I frequently need to remove those pesky '^M' line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;:%s …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;In my day job I find that I frequently need to remove those pesky '^M' line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;:%s/^M//g
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;solves the problem, but on occasion I might be confronted with performing this process on multiple files and sometimes recursively through many subdirectories. When that happens it becomes necessary to bring out the "big guns" and do:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="k"&gt;for&lt;/span&gt; file in &lt;span class="k"&gt;$(&lt;/span&gt;find /path/to/dir -type f&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+      tr -d &lt;span class="s1"&gt;&amp;#39;\r&amp;#39;&lt;/span&gt; &amp;lt;&lt;span class="nv"&gt;$file&lt;/span&gt; &amp;gt;temp.&lt;span class="nv"&gt;$$&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; mv temp.&lt;span class="nv"&gt;$$&lt;/span&gt; &lt;span class="nv"&gt;$file&lt;/span&gt;
+   &lt;span class="k"&gt;done&lt;/span&gt;
+$
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(BTW, to generate a ^M character using the PuTTY emulator is easy. Just press CTRL-^ followed by CTRL-M)&lt;/p&gt;
+&lt;p&gt;Of course, in Linux, UNIX and AIX shells there are many ways to skin a cat and this is just one of many possible solutions. This solution was found on [another Blogspot site] (https://dailyvim.blogspot.com) which has more very interesting tips &amp;amp; tutorials.&lt;/p&gt;</content></entry><entry><title>"Copy Entire Directory Structure Using Tar"</title><link href="/copy-entire-directory-structure-using-tar.html" rel="alternate"></link><published>2016-04-02T11:56:07-05:00</published><updated>2016-04-02T11:56:07-05:00</updated><author><name>Gregg Szumowski</name></author><id>tag:None,2016-04-02:/copy-entire-directory-structure-using-tar.html</id><summary type="html">&lt;p&gt;Sometimes you need to copy an entire directory structure to another location on the command line. Here is a quick way to do it using the tar command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;tar cf - * | ( cd /target; tar xfp -)
+&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Sometimes you need to copy an entire directory structure to another location on the command line. Here is a quick way to do it using the tar command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;tar cf - * | ( cd /target; tar xfp -)
+&lt;/pre&gt;&lt;/div&gt;</content></entry><entry><title>"Learning the Command Line"</title><link href="/learning-the-command-line.html" rel="alternate"></link><published>2016-01-30T11:51:00-05:00</published><updated>2016-01-30T11:51:00-05:00</updated><author><name>Gregg Szumowski</name></author><id>tag:None,2016-01-30:/learning-the-command-line.html</id><summary type="html">&lt;p&gt;A good beginner's article on using the command line to manage your files can be found [here]
+(http://www.linux.com/learn/tutorials/842251-must-know-linux-commands-for-new-users)&lt;/p&gt;</summary><content type="html">&lt;p&gt;A good beginner's article on using the command line to manage your files can be found [here]
+(http://www.linux.com/learn/tutorials/842251-must-know-linux-commands-for-new-users)&lt;/p&gt;</content></entry></feed>

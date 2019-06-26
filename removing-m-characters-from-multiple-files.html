@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+          <title>'Gregg Szumowski</title>
+        <meta charset="utf-8" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="'Gregg Szumowski Full Atom Feed" />
+        <link href="/feeds/cli.atom.xml" type="application/atom+xml" rel="alternate" title="'Gregg Szumowski Categories Atom Feed" />
+
+
+
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">'Gregg Szumowski <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="/removing-m-characters-from-multiple-files.html" rel="bookmark"
+         title="Permalink to "Removing ^M Characters From Multiple Files"">"Removing ^M Characters From Multiple Files"</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2016-07-05T11:06:20-05:00">
+      Tue 05 July 2016
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="/author/gregg-szumowski.html">Gregg Szumowski</a>
+    </address>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>In my day job I find that I frequently need to remove those pesky '^M' line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing</p>
+<div class="highlight"><pre><span></span>:%s/^M//g
+</pre></div>
+
+
+<p>solves the problem, but on occasion I might be confronted with performing this process on multiple files and sometimes recursively through many subdirectories. When that happens it becomes necessary to bring out the "big guns" and do:</p>
+<div class="highlight"><pre><span></span>$ <span class="k">for</span> file in <span class="k">$(</span>find /path/to/dir -type f<span class="k">)</span><span class="p">;</span> <span class="k">do</span>
+      tr -d <span class="s1">&#39;\r&#39;</span> &lt;<span class="nv">$file</span> &gt;temp.<span class="nv">$$</span> <span class="o">&amp;&amp;</span> mv temp.<span class="nv">$$</span> <span class="nv">$file</span>
+   <span class="k">done</span>
+$
+</pre></div>
+
+
+<p>(BTW, to generate a ^M character using the PuTTY emulator is easy. Just press CTRL-^ followed by CTRL-M)</p>
+<p>Of course, in Linux, UNIX and AIX shells there are many ways to skin a cat and this is just one of many possible solutions. This solution was found on [another Blogspot site] (https://dailyvim.blogspot.com) which has more very interesting tips &amp; tutorials.</p>
+  </div><!-- /.entry-content -->
+</section>
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
+</body>
+</html>
