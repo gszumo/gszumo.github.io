@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>'Gregg Szumowski - git</title><link href="/" rel="alternate"></link><link href="/feeds/git.atom.xml" rel="self"></link><id>/</id><updated>2016-04-03T11:43:37-05:00</updated><entry><title>"git Tips"</title><link href="/git-tips.html" rel="alternate"></link><published>2016-04-03T11:43:37-05:00</published><updated>2016-04-03T11:43:37-05:00</updated><author><name>Gregg Szumowski</name></author><id>tag:None,2016-04-03:/git-tips.html</id><summary type="html">&lt;p&gt;A useful tip to beautify your output is to use:&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Gregg Szumowski - git</title><link href="/" rel="alternate"></link><link href="/feeds/git.atom.xml" rel="self"></link><id>/</id><updated>2016-04-03T11:43:37-05:00</updated><entry><title>"git Tips"</title><link href="/git-tips.html" rel="alternate"></link><published>2016-04-03T11:43:37-05:00</published><updated>2016-04-03T11:43:37-05:00</updated><author><name>Gregg Szumowski</name></author><id>tag:None,2016-04-03:/git-tips.html</id><summary type="html">&lt;p&gt;A useful tip to beautify your output is to use:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  git log --oneline --decorate
 &lt;/pre&gt;&lt;/div&gt;
 
