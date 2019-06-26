@@ -1,154 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Gregg Szumowski</title>
-        <meta charset="utf-8" />
-        <link href="https://gszumo.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gregg Szumowski Full Atom Feed" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gregg Szumowski | Page 2</title>
+    <link rel="shortcut icon" type="image/png" href="https://gszumo.github.io/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://gszumo.github.io/favicon.ico">
+    <link href="https://gszumo.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gregg Szumowski Full Atom Feed" />
+    <link rel="stylesheet" href="https://gszumo.github.io/theme/css/screen.css" type="text/css" />
+    <link rel="stylesheet" href="https://gszumo.github.io/theme/css/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://gszumo.github.io/theme/css/print.css" type="text/css" media="print" />
+    <meta name="generator" content="Pelican" />
+    <meta name="description" content="" />
+    <meta name="author" content="Gregg Szumowski" />
 </head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="https://gszumo.github.io/">Home</a></li>
+            </ul>
+        </nav>
+        <div class="header_box">
+            <h1><a href="https://gszumo.github.io/">Gregg Szumowski</a></h1>
+        </div>
+    </header>
+    <div id="wrapper">
+        <div id="content">            <h4 class="date">Jul 05, 2016</h4>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="https://gszumo.github.io/">Gregg Szumowski <strong></strong></a></h1>
-        </header><!-- /#banner -->
-        <nav id="menu"><ul>
-        </ul></nav><!-- /#menu -->
-<section id="content">
-<h2>All articles</h2>
+            <article class="post">
+                <h2 class="title">
+                    <a href="https://gszumo.github.io/removing-m-characters-from-multiple-files.html" rel="bookmark" title="Permanent Link to &quot;"Removing ^M Characters From Multiple Files"&quot;">"Removing ^M Characters From Multiple Files"</a>
+                </h2>
 
-<ol id="post-list">
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="https://gszumo.github.io/removing-m-characters-from-multiple-files.html" rel="bookmark" title="Permalink to "Removing ^M Characters From Multiple Files"">"Removing ^M Characters From Multiple Files"</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2016-07-05T11:06:20-05:00"> Tue 05 July 2016 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="https://gszumo.github.io/author/gregg-szumowski.html">Gregg Szumowski</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>In my day job I find that I frequently need to remove those pesky '^M' line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing</p>
-<div class="highlight"><pre><span></span>:%s …</pre></div> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="https://gszumo.github.io/create-a-usb-installer-for-os-x-el-capitan.html" rel="bookmark" title="Permalink to "Create a USB Installer for OS X El Capitan"">"Create a USB Installer for OS X El Capitan"</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2016-05-31T11:19:58-05:00"> Tue 31 May 2016 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="https://gszumo.github.io/author/gregg-szumowski.html">Gregg Szumowski</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>Here's a command line method to create a USB installer for OS X El Capitan:</p>
+                
+                
+
+                <p>In my day job I find that I frequently need to remove those pesky '^M' line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing</p>
+<div class="highlight"><pre><span></span>:%s/^M//g
+</pre></div>
+
+
+<p>solves the problem, but on occasion I might be confronted with performing this process on multiple files and sometimes recursively through many subdirectories. When that happens it becomes necessary to bring out the "big guns" and do:</p>
+<div class="highlight"><pre><span></span>$ <span class="k">for</span> file in <span class="k">$(</span>find /path/to/dir -type f<span class="k">)</span><span class="p">;</span> <span class="k">do</span>
+      tr -d <span class="s1">&#39;\r&#39;</span> &lt;<span class="nv">$file</span> &gt;temp.<span class="nv">$$</span> <span class="o">&amp;&amp;</span> mv temp.<span class="nv">$$</span> <span class="nv">$file</span>
+   <span class="k">done</span>
+$
+</pre></div>
+
+
+<p>(BTW, to generate a ^M character using the PuTTY emulator is easy. Just press CTRL-^ followed by CTRL-M)</p>
+<p>Of course, in Linux, UNIX and AIX shells there are many ways to skin a cat and this is just one of many possible solutions. This solution was found on [another Blogspot site] (https://dailyvim.blogspot.com) which has more very interesting tips &amp; tutorials.</p>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="https://gszumo.github.io/removing-m-characters-from-multiple-files.html">posted at 11:06</a>
+                    &nbsp;&middot;&nbsp;<a href="https://gszumo.github.io/category/cli.html" rel="tag">cli</a>
+                </div>
+            </article>            <h4 class="date">May 31, 2016</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="https://gszumo.github.io/create-a-usb-installer-for-os-x-el-capitan.html" rel="bookmark" title="Permanent Link to &quot;"Create a USB Installer for OS X El Capitan"&quot;">"Create a USB Installer for OS X El Capitan"</a>
+                </h2>
+
+                
+                
+
+                <p>Here's a command line method to create a USB installer for OS X El Capitan:</p>
 <p>Requirements:
 A blank USB drive that is at least 8GB in size.
 The El Capitan installer, which you can download for free from the Apple App Store.
 Steps:
-Place the USB stick in you Mac …</p> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="https://gszumo.github.io/fixing-screen-resolution-on-second-monitor-in-linux.html" rel="bookmark" title="Permalink to "Fixing Screen Resolution on Second Monitor in Linux"">"Fixing Screen Resolution on Second Monitor in Linux"</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2016-04-03T11:48:44-05:00"> Sun 03 April 2016 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="https://gszumo.github.io/author/gregg-szumowski.html">Gregg Szumowski</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>I recently installed a 2nd hard drive in my Macbook Pro dedicated to Linux. When I hooked up a secondary monitor to it I found that I could not get a reasonable resolution. After some research I found that I can add a new mode to the "Display" choices by …</p> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="https://gszumo.github.io/git-tips.html" rel="bookmark" title="Permalink to "git Tips"">"git Tips"</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2016-04-03T11:43:37-05:00"> Sun 03 April 2016 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="https://gszumo.github.io/author/gregg-szumowski.html">Gregg Szumowski</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>A useful tip to beautify your output is to use:</p>
+Place the USB stick in you Mac. It will probably show up in the sidebar as "Untitled". Rename it to something more memorable by right-clicking (or 2 finger tap) on it and select "Rename..." from the dialog. In my example, I have renamed it to "ElCapitan" (without the quotes).
+Open Terminal (or iTerm if you prefer that) and enter the following command changing the "/Volumes/ElCapitan" to "/Volumes/". Please note that this is a single command:</p>
+<div class="highlight"><pre><span></span>$ sudo /Applications/Install<span class="se">\ </span>OS<span class="se">\ </span>X<span class="se">\ </span>El<span class="se">\ </span>Capitan.app/Contents/Resources/createinstallmedia --volume /Volumes/ElCapitan --applicationpath /Applications/Install<span class="se">\ </span>OS<span class="se">\ </span>X<span class="se">\ </span>El<span class="se">\ </span>Capitan.app --nointeraction
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">Password</span><span class="o">:</span>
+<span class="n">Erasing</span> <span class="n">Disk</span><span class="o">:</span> <span class="mi">0</span><span class="o">%...</span> <span class="mi">10</span><span class="o">%...</span> <span class="mi">20</span><span class="o">%...</span> <span class="mi">30</span><span class="o">%...</span><span class="mi">100</span><span class="o">%...</span>
+<span class="n">Copying</span> <span class="n">installer</span> <span class="n">files</span> <span class="n">to</span> <span class="n">disk</span><span class="o">...</span>
+<span class="n">Copy</span> <span class="n">complete</span><span class="o">.</span>
+<span class="n">Making</span> <span class="n">disk</span> <span class="n">bootable</span><span class="o">...</span>
+<span class="n">Copying</span> <span class="n">boot</span> <span class="n">files</span><span class="o">...</span>
+<span class="n">Copy</span> <span class="n">complete</span><span class="o">.</span>
+<span class="n">Done</span><span class="o">.</span>
+</pre></div>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="https://gszumo.github.io/create-a-usb-installer-for-os-x-el-capitan.html">posted at 11:19</a>
+                    &nbsp;&middot;&nbsp;<a href="https://gszumo.github.io/category/macos.html" rel="tag">macOS</a>
+                </div>
+            </article>            <h4 class="date">Apr 03, 2016</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="https://gszumo.github.io/fixing-screen-resolution-on-second-monitor-in-linux.html" rel="bookmark" title="Permanent Link to &quot;"Fixing Screen Resolution on Second Monitor in Linux"&quot;">"Fixing Screen Resolution on Second Monitor in Linux"</a>
+                </h2>
+
+                
+                
+
+                <p>I recently installed a 2nd hard drive in my Macbook Pro dedicated to Linux. When I hooked up a secondary monitor to it I found that I could not get a reasonable resolution. After some research I found that I can add a new mode to the "Display" choices by entering the following in a terminal console:</p>
+<div class="highlight"><pre><span></span>xrandr # to find the device name
+cvt 1920 1080 # to generate the mode for the xrandr program.
+xrandr --newmode &quot;1920x1080_60.00&quot; 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync # to add the new mode to the monitor choices.
+xrandr --addmode DP1 1920x1080_60.00 # to associate the new mode to the monitor.
+</pre></div>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="https://gszumo.github.io/fixing-screen-resolution-on-second-monitor-in-linux.html">posted at 11:48</a>
+                    &nbsp;&middot;&nbsp;<a href="https://gszumo.github.io/category/linux.html" rel="tag">linux</a>
+                </div>
+            </article>            <h4 class="date">Apr 03, 2016</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="https://gszumo.github.io/git-tips.html" rel="bookmark" title="Permanent Link to &quot;"git Tips"&quot;">"git Tips"</a>
+                </h2>
+
+                
+                
+
+                <p>A useful tip to beautify your output is to use:</p>
 <div class="highlight"><pre><span></span>  git log --oneline --decorate
 </pre></div>
 
 
-<p>when looking at your log entries.</p> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="https://gszumo.github.io/uptime-statistics-for-windows.html" rel="bookmark" title="Permalink to "Uptime Statistics for Windows"">"Uptime Statistics for Windows"</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2016-04-03T11:40:14-05:00"> Sun 03 April 2016 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="https://gszumo.github.io/author/gregg-szumowski.html">Gregg Szumowski</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>To find the uptime for a Windows machine do</p>
+<p>when looking at your log entries.</p>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="https://gszumo.github.io/git-tips.html">posted at 11:43</a>
+                    &nbsp;&middot;&nbsp;<a href="https://gszumo.github.io/category/git.html" rel="tag">git</a>
+                </div>
+            </article>            <h4 class="date">Apr 03, 2016</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="https://gszumo.github.io/uptime-statistics-for-windows.html" rel="bookmark" title="Permanent Link to &quot;"Uptime Statistics for Windows"&quot;">"Uptime Statistics for Windows"</a>
+                </h2>
+
+                
+                
+
+                <p>To find the uptime for a Windows machine do</p>
 <div class="highlight"><pre><span></span>  C:&gt; net statistics server
-</pre></div> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="https://gszumo.github.io/gnome3-menu-icons.html" rel="bookmark" title="Permalink to "Gnome3 Menu Icons"">"Gnome3 Menu Icons"</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2016-04-02T12:09:27-05:00"> Sat 02 April 2016 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="https://gszumo.github.io/author/gregg-szumowski.html">Gregg Szumowski</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>To add your own menu icons to a GNOME3 environment check out this link: [Desktop files: putting your application in the desktop menus]
-(https://developer.gnome.org/integration-guide/stable/desktop-files.html.en)</p> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="https://gszumo.github.io/copy-entire-directory-structure-using-tar.html" rel="bookmark" title="Permalink to "Copy Entire Directory Structure Using Tar"">"Copy Entire Directory Structure Using Tar"</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2016-04-02T11:56:07-05:00"> Sat 02 April 2016 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="https://gszumo.github.io/author/gregg-szumowski.html">Gregg Szumowski</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>Sometimes you need to copy an entire directory structure to another location on the command line. Here is a quick way to do it using the tar command:</p>
+</pre></div>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="https://gszumo.github.io/uptime-statistics-for-windows.html">posted at 11:40</a>
+                    &nbsp;&middot;&nbsp;<a href="https://gszumo.github.io/category/windows.html" rel="tag">windows</a>
+                </div>
+            </article>            <h4 class="date">Apr 02, 2016</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="https://gszumo.github.io/gnome3-menu-icons.html" rel="bookmark" title="Permanent Link to &quot;"Gnome3 Menu Icons"&quot;">"Gnome3 Menu Icons"</a>
+                </h2>
+
+                
+                
+
+                <p>To add your own menu icons to a GNOME3 environment check out this link: [Desktop files: putting your application in the desktop menus]
+(https://developer.gnome.org/integration-guide/stable/desktop-files.html.en)</p>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="https://gszumo.github.io/gnome3-menu-icons.html">posted at 12:09</a>
+                    &nbsp;&middot;&nbsp;<a href="https://gszumo.github.io/category/linux.html" rel="tag">linux</a>
+                </div>
+            </article>            <h4 class="date">Apr 02, 2016</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="https://gszumo.github.io/copy-entire-directory-structure-using-tar.html" rel="bookmark" title="Permanent Link to &quot;"Copy Entire Directory Structure Using Tar"&quot;">"Copy Entire Directory Structure Using Tar"</a>
+                </h2>
+
+                
+                
+
+                <p>Sometimes you need to copy an entire directory structure to another location on the command line. Here is a quick way to do it using the tar command:</p>
 <div class="highlight"><pre><span></span>tar cf - * | ( cd /target; tar xfp -)
-</pre></div> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="https://gszumo.github.io/talkin-trash.html" rel="bookmark" title="Permalink to "Talkin' Trash"">"Talkin' Trash"</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2016-04-02T11:56:07-05:00"> Sat 02 April 2016 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="https://gszumo.github.io/author/gregg-szumowski.html">Gregg Szumowski</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>Having trouble getting the "Empty Trash" working in Thunar? Remove <code>"~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar*"</code>.</p> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="https://gszumo.github.io/eject-a-cddvd-on-a-mac.html" rel="bookmark" title="Permalink to "Eject a CD/DVD on a Mac"">"Eject a CD/DVD on a Mac"</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2016-04-01T12:23:27-05:00"> Fri 01 April 2016 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="https://gszumo.github.io/author/gregg-szumowski.html">Gregg Szumowski</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>To eject a CD or DVD from the command line use:</p>
+</pre></div>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="https://gszumo.github.io/copy-entire-directory-structure-using-tar.html">posted at 11:56</a>
+                    &nbsp;&middot;&nbsp;<a href="https://gszumo.github.io/category/cli.html" rel="tag">cli</a>
+                </div>
+            </article>            <h4 class="date">Apr 02, 2016</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="https://gszumo.github.io/talkin-trash.html" rel="bookmark" title="Permanent Link to &quot;"Talkin' Trash"&quot;">"Talkin' Trash"</a>
+                </h2>
+
+                
+                
+
+                <p>Having trouble getting the "Empty Trash" working in Thunar? Remove <code>"~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar*"</code>.</p>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="https://gszumo.github.io/talkin-trash.html">posted at 11:56</a>
+                    &nbsp;&middot;&nbsp;<a href="https://gszumo.github.io/category/linux.html" rel="tag">linux</a>
+                </div>
+            </article>            <h4 class="date">Apr 01, 2016</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="https://gszumo.github.io/eject-a-cddvd-on-a-mac.html" rel="bookmark" title="Permanent Link to &quot;"Eject a CD/DVD on a Mac"&quot;">"Eject a CD/DVD on a Mac"</a>
+                </h2>
+
+                
+                
+
+                <p>To eject a CD or DVD from the command line use:</p>
 <div class="highlight"><pre><span></span>cdcontrol -f /dev/cd0 eject
-</pre></div> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="https://gszumo.github.io/set-mac-hostname.html" rel="bookmark" title="Permalink to "Set Mac Hostname"">"Set Mac Hostname"</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2016-04-01T12:21:54-05:00"> Fri 01 April 2016 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="https://gszumo.github.io/author/gregg-szumowski.html">Gregg Szumowski</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>To set the host name of your Mac (in my case macbook-pro) in the command prompt, type the following command:</p>
+</pre></div>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="https://gszumo.github.io/eject-a-cddvd-on-a-mac.html">posted at 12:23</a>
+                    &nbsp;&middot;&nbsp;<a href="https://gszumo.github.io/category/macos.html" rel="tag">macOS</a>
+                </div>
+            </article>            <h4 class="date">Apr 01, 2016</h4>
+
+            <article class="post">
+                <h2 class="title">
+                    <a href="https://gszumo.github.io/set-mac-hostname.html" rel="bookmark" title="Permanent Link to &quot;"Set Mac Hostname"&quot;">"Set Mac Hostname"</a>
+                </h2>
+
+                
+                
+
+                <p>To set the host name of your Mac (in my case macbook-pro) in the command prompt, type the following command:</p>
 <div class="highlight"><pre><span></span>$ sudo scutil --set HostName <span class="s2">&quot;macbook-pro&quot;</span>
 $ sudo scutil --set LocalHostName <span class="s2">&quot;macbook-pro&quot;</span>
-</pre></div> </div><!-- /.entry-content -->
-        </article></li>
-</ol><!-- /#posts-list -->
-<p class="paginator">
-        <a href="https://gszumo.github.io/index.html">&laquo;</a>
-    Page 2 / 3
-        <a href="https://gszumo.github.io/index3.html">&raquo;</a>
-</p>
-</section><!-- /#content -->
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-        </footer><!-- /#contentinfo -->
+</pre></div>
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="https://gszumo.github.io/set-mac-hostname.html">posted at 12:21</a>
+                    &nbsp;&middot;&nbsp;<a href="https://gszumo.github.io/category/macos.html" rel="tag">macOS</a>
+                </div>
+            </article>
+
+                <div class="clear"></div>
+                <div class="pages">
+
+                    <a href="https://gszumo.github.io/index.html" class="prev_page">&larr;&nbsp;Previous</a>
+                    <a href="https://gszumo.github.io/index3.html" class="next_page">Next&nbsp;&rarr;</a>
+                    <span>Page 2 of 3</span>
+                </div>
+
+            <div class="clear"></div>
+            <footer>
+                <p>
+                <a href="https://github.com/jody-frankowski/blue-penguin">Blue Penguin</a> Theme
+                &middot;
+                Powered by <a href="http://getpelican.com">Pelican</a>
+                &middot;
+                <a href="https://gszumo.github.io/feeds/all.atom.xml" rel="alternate">Atom Feed</a>
+            </footer>
+        </div>
+        <div class="clear"></div>
+    </div>
 </body>
 </html>

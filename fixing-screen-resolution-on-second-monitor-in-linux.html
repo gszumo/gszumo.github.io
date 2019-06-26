@@ -1,50 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-          <title>Gregg Szumowski</title>
         <meta charset="utf-8" />
-        <link href="https://gszumo.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gregg Szumowski Full Atom Feed" />
-        <link href="https://gszumo.github.io/feeds/linux.atom.xml" type="application/atom+xml" rel="alternate" title="Gregg Szumowski Categories Atom Feed" />
-
-
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gregg Szumowski | "Fixing Screen Resolution on Second Monitor in Linux"</title>
+    <link rel="shortcut icon" type="image/png" href="https://gszumo.github.io/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://gszumo.github.io/favicon.ico">
+    <link href="https://gszumo.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gregg Szumowski Full Atom Feed" />
+    <link href="https://gszumo.github.io/feeds/%s.atom.xml" type="application/atom+xml" rel="alternate" title="Gregg Szumowski Categories Atom Feed" />
+    <link rel="stylesheet" href="https://gszumo.github.io/theme/css/screen.css" type="text/css" />
+    <link rel="stylesheet" href="https://gszumo.github.io/theme/css/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://gszumo.github.io/theme/css/print.css" type="text/css" media="print" />
+    <meta name="generator" content="Pelican" />
+    <meta name="description" content="" />
+    <meta name="author" content="Gregg Szumowski" />
 
 </head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="https://gszumo.github.io/">Home</a></li>
+            </ul>
+        </nav>
+        <div class="header_box">
+            <h1><a href="https://gszumo.github.io/">Gregg Szumowski</a></h1>
+        </div>
+    </header>
+    <div id="wrapper">
+        <div id="content">            <h4 class="date">Apr 03, 2016</h4>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="https://gszumo.github.io/">Gregg Szumowski <strong></strong></a></h1>
-        </header><!-- /#banner -->
-        <nav id="menu"><ul>
-        </ul></nav><!-- /#menu -->
-<section id="content" class="body">
-  <header>
-    <h2 class="entry-title">
-      <a href="https://gszumo.github.io/fixing-screen-resolution-on-second-monitor-in-linux.html" rel="bookmark"
-         title="Permalink to "Fixing Screen Resolution on Second Monitor in Linux"">"Fixing Screen Resolution on Second Monitor in Linux"</a></h2>
- 
-  </header>
-  <footer class="post-info">
-    <time class="published" datetime="2016-04-03T11:48:44-05:00">
-      Sun 03 April 2016
-    </time>
-    <address class="vcard author">
-      By           <a class="url fn" href="https://gszumo.github.io/author/gregg-szumowski.html">Gregg Szumowski</a>
-    </address>
-  </footer><!-- /.post-info -->
-  <div class="entry-content">
-    <p>I recently installed a 2nd hard drive in my Macbook Pro dedicated to Linux. When I hooked up a secondary monitor to it I found that I could not get a reasonable resolution. After some research I found that I can add a new mode to the "Display" choices by entering the following in a terminal console:</p>
+            <article class="post">
+                <h2 class="title">
+                    <a href="https://gszumo.github.io/fixing-screen-resolution-on-second-monitor-in-linux.html" rel="bookmark" title="Permanent Link to &quot;"Fixing Screen Resolution on Second Monitor in Linux"&quot;">"Fixing Screen Resolution on Second Monitor in Linux"</a>
+                </h2>
+
+                
+                
+
+                <p>I recently installed a 2nd hard drive in my Macbook Pro dedicated to Linux. When I hooked up a secondary monitor to it I found that I could not get a reasonable resolution. After some research I found that I can add a new mode to the "Display" choices by entering the following in a terminal console:</p>
 <div class="highlight"><pre><span></span>xrandr # to find the device name
 cvt 1920 1080 # to generate the mode for the xrandr program.
 xrandr --newmode &quot;1920x1080_60.00&quot; 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync # to add the new mode to the monitor choices.
 xrandr --addmode DP1 1920x1080_60.00 # to associate the new mode to the monitor.
 </pre></div>
-  </div><!-- /.entry-content -->
-</section>
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-        </footer><!-- /#contentinfo -->
+                <div class="clear"></div>
+
+                <div class="info">
+                    <a href="https://gszumo.github.io/fixing-screen-resolution-on-second-monitor-in-linux.html">posted at 11:48</a>
+                    &nbsp;&middot;&nbsp;<a href="https://gszumo.github.io/category/linux.html" rel="tag">linux</a>
+                </div>
+            </article>
+            <div class="clear"></div>
+            <footer>
+                <p>
+                <a href="https://github.com/jody-frankowski/blue-penguin">Blue Penguin</a> Theme
+                &middot;
+                Powered by <a href="http://getpelican.com">Pelican</a>
+                &middot;
+                <a href="https://gszumo.github.io/feeds/all.atom.xml" rel="alternate">Atom Feed</a>
+            </footer>
+        </div>
+        <div class="clear"></div>
+    </div>
 </body>
 </html>
