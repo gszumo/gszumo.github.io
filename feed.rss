@@ -1,31 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="main.css" type="text/css" />
-<link rel="stylesheet" href="blog.css" type="text/css" />
-<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg Szumowski</title>
-<meta name='twitter:card' content='summary' />
-<meta name='twitter:site' content='@gszumo' />
-<meta name='twitter:title' content='Gregg Szumowski' />
-<meta name='twitter:description' content=" xhyve Installing and Configuration   April 13, 2020 &mdash;  Gregg Szumowski    Recently, I've been trying to improve the performance of virtualization on my 2012 MacBook Pro. I've heard about a virtualization tool called bhyve on FreeBSD and unders" />
-</head><body>
-<div id="divbodyholder">
-<div class="headerholder"><div class="header">
-<div id="title">
-<h1 class="nomargin"><a class="ablack" href="http://gszumo.github.io//index.html">Gregg Szumowski</a></h1>
-<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
-</div></div></div>
-<div id="divbody"><div class="content">
-<h3><a class="ablack" href="xhyve-installing-and-configuration.html">
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel><title>Gregg Szumowski</title><link>http://gszumo.github.io//index.html</link>
+<description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
+<lastBuildDate>Wed, 29 Jul 2020 14:17:43 -0400</lastBuildDate>
+<pubDate>Wed, 29 Jul 2020 14:17:43 -0400</pubDate>
+<atom:link href="http://gszumo.github.io//feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
 xhyve Installing and Configuration
-</a></h3>
-<!-- bashblog_timestamp: #202004132242.37# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
+</title><description><![CDATA[
 
 <p>Recently, I've been trying to improve the performance of virtualization on my 2012 MacBook Pro. I've heard about a virtualization tool called bhyve on FreeBSD and understood that it was being ported to macOS. I found this article, <a href="https://dan.langille.org/2018/10/02/running-freebsd-on-osx-using-xhyve-a-port-of-bhyve/">Running FreeBSD on OSX using xhyve, a port of bhyve</a> on Dan Langille's blog and decided to have a go at installing it.</p>
 
@@ -117,14 +99,13 @@ This is where you will be installing FreeBSD, so make sure that you create a ima
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//xhyve-installing-and-configuration.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
 <a href='https://twitter.com/search?q=http://gszumo.github.io//xhyve-installing-and-configuration.html'><span id='count-30261'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="uptime-statistics-for-windows12565.html">
+]]></description><link>http://gszumo.github.io//xhyve-installing-and-configuration.html</link>
+<guid>http://gszumo.github.io//./xhyve-installing-and-configuration.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 13 Apr 2020 22:42:37 -0400</pubDate></item>
+<item><title>
 Uptime Statistics for Windows
-</a></h3>
-<!-- bashblog_timestamp: #202004132241.44# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
+</title><description><![CDATA[
 
 <p>To find the uptime for a Windows machine do</p>
 
@@ -140,14 +121,13 @@ Gregg Szumowski
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//uptime-statistics-for-windows12565.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
 <a href='https://twitter.com/search?q=http://gszumo.github.io//uptime-statistics-for-windows12565.html'><span id='count-24201'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="talkin-trash14832.html">
+]]></description><link>http://gszumo.github.io//uptime-statistics-for-windows12565.html</link>
+<guid>http://gszumo.github.io//./uptime-statistics-for-windows12565.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 13 Apr 2020 22:41:44 -0400</pubDate></item>
+<item><title>
 Talkin' Trash
-</a></h3>
-<!-- bashblog_timestamp: #202004132240.36# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
+</title><description><![CDATA[
 
 <p>Having trouble getting the "Empty Trash" working in Thunar? Remove <code>"~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar*"</code>.</p>
 
@@ -161,14 +141,13 @@ Gregg Szumowski
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//talkin-trash14832.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
 <a href='https://twitter.com/search?q=http://gszumo.github.io//talkin-trash14832.html'><span id='count-19338'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="sort-directory-by-file-size11284.html">
+]]></description><link>http://gszumo.github.io//talkin-trash14832.html</link>
+<guid>http://gszumo.github.io//./talkin-trash14832.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 13 Apr 2020 22:40:36 -0400</pubDate></item>
+<item><title>
 Sort Directory by File Size
-</a></h3>
-<!-- bashblog_timestamp: #202004132239.32# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
+</title><description><![CDATA[
 
 <p>To sort files in a directory and to list them by the biggest file first:<br>
 <code>
@@ -185,14 +164,13 @@ $ du -a | sort -n -r | more
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//sort-directory-by-file-size11284.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
 <a href='https://twitter.com/search?q=http://gszumo.github.io//sort-directory-by-file-size11284.html'><span id='count-7257'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="set-mac-hostname2284.html">
+]]></description><link>http://gszumo.github.io//sort-directory-by-file-size11284.html</link>
+<guid>http://gszumo.github.io//./sort-directory-by-file-size11284.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 13 Apr 2020 22:39:32 -0400</pubDate></item>
+<item><title>
 Set Mac Hostname
-</a></h3>
-<!-- bashblog_timestamp: #202004132238.22# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
+</title><description><![CDATA[
 
 <p>To set the host name of your Mac (in my case macbook-pro) in the command prompt, type the following command:</p>
 
@@ -210,14 +188,13 @@ Gregg Szumowski
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//set-mac-hostname2284.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
 <a href='https://twitter.com/search?q=http://gszumo.github.io//set-mac-hostname2284.html'><span id='count-12831'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="running-docker-on-fedora-26-for-the-first-time23728.html">
+]]></description><link>http://gszumo.github.io//set-mac-hostname2284.html</link>
+<guid>http://gszumo.github.io//./set-mac-hostname2284.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 13 Apr 2020 22:38:22 -0400</pubDate></item>
+<item><title>
 Running Docker on Fedora 26 for the First Time
-</a></h3>
-<!-- bashblog_timestamp: #202004132237.17# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
+</title><description><![CDATA[
 
 <p>OK, so I want to start using docker on my Fedora laptop: How do we get started? Well, the Fedora Workstation page says that it comes with built-in Docker support so let's see if we can start it up:</p>
 
@@ -343,14 +320,13 @@ Bingo, we're good to go. Let's setup the daemon so that it survives a reboot:</p
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//running-docker-on-fedora-26-for-the-first-time23728.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
 <a href='https://twitter.com/search?q=http://gszumo.github.io//running-docker-on-fedora-26-for-the-first-time23728.html'><span id='count-25083'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="reset-mac-launchpad15617.html">
+]]></description><link>http://gszumo.github.io//running-docker-on-fedora-26-for-the-first-time23728.html</link>
+<guid>http://gszumo.github.io//./running-docker-on-fedora-26-for-the-first-time23728.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 13 Apr 2020 22:37:17 -0400</pubDate></item>
+<item><title>
 Reset Mac Launchpad
-</a></h3>
-<!-- bashblog_timestamp: #202004132236.19# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
+</title><description><![CDATA[
 
 <p>To reset the Mac LaunchPad to default enter the following:</p>
 
@@ -368,14 +344,13 @@ Gregg Szumowski
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//reset-mac-launchpad15617.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
 <a href='https://twitter.com/search?q=http://gszumo.github.io//reset-mac-launchpad15617.html'><span id='count-31768'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="removing-m-characters-from-multiple-files.html">
+]]></description><link>http://gszumo.github.io//reset-mac-launchpad15617.html</link>
+<guid>http://gszumo.github.io//./reset-mac-launchpad15617.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 13 Apr 2020 22:36:19 -0400</pubDate></item>
+<item><title>
 Removing ^M Characters From Multiple Files
-</a></h3>
-<!-- bashblog_timestamp: #202004132235.20# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
+</title><description><![CDATA[
 
 <p>In my day job I find that I frequently need to remove those pesky '^M' line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing</p>
 
@@ -402,9 +377,55 @@ Gregg Szumowski
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//removing-m-characters-from-multiple-files.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
 <a href='https://twitter.com/search?q=http://gszumo.github.io//removing-m-characters-from-multiple-files.html'><span id='count-7176'></span></a>&nbsp;</p>
-<div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
-</div>
-<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo&#64;gmail&#46;com">gszumo&#64;gmail&#46;com</a><br/>
-Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
-</div></div>
-</body></html>
+]]></description><link>http://gszumo.github.io//removing-m-characters-from-multiple-files.html</link>
+<guid>http://gszumo.github.io//./removing-m-characters-from-multiple-files.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 13 Apr 2020 22:35:20 -0400</pubDate></item>
+<item><title>
+Solus OS: How to Prevent Your Laptop from Going to Sleep When You Close the Lid
+</title><description><![CDATA[
+
+<p>If you're using a laptop with an external monitor and you've recently installed Solus OS you might have noticed that the laptop goes to sleep when you close the lid and there is no way to adjust for this in the power settings. You can get around this by manually editing <code>/etc/systemd/logind.conf</code> and changing the line:</p>
+
+<p><code> #HandleLidSwitch=suspend </code><br>
+ to
+<code> HandleLidSwitch=ignore </code><br></p>
+
+<p>Note the '#' at the beginning of the line needs to be removed.</p>
+
+<p>Tags: <a href='tag_linux.html'>linux</a></p>
+
+
+
+
+
+
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//solus-os-how-to-prevent-your-laptop-from-going-to-sleep-when-you-close-the-lid.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
+<a href='https://twitter.com/search?q=http://gszumo.github.io//solus-os-how-to-prevent-your-laptop-from-going-to-sleep-when-you-close-the-lid.html'><span id='count-12378'></span></a>&nbsp;</p>
+]]></description><link>http://gszumo.github.io//solus-os-how-to-prevent-your-laptop-from-going-to-sleep-when-you-close-the-lid.html</link>
+<guid>http://gszumo.github.io//./solus-os-how-to-prevent-your-laptop-from-going-to-sleep-when-you-close-the-lid.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 13 Apr 2020 22:34:18 -0400</pubDate></item>
+<item><title>
+Learning the Command Line
+</title><description><![CDATA[
+
+<p>A good beginner's article on using the command line to manage your files can be found 
+<a href="http://www.linux.com/learn/tutorials/842251-must-know-linux-commands-for-new-users">here</a></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a></p>
+
+
+
+
+
+
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//learning-the-command-line32228.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
+<a href='https://twitter.com/search?q=http://gszumo.github.io//learning-the-command-line32228.html'><span id='count-30090'></span></a>&nbsp;</p>
+]]></description><link>http://gszumo.github.io//learning-the-command-line32228.html</link>
+<guid>http://gszumo.github.io//./learning-the-command-line32228.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 13 Apr 2020 22:33:20 -0400</pubDate></item>
+</channel></rss>

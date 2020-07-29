@@ -1,80 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Gregg Szumowski | "Get the Hash of a File on Different Operating Systems"</title>
-    <link rel="shortcut icon" type="image/png" href="https://gszumo.github.io/favicon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="https://gszumo.github.io/favicon.ico">
-    <link href="https://gszumo.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gregg Szumowski Full Atom Feed" />
-    <link href="https://gszumo.github.io/feeds/%s.atom.xml" type="application/atom+xml" rel="alternate" title="Gregg Szumowski Categories Atom Feed" />
-    <link rel="stylesheet" href="https://gszumo.github.io/theme/css/screen.css" type="text/css" />
-    <link rel="stylesheet" href="https://gszumo.github.io/theme/css/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://gszumo.github.io/theme/css/print.css" type="text/css" media="print" />
-    <meta name="generator" content="Pelican" />
-    <meta name="description" content="" />
-    <meta name="author" content="Gregg Szumowski" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Get the Hash of a File on Different Operating Systems</title>
+<meta name='twitter:card' content='summary' />
+<meta name='twitter:site' content='@gszumo' />
+<meta name='twitter:title' content='Get the Hash of a File on Different Operating Systems' />
+<meta name='twitter:description' content=" Sometimes you just need to hash something. Here are some command lines to do just that.  Windows PowerShell:   Get-FileHash C:\path\to\file.iso -Algorithm [MD5|SHA1|SHA256|SHA384|SHA512|MACTripleDES|RIPEMD160]   (SHA256 is the default if the paramet" />
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://gszumo.github.io//index.html">Gregg Szumowski</a></h1>
+<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="get-the-hash-of-a-file-on-different-operating-systems.html">
+Get the Hash of a File on Different Operating Systems
+</a></h3>
+<!-- bashblog_timestamp: #202004132225.54# -->
+<div class="subtitle">April 13, 2020 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
 
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="https://gszumo.github.io/">Home</a></li>
-            </ul>
-        </nav>
-        <div class="header_box">
-            <h1><a href="https://gszumo.github.io/">Gregg Szumowski</a></h1>
-        </div>
-    </header>
-    <div id="wrapper">
-        <div id="content">            <h4 class="date">Mar 03, 2017</h4>
+<p>Sometimes you just need to hash something. Here are some command lines to do just that.</p>
 
-            <article class="post">
-                <h2 class="title">
-                    <a href="https://gszumo.github.io/get-the-hash-of-a-file-on-different-operating-systems.html" rel="bookmark" title="Permanent Link to &quot;"Get the Hash of a File on Different Operating Systems"&quot;">"Get the Hash of a File on Different Operating Systems"</a>
-                </h2>
-
-                
-                
-
-                <p>Sometimes you just need to hash something. Here are some command lines to do just that.</p>
 <p>Windows PowerShell:</p>
-<div class="highlight"><pre><span></span>Get-FileHash C:\path\to\file.iso -Algorithm [MD5|SHA1|SHA256|SHA384|SHA512|MACTripleDES|RIPEMD160]
-</pre></div>
 
+<p><code> Get-FileHash C:\path\to\file.iso -Algorithm [MD5|SHA1|SHA256|SHA384|SHA512|MACTripleDES|RIPEMD160] </code><br></p>
 
 <p>(SHA256 is the default if the parameter is omitted) </p>
-<p>Linux: </p>
-<div class="highlight"><pre><span></span>md5sum /path/to/file
-sha1sum /path/to/file
-sha256sum /path/to/file
-</pre></div>
 
+<p>Linux: </p>
+
+<p><code> md5sum /path/to/file </code><br>
+<code> sha1sum /path/to/file </code><br>
+<code> sha256sum /path/to/file </code><br></p>
 
 <p>macOS:</p>
-<div class="highlight"><pre><span></span><span class="n">MD5</span><span class="o">:</span> <span class="n">md5</span> <span class="sr">/path/to/</span><span class="n">file</span>
-<span class="n">SHA1</span><span class="o">:</span> <span class="n">shasum</span> <span class="sr">/path/to/file or shasum -a 1 /path/to/</span><span class="n">file</span>
-<span class="n">SHA</span><span class="o">-</span><span class="mi">256</span><span class="o">:</span> <span class="n">shasum</span> <span class="o">-</span><span class="n">a</span> <span class="mi">256</span> <span class="sr">/path/to/</span><span class="n">file</span>
-</pre></div>
-                <div class="clear"></div>
 
-                <div class="info">
-                    <a href="https://gszumo.github.io/get-the-hash-of-a-file-on-different-operating-systems.html">posted at 09:13</a>
-                    &nbsp;&middot;&nbsp;<a href="https://gszumo.github.io/category/cli.html" rel="tag">cli</a>
-                </div>
-            </article>
-            <div class="clear"></div>
-            <footer>
-                <p>
-                <a href="https://github.com/jody-frankowski/blue-penguin">Blue Penguin</a> Theme
-                &middot;
-                Powered by <a href="http://getpelican.com">Pelican</a>
-                &middot;
-                <a href="https://gszumo.github.io/feeds/all.atom.xml" rel="alternate">Atom Feed</a>
-            </footer>
-        </div>
-        <div class="clear"></div>
-    </div>
-</body>
-</html>
+<p><code> MD5: md5 /path/to/file </code><br>
+<code> SHA1: shasum /path/to/file or shasum -a 1 /path/to/file </code><br>
+<code> SHA-256: shasum -a 256 /path/to/file </code><br></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a></p>
+
+
+
+
+
+
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//get-the-hash-of-a-file-on-different-operating-systems.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
+<a href='https://twitter.com/search?q=http://gszumo.github.io//get-the-hash-of-a-file-on-different-operating-systems.html'><span id='count-29300'></span></a>&nbsp;</p>
+<!-- entry end -->
+</div>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo&#64;gmail&#46;com">gszumo&#64;gmail&#46;com</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+</body></html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Installing Fedora on an Old Asus Laptop</title>
+<meta name='twitter:card' content='summary' />
+<meta name='twitter:site' content='@gszumo' />
+<meta name='twitter:title' content='Installing Fedora on an Old Asus Laptop' />
+<meta name='twitter:description' content=" I recently converted my old Asus laptop from Windows 10 to Linux (my 'newest' laptop is a mid-2012 MacBook Pro, so you can see that I'm not really living on the 'cutting edge' here). It's not that I don't like Windows (I have to use it at work and b" />
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://gszumo.github.io//index.html">Gregg Szumowski</a></h1>
+<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="installing-fedora-on-an-old-asus-laptop8100.html">
+Installing Fedora on an Old Asus Laptop
+</a></h3>
+<!-- bashblog_timestamp: #202004132232.11# -->
+<div class="subtitle">April 13, 2020 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>I recently converted my old Asus laptop from Windows 10 to Linux (my "newest" laptop is a mid-2012 MacBook Pro, so you can see that I'm not really living on the "cutting edge" here). It's not that I don't like Windows (I have to use it at work and being a release engineer it is hard to avoid it completely) but it's free, has all of the software that I really need (except for video editing, which is still where my MacBook rules, and has always been my "go to" development and testing environment.</p>
+
+<p>These are the specs for the Asus:</p>
+
+<ul>
+<li>Intel® Pentium(R) CPU B950 @ 2.10GHz × 2</li>
+<li>3.8 GiB 64-bit</li>
+<li>Intel® Sandybridge Mobile graphics chip</li>
+</ul>
+
+<p>If you go to the <a href="https://www.fedoraproject.com">fedoraproject.com</a> website they have a unique utility called the "Fedora Media Writer" which allows you to create a Fedora installer on a USB device available to download and install on a Windows machine. This makes it very convenient to install Linux these days because more and more laptops are being made without internal CD/DVD drives. </p>
+
+<p>I didn't want to wipe my 120gb SSD Windows 10 installation so after writing the installer to a USB stick I replaced the Windows SSD with a blank 480gb Sandisk SSD.</p>
+
+<p>The installation went as expected and didn't really take all that long and when I rebooted I was in the basic Fedora Workstation environment. It was time to install the optional packages that I usually like to have. For this I googled and found <a href="https://www.tecmint.com/things-to-do-after-fedora-26-installation/">Tecmint's 28 Things to Do After Fresh Installation of Fedora 26 Workstation</a> and installed most but not all of their recommended packages and configurations.</p>
+
+<p>The next thing I needed to do was to get an SSH server running so that I could copy all of my media to the SSD. You can find out how to do that here: <a href="http://bytefreaks.net/gnulinux/fedora-25-install-start-enable-ssh-server">Fedora 25: install / start / enable ssh server</a></p>
+
+<p>Once I had everything up and running there was an issue I encountered where I couldn't play any MP4 videos. Even VLC wouldn't work. Running the "Videos" application would recognize this and offer to install the necessary packages but after entering my password it would just sit there and do nothing. So I did some googling and found the proper command line way to do this 
+<a href="https://ask.fedoraproject.org/en/question/9111/sticky-what-plugins-do-i-need-to-install-to-watch-movies-and-listen-to-music/">here:</a> and within minutes I was able to play my videos.</p>
+
+<p>Tags: <a href='tag_linux.html'>linux</a></p>
+
+
+
+
+
+
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//installing-fedora-on-an-old-asus-laptop8100.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
+<a href='https://twitter.com/search?q=http://gszumo.github.io//installing-fedora-on-an-old-asus-laptop8100.html'><span id='count-23749'></span></a>&nbsp;</p>
+<!-- entry end -->
+</div>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo&#64;gmail&#46;com">gszumo&#64;gmail&#46;com</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+</body></html>

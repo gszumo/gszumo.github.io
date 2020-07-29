@@ -1,76 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Gregg Szumowski | "Removing ^M Characters From Multiple Files"</title>
-    <link rel="shortcut icon" type="image/png" href="https://gszumo.github.io/favicon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="https://gszumo.github.io/favicon.ico">
-    <link href="https://gszumo.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gregg Szumowski Full Atom Feed" />
-    <link href="https://gszumo.github.io/feeds/%s.atom.xml" type="application/atom+xml" rel="alternate" title="Gregg Szumowski Categories Atom Feed" />
-    <link rel="stylesheet" href="https://gszumo.github.io/theme/css/screen.css" type="text/css" />
-    <link rel="stylesheet" href="https://gszumo.github.io/theme/css/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://gszumo.github.io/theme/css/print.css" type="text/css" media="print" />
-    <meta name="generator" content="Pelican" />
-    <meta name="description" content="" />
-    <meta name="author" content="Gregg Szumowski" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Removing ^M Characters From Multiple Files</title>
+<meta name='twitter:card' content='summary' />
+<meta name='twitter:site' content='@gszumo' />
+<meta name='twitter:title' content='Removing ^M Characters From Multiple Files' />
+<meta name='twitter:description' content=" In my day job I find that I frequently need to remove those pesky '^M' line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing   :%s/^M//" />
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://gszumo.github.io//index.html">Gregg Szumowski</a></h1>
+<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="removing-m-characters-from-multiple-files.html">
+Removing ^M Characters From Multiple Files
+</a></h3>
+<!-- bashblog_timestamp: #202004132235.20# -->
+<div class="subtitle">April 13, 2020 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
 
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="https://gszumo.github.io/">Home</a></li>
-            </ul>
-        </nav>
-        <div class="header_box">
-            <h1><a href="https://gszumo.github.io/">Gregg Szumowski</a></h1>
-        </div>
-    </header>
-    <div id="wrapper">
-        <div id="content">            <h4 class="date">Jul 05, 2016</h4>
+<p>In my day job I find that I frequently need to remove those pesky '^M' line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing</p>
 
-            <article class="post">
-                <h2 class="title">
-                    <a href="https://gszumo.github.io/removing-m-characters-from-multiple-files.html" rel="bookmark" title="Permanent Link to &quot;"Removing ^M Characters From Multiple Files"&quot;">"Removing ^M Characters From Multiple Files"</a>
-                </h2>
-
-                
-                
-
-                <p>In my day job I find that I frequently need to remove those pesky '^M' line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing</p>
-<div class="highlight"><pre><span></span>:%s/^M//g
-</pre></div>
-
+<p><code> :%s/^M//g </code><br></p>
 
 <p>solves the problem, but on occasion I might be confronted with performing this process on multiple files and sometimes recursively through many subdirectories. When that happens it becomes necessary to bring out the "big guns" and do:</p>
-<div class="highlight"><pre><span></span>$ <span class="k">for</span> file in <span class="k">$(</span>find /path/to/dir -type f<span class="k">)</span><span class="p">;</span> <span class="k">do</span>
-      tr -d <span class="s1">&#39;\r&#39;</span> &lt;<span class="nv">$file</span> &gt;temp.<span class="nv">$$</span> <span class="o">&amp;&amp;</span> mv temp.<span class="nv">$$</span> <span class="nv">$file</span>
-   <span class="k">done</span>
-$
-</pre></div>
 
+<p><code> $ for file in $(find /path/to/dir -type f); do </code><br>
+<code>       tr -d '\r' <$file >temp.$$ &amp;&amp; mv temp.$$ $file </code><br>
+<code>   done </code><br>
+<code> $ </code><br></p>
 
 <p>(BTW, to generate a ^M character using the PuTTY emulator is easy. Just press CTRL-^ followed by CTRL-M)</p>
-<p>Of course, in Linux, UNIX and AIX shells there are many ways to skin a cat and this is just one of many possible solutions. This solution was found on [another Blogspot site] (https://dailyvim.blogspot.com) which has more very interesting tips &amp; tutorials.</p>
-                <div class="clear"></div>
 
-                <div class="info">
-                    <a href="https://gszumo.github.io/removing-m-characters-from-multiple-files.html">posted at 11:06</a>
-                    &nbsp;&middot;&nbsp;<a href="https://gszumo.github.io/category/cli.html" rel="tag">cli</a>
-                </div>
-            </article>
-            <div class="clear"></div>
-            <footer>
-                <p>
-                <a href="https://github.com/jody-frankowski/blue-penguin">Blue Penguin</a> Theme
-                &middot;
-                Powered by <a href="http://getpelican.com">Pelican</a>
-                &middot;
-                <a href="https://gszumo.github.io/feeds/all.atom.xml" rel="alternate">Atom Feed</a>
-            </footer>
-        </div>
-        <div class="clear"></div>
-    </div>
-</body>
-</html>
+<p>Of course, in Linux, UNIX and AIX shells there are many ways to skin a cat and this is just one of many possible solutions. This solution was found on <a href="https://dailyvim.blogspot.com">a Daily Vim Blogspot site</a> which has more very interesting tips &amp; tutorials.</p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a></p>
+
+
+
+
+
+
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//removing-m-characters-from-multiple-files.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
+<a href='https://twitter.com/search?q=http://gszumo.github.io//removing-m-characters-from-multiple-files.html'><span id='count-7176'></span></a>&nbsp;</p>
+<!-- entry end -->
+</div>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo&#64;gmail&#46;com">gszumo&#64;gmail&#46;com</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+</body></html>

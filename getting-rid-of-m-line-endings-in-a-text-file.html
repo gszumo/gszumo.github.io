@@ -1,168 +1,153 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Gregg Szumowski | "Getting Rid of ^M Line Endings in a Text File"</title>
-    <link rel="shortcut icon" type="image/png" href="https://gszumo.github.io/favicon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="https://gszumo.github.io/favicon.ico">
-    <link href="https://gszumo.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Gregg Szumowski Full Atom Feed" />
-    <link href="https://gszumo.github.io/feeds/%s.atom.xml" type="application/atom+xml" rel="alternate" title="Gregg Szumowski Categories Atom Feed" />
-    <link rel="stylesheet" href="https://gszumo.github.io/theme/css/screen.css" type="text/css" />
-    <link rel="stylesheet" href="https://gszumo.github.io/theme/css/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="https://gszumo.github.io/theme/css/print.css" type="text/css" media="print" />
-    <meta name="generator" content="Pelican" />
-    <meta name="description" content="" />
-    <meta name="author" content="Gregg Szumowski" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Getting Rid of ^M Line Endings in a Text File</title>
+<meta name='twitter:card' content='summary' />
+<meta name='twitter:site' content='@gszumo' />
+<meta name='twitter:title' content='Getting Rid of ^M Line Endings in a Text File' />
+<meta name='twitter:description' content=" If you have a text file that has funny looking ^M characters at the end of each line, in most cases, you have to get rid of them before they can be used. This is especially the case when you've copied or transferred a file from a Windows-based syste" />
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://gszumo.github.io//index.html">Gregg Szumowski</a></h1>
+<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="getting-rid-of-m-line-endings-in-a-text-file.html">
+Getting Rid of ^M Line Endings in a Text File
+</a></h3>
+<!-- bashblog_timestamp: #202004132229.08# -->
+<div class="subtitle">April 13, 2020 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
 
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="https://gszumo.github.io/">Home</a></li>
-            </ul>
-        </nav>
-        <div class="header_box">
-            <h1><a href="https://gszumo.github.io/">Gregg Szumowski</a></h1>
-        </div>
-    </header>
-    <div id="wrapper">
-        <div id="content">            <h4 class="date">Oct 30, 2017</h4>
+<p>If you have a text file that has funny looking ^M characters at the end of each line, in most cases, you have to get rid of them before they can be used. This is especially the case when you've copied or transferred a file from a Windows-based system to a *nix-based one. If these files are shell scripts meant to run on the *nix-based system they more often than not won't work. There are various solutions to this problem.</p>
 
-            <article class="post">
-                <h2 class="title">
-                    <a href="https://gszumo.github.io/getting-rid-of-m-line-endings-in-a-text-file.html" rel="bookmark" title="Permanent Link to &quot;"Getting Rid of ^M Line Endings in a Text File"&quot;">"Getting Rid of ^M Line Endings in a Text File"</a>
-                </h2>
-
-                
-                
-
-                <p>If you have a text file that has funny looking ^M characters at the end of each line, in most cases, you have to get rid of them before they can be used. This is especially the case when you've copied or transferred a file from a Windows-based system to a <em>nix-based one. If these files are shell scripts meant to run on the </em>nix-based system they more often than not won't work. There are various solutions to this problem.</p>
 <p>First, let's create two text files: one with ^M line endings and one without:</p>
-<div class="highlight"><pre><span></span>$ <span class="k">for</span> line in <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="s2">&quot;This is line </span><span class="si">${</span><span class="nv">line</span><span class="si">}</span><span class="s2">^M&quot;</span> &gt;&gt;file1.txt<span class="p">;</span> <span class="k">done</span>
-$ <span class="k">for</span> line in <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span><span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="s2">&quot;This is line </span><span class="si">${</span><span class="nv">line</span><span class="si">}</span><span class="s2">&quot;</span> &gt;&gt;file2.txt<span class="p">;</span> <span class="k">done</span>
-</pre></div>
 
+<p><code> $ for line in 1 2 3 4 5; do echo "This is line ${line}^M" >>file1.txt; done </code><br>
+<code> $ for line in 1 2 3 4 5; do echo "This is line ${line}" >>file2.txt; done </code><br></p>
 
 <p>Now let's see what's different between these two text files:</p>
-<div class="highlight"><pre><span></span>$ ls -l
-total <span class="m">8</span>
--rw-rw-r--. <span class="m">1</span> gszumo gszumo <span class="m">80</span> Oct <span class="m">29</span> <span class="m">17</span>:43 file1.txt
--rw-rw-r--. <span class="m">1</span> gszumo gszumo <span class="m">75</span> Oct <span class="m">29</span> <span class="m">17</span>:44 file2.txt
 
-$ file file1.txt
-file1.txt: ASCII text, with CRLF line terminators
+<p><code> $ ls -l </code><br>
+<code> total 8 </code><br>
+<code> -rw-rw-r--. 1 gszumo gszumo 80 Oct 29 17:43 file1.txt </code><br>
+<code> -rw-rw-r--. 1 gszumo gszumo 75 Oct 29 17:44 file2.txt </code><br></p>
 
-$ file file2.txt
-file2.txt: ASCII text
+<p><code> $ file file1.txt </code><br>
+<code> file1.txt: ASCII text, with CRLF line terminators </code><br></p>
 
-$ diff file1.txt file2.txt
-<span class="m">1</span>,5c1,5
-&lt; This is line <span class="m">1</span>
-&lt; This is line <span class="m">2</span>
-&lt; This is line <span class="m">3</span>
-&lt; This is line <span class="m">4</span>
-&lt; This is line <span class="m">5</span>
----
-&gt; This is line <span class="m">1</span>
-&gt; This is line <span class="m">2</span>
-&gt; This is line <span class="m">3</span>
-&gt; This is line <span class="m">4</span>
-&gt; This is line <span class="m">5</span>
-$
-</pre></div>
+<p><code> $ file file2.txt </code><br>
+<code> file2.txt: ASCII text </code><br></p>
 
+<p><code> $ diff file1.txt file2.txt </code><br>
+<code> 1,5c1,5 </code><br>
+<code> &lt; This is line 1 </code><br>
+<code> &lt; This is line 2 </code><br>
+<code> &lt; This is line 3 </code><br>
+<code> &lt; This is line 4 </code><br>
+<code> &lt; This is line 5 </code><br>
+<code> --- </code><br>
+<code> > This is line 1 </code><br>
+<code> > This is line 2 </code><br>
+<code> > This is line 3 </code><br>
+<code> > This is line 4 </code><br>
+<code> > This is line 5 </code><br>
+<code> $ </code><br></p>
 
 <p>What does this tell us?</p>
+
 <ul>
 <li>The ls command tells us the file sizes are different even though the visible text is the same.</li>
 <li>The file command tells us that both files are ASCII text  but file1.txt has CRLF line terminators, and</li>
 <li>The diff command tells us that each line is indeed showing us that it's different.</li>
 </ul>
+
 <p>So, how do we fix this?</p>
-<p><img alt="alt text" src="/images/file1-txt.png" title="Screen shot image"></p>
+
 <p>My favorite solution is to use vi or vim interactively. There are 2 easy ways to get rid of the ^M from a single file using vim:</p>
+
 <ol>
 <li>Enter the command:
-<code>:%s/^M//g</code>
+<br><code> :%s/^M//g </code><br>
 on the vim command line then save the file, or</li>
 <li>Enter the command:
-<code>:fileformat=unix</code>
+<br><code> :fileformat=unix </code><br>
 on the vim command line and save the file.</li>
 </ol>
-<p>However, if you have a whole directory or directory tree full of these kinds of files using vim on each one individually will become quite tedious. For this you need the scripting capability of the command line!</p>
-<p>The 'tr' command is one quick way of getting rid of them using the Linux or macOS command line:</p>
-<div class="highlight"><pre><span></span>cat somefile | tr -d &#39;^M&#39; &gt;outputfile
-</pre></div>
 
+<p>However, if you have a whole directory or directory tree full of these kinds of files using vim on each one individually will become quite tedious. For this you need the scripting capability of the command line!</p>
+
+<p>The 'tr' command is one quick way of getting rid of them using the Linux or macOS command line:</p>
+
+<p><code> cat somefile | tr -d '^M' >outputfile </code><br></p>
 
 <p>We can use this as a template in order to determine whether or not the file needs to be updated:</p>
-<div class="highlight"><pre><span></span>for i in *
-do
-  string=$(file <span class="cp">${</span><span class="n">i</span><span class="cp">}</span>)
-  test &quot;<span class="cp">${</span><span class="n">string</span><span class="c1">#*&#39;CRLF&#39;</span><span class="cp">}</span>&quot; != &quot;<span class="nv">$string</span>&quot; <span class="err">&amp;&amp;</span> echo &quot;CRLF found in <span class="cp">${</span><span class="n">i</span><span class="cp">}</span>&quot;
-done
-</pre></div>
 
+<p><code> for i in * </code><br>
+<code> do </code><br>
+<code>   string=$(file ${i}) </code><br>
+<code>   test "${string#*'CRLF'}" != "$string" &amp;&amp; echo "CRLF found in ${i}" </code><br>
+<code> done </code><br></p>
 
 <p>If the 'echo' part of this snippet only gets called when the first part of the test is true, so then we know that the file has '^M' line endings. We have to turn the second part of the test into a script that will massage the file to remove the line endings. Here's a bash snippet that will put the two together and do the job:</p>
-<div class="highlight"><pre><span></span>for i in *
-do
-  string=$(file <span class="cp">${</span><span class="n">i</span><span class="cp">}</span>)
-  if [ &quot;<span class="cp">${</span><span class="n">string</span><span class="c1">#*&#39;CRLF&#39;</span><span class="cp">}</span>&quot; != &quot;<span class="nv">$string</span>&quot; ];then
-    cp <span class="cp">${</span><span class="n">i</span><span class="cp">}</span> <span class="cp">${</span><span class="n">i</span><span class="cp">}</span>.bak
-    cat <span class="cp">${</span><span class="n">i</span><span class="cp">}</span>.bak|tr -d &#39;^M&#39; &gt;<span class="cp">${</span><span class="n">i</span><span class="cp">}</span>
-    rm <span class="cp">${</span><span class="n">i</span><span class="cp">}</span>.bak
-  fi
-done
-</pre></div>
 
+<p><code> for i in * </code><br>
+<code> do </code><br>
+<code>   string=$(file ${i}) </code><br>
+<code>   if [ "${string#*'CRLF'}" != "$string" ];then </code><br>
+<code>     cp ${i} ${i}.bak </code><br>
+<code>     cat ${i}.bak|tr -d '^M' >${i} </code><br>
+<code>     rm ${i}.bak </code><br>
+<code>   fi </code><br>
+<code> done </code><br></p>
 
 <p>This is a bare-bones piece of code which doesn't do any error checking, which should be added in the event that the user running this script doesn't have the necessary permissions to copy, write or remove files that match the test.</p>
-<p>Remember, in order to create a '^M' character in the terminal hold down the CTRL key while  typing vm.</p>
-<p>You can also use 'ex' to replace a string in a file using:</p>
-<div class="highlight"><pre><span></span>ex -s -c &#39;%s/old-str/new-str/g|x&#39; filename.txt
-</pre></div>
 
+<p>Remember, in order to create a '^M' character in the terminal hold down the CTRL key while  typing vm.</p>
+
+<p>You can also use 'ex' to replace a string in a file using:</p>
+
+<p><code> ex -s -c '%s/old-str/new-str/g|x' filename.txt </code><br></p>
 
 <p>Alternately, we can use sed to do the same thing. At the command line you can replace any string in a file dynamically by entering:</p>
-<div class="highlight"><pre><span></span>sed -i &#39;s/old-str/new-str/&#39; filename.txt
-</pre></div>
 
+<p><code> sed -i 's/old-str/new-str/' filename.txt </code><br></p>
 
 <p>So to remove the ^M charaters just do:</p>
-<div class="highlight"><pre><span></span>sed -i &#39;s/^M//&#39; filename.txt
-</pre></div>
 
+<p><code> sed -i 's/^M//' filename.txt </code><br></p>
 
 <p>to remove the ^M characters. You can use the same for/do/done loop structure as mentioned above to iterate over multiple files:</p>
-<div class="highlight"><pre><span></span>for i in *.txt
-do
-  sed -i &#39;s/^M//&#39; <span class="cp">${</span><span class="n">i</span><span class="cp">}</span>
-done
-</pre></div>
 
+<p><code> for i in *.txt </code><br>
+<code> do </code><br>
+<code>   sed -i 's/^M//' ${i} </code><br>
+<code> done </code><br></p>
 
 <p>'Nuff said.</p>
-                <div class="clear"></div>
 
-                <div class="info">
-                    <a href="https://gszumo.github.io/getting-rid-of-m-line-endings-in-a-text-file.html">posted at 22:01</a>
-                    &nbsp;&middot;&nbsp;<a href="https://gszumo.github.io/category/cli.html" rel="tag">cli</a>
-                </div>
-            </article>
-            <div class="clear"></div>
-            <footer>
-                <p>
-                <a href="https://github.com/jody-frankowski/blue-penguin">Blue Penguin</a> Theme
-                &middot;
-                Powered by <a href="http://getpelican.com">Pelican</a>
-                &middot;
-                <a href="https://gszumo.github.io/feeds/all.atom.xml" rel="alternate">Atom Feed</a>
-            </footer>
-        </div>
-        <div class="clear"></div>
-    </div>
-</body>
-</html>
+<p>Tags: <a href='tag_cli.html'>cli</a></p>
+
+
+
+
+
+
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//getting-rid-of-m-line-endings-in-a-text-file.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
+<a href='https://twitter.com/search?q=http://gszumo.github.io//getting-rid-of-m-line-endings-in-a-text-file.html'><span id='count-997'></span></a>&nbsp;</p>
+<!-- entry end -->
+</div>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo&#64;gmail&#46;com">gszumo&#64;gmail&#46;com</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+</body></html>

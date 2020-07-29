@@ -5,11 +5,11 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg Szumowski</title>
+<title>Gregg Szumowski &mdash; Posts tagged "linux"</title>
 <meta name='twitter:card' content='summary' />
 <meta name='twitter:site' content='@gszumo' />
-<meta name='twitter:title' content='Gregg Szumowski' />
-<meta name='twitter:description' content=" xhyve Installing and Configuration   April 13, 2020 &mdash;  Gregg Szumowski    Recently, I've been trying to improve the performance of virtualization on my 2012 MacBook Pro. I've heard about a virtualization tool called bhyve on FreeBSD and unders" />
+<meta name='twitter:title' content='Gregg Szumowski &mdash; Posts tagged "linux"' />
+<meta name='twitter:description' content=" Talkin' Trash   April 13, 2020 &mdash;  Gregg Szumowski    Having trouble getting the 'Empty Trash' working in Thunar? Remove '~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar*'.         Comments? Tweet  &nbsp;  Running Docker on Fedora 26 for the " />
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -18,128 +18,6 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
-<h3><a class="ablack" href="xhyve-installing-and-configuration.html">
-xhyve Installing and Configuration
-</a></h3>
-<!-- bashblog_timestamp: #202004132242.37# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>Recently, I've been trying to improve the performance of virtualization on my 2012 MacBook Pro. I've heard about a virtualization tool called bhyve on FreeBSD and understood that it was being ported to macOS. I found this article, <a href="https://dan.langille.org/2018/10/02/running-freebsd-on-osx-using-xhyve-a-port-of-bhyve/">Running FreeBSD on OSX using xhyve, a port of bhyve</a> on Dan Langille's blog and decided to have a go at installing it.</p>
-
-<p>At first I just figured that I would check if it could be installed via Homebrew and to my surprise I found that I had already installed it quite some time ago. So the next thing was to see if I could get it to work. I checked Homebrew to see if there were any other package available that would offer me some sort of GUI for xhyve, but unfortunately the only other package available was related to a driver for Docker. That's OK though, since I like using the command line better for these situations because you really get a better understanding of how the tool really works that way. So I commenced work.</p>
-
-<p>I decided to start with Langille's scripts to see if I could get FreeBSD up and running.</p>
-
-<ul>
-<li>Download the latest FreeBSD 12.0 ISO file</li>
-<li>Create an image (img file) to be used as the target drive</li>
-<li>Use Langille's first script to install the ISO to the img file</li>
-<li>Convert the installation script to a run script</li>
-</ul>
-
-<p>Seems simple enough. But....</p>
-
-<p>I downloaded the FreeBSD ISO image from freebsd.org as instructed. He used an older version but I wanted to use the latest. Who can argue with that?</p>
-
-<p>Step 1. <a href="https://download.freebsd.org/ftp/releases/amd64/amd64/ISO-IMAGES/12.0/">Download FreeBS from here</a></p>
-
-<p>Step 2. Create the target image:
-<code>
-$ mkfile -nv 50g fbsd.img
-</code><br>
-<code>
-fbsd.img 53687091200 bytes
-</code>
-This is where you will be installing FreeBSD, so make sure that you create a image large enough for your needs. In my case I don't really need much space.</p>
-
-<p>Step 3. Modify Langille's script to your needs.
-<code> #!/bin/sh </code><br></p>
-
-<p><code> BOOTVOLUME="FreeBSD-12.0-RELEASE-amd64-disc1.iso" </code><br>
-<code> IMG="fbsd.img" </code><br></p>
-
-<p><code> PATH="../build/Release:build:$PATH" </code><br></p>
-
-<p><code> ../build/xhyve \ </code><br>
-<code>     -A \ </code><br>
-<code>     -m 2G \ </code><br>
-<code>     -c 2 \ </code><br>
-<code>     -s 0:0,hostbridge \ </code><br>
-<code>     -s 2:0,virtio-net \ </code><br>
-<code>     -s 3:0,ahci-cd,$BOOTVOLUME \ </code><br>
-<code>     -s 4:0,virtio-blk,$IMG \ </code><br>
-<code>     -s 31,lpc \ </code><br>
-<code>     -l com1,stdio \ </code><br>
-<code>     -f fbsd,../test/userboot.so,$BOOTVOLUME,"" </code><br></p>
-
-<p>Run your installation script:</p>
-
-<p><code> $ sudo ./xhyveinstall-freebsd.sh </code><br></p>
-
-<p>You should now get a boot screen.</p>
-
-<p>Complete the installation as you normally would for FreeBSD and return to the shell prompt. Then modify the installation script that you just ran and fix it so it becomes a run script:</p>
-
-<p><code> #!/bin/sh </code><br></p>
-
-<p><code> IMG="fbsd.img" </code><br>
-<code> PATH="../build/Release:build:$PATH" </code><br></p>
-
-<p><code> xhyve \ </code><br>
-<code>     -A \ </code><br>
-<code>     -m 2G \ </code><br>
-<code>     -c 2 \ </code><br>
-<code>     -s 0:0,hostbridge \ </code><br>
-<code>     -s 2:0,virtio-net \ </code><br>
-<code>     -s 4:0,virtio-blk,$IMG \ </code><br>
-<code>     -s 31,lpc \ </code><br>
-<code>     -l com1,stdio \ </code><br>
-<code>     -f fbsd,../test/userboot.so,$IMG,"" </code><br></p>
-
-<p>Run your run script:</p>
-
-<p><code> $ sudo ./xhyverun-freebsd.sh </code><br></p>
-
-<p>Congratulations! You're running FreeBSD under xhyve!</p>
-
-<p>Next time: Ubuntu 18.04 under xhyve.</p>
-
-<p>Tags: <a href='tag_macOS.html'>macOS</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//xhyve-installing-and-configuration.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://gszumo.github.io//xhyve-installing-and-configuration.html'><span id='count-30261'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="uptime-statistics-for-windows12565.html">
-Uptime Statistics for Windows
-</a></h3>
-<!-- bashblog_timestamp: #202004132241.44# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>To find the uptime for a Windows machine do</p>
-
-<p><code>  C:> net statistics server </code></p>
-
-<p>Tags: <a href='tag_windows.html'>windows</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//uptime-statistics-for-windows12565.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://gszumo.github.io//uptime-statistics-for-windows12565.html'><span id='count-24201'></span></a>&nbsp;</p>
 <h3><a class="ablack" href="talkin-trash14832.html">
 Talkin' Trash
 </a></h3>
@@ -161,55 +39,6 @@ Gregg Szumowski
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//talkin-trash14832.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
 <a href='https://twitter.com/search?q=http://gszumo.github.io//talkin-trash14832.html'><span id='count-19338'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="sort-directory-by-file-size11284.html">
-Sort Directory by File Size
-</a></h3>
-<!-- bashblog_timestamp: #202004132239.32# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>To sort files in a directory and to list them by the biggest file first:<br>
-<code>
-$ du -a | sort -n -r | more
-</code></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//sort-directory-by-file-size11284.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://gszumo.github.io//sort-directory-by-file-size11284.html'><span id='count-7257'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="set-mac-hostname2284.html">
-Set Mac Hostname
-</a></h3>
-<!-- bashblog_timestamp: #202004132238.22# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>To set the host name of your Mac (in my case macbook-pro) in the command prompt, type the following command:</p>
-
-<p><code> $ sudo scutil --set HostName "macbook-pro" </code>
-<br>
-<code> $ sudo scutil --set LocalHostName "macbook-pro" </code></p>
-
-<p>Tags: <a href='tag_macOS.html'>macOS</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//set-mac-hostname2284.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://gszumo.github.io//set-mac-hostname2284.html'><span id='count-12831'></span></a>&nbsp;</p>
 <h3><a class="ablack" href="running-docker-on-fedora-26-for-the-first-time23728.html">
 Running Docker on Fedora 26 for the First Time
 </a></h3>
@@ -343,22 +172,24 @@ Bingo, we're good to go. Let's setup the daemon so that it survives a reboot:</p
 <!-- text end -->
 <p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//running-docker-on-fedora-26-for-the-first-time23728.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
 <a href='https://twitter.com/search?q=http://gszumo.github.io//running-docker-on-fedora-26-for-the-first-time23728.html'><span id='count-25083'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="reset-mac-launchpad15617.html">
-Reset Mac Launchpad
+<h3><a class="ablack" href="solus-os-how-to-prevent-your-laptop-from-going-to-sleep-when-you-close-the-lid.html">
+Solus OS: How to Prevent Your Laptop from Going to Sleep When You Close the Lid
 </a></h3>
-<!-- bashblog_timestamp: #202004132236.19# -->
+<!-- bashblog_timestamp: #202004132234.18# -->
 <div class="subtitle">April 13, 2020 &mdash; 
 Gregg Szumowski
 </div>
 <!-- text begin -->
 
-<p>To reset the Mac LaunchPad to default enter the following:</p>
+<p>If you're using a laptop with an external monitor and you've recently installed Solus OS you might have noticed that the laptop goes to sleep when you close the lid and there is no way to adjust for this in the power settings. You can get around this by manually editing <code>/etc/systemd/logind.conf</code> and changing the line:</p>
 
-<p><code> rm ~/Library/Application\ Support/Dock/*.db ; killall Dock </code><br></p>
+<p><code> #HandleLidSwitch=suspend </code><br>
+ to
+<code> HandleLidSwitch=ignore </code><br></p>
 
-<p>This will however put all of the Apple apps on the first page and all of your remaining apps will be sorted alphabetically on the remaining pages.</p>
+<p>Note the '#' at the beginning of the line needs to be removed.</p>
 
-<p>Tags: <a href='tag_macOS.html'>macOS</a></p>
+<p>Tags: <a href='tag_linux.html'>linux</a></p>
 
 
 
@@ -366,33 +197,39 @@ Gregg Szumowski
 
 
 <!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//reset-mac-launchpad15617.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://gszumo.github.io//reset-mac-launchpad15617.html'><span id='count-31768'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="removing-m-characters-from-multiple-files.html">
-Removing ^M Characters From Multiple Files
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//solus-os-how-to-prevent-your-laptop-from-going-to-sleep-when-you-close-the-lid.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
+<a href='https://twitter.com/search?q=http://gszumo.github.io//solus-os-how-to-prevent-your-laptop-from-going-to-sleep-when-you-close-the-lid.html'><span id='count-12378'></span></a>&nbsp;</p>
+<h3><a class="ablack" href="installing-fedora-on-an-old-asus-laptop8100.html">
+Installing Fedora on an Old Asus Laptop
 </a></h3>
-<!-- bashblog_timestamp: #202004132235.20# -->
+<!-- bashblog_timestamp: #202004132232.11# -->
 <div class="subtitle">April 13, 2020 &mdash; 
 Gregg Szumowski
 </div>
 <!-- text begin -->
 
-<p>In my day job I find that I frequently need to remove those pesky '^M' line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing</p>
+<p>I recently converted my old Asus laptop from Windows 10 to Linux (my "newest" laptop is a mid-2012 MacBook Pro, so you can see that I'm not really living on the "cutting edge" here). It's not that I don't like Windows (I have to use it at work and being a release engineer it is hard to avoid it completely) but it's free, has all of the software that I really need (except for video editing, which is still where my MacBook rules, and has always been my "go to" development and testing environment.</p>
 
-<p><code> :%s/^M//g </code><br></p>
+<p>These are the specs for the Asus:</p>
 
-<p>solves the problem, but on occasion I might be confronted with performing this process on multiple files and sometimes recursively through many subdirectories. When that happens it becomes necessary to bring out the "big guns" and do:</p>
+<ul>
+<li>Intel® Pentium(R) CPU B950 @ 2.10GHz × 2</li>
+<li>3.8 GiB 64-bit</li>
+<li>Intel® Sandybridge Mobile graphics chip</li>
+</ul>
 
-<p><code> $ for file in $(find /path/to/dir -type f); do </code><br>
-<code>       tr -d '\r' <$file >temp.$$ &amp;&amp; mv temp.$$ $file </code><br>
-<code>   done </code><br>
-<code> $ </code><br></p>
+<p>If you go to the <a href="https://www.fedoraproject.com">fedoraproject.com</a> website they have a unique utility called the "Fedora Media Writer" which allows you to create a Fedora installer on a USB device available to download and install on a Windows machine. This makes it very convenient to install Linux these days because more and more laptops are being made without internal CD/DVD drives. </p>
 
-<p>(BTW, to generate a ^M character using the PuTTY emulator is easy. Just press CTRL-^ followed by CTRL-M)</p>
+<p>I didn't want to wipe my 120gb SSD Windows 10 installation so after writing the installer to a USB stick I replaced the Windows SSD with a blank 480gb Sandisk SSD.</p>
 
-<p>Of course, in Linux, UNIX and AIX shells there are many ways to skin a cat and this is just one of many possible solutions. This solution was found on <a href="https://dailyvim.blogspot.com">a Daily Vim Blogspot site</a> which has more very interesting tips &amp; tutorials.</p>
+<p>The installation went as expected and didn't really take all that long and when I rebooted I was in the basic Fedora Workstation environment. It was time to install the optional packages that I usually like to have. For this I googled and found <a href="https://www.tecmint.com/things-to-do-after-fedora-26-installation/">Tecmint's 28 Things to Do After Fresh Installation of Fedora 26 Workstation</a> and installed most but not all of their recommended packages and configurations.</p>
 
-<p>Tags: <a href='tag_cli.html'>cli</a></p>
+<p>The next thing I needed to do was to get an SSH server running so that I could copy all of my media to the SSD. You can find out how to do that here: <a href="http://bytefreaks.net/gnulinux/fedora-25-install-start-enable-ssh-server">Fedora 25: install / start / enable ssh server</a></p>
+
+<p>Once I had everything up and running there was an issue I encountered where I couldn't play any MP4 videos. Even VLC wouldn't work. Running the "Videos" application would recognize this and offer to install the necessary packages but after entering my password it would just sit there and do nothing. So I did some googling and found the proper command line way to do this 
+<a href="https://ask.fedoraproject.org/en/question/9111/sticky-what-plugins-do-i-need-to-install-to-watch-movies-and-listen-to-music/">here:</a> and within minutes I was able to play my videos.</p>
+
+<p>Tags: <a href='tag_linux.html'>linux</a></p>
 
 
 
@@ -400,9 +237,56 @@ Gregg Szumowski
 
 
 <!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//removing-m-characters-from-multiple-files.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://gszumo.github.io//removing-m-characters-from-multiple-files.html'><span id='count-7176'></span></a>&nbsp;</p>
-<div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//installing-fedora-on-an-old-asus-laptop8100.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
+<a href='https://twitter.com/search?q=http://gszumo.github.io//installing-fedora-on-an-old-asus-laptop8100.html'><span id='count-23749'></span></a>&nbsp;</p>
+<h3><a class="ablack" href="gnome3-menu-icons24892.html">
+Gnome3 Menu Icons
+</a></h3>
+<!-- bashblog_timestamp: #202004132231.12# -->
+<div class="subtitle">April 13, 2020 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>To add your own menu icons to a GNOME3 environment check out this link: 
+<a href="https://developer.gnome.org/integration-guide/stable/desktop-files.html.en">Desktop files: putting your application in the desktop menus</a></p>
+
+<p>Tags: <a href='tag_linux.html'>linux</a></p>
+
+
+
+
+
+
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//gnome3-menu-icons24892.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
+<a href='https://twitter.com/search?q=http://gszumo.github.io//gnome3-menu-icons24892.html'><span id='count-14249'></span></a>&nbsp;</p>
+<h3><a class="ablack" href="fixing-screen-resolution-on-second-monitor-in-linux10883.html">
+Fixing Screen Resolution on Second Monitor in Linux
+</a></h3>
+<!-- bashblog_timestamp: #202004132224.54# -->
+<div class="subtitle">April 13, 2020 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>I recently installed a 2nd hard drive in my Macbook Pro dedicated to Linux. When I hooked up a secondary monitor to it I found that I could not get a reasonable resolution. After some research I found that I can add a new mode to the "Display" choices by entering the following in a terminal console:</p>
+
+<p><code> xrandr </code> # to find the device name <br>
+<code> cvt 1920 1080 </code> # to generate the mode for the xrandr program. <br>
+<code> xrandr --newmode "1920x1080<em>60.00" 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync </code> # to add the new mode to the monitor choices. <br>
+<code>xrandr --addmode DP1 1920x1080</em>60.00 </code> # to associate the new mode to the monitor.   <br></p>
+
+<p>Tags: <a href='tag_linux.html'>linux</a></p>
+
+
+
+
+
+
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//fixing-screen-resolution-on-second-monitor-in-linux10883.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
+<a href='https://twitter.com/search?q=http://gszumo.github.io//fixing-screen-resolution-on-second-monitor-in-linux10883.html'><span id='count-22350'></span></a>&nbsp;</p>
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo&#64;gmail&#46;com">gszumo&#64;gmail&#46;com</a><br/>
 Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>

@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Running Docker on Fedora 26 for the First Time</title>
+<meta name='twitter:card' content='summary' />
+<meta name='twitter:site' content='@gszumo' />
+<meta name='twitter:title' content='Running Docker on Fedora 26 for the First Time' />
+<meta name='twitter:description' content=" OK, so I want to start using docker on my Fedora laptop: How do we get started? Well, the Fedora Workstation page says that it comes with built-in Docker support so let's see if we can start it up:   $ which docker  /usr/bin/docker   $ docker login " />
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://gszumo.github.io//index.html">Gregg Szumowski</a></h1>
+<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="running-docker-on-fedora-26-for-the-first-time23728.html">
+Running Docker on Fedora 26 for the First Time
+</a></h3>
+<!-- bashblog_timestamp: #202004132237.17# -->
+<div class="subtitle">April 13, 2020 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>OK, so I want to start using docker on my Fedora laptop: How do we get started? Well, the Fedora Workstation page says that it comes with built-in Docker support so let's see if we can start it up:</p>
+
+<p><code> $ which docker </code><br>
+<code>/usr/bin/docker </code><br>
+<code> $ docker login </code><br>
+<code>/usr/bin/docker: line 13: /usr/bin/docker-latest: No such file or directory </code><br>
+<code> $ docker image pull nginx </code><br>
+<code>/usr/bin/docker: line 13: /usr/bin/docker-latest: No such file or directory </code><br></p>
+
+<p>OK, so that's weird. Apparently not everything works as advertised. The command line tells me that there's a docker command installed on the laptop by default but it doesn't see to do anything that I want. So, let's try to (re-)install docker to see if that helps:</p>
+
+<p><code> $ sudo dnf install docker </code><br>
+<code>[sudo] password for gszumo:  </code><br>
+<code>Last metadata expiration check: 0:36:07 ago on Sun 15 Oct 2017 08:11:13 AM EDT. </code><br>
+<code>Dependencies resolved. </code><br>
+<code>================================================================================ </code><br>
+<code> Package                   Arch    Version                       Repository </code><br>
+<code>                                                                           Size </code><br>
+<code>================================================================================ </code><br>
+<code>Installing: </code><br>
+<code> docker                    x86<em>64  2:1.13.1-22.gitb5e3294.fc26   updates   20 M </code><br>
+<code>Installing dependencies: </code><br>
+<code> atomic-registries         x86</em>64  1.18.1-5.fc26                 fedora    45 k </code><br>
+<code> container-selinux         noarch  2:2.24-1.fc26                 updates   33 k </code><br>
+<code> container-storage-setup   noarch  0.8.0-1.git1d27ecf.fc26       updates   36 k </code><br>
+<code> docker-rhel-push-plugin   x86<em>64  2:1.13.1-22.gitb5e3294.fc26   updates  1.6 M </code><br>
+<code> libnet                    x86</em>64  1.1.6-12.fc26                 fedora    63 k </code><br>
+<code> libyaml                   x86<em>64  0.1.7-2.fc26                  fedora    57 k </code><br>
+<code> oci-umount                x86</em>64  2:2.0.0-2.gitf90b64c.fc26     updates   30 k </code><br>
+<code> python-rhsm-certificates  x86<em>64  1.20.1-1.fc26                 updates   44 k </code><br>
+<code> skopeo-containers         x86</em>64  0.1.23-6.git1bbd87f.fc26      updates   13 k </code><br>
+<code>Installing weak dependencies: </code><br>
+<code> criu                      x86<em>64  3.5-1.fc26                    updates  450 k </code><br>
+<code> oci-register-machine      x86</em>64  0-5.11.gitcd1e331.fc26        updates  1.0 M </code><br>
+<code> oci-systemd-hook          x86<em>64  1:0.1.13-1.gitafe4b4a.fc26    updates   35 k </code><br>
+<code> </code><br>
+<code>Transaction Summary </code><br>
+<code>================================================================================ </code><br>
+<code>Install  13 Packages </code><br>
+<code> </code><br>
+<code>Total download size: 23 M </code><br>
+<code>Installed size: 78 M </code><br>
+<code>Is this ok [y/N]: y </code><br>
+<code>Downloading Packages: </code><br>
+<code>(1/13): atomic-registries-1.18.1-5.fc26.x86</em>64.rpm             179 kB/s |  45 kB     00:00     </code><br>
+<code>(2/13): libyaml-0.1.7-2.fc26.x86<em>64.rpm                        209 kB/s |  57 kB     00:00     </code><br>
+<code>(3/13): docker-rhel-push-plugin-1.13.1-22.gitb5e3294.fc26.x86</em> 2.1 MB/s | 1.6 MB     00:00     </code><br>
+<code>(4/13): container-selinux-2.24-1.fc26.noarch.rpm               129 kB/s |  33 kB     00:00     </code><br>
+<code>(5/13): container-storage-setup-0.8.0-1.git1d27ecf.fc26.noarch 812 kB/s |  36 kB     00:00     </code><br>
+<code>(6/13): oci-umount-2.0.0-2.gitf90b64c.fc26.x86<em>64.rpm          527 kB/s |  30 kB     00:00     </code><br>
+<code>(7/13): python-rhsm-certificates-1.20.1-1.fc26.x86</em>64.rpm      730 kB/s |  44 kB     00:00     </code><br>
+<code>(8/13): skopeo-containers-0.1.23-6.git1bbd87f.fc26.x86<em>64.rpm  295 kB/s |  13 kB     00:00     </code><br>
+<code>(9/13): criu-3.5-1.fc26.x86</em>64.rpm                             1.9 MB/s | 450 kB     00:00     </code><br>
+<code>(10/13): oci-systemd-hook-0.1.13-1.gitafe4b4a.fc26.x86<em>64.rpm  648 kB/s |  35 kB     00:00     </code><br>
+<code>(11/13): libnet-1.1.6-12.fc26.x86</em>64.rpm                       165 kB/s |  63 kB     00:00     </code><br>
+<code>(12/13): oci-register-machine-0-5.11.gitcd1e331.fc26.x86<em>64.rp 1.9 MB/s | 1.0 MB     00:00     </code><br>
+<code>(13/13): docker-1.13.1-22.gitb5e3294.fc26.x86</em>64.rpm           3.0 MB/s |  20 MB     00:06     </code><br>
+<code>----------------------------------------------------------------------------------------------- </code><br>
+<code>Total                                                          3.0 MB/s |  23 MB     00:07      </code><br>
+<code>Running transaction check </code><br>
+<code>Transaction check succeeded. </code><br>
+<code>Running transaction test </code><br>
+<code>Transaction test succeeded. </code><br>
+<code>Running transaction </code><br>
+<code> ... </code><br>
+<code> ... </code><br>
+<code> ... Lots of installation stuff here ... </code><br>
+<code> ... </code><br>
+<code> ... </code><br>
+<code>Complete! </code><br></p>
+
+<p>So now lets fire it up and see what happens:</p>
+
+<p><code> $ sudo systemctl start docker </code><br>
+<code> $ sudo docker run hello-world </code><br>
+<code>Unable to find image 'hello-world:latest' locally </code><br>
+<code>Trying to pull repository registry.fedoraproject.org/hello-world ...  </code><br>
+<code>Trying to pull repository registry.access.redhat.com/hello-world ...  </code><br>
+<code>Trying to pull repository docker.io/library/hello-world ...  </code><br>
+<code>sha256:07d5f7800dfe37b8c2196c7b1c524c33808ce2e0f74e7aa00e603295ca9a0972: Pulling from docker.io/library/hello-world </code><br>
+<code>5b0f327be733: Pull complete  </code><br>
+<code>Digest: sha256:07d5f7800dfe37b8c2196c7b1c524c33808ce2e0f74e7aa00e603295ca9a0972 </code><br>
+<code>Status: Downloaded newer image for docker.io/hello-world:latest </code><br>
+<code> </code><br>
+<code>Hello from Docker! </code><br>
+<code>This message shows that your installation appears to be working correctly. </code><br>
+<code> </code><br>
+<code>To generate this message, Docker took the following steps: </code><br>
+<code> 1. The Docker client contacted the Docker daemon. </code><br>
+<code> 2. The Docker daemon pulled the "hello-world" image from the Docker Hub. </code><br>
+<code> 3. The Docker daemon created a new container from that image which runs the </code><br>
+<code>    executable that produces the output you are currently reading. </code><br>
+<code> 4. The Docker daemon streamed that output to the Docker client, which sent it </code><br>
+<code>    to your terminal. </code><br>
+<code> </code><br>
+<code>To try something more ambitious, you can run an Ubuntu container with: </code><br>
+<code> $ docker run -it ubuntu bash </code><br>
+<code> </code><br>
+<code>Share images, automate workflows, and more with a free Docker ID: </code><br>
+<code> https://cloud.docker.com/ </code><br>
+<code> </code><br>
+<code>For more examples and ideas, visit: </code><br>
+<code> https://docs.docker.com/engine/userguide/ </code><br>
+<code> </code><br>
+<code> </code><br>
+Bingo, we're good to go. Let's setup the daemon so that it survives a reboot:</p>
+
+<p><code> $ sudo systemctl enable docker </code><br>
+<code>[sudo] password for gszumo:  </code><br>
+<code>Created symlink /etc/systemd/system/multi-user.target.wants/docker.service -> /usr/lib/systemd/system/docker.service. </code><br>
+<code> $  </code><br></p>
+
+<p>Now we're ready to rock 'n roll!</p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_linux.html'>linux</a></p>
+
+
+
+
+
+
+<!-- text end -->
+<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//running-docker-on-fedora-26-for-the-first-time23728.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
+<a href='https://twitter.com/search?q=http://gszumo.github.io//running-docker-on-fedora-26-for-the-first-time23728.html'><span id='count-25083'></span></a>&nbsp;</p>
+<!-- entry end -->
+</div>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo&#64;gmail&#46;com">gszumo&#64;gmail&#46;com</a><br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+</body></html>
