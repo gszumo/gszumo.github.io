@@ -1,38 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
-<channel><title>Gregg's MOTD</title><link>http://gszumo.github.io//index.html</link>
+<channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Wed, 19 Apr 2023 18:45:21 -0400</lastBuildDate>
-<pubDate>Wed, 19 Apr 2023 18:45:21 -0400</pubDate>
-<atom:link href="http://gszumo.github.io//feed.rss" rel="self" type="application/rss+xml" />
+<lastBuildDate>Sun, 23 Apr 2023 16:57:29 -0400</lastBuildDate>
+<pubDate>Sun, 23 Apr 2023 16:57:29 -0400</pubDate>
+<atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 git Tips
 </title><description><![CDATA[
 
 <p>A useful tip to beautify your output is to use:
-<br>
 <code>
 $ git log --graph --decorate --oneline --abbrev-commit --all --date=local
 </code>
-<br>
 when looking at your log entries.
-<p>
 Or you can add
-<br>
 <code>
 [alias]
 </code>
-<br>
 <code>
    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
 </code>
-<br>
 to your ~/.gitconfig file to use <code>$ git lola</code> as an alias.</p>
 
 <p>Tags: <a href='tag_git.html'>git</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
-]]></description><link>http://gszumo.github.io//git-tips.html</link>
-<guid>http://gszumo.github.io//./git-tips.html</guid>
+]]></description><link>http://www.szumowski.org/git-tips.html</link>
+<guid>http://www.szumowski.org/./git-tips.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sat, 15 Apr 2023 13:37:14 -0400</pubDate></item>
 </channel></rss>
