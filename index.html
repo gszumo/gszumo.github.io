@@ -5,406 +5,49 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg Szumowski</title>
-<meta name='twitter:card' content='summary' />
-<meta name='twitter:site' content='@gszumo' />
-<meta name='twitter:title' content='Gregg Szumowski' />
-<meta name='twitter:description' content=" xhyve Installing and Configuration   April 13, 2020 &mdash;  Gregg Szumowski    Recently, I've been trying to improve the performance of virtualization on my 2012 MacBook Pro. I've heard about a virtualization tool called bhyve on FreeBSD and unders" />
+<title>Gregg's MOTD</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
 <div id="title">
-<h1 class="nomargin"><a class="ablack" href="http://gszumo.github.io//index.html">Gregg Szumowski</a></h1>
+<h1 class="nomargin"><a class="ablack" href="http://gszumo.github.io//index.html">Gregg's MOTD</a></h1>
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
-<h3><a class="ablack" href="xhyve-installing-and-configuration.html">
-xhyve Installing and Configuration
+<h3><a class="ablack" href="git-tips.html">
+git Tips
 </a></h3>
-<!-- bashblog_timestamp: #202004132242.37# -->
-<div class="subtitle">April 13, 2020 &mdash; 
+<!-- bashblog_timestamp: #202304151337.14# -->
+<div class="subtitle">April 15, 2023 &mdash; 
 Gregg Szumowski
 </div>
 <!-- text begin -->
 
-<p>Recently, I've been trying to improve the performance of virtualization on my 2012 MacBook Pro. I've heard about a virtualization tool called bhyve on FreeBSD and understood that it was being ported to macOS. I found this article, <a href="https://dan.langille.org/2018/10/02/running-freebsd-on-osx-using-xhyve-a-port-of-bhyve/">Running FreeBSD on OSX using xhyve, a port of bhyve</a> on Dan Langille's blog and decided to have a go at installing it.</p>
-
-<p>At first I just figured that I would check if it could be installed via Homebrew and to my surprise I found that I had already installed it quite some time ago. So the next thing was to see if I could get it to work. I checked Homebrew to see if there were any other package available that would offer me some sort of GUI for xhyve, but unfortunately the only other package available was related to a driver for Docker. That's OK though, since I like using the command line better for these situations because you really get a better understanding of how the tool really works that way. So I commenced work.</p>
-
-<p>I decided to start with Langille's scripts to see if I could get FreeBSD up and running.</p>
-
-<ul>
-<li>Download the latest FreeBSD 12.0 ISO file</li>
-<li>Create an image (img file) to be used as the target drive</li>
-<li>Use Langille's first script to install the ISO to the img file</li>
-<li>Convert the installation script to a run script</li>
-</ul>
-
-<p>Seems simple enough. But....</p>
-
-<p>I downloaded the FreeBSD ISO image from freebsd.org as instructed. He used an older version but I wanted to use the latest. Who can argue with that?</p>
-
-<p>Step 1. <a href="https://download.freebsd.org/ftp/releases/amd64/amd64/ISO-IMAGES/12.0/">Download FreeBS from here</a></p>
-
-<p>Step 2. Create the target image:
-<code>
-$ mkfile -nv 50g fbsd.img
-</code><br>
-<code>
-fbsd.img 53687091200 bytes
-</code>
-This is where you will be installing FreeBSD, so make sure that you create a image large enough for your needs. In my case I don't really need much space.</p>
-
-<p>Step 3. Modify Langille's script to your needs.
-<code> #!/bin/sh </code><br></p>
-
-<p><code> BOOTVOLUME="FreeBSD-12.0-RELEASE-amd64-disc1.iso" </code><br>
-<code> IMG="fbsd.img" </code><br></p>
-
-<p><code> PATH="../build/Release:build:$PATH" </code><br></p>
-
-<p><code> ../build/xhyve \ </code><br>
-<code>     -A \ </code><br>
-<code>     -m 2G \ </code><br>
-<code>     -c 2 \ </code><br>
-<code>     -s 0:0,hostbridge \ </code><br>
-<code>     -s 2:0,virtio-net \ </code><br>
-<code>     -s 3:0,ahci-cd,$BOOTVOLUME \ </code><br>
-<code>     -s 4:0,virtio-blk,$IMG \ </code><br>
-<code>     -s 31,lpc \ </code><br>
-<code>     -l com1,stdio \ </code><br>
-<code>     -f fbsd,../test/userboot.so,$BOOTVOLUME,"" </code><br></p>
-
-<p>Run your installation script:</p>
-
-<p><code> $ sudo ./xhyveinstall-freebsd.sh </code><br></p>
-
-<p>You should now get a boot screen.</p>
-
-<p>Complete the installation as you normally would for FreeBSD and return to the shell prompt. Then modify the installation script that you just ran and fix it so it becomes a run script:</p>
-
-<p><code> #!/bin/sh </code><br></p>
-
-<p><code> IMG="fbsd.img" </code><br>
-<code> PATH="../build/Release:build:$PATH" </code><br></p>
-
-<p><code> xhyve \ </code><br>
-<code>     -A \ </code><br>
-<code>     -m 2G \ </code><br>
-<code>     -c 2 \ </code><br>
-<code>     -s 0:0,hostbridge \ </code><br>
-<code>     -s 2:0,virtio-net \ </code><br>
-<code>     -s 4:0,virtio-blk,$IMG \ </code><br>
-<code>     -s 31,lpc \ </code><br>
-<code>     -l com1,stdio \ </code><br>
-<code>     -f fbsd,../test/userboot.so,$IMG,"" </code><br></p>
-
-<p>Run your run script:</p>
-
-<p><code> $ sudo ./xhyverun-freebsd.sh </code><br></p>
-
-<p>Congratulations! You're running FreeBSD under xhyve!</p>
-
-<p>Next time: Ubuntu 18.04 under xhyve.</p>
-
-<p>Tags: <a href='tag_macOS.html'>macOS</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//xhyve-installing-and-configuration.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://gszumo.github.io//xhyve-installing-and-configuration.html'><span id='count-30261'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="uptime-statistics-for-windows12565.html">
-Uptime Statistics for Windows
-</a></h3>
-<!-- bashblog_timestamp: #202004132241.44# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>To find the uptime for a Windows machine do</p>
-
-<p><code>  C:> net statistics server </code></p>
-
-<p>Tags: <a href='tag_windows.html'>windows</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//uptime-statistics-for-windows12565.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://gszumo.github.io//uptime-statistics-for-windows12565.html'><span id='count-24201'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="talkin-trash14832.html">
-Talkin' Trash
-</a></h3>
-<!-- bashblog_timestamp: #202004132240.36# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>Having trouble getting the "Empty Trash" working in Thunar? Remove <code>"~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar*"</code>.</p>
-
-<p>Tags: <a href='tag_linux.html'>linux</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//talkin-trash14832.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://gszumo.github.io//talkin-trash14832.html'><span id='count-19338'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="sort-directory-by-file-size11284.html">
-Sort Directory by File Size
-</a></h3>
-<!-- bashblog_timestamp: #202004132239.32# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>To sort files in a directory and to list them by the biggest file first:<br>
-<code>
-$ du -a | sort -n -r | more
-</code></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//sort-directory-by-file-size11284.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://gszumo.github.io//sort-directory-by-file-size11284.html'><span id='count-7257'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="set-mac-hostname2284.html">
-Set Mac Hostname
-</a></h3>
-<!-- bashblog_timestamp: #202004132238.22# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>To set the host name of your Mac (in my case macbook-pro) in the command prompt, type the following command:</p>
-
-<p><code> $ sudo scutil --set HostName "macbook-pro" </code>
+<p>A useful tip to beautify your output is to use:
 <br>
-<code> $ sudo scutil --set LocalHostName "macbook-pro" </code></p>
+<code>
+$ git log --graph --decorate --oneline --abbrev-commit --all --date=local
+</code>
+<br>
+when looking at your log entries.
+<p>
+Or you can add
+<br>
+<code>
+[alias]
+</code>
+<br>
+<code>
+   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
+</code>
+<br>
+to your ~/.gitconfig file to use <code>$ git lola</code> as an alias.</p>
 
-<p>Tags: <a href='tag_macOS.html'>macOS</a></p>
-
-
-
-
-
-
+<p>Tags: <a href='tag_git.html'>git</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//set-mac-hostname2284.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://gszumo.github.io//set-mac-hostname2284.html'><span id='count-12831'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="running-docker-on-fedora-26-for-the-first-time23728.html">
-Running Docker on Fedora 26 for the First Time
-</a></h3>
-<!-- bashblog_timestamp: #202004132237.17# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>OK, so I want to start using docker on my Fedora laptop: How do we get started? Well, the Fedora Workstation page says that it comes with built-in Docker support so let's see if we can start it up:</p>
-
-<p><code> $ which docker </code><br>
-<code>/usr/bin/docker </code><br>
-<code> $ docker login </code><br>
-<code>/usr/bin/docker: line 13: /usr/bin/docker-latest: No such file or directory </code><br>
-<code> $ docker image pull nginx </code><br>
-<code>/usr/bin/docker: line 13: /usr/bin/docker-latest: No such file or directory </code><br></p>
-
-<p>OK, so that's weird. Apparently not everything works as advertised. The command line tells me that there's a docker command installed on the laptop by default but it doesn't see to do anything that I want. So, let's try to (re-)install docker to see if that helps:</p>
-
-<p><code> $ sudo dnf install docker </code><br>
-<code>[sudo] password for gszumo:  </code><br>
-<code>Last metadata expiration check: 0:36:07 ago on Sun 15 Oct 2017 08:11:13 AM EDT. </code><br>
-<code>Dependencies resolved. </code><br>
-<code>================================================================================ </code><br>
-<code> Package                   Arch    Version                       Repository </code><br>
-<code>                                                                           Size </code><br>
-<code>================================================================================ </code><br>
-<code>Installing: </code><br>
-<code> docker                    x86<em>64  2:1.13.1-22.gitb5e3294.fc26   updates   20 M </code><br>
-<code>Installing dependencies: </code><br>
-<code> atomic-registries         x86</em>64  1.18.1-5.fc26                 fedora    45 k </code><br>
-<code> container-selinux         noarch  2:2.24-1.fc26                 updates   33 k </code><br>
-<code> container-storage-setup   noarch  0.8.0-1.git1d27ecf.fc26       updates   36 k </code><br>
-<code> docker-rhel-push-plugin   x86<em>64  2:1.13.1-22.gitb5e3294.fc26   updates  1.6 M </code><br>
-<code> libnet                    x86</em>64  1.1.6-12.fc26                 fedora    63 k </code><br>
-<code> libyaml                   x86<em>64  0.1.7-2.fc26                  fedora    57 k </code><br>
-<code> oci-umount                x86</em>64  2:2.0.0-2.gitf90b64c.fc26     updates   30 k </code><br>
-<code> python-rhsm-certificates  x86<em>64  1.20.1-1.fc26                 updates   44 k </code><br>
-<code> skopeo-containers         x86</em>64  0.1.23-6.git1bbd87f.fc26      updates   13 k </code><br>
-<code>Installing weak dependencies: </code><br>
-<code> criu                      x86<em>64  3.5-1.fc26                    updates  450 k </code><br>
-<code> oci-register-machine      x86</em>64  0-5.11.gitcd1e331.fc26        updates  1.0 M </code><br>
-<code> oci-systemd-hook          x86<em>64  1:0.1.13-1.gitafe4b4a.fc26    updates   35 k </code><br>
-<code> </code><br>
-<code>Transaction Summary </code><br>
-<code>================================================================================ </code><br>
-<code>Install  13 Packages </code><br>
-<code> </code><br>
-<code>Total download size: 23 M </code><br>
-<code>Installed size: 78 M </code><br>
-<code>Is this ok [y/N]: y </code><br>
-<code>Downloading Packages: </code><br>
-<code>(1/13): atomic-registries-1.18.1-5.fc26.x86</em>64.rpm             179 kB/s |  45 kB     00:00     </code><br>
-<code>(2/13): libyaml-0.1.7-2.fc26.x86<em>64.rpm                        209 kB/s |  57 kB     00:00     </code><br>
-<code>(3/13): docker-rhel-push-plugin-1.13.1-22.gitb5e3294.fc26.x86</em> 2.1 MB/s | 1.6 MB     00:00     </code><br>
-<code>(4/13): container-selinux-2.24-1.fc26.noarch.rpm               129 kB/s |  33 kB     00:00     </code><br>
-<code>(5/13): container-storage-setup-0.8.0-1.git1d27ecf.fc26.noarch 812 kB/s |  36 kB     00:00     </code><br>
-<code>(6/13): oci-umount-2.0.0-2.gitf90b64c.fc26.x86<em>64.rpm          527 kB/s |  30 kB     00:00     </code><br>
-<code>(7/13): python-rhsm-certificates-1.20.1-1.fc26.x86</em>64.rpm      730 kB/s |  44 kB     00:00     </code><br>
-<code>(8/13): skopeo-containers-0.1.23-6.git1bbd87f.fc26.x86<em>64.rpm  295 kB/s |  13 kB     00:00     </code><br>
-<code>(9/13): criu-3.5-1.fc26.x86</em>64.rpm                             1.9 MB/s | 450 kB     00:00     </code><br>
-<code>(10/13): oci-systemd-hook-0.1.13-1.gitafe4b4a.fc26.x86<em>64.rpm  648 kB/s |  35 kB     00:00     </code><br>
-<code>(11/13): libnet-1.1.6-12.fc26.x86</em>64.rpm                       165 kB/s |  63 kB     00:00     </code><br>
-<code>(12/13): oci-register-machine-0-5.11.gitcd1e331.fc26.x86<em>64.rp 1.9 MB/s | 1.0 MB     00:00     </code><br>
-<code>(13/13): docker-1.13.1-22.gitb5e3294.fc26.x86</em>64.rpm           3.0 MB/s |  20 MB     00:06     </code><br>
-<code>----------------------------------------------------------------------------------------------- </code><br>
-<code>Total                                                          3.0 MB/s |  23 MB     00:07      </code><br>
-<code>Running transaction check </code><br>
-<code>Transaction check succeeded. </code><br>
-<code>Running transaction test </code><br>
-<code>Transaction test succeeded. </code><br>
-<code>Running transaction </code><br>
-<code> ... </code><br>
-<code> ... </code><br>
-<code> ... Lots of installation stuff here ... </code><br>
-<code> ... </code><br>
-<code> ... </code><br>
-<code>Complete! </code><br></p>
-
-<p>So now lets fire it up and see what happens:</p>
-
-<p><code> $ sudo systemctl start docker </code><br>
-<code> $ sudo docker run hello-world </code><br>
-<code>Unable to find image 'hello-world:latest' locally </code><br>
-<code>Trying to pull repository registry.fedoraproject.org/hello-world ...  </code><br>
-<code>Trying to pull repository registry.access.redhat.com/hello-world ...  </code><br>
-<code>Trying to pull repository docker.io/library/hello-world ...  </code><br>
-<code>sha256:07d5f7800dfe37b8c2196c7b1c524c33808ce2e0f74e7aa00e603295ca9a0972: Pulling from docker.io/library/hello-world </code><br>
-<code>5b0f327be733: Pull complete  </code><br>
-<code>Digest: sha256:07d5f7800dfe37b8c2196c7b1c524c33808ce2e0f74e7aa00e603295ca9a0972 </code><br>
-<code>Status: Downloaded newer image for docker.io/hello-world:latest </code><br>
-<code> </code><br>
-<code>Hello from Docker! </code><br>
-<code>This message shows that your installation appears to be working correctly. </code><br>
-<code> </code><br>
-<code>To generate this message, Docker took the following steps: </code><br>
-<code> 1. The Docker client contacted the Docker daemon. </code><br>
-<code> 2. The Docker daemon pulled the "hello-world" image from the Docker Hub. </code><br>
-<code> 3. The Docker daemon created a new container from that image which runs the </code><br>
-<code>    executable that produces the output you are currently reading. </code><br>
-<code> 4. The Docker daemon streamed that output to the Docker client, which sent it </code><br>
-<code>    to your terminal. </code><br>
-<code> </code><br>
-<code>To try something more ambitious, you can run an Ubuntu container with: </code><br>
-<code> $ docker run -it ubuntu bash </code><br>
-<code> </code><br>
-<code>Share images, automate workflows, and more with a free Docker ID: </code><br>
-<code> https://cloud.docker.com/ </code><br>
-<code> </code><br>
-<code>For more examples and ideas, visit: </code><br>
-<code> https://docs.docker.com/engine/userguide/ </code><br>
-<code> </code><br>
-<code> </code><br>
-Bingo, we're good to go. Let's setup the daemon so that it survives a reboot:</p>
-
-<p><code> $ sudo systemctl enable docker </code><br>
-<code>[sudo] password for gszumo:  </code><br>
-<code>Created symlink /etc/systemd/system/multi-user.target.wants/docker.service -> /usr/lib/systemd/system/docker.service. </code><br>
-<code> $  </code><br></p>
-
-<p>Now we're ready to rock 'n roll!</p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_linux.html'>linux</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//running-docker-on-fedora-26-for-the-first-time23728.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://gszumo.github.io//running-docker-on-fedora-26-for-the-first-time23728.html'><span id='count-25083'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="reset-mac-launchpad15617.html">
-Reset Mac Launchpad
-</a></h3>
-<!-- bashblog_timestamp: #202004132236.19# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>To reset the Mac LaunchPad to default enter the following:</p>
-
-<p><code> rm ~/Library/Application\ Support/Dock/*.db ; killall Dock </code><br></p>
-
-<p>This will however put all of the Apple apps on the first page and all of your remaining apps will be sorted alphabetically on the remaining pages.</p>
-
-<p>Tags: <a href='tag_macOS.html'>macOS</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//reset-mac-launchpad15617.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://gszumo.github.io//reset-mac-launchpad15617.html'><span id='count-31768'></span></a>&nbsp;</p>
-<h3><a class="ablack" href="removing-m-characters-from-multiple-files.html">
-Removing ^M Characters From Multiple Files
-</a></h3>
-<!-- bashblog_timestamp: #202004132235.20# -->
-<div class="subtitle">April 13, 2020 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>In my day job I find that I frequently need to remove those pesky '^M' line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing</p>
-
-<p><code> :%s/^M//g </code><br></p>
-
-<p>solves the problem, but on occasion I might be confronted with performing this process on multiple files and sometimes recursively through many subdirectories. When that happens it becomes necessary to bring out the "big guns" and do:</p>
-
-<p><code> $ for file in $(find /path/to/dir -type f); do </code><br>
-<code>       tr -d '\r' <$file >temp.$$ &amp;&amp; mv temp.$$ $file </code><br>
-<code>   done </code><br>
-<code> $ </code><br></p>
-
-<p>(BTW, to generate a ^M character using the PuTTY emulator is easy. Just press CTRL-^ followed by CTRL-M)</p>
-
-<p>Of course, in Linux, UNIX and AIX shells there are many ways to skin a cat and this is just one of many possible solutions. This solution was found on <a href="https://dailyvim.blogspot.com">a Daily Vim Blogspot site</a> which has more very interesting tips &amp; tutorials.</p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a></p>
-
-
-
-
-
-
-<!-- text end -->
-<p id='twitter'><a href='http://twitter.com/intent/tweet?url=http://gszumo.github.io//removing-m-characters-from-multiple-files.html&text=&lt;Type your comment here but please leave the URL so that other people can follow the comments&gt;&via=gszumo'>Comments? Tweet</a> 
-<a href='https://twitter.com/search?q=http://gszumo.github.io//removing-m-characters-from-multiple-files.html'><span id='count-7176'></span></a>&nbsp;</p>
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
-<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo&#64;gmail&#46;com">gszumo&#64;gmail&#46;com</a><br/>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a><br/>
 Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
 </div></div>
 </body></html>
