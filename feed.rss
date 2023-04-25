@@ -2,9 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sun, 23 Apr 2023 16:57:29 -0400</lastBuildDate>
-<pubDate>Sun, 23 Apr 2023 16:57:29 -0400</pubDate>
+<lastBuildDate>Mon, 24 Apr 2023 22:10:06 -0400</lastBuildDate>
+<pubDate>Mon, 24 Apr 2023 22:10:06 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Alternative to Using cp
+</title><description><![CDATA[
+
+<p>To backup files from a source directory to a backup directory:
+<code>
+$ mkdir /path/to/backup/directory
+$ cd $HOME/source/directory
+$ tar cf - . | (cd /path/to/backup/directory &amp;&amp; tar xBvf -)
+</code>
+Define the following alias:</p>
+
+<p><code>
+tar cvf - . | ( cd \!* ; tar xvf - )
+</code></p>
+
+<p>or as an alias:</p>
+
+<p><code>
+alias cpbytar='tar cvf - . | ( cd \!* ; tar xvf - )'
+</code>
+(The alias definition above is for Bash)</p>
+
+<p>To do a recursive copy of a directory to another location, preserving the PERMISSIONS and OWNERSHIP of the files.  "cd" to the source location and invoke the following alias:</p>
+
+<p><code>
+cpbytar
+</code></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/alternative-to-using-cp.html</link>
+<guid>http://www.szumowski.org/./alternative-to-using-cp.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 24 Apr 2023 22:08:12 -0400</pubDate></item>
 <item><title>
 git Tips
 </title><description><![CDATA[

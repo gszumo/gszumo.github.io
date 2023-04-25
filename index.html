@@ -14,6 +14,42 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="alternative-to-using-cp.html">
+Alternative to Using cp
+</a></h3>
+<!-- bashblog_timestamp: #202304242208.12# -->
+<div class="subtitle">April 24, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>To backup files from a source directory to a backup directory:
+<code>
+$ mkdir /path/to/backup/directory
+$ cd $HOME/source/directory
+$ tar cf - . | (cd /path/to/backup/directory &amp;&amp; tar xBvf -)
+</code>
+Define the following alias:</p>
+
+<p><code>
+tar cvf - . | ( cd \!* ; tar xvf - )
+</code></p>
+
+<p>or as an alias:</p>
+
+<p><code>
+alias cpbytar='tar cvf - . | ( cd \!* ; tar xvf - )'
+</code>
+(The alias definition above is for Bash)</p>
+
+<p>To do a recursive copy of a directory to another location, preserving the PERMISSIONS and OWNERSHIP of the files.  "cd" to the source location and invoke the following alias:</p>
+
+<p><code>
+cpbytar
+</code></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="git-tips.html">
 git Tips
 </a></h3>
