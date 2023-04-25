@@ -2,9 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Mon, 24 Apr 2023 22:10:06 -0400</lastBuildDate>
-<pubDate>Mon, 24 Apr 2023 22:10:06 -0400</pubDate>
+<lastBuildDate>Tue, 25 Apr 2023 17:30:37 -0400</lastBuildDate>
+<pubDate>Tue, 25 Apr 2023 17:30:37 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Uptime Statistics for Windows
+</title><description><![CDATA[
+
+<p>To find the uptime for a Windows machine do</p>
+
+<p><code>
+C:&gt; net statistics server
+</code></p>
+
+<p>Tags: <a href='tag_windows.html'>windows</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/uptime-statistics-for-windows.html</link>
+<guid>http://www.szumowski.org/./uptime-statistics-for-windows.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Tue, 25 Apr 2023 17:28:42 -0400</pubDate></item>
 <item><title>
 Alternative to Using cp
 </title><description><![CDATA[
