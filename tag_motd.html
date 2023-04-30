@@ -14,27 +14,6 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
-<h3><a class="ablack" href="count-occurences-of-a-character-in-a-string32529.html">
-Count Occurences of a Character in a String
-</a></h3>
-<!-- bashblog_timestamp: #202304301122.54# -->
-<div class="subtitle">April 30, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>Sometimes I need to know how many times a specific character occurs in a string. The best tool to use for something like that is AWK. Let's say we're looking for the count of commas in a string:</p>
-
-<p>```
-string="text,text,text,text"</p>
-
-<p>char="," </p>
-
-<p>echo "${string}" | awk -F"${char}" '{print NF-1}'
-```</p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
 <h3><a class="ablack" href="talkin-trash19647.html">
 Talkin' Trash
 </a></h3>
