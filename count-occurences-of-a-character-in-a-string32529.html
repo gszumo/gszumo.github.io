@@ -26,11 +26,13 @@ Gregg Szumowski
 
 <p>Sometimes I need to know how many times a specific character occurs in a string. The best tool to use for something like that is AWK. Let's say we're looking for the count of commas in a string:</p>
 
-<p><code>
-string="text,text,text,text"
-char="," 
-echo "${string}" | awk -F"${char}" '{print NF-1}'
-</code></p>
+<p>```
+string="text,text,text,text"</p>
+
+<p>char="," </p>
+
+<p>echo "${string}" | awk -F"${char}" '{print NF-1}'
+```</p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
