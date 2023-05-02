@@ -14,6 +14,27 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="sort-directory-by-file-size1118.html">
+Sort Directory by File Size
+</a></h3>
+<!-- bashblog_timestamp: #202305012215.27# -->
+<div class="subtitle">May 01, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>To sort files in a directory and to list them by the biggest file first:<br>
+<code>
+$ du -a | sort -n -r | more
+</code>
+<br>Alternatively you can use:<br>
+<code>
+$ du -s * | sort -n -r | more
+</code>
+<br></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="alternative-to-using-cp.html">
 Alternative to Using cp
 </a></h3>

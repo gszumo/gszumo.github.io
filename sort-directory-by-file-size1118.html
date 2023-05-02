@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; All tags</title>
+<title>Sort Directory by File Size</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -14,15 +14,29 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
-<h3>All tags</h3>
-<ul>
-<li><a href="tag_cli.html">cli</a> &mdash; 2 posts</li>
-<li><a href="tag_git.html">git</a> &mdash; 1 post</li>
-<li><a href="tag_linux.html">linux</a> &mdash; 1 post</li>
-<li><a href="tag_motd.html">motd</a> &mdash; 5 posts</li>
-<li><a href="tag_windows.html">windows</a> &mdash; 1 post</li>
-</ul>
-<div id="all_posts"><a href="./index.html">Back to the index page</a></div>
+<!-- entry begin -->
+<h3><a class="ablack" href="sort-directory-by-file-size1118.html">
+Sort Directory by File Size
+</a></h3>
+<!-- bashblog_timestamp: #202305012215.27# -->
+<div class="subtitle">May 01, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>To sort files in a directory and to list them by the biggest file first:<br>
+<code>
+$ du -a | sort -n -r | more
+</code>
+<br>Alternatively you can use:<br>
+<code>
+$ du -s * | sort -n -r | more
+</code>
+<br></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+<!-- entry end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a><br/>
 Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>

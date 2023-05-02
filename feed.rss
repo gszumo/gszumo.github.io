@@ -2,9 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sun, 30 Apr 2023 11:34:01 -0400</lastBuildDate>
-<pubDate>Sun, 30 Apr 2023 11:34:01 -0400</pubDate>
+<lastBuildDate>Mon, 01 May 2023 22:15:29 -0400</lastBuildDate>
+<pubDate>Mon, 01 May 2023 22:15:29 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Sort Directory by File Size
+</title><description><![CDATA[
+
+<p>To sort files in a directory and to list them by the biggest file first:<br>
+<code>
+$ du -a | sort -n -r | more
+</code>
+<br>Alternatively you can use:<br>
+<code>
+$ du -s * | sort -n -r | more
+</code>
+<br></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/sort-directory-by-file-size1118.html</link>
+<guid>http://www.szumowski.org/./sort-directory-by-file-size1118.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 01 May 2023 22:15:27 -0400</pubDate></item>
 <item><title>
 Count Occurences of a Character in a String
 </title><description><![CDATA[
