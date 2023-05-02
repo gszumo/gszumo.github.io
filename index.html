@@ -14,6 +14,24 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="fixing-screen-resolution-on-second-monitor-in-linux4621.html">
+Fixing Screen Resolution on Second Monitor in Linux
+</a></h3>
+<!-- bashblog_timestamp: #202305021816.35# -->
+<div class="subtitle">May 02, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>I recently installed a 2nd hard drive in my Macbook Pro dedicated to Linux. When I hooked up a secondary monitor to it I found that I could not get a reasonable resolution. After some research I found that I can add a new mode to the "Display" choices by entering the following in a terminal console:</p>
+
+<p><code> xrandr </code> # to find the device name <br>
+<code> cvt 1920 1080 </code> # to generate the mode for the xrandr program. <br>
+<code> xrandr --newmode "1920x1080<em>60.00" 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync </code> # to add the new mode to the monitor choices. <br>
+<code>xrandr --addmode DP1 1920x1080</em>60.00 </code> # to associate the new mode to the monitor.   <br></p>
+
+<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="sort-directory-by-file-size1118.html">
 Sort Directory by File Size
 </a></h3>
