@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 02 May 2023 18:16:39 -0400</lastBuildDate>
-<pubDate>Tue, 02 May 2023 18:16:39 -0400</pubDate>
+<lastBuildDate>Tue, 02 May 2023 21:07:56 -0400</lastBuildDate>
+<pubDate>Tue, 02 May 2023 21:07:56 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 Fixing Screen Resolution on Second Monitor in Linux
