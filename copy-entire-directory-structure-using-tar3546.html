@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; All tags</title>
+<title>Copy Entire Directory Structure Using Tar</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -14,15 +14,23 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
-<h3>All tags</h3>
-<ul>
-<li><a href="tag_cli.html">cli</a> &mdash; 3 posts</li>
-<li><a href="tag_git.html">git</a> &mdash; 1 post</li>
-<li><a href="tag_linux.html">linux</a> &mdash; 2 posts</li>
-<li><a href="tag_motd.html">motd</a> &mdash; 7 posts</li>
-<li><a href="tag_windows.html">windows</a> &mdash; 1 post</li>
-</ul>
-<div id="all_posts"><a href="./index.html">Back to the index page</a></div>
+<!-- entry begin -->
+<h3><a class="ablack" href="copy-entire-directory-structure-using-tar3546.html">
+Copy Entire Directory Structure Using Tar
+</a></h3>
+<!-- bashblog_timestamp: #202305031813.27# -->
+<div class="subtitle">May 03, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>Sometimes you need to copy an entire directory structure to another location on the command line. Here is a quick way to do it using the tar command:</p>
+
+<p><code> tar cf - * | ( cd /target; tar xfp -) </code><br></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+<!-- entry end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
 Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>

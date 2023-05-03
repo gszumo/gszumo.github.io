@@ -2,9 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 02 May 2023 21:07:56 -0400</lastBuildDate>
-<pubDate>Tue, 02 May 2023 21:07:56 -0400</pubDate>
+<lastBuildDate>Wed, 03 May 2023 18:13:31 -0400</lastBuildDate>
+<pubDate>Wed, 03 May 2023 18:13:31 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Copy Entire Directory Structure Using Tar
+</title><description><![CDATA[
+
+<p>Sometimes you need to copy an entire directory structure to another location on the command line. Here is a quick way to do it using the tar command:</p>
+
+<p><code> tar cf - * | ( cd /target; tar xfp -) </code><br></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/copy-entire-directory-structure-using-tar3546.html</link>
+<guid>http://www.szumowski.org/./copy-entire-directory-structure-using-tar3546.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Wed, 03 May 2023 18:13:27 -0400</pubDate></item>
 <item><title>
 Fixing Screen Resolution on Second Monitor in Linux
 </title><description><![CDATA[
