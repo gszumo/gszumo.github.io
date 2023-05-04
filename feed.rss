@@ -2,9 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Wed, 03 May 2023 18:13:31 -0400</lastBuildDate>
-<pubDate>Wed, 03 May 2023 18:13:31 -0400</pubDate>
+<lastBuildDate>Thu, 04 May 2023 18:29:25 -0400</lastBuildDate>
+<pubDate>Thu, 04 May 2023 18:29:25 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Get the Hash of a File on Different Operating Systems
+</title><description><![CDATA[
+
+<p>Sometimes you just need to hash something. Here are some command lines to do just that.</p>
+
+<p>Windows PowerShell:</p>
+
+<p><code> Get-FileHash C:\path\to\file.iso -Algorithm [MD5|SHA1|SHA256|SHA384|SHA512|MACTripleDES|RIPEMD160] </code><br></p>
+
+<p>(SHA256 is the default if the parameter is omitted) </p>
+
+<p>Linux: </p>
+
+<p><code> md5sum /path/to/file </code><br>
+<code> sha1sum /path/to/file </code><br>
+<code> sha256sum /path/to/file </code><br></p>
+
+<p>macOS:</p>
+
+<p><code> MD5: md5 /path/to/file </code><br>
+<code> SHA1: shasum /path/to/file or shasum -a 1 /path/to/file </code><br>
+<code> SHA-256: shasum -a 256 /path/to/file </code><br></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/get-the-hash-of-a-file-on-different-operating-systems17003.html</link>
+<guid>http://www.szumowski.org/./get-the-hash-of-a-file-on-different-operating-systems17003.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Thu, 04 May 2023 18:29:20 -0400</pubDate></item>
 <item><title>
 Copy Entire Directory Structure Using Tar
 </title><description><![CDATA[
