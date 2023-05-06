@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD</title>
+<title>Getting Rid of ^M Line Endings in a Text File</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -14,6 +14,7 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<!-- entry begin -->
 <h3><a class="ablack" href="getting-rid-of-m-line-endings-in-a-text-file20658.html">
 Getting Rid of ^M Line Endings in a Text File
 </a></h3>
@@ -132,151 +133,7 @@ on the vim command line and save the file.</li>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
-<h3><a class="ablack" href="removing-m-characters-from-multiple-files19102.html">
-Removing ^M Characters From Multiple Files
-</a></h3>
-<!-- bashblog_timestamp: #202305052225.36# -->
-<div class="subtitle">May 05, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>In my day job I find that I frequently need to remove those pesky '^M' line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing</p>
-
-<p><code> :%s/^M//g </code><br></p>
-
-<p>solves the problem, but on occasion I might be confronted with performing this process on multiple files and sometimes recursively through many subdirectories. When that happens it becomes necessary to bring out the "big guns" and do:</p>
-
-<p><code> $ for file in $(find /path/to/dir -type f); do </code><br>
-<code>       tr -d '\r' <$file >temp.$$ &amp;&amp; mv temp.$$ $file </code><br>
-<code>   done </code><br>
-<code> $ </code><br></p>
-
-<p>(BTW, to generate a ^M character using the PuTTY emulator is easy. Just press CTRL-^ followed by CTRL-M)</p>
-
-<p>Of course, in Linux, UNIX and AIX shells there are many ways to skin a cat and this is just one of many possible solutions. This solution was found on <a href="https://dailyvim.blogspot.com">a Daily Vim Blogspot site</a> which has more very interesting tips &amp; tutorials.</p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="get-the-hash-of-a-file-on-different-operating-systems17003.html">
-Get the Hash of a File on Different Operating Systems
-</a></h3>
-<!-- bashblog_timestamp: #202305041829.20# -->
-<div class="subtitle">May 04, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>Sometimes you just need to hash something. Here are some command lines to do just that.</p>
-
-<p>Windows PowerShell:</p>
-
-<p><code> Get-FileHash C:\path\to\file.iso -Algorithm [MD5|SHA1|SHA256|SHA384|SHA512|MACTripleDES|RIPEMD160] </code><br></p>
-
-<p>(SHA256 is the default if the parameter is omitted) </p>
-
-<p>Linux: </p>
-
-<p><code> md5sum /path/to/file </code><br>
-<code> sha1sum /path/to/file </code><br>
-<code> sha256sum /path/to/file </code><br></p>
-
-<p>macOS:</p>
-
-<p><code> MD5: md5 /path/to/file </code><br>
-<code> SHA1: shasum /path/to/file or shasum -a 1 /path/to/file </code><br>
-<code> SHA-256: shasum -a 256 /path/to/file </code><br></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="copy-entire-directory-structure-using-tar3546.html">
-Copy Entire Directory Structure Using Tar
-</a></h3>
-<!-- bashblog_timestamp: #202305031813.27# -->
-<div class="subtitle">May 03, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>Sometimes you need to copy an entire directory structure to another location on the command line. Here is a quick way to do it using the tar command:</p>
-
-<p><code> tar cf - * | ( cd /target; tar xfp -) </code><br></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="fixing-screen-resolution-on-second-monitor-in-linux4621.html">
-Fixing Screen Resolution on Second Monitor in Linux
-</a></h3>
-<!-- bashblog_timestamp: #202305021816.35# -->
-<div class="subtitle">May 02, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>I recently installed a 2nd hard drive in my Macbook Pro dedicated to Linux. When I hooked up a secondary monitor to it I found that I could not get a reasonable resolution. After some research I found that I can add a new mode to the "Display" choices by entering the following in a terminal console:</p>
-
-<p><code> xrandr </code> # to find the device name <br>
-<code> cvt 1920 1080 </code> # to generate the mode for the xrandr program. <br>
-<code> xrandr --newmode "1920x1080<em>60.00" 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync </code> # to add the new mode to the monitor choices. <br>
-<code>xrandr --addmode DP1 1920x1080</em>60.00 </code> # to associate the new mode to the monitor.   <br></p>
-
-<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="sort-directory-by-file-size1118.html">
-Sort Directory by File Size
-</a></h3>
-<!-- bashblog_timestamp: #202305012215.27# -->
-<div class="subtitle">May 01, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>To sort files in a directory and to list them by the biggest file first:<br>
-<code>
-$ du -a | sort -n -r | more
-</code>
-<br>Alternatively you can use:<br>
-<code>
-$ du -s * | sort -n -r | more
-</code>
-<br></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="count-occurences-of-a-character-in-a-string32529.html">
-Count Occurences of a Character in a String
-</a></h3>
-<!-- bashblog_timestamp: #202304301122.54# -->
-<div class="subtitle">April 30, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>Sometimes I need to know how many times a specific character occurs in a string. The best tool to use for something like that is AWK. Let's say we're looking for the count of commas in a string:
-<br>
-<code>string="text,text,text,text" </code>
-<br>
-<code>char="," </code>
-<br>
-<code>echo "${string}" | awk -F"${char}" '{print NF-1}' </code>
-<br>
-Tags: cli,motd</p>
-
-<!-- text end -->
-<h3><a class="ablack" href="talkin-trash19647.html">
-Talkin' Trash
-</a></h3>
-<!-- bashblog_timestamp: #202304291129.11# -->
-<div class="subtitle">April 29, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>Having trouble getting the "Empty Trash" working in Thunar? Remove <code>"~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar*"</code>.</p>
-
-<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
+<!-- entry end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
 Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
