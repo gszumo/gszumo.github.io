@@ -2,9 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 06 May 2023 13:37:15 -0400</lastBuildDate>
-<pubDate>Sat, 06 May 2023 13:37:15 -0400</pubDate>
+<lastBuildDate>Sun, 07 May 2023 17:06:11 -0400</lastBuildDate>
+<pubDate>Sun, 07 May 2023 17:06:11 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Gnome3 Menu Icons
+</title><description><![CDATA[
+
+<p>To add your own menu icons to a GNOME3 environment check out this link: 
+<a href="https://developer.gnome.org/integration-guide/stable/desktop-files.html.en">Desktop files: putting your application in the desktop menus</a></p>
+
+<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/gnome3-menu-icons11060.html</link>
+<guid>http://www.szumowski.org/./gnome3-menu-icons11060.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 07 May 2023 17:06:05 -0400</pubDate></item>
 <item><title>
 Getting Rid of ^M Line Endings in a Text File
 </title><description><![CDATA[
@@ -275,39 +288,4 @@ C:&gt; net statistics server
 <guid>http://www.szumowski.org/./uptime-statistics-for-windows.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 25 Apr 2023 17:28:42 -0400</pubDate></item>
-<item><title>
-Alternative to Using cp
-</title><description><![CDATA[
-
-<p>To backup files from a source directory to a backup directory:
-<code>
-$ mkdir /path/to/backup/directory
-$ cd $HOME/source/directory
-$ tar cf - . | (cd /path/to/backup/directory &amp;&amp; tar xBvf -)
-</code>
-Define the following alias:</p>
-
-<p><code>
-tar cvf - . | ( cd \!* ; tar xvf - )
-</code></p>
-
-<p>or as an alias:</p>
-
-<p><code>
-alias cpbytar='tar cvf - . | ( cd \!* ; tar xvf - )'
-</code>
-(The alias definition above is for Bash)</p>
-
-<p>To do a recursive copy of a directory to another location, preserving the PERMISSIONS and OWNERSHIP of the files.  "cd" to the source location and invoke the following alias:</p>
-
-<p><code>
-cpbytar
-</code></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/alternative-to-using-cp.html</link>
-<guid>http://www.szumowski.org/./alternative-to-using-cp.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Mon, 24 Apr 2023 22:08:12 -0400</pubDate></item>
 </channel></rss>
