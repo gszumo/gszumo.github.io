@@ -14,6 +14,21 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="untar-a-tarball-to-a-remote-directory5321.html">
+Untar a Tarball to a Remote Directory
+</a></h3>
+<!-- bashblog_timestamp: #202305081844.08# -->
+<div class="subtitle">May 08, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>Sometimes you may need to copy an entire directory structure to another system using the command line. Here is a quick way to do it using the tar command:</p>
+
+<p><code> cat myfile.tgz | ssh user@host "tar xzf - -C /some/dir" </code><br></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_tar.html'>tar</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="gnome3-menu-icons11060.html">
 Gnome3 Menu Icons
 </a></h3>
@@ -256,26 +271,6 @@ $ du -s * | sort -n -r | more
 <br></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="count-occurences-of-a-character-in-a-string32529.html">
-Count Occurences of a Character in a String
-</a></h3>
-<!-- bashblog_timestamp: #202304301122.54# -->
-<div class="subtitle">April 30, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>Sometimes I need to know how many times a specific character occurs in a string. The best tool to use for something like that is AWK. Let's say we're looking for the count of commas in a string:
-<br>
-<code>string="text,text,text,text" </code>
-<br>
-<code>char="," </code>
-<br>
-<code>echo "${string}" | awk -F"${char}" '{print NF-1}' </code>
-<br>
-Tags: cli,motd</p>
-
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
