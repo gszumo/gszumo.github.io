@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Gregg's MOTD &mdash; Posts tagged "uniq"</title>
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://www.szumowski.org/index.html">Gregg's MOTD</a></h1>
+<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<h3><a class="ablack" href="how-to-count-all-the-files-extension-recursively-in-linux.html">
+How To Count All The Files Extension Recursively In Linux
+</a></h3>
+<!-- bashblog_timestamp: #202305092200.54# -->
+<div class="subtitle">May 09, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>To count all the files by file extension recursively on the command line<br/><br/>
+<code> $ find . -type f | sed -n 's/..*.//p' | sort | uniq -c </code><br/>
+<code>     40 3g2</code><br/>
+<code>      5 AVI</code><br/>
+<code>     13 DS_Store</code><br/>
+<code>     28 JPG</code><br/>
+<code>     30 MOV</code><br/>
+<code>    133 MP4</code><br/>
+<code>     64 THM</code><br/>
+<code>      1 docx</code><br/>
+<code>     18 jpg</code><br/>
+<code>      1 json</code><br/>
+<code>      4 m3u</code><br/>
+<code>     89 m4a</code><br/>
+<code>      2 m4r</code><br/>
+<code>    156 m4v</code><br/>
+<code>     41 mkv</code><br/>
+<code>    112 mov</code><br/>
+<code>     38 mp3</code><br/>
+<code>    587 mp4</code><br/>
+<code>      1 nfo</code><br/>
+<code>      2 osp</code><br/>
+<code>     30 png</code><br/>
+<code>      1 sh</code><br/>
+<code>      4 srt</code><br/>
+<code>      6 svg</code><br/>
+<code>     10 torrent</code><br/>
+<code>      6 txt</code><br/>
+<code>      5 webm</code><br/>
+<code>     10 zip</code><br/>
+</code>
+<br></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_find.html'>find</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_sort.html'>sort</a>, <a href='tag_uniq.html'>uniq</a></p>
+<!-- text end -->
+</div>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
+NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+</body></html>
