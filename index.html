@@ -14,6 +14,38 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="sending-email-from-the-command-line8566.html">
+Sending Email from the Command Line
+</a></h3>
+<!-- bashblog_timestamp: #202305111815.35# -->
+<div class="subtitle">May 11, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<h4>mutt Examples<br/></h4>
+
+<p>Sending just a file attachment (-a) and an empty message body:<br/>
+<br/><code>
+$ mutt  -s "System logs" -a /opt/backup.sql -- user@example.com &lt; /dev/null
+</code><br/><br/>
+Sending a message body using redirection:<br/>
+<br/><code>
+$ mutt -s "Email subject" test@example.com &lt; email.html
+</code><br/><br/>
+Sending a file attachment along with a message body:<br/>
+<br/><code>
+$ echo $message | mutt -s "Subject" -a attachment.txt -- me@myemail.com
+</code><br/><br/></p>
+
+<h4>mailx Example:<br/></h4>
+
+<p><br/><code>
+$ echo "message body" | mail -s "subject" test@example.com
+</code><br/><br/></p>
+
+<p>Tags: <a href='tag_mail.html'>mail</a>, <a href='tag_mutt.html'>mutt</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1.html">
 How to convert VirtualBox VDI to KVM qcow2
 </a></h3>
@@ -286,21 +318,6 @@ Gregg Szumowski
 <p><code> MD5: md5 /path/to/file </code><br>
 <code> SHA1: shasum /path/to/file or shasum -a 1 /path/to/file </code><br>
 <code> SHA-256: shasum -a 256 /path/to/file </code><br></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="copy-entire-directory-structure-using-tar3546.html">
-Copy Entire Directory Structure Using Tar
-</a></h3>
-<!-- bashblog_timestamp: #202305031813.27# -->
-<div class="subtitle">May 03, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>Sometimes you need to copy an entire directory structure to another location on the command line. Here is a quick way to do it using the tar command:</p>
-
-<p><code> tar cf - * | ( cd /target; tar xfp -) </code><br></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->

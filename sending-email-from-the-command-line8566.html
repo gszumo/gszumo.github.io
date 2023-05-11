@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; All tags</title>
+<title>Sending Email from the Command Line</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -14,26 +14,40 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
-<h3>All tags</h3>
-<ul>
-<li><a href="tag_cli.html">cli</a> &mdash; 8 posts</li>
-<li><a href="tag_find.html">find</a> &mdash; 1 post</li>
-<li><a href="tag_git.html">git</a> &mdash; 1 post</li>
-<li><a href="tag_kvm.html">kvm</a> &mdash; 1 post</li>
-<li><a href="tag_linux.html">linux</a> &mdash; 3 posts</li>
-<li><a href="tag_mail.html">mail</a> &mdash; 1 post</li>
-<li><a href="tag_motd.html">motd</a> &mdash; 15 posts</li>
-<li><a href="tag_mutt.html">mutt</a> &mdash; 1 post</li>
-<li><a href="tag_qcow2.html">qcow2</a> &mdash; 1 post</li>
-<li><a href="tag_sed.html">sed</a> &mdash; 1 post</li>
-<li><a href="tag_sort.html">sort</a> &mdash; 1 post</li>
-<li><a href="tag_tar.html">tar</a> &mdash; 1 post</li>
-<li><a href="tag_uniq.html">uniq</a> &mdash; 1 post</li>
-<li><a href="tag_virtualbox.html">virtualbox</a> &mdash; 1 post</li>
-<li><a href="tag_virtualization.html">virtualization</a> &mdash; 1 post</li>
-<li><a href="tag_windows.html">windows</a> &mdash; 1 post</li>
-</ul>
-<div id="all_posts"><a href="./index.html">Back to the index page</a></div>
+<!-- entry begin -->
+<h3><a class="ablack" href="sending-email-from-the-command-line8566.html">
+Sending Email from the Command Line
+</a></h3>
+<!-- bashblog_timestamp: #202305111815.35# -->
+<div class="subtitle">May 11, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<h4>mutt Examples<br/></h4>
+
+<p>Sending just a file attachment (-a) and an empty message body:<br/>
+<br/><code>
+$ mutt  -s "System logs" -a /opt/backup.sql -- user@example.com &lt; /dev/null
+</code><br/><br/>
+Sending a message body using redirection:<br/>
+<br/><code>
+$ mutt -s "Email subject" test@example.com &lt; email.html
+</code><br/><br/>
+Sending a file attachment along with a message body:<br/>
+<br/><code>
+$ echo $message | mutt -s "Subject" -a attachment.txt -- me@myemail.com
+</code><br/><br/></p>
+
+<h4>mailx Example:<br/></h4>
+
+<p><br/><code>
+$ echo "message body" | mail -s "subject" test@example.com
+</code><br/><br/></p>
+
+<p>Tags: <a href='tag_mail.html'>mail</a>, <a href='tag_mutt.html'>mutt</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+<!-- entry end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
 NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>
