@@ -14,6 +14,33 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1.html">
+How to convert VirtualBox VDI to KVM qcow2
+</a></h3>
+<!-- bashblog_timestamp: #202305101707.58# -->
+<div class="subtitle">May 10, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>It is easy to convert a VirtualBox VDI image to a KVM qcow2 file. You have to use the RAW file format as an intermediate.</p>
+
+<p>Make sure the VirtualBox machine is shutdown.</p>
+
+<ol>
+<li>Convert the VDI to a raw disk image. <br/>
+Note: VDIs are compressed and raw images are not, so you will need to leave enough disk space for entire uncompressed disk.<br/>
+<br/><code>
+$ VBoxManage clonehd --format RAW vm.vdi vm.img
+</code><br/><br/></li>
+<li>Then on your KVM host:
+<br/><code>
+$ qemu-img convert -f raw vm.img -O qcow2 vm.qcow2
+</code><br/></li>
+</ol>
+
+<p>Tags: <a href='tag_virtualization.html'>virtualization</a>, <a href='tag_virtualbox.html'>virtualbox</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_qcow2.html'>qcow2</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="how-to-count-all-the-files-extension-recursively-in-linux.html">
 How To Count All The Files Extension Recursively In Linux
 </a></h3>
@@ -276,24 +303,6 @@ Gregg Szumowski
 <p><code> tar cf - * | ( cd /target; tar xfp -) </code><br></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="fixing-screen-resolution-on-second-monitor-in-linux4621.html">
-Fixing Screen Resolution on Second Monitor in Linux
-</a></h3>
-<!-- bashblog_timestamp: #202305021816.35# -->
-<div class="subtitle">May 02, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>I recently installed a 2nd hard drive in my Macbook Pro dedicated to Linux. When I hooked up a secondary monitor to it I found that I could not get a reasonable resolution. After some research I found that I can add a new mode to the "Display" choices by entering the following in a terminal console:</p>
-
-<p><code> xrandr </code> # to find the device name <br>
-<code> cvt 1920 1080 </code> # to generate the mode for the xrandr program. <br>
-<code> xrandr --newmode "1920x1080<em>60.00" 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync </code> # to add the new mode to the monitor choices. <br>
-<code>xrandr --addmode DP1 1920x1080</em>60.00 </code> # to associate the new mode to the monitor.   <br></p>
-
-<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

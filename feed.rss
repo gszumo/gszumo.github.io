@@ -2,9 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 09 May 2023 22:09:18 -0400</lastBuildDate>
-<pubDate>Tue, 09 May 2023 22:09:18 -0400</pubDate>
+<lastBuildDate>Wed, 10 May 2023 17:12:46 -0400</lastBuildDate>
+<pubDate>Wed, 10 May 2023 17:12:46 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+How to convert VirtualBox VDI to KVM qcow2
+</title><description><![CDATA[
+
+<p>It is easy to convert a VirtualBox VDI image to a KVM qcow2 file. You have to use the RAW file format as an intermediate.</p>
+
+<p>Make sure the VirtualBox machine is shutdown.</p>
+
+<ol>
+<li>Convert the VDI to a raw disk image. <br/>
+Note: VDIs are compressed and raw images are not, so you will need to leave enough disk space for entire uncompressed disk.<br/>
+<br/><code>
+$ VBoxManage clonehd --format RAW vm.vdi vm.img
+</code><br/><br/></li>
+<li>Then on your KVM host:
+<br/><code>
+$ qemu-img convert -f raw vm.img -O qcow2 vm.qcow2
+</code><br/></li>
+</ol>
+
+<p>Tags: <a href='tag_virtualization.html'>virtualization</a>, <a href='tag_virtualbox.html'>virtualbox</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_qcow2.html'>qcow2</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1.html</link>
+<guid>http://www.szumowski.org/./h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Wed, 10 May 2023 17:07:58 -0400</pubDate></item>
 <item><title>
 How To Count All The Files Extension Recursively In Linux
 </title><description><![CDATA[
@@ -298,23 +324,4 @@ $ du -s * | sort -n -r | more
 <guid>http://www.szumowski.org/./sort-directory-by-file-size1118.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Mon, 01 May 2023 22:15:27 -0400</pubDate></item>
-<item><title>
-Count Occurences of a Character in a String
-</title><description><![CDATA[
-
-<p>Sometimes I need to know how many times a specific character occurs in a string. The best tool to use for something like that is AWK. Let's say we're looking for the count of commas in a string:
-<br>
-<code>string="text,text,text,text" </code>
-<br>
-<code>char="," </code>
-<br>
-<code>echo "${string}" | awk -F"${char}" '{print NF-1}' </code>
-<br>
-Tags: cli,motd</p>
-
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/count-occurences-of-a-character-in-a-string32529.html</link>
-<guid>http://www.szumowski.org/./count-occurences-of-a-character-in-a-string32529.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sun, 30 Apr 2023 11:22:54 -0400</pubDate></item>
 </channel></rss>
