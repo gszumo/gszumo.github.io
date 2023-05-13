@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Gregg's MOTD &mdash; Posts tagged "ssh"</title>
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://www.szumowski.org/index.html">Gregg's MOTD</a></h1>
+<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<h3><a class="ablack" href="ssh-directory-permissions-settings10237.html">
+SSH Directory Permissions Settings
+</a></h3>
+<!-- bashblog_timestamp: #202305131653.49# -->
+<div class="subtitle">May 13, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>It is important to set the directory and file permissions for your ~/.ssh correctly. </p>
+
+<p>Typically you want the permissions to be:</p>
+
+<ul>
+<li>.ssh directory: 700 (drwx------)</li>
+<li>public key (.pub file): 644 (-rw-r--r--)</li>
+<li>private key (id_rsa): 600 (-rw-------)</li>
+<li>lastly your home directory should not be writeable by the group or others (at most 755 (drwxr-xr-x)).</li>
+</ul>
+
+<p><br/>For example, to set this permissions do:
+<br/>
+<code> $ chmod 700 ~/.ssh </code> <br/>
+<code> $ chmod 600 ~/.ssh/* </code> <br/>
+<code> $ chmod 644 ~/.ssh/*.pub </code> <br/>
+<code> $ ls -ltr ~/.ssh/</code><br/></p>
+
+<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+<h3><a class="ablack" href="ssh-directory-permissions-settings.html">
+SSH Directory Permissions Settings
+</a></h3>
+<!-- bashblog_timestamp: #202305131651.02# -->
+<div class="subtitle">May 13, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>It is important to set the directory and file permissions for your ~/.ssh correctly. </p>
+
+<p>Typically you want the permissions to be:</p>
+
+<ul>
+<li>.ssh directory: 700 (drwx------)</li>
+<li>public key (.pub file): 644 (-rw-r--r--)</li>
+<li>private key (id_rsa): 600 (-rw-------)</li>
+<li>lastly your home directory should not be writeable by the group or others (at most 755 (drwxr-xr-x)).</li>
+</ul>
+
+<p><br/>
+<br/>
+<code> $ chmod 700 ~/.ssh </code> <br/>
+<code> $ chmod 600 ~/.ssh/* </code> <br/>
+<code> $ chmod 644 ~/.ssh/*.pub </code> <br/>
+<code> $ ls -ltr ~/.ssh/</code><br/></p>
+
+<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+</div>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
+NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+</body></html>

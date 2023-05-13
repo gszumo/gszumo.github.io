@@ -2,9 +2,65 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Fri, 12 May 2023 21:27:47 -0400</lastBuildDate>
-<pubDate>Fri, 12 May 2023 21:27:47 -0400</pubDate>
+<lastBuildDate>Sat, 13 May 2023 16:53:54 -0400</lastBuildDate>
+<pubDate>Sat, 13 May 2023 16:53:54 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+SSH Directory Permissions Settings
+</title><description><![CDATA[
+
+<p>It is important to set the directory and file permissions for your ~/.ssh correctly. </p>
+
+<p>Typically you want the permissions to be:</p>
+
+<ul>
+<li>.ssh directory: 700 (drwx------)</li>
+<li>public key (.pub file): 644 (-rw-r--r--)</li>
+<li>private key (id_rsa): 600 (-rw-------)</li>
+<li>lastly your home directory should not be writeable by the group or others (at most 755 (drwxr-xr-x)).</li>
+</ul>
+
+<p><br/>For example, to set this permissions do:
+<br/>
+<code> $ chmod 700 ~/.ssh </code> <br/>
+<code> $ chmod 600 ~/.ssh/* </code> <br/>
+<code> $ chmod 644 ~/.ssh/*.pub </code> <br/>
+<code> $ ls -ltr ~/.ssh/</code><br/></p>
+
+<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/ssh-directory-permissions-settings10237.html</link>
+<guid>http://www.szumowski.org/./ssh-directory-permissions-settings10237.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sat, 13 May 2023 16:53:49 -0400</pubDate></item>
+<item><title>
+SSH Directory Permissions Settings
+</title><description><![CDATA[
+
+<p>It is important to set the directory and file permissions for your ~/.ssh correctly. </p>
+
+<p>Typically you want the permissions to be:</p>
+
+<ul>
+<li>.ssh directory: 700 (drwx------)</li>
+<li>public key (.pub file): 644 (-rw-r--r--)</li>
+<li>private key (id_rsa): 600 (-rw-------)</li>
+<li>lastly your home directory should not be writeable by the group or others (at most 755 (drwxr-xr-x)).</li>
+</ul>
+
+<p><br/>
+<br/>
+<code> $ chmod 700 ~/.ssh </code> <br/>
+<code> $ chmod 600 ~/.ssh/* </code> <br/>
+<code> $ chmod 644 ~/.ssh/*.pub </code> <br/>
+<code> $ ls -ltr ~/.ssh/</code><br/></p>
+
+<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/ssh-directory-permissions-settings.html</link>
+<guid>http://www.szumowski.org/./ssh-directory-permissions-settings.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sat, 13 May 2023 16:51:02 -0400</pubDate></item>
 <item><title>
 How To Use Github Tokens on the Command Line
 </title><description><![CDATA[
@@ -295,48 +351,4 @@ Removing ^M Characters From Multiple Files
 <guid>http://www.szumowski.org/./removing-m-characters-from-multiple-files19102.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Fri, 05 May 2023 22:25:36 -0400</pubDate></item>
-<item><title>
-Get the Hash of a File on Different Operating Systems
-</title><description><![CDATA[
-
-<p>Sometimes you just need to hash something. Here are some command lines to do just that.</p>
-
-<p>Windows PowerShell:</p>
-
-<p><code> Get-FileHash C:\path\to\file.iso -Algorithm [MD5|SHA1|SHA256|SHA384|SHA512|MACTripleDES|RIPEMD160] </code><br></p>
-
-<p>(SHA256 is the default if the parameter is omitted) </p>
-
-<p>Linux: </p>
-
-<p><code> md5sum /path/to/file </code><br>
-<code> sha1sum /path/to/file </code><br>
-<code> sha256sum /path/to/file </code><br></p>
-
-<p>macOS:</p>
-
-<p><code> MD5: md5 /path/to/file </code><br>
-<code> SHA1: shasum /path/to/file or shasum -a 1 /path/to/file </code><br>
-<code> SHA-256: shasum -a 256 /path/to/file </code><br></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/get-the-hash-of-a-file-on-different-operating-systems17003.html</link>
-<guid>http://www.szumowski.org/./get-the-hash-of-a-file-on-different-operating-systems17003.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Thu, 04 May 2023 18:29:20 -0400</pubDate></item>
-<item><title>
-Copy Entire Directory Structure Using Tar
-</title><description><![CDATA[
-
-<p>Sometimes you need to copy an entire directory structure to another location on the command line. Here is a quick way to do it using the tar command:</p>
-
-<p><code> tar cf - * | ( cd /target; tar xfp -) </code><br></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/copy-entire-directory-structure-using-tar3546.html</link>
-<guid>http://www.szumowski.org/./copy-entire-directory-structure-using-tar3546.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Wed, 03 May 2023 18:13:27 -0400</pubDate></item>
 </channel></rss>

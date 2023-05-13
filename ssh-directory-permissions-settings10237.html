@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; All tags</title>
+<title>SSH Directory Permissions Settings</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -14,29 +14,37 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
-<h3>All tags</h3>
+<!-- entry begin -->
+<h3><a class="ablack" href="ssh-directory-permissions-settings10237.html">
+SSH Directory Permissions Settings
+</a></h3>
+<!-- bashblog_timestamp: #202305131653.49# -->
+<div class="subtitle">May 13, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>It is important to set the directory and file permissions for your ~/.ssh correctly. </p>
+
+<p>Typically you want the permissions to be:</p>
+
 <ul>
-<li><a href="tag_cli.html">cli</a> &mdash; 9 posts</li>
-<li><a href="tag_find.html">find</a> &mdash; 1 post</li>
-<li><a href="tag_git.html">git</a> &mdash; 1 post</li>
-<li><a href="tag_github.html">github</a> &mdash; 1 post</li>
-<li><a href="tag_kvm.html">kvm</a> &mdash; 1 post</li>
-<li><a href="tag_linux.html">linux</a> &mdash; 3 posts</li>
-<li><a href="tag_mail.html">mail</a> &mdash; 1 post</li>
-<li><a href="tag_motd.html">motd</a> &mdash; 18 posts</li>
-<li><a href="tag_mutt.html">mutt</a> &mdash; 1 post</li>
-<li><a href="tag_qcow2.html">qcow2</a> &mdash; 1 post</li>
-<li><a href="tag_sed.html">sed</a> &mdash; 1 post</li>
-<li><a href="tag_sort.html">sort</a> &mdash; 1 post</li>
-<li><a href="tag_ssh.html">ssh</a> &mdash; 2 posts</li>
-<li><a href="tag_tar.html">tar</a> &mdash; 1 post</li>
-<li><a href="tag_tokens.html">tokens</a> &mdash; 1 post</li>
-<li><a href="tag_uniq.html">uniq</a> &mdash; 1 post</li>
-<li><a href="tag_virtualbox.html">virtualbox</a> &mdash; 1 post</li>
-<li><a href="tag_virtualization.html">virtualization</a> &mdash; 1 post</li>
-<li><a href="tag_windows.html">windows</a> &mdash; 1 post</li>
+<li>.ssh directory: 700 (drwx------)</li>
+<li>public key (.pub file): 644 (-rw-r--r--)</li>
+<li>private key (id_rsa): 600 (-rw-------)</li>
+<li>lastly your home directory should not be writeable by the group or others (at most 755 (drwxr-xr-x)).</li>
 </ul>
-<div id="all_posts"><a href="./index.html">Back to the index page</a></div>
+
+<p><br/>For example, to set this permissions do:
+<br/>
+<code> $ chmod 700 ~/.ssh </code> <br/>
+<code> $ chmod 600 ~/.ssh/* </code> <br/>
+<code> $ chmod 644 ~/.ssh/*.pub </code> <br/>
+<code> $ ls -ltr ~/.ssh/</code><br/></p>
+
+<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+<!-- entry end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
 NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>
