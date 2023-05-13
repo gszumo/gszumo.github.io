@@ -14,6 +14,28 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="how-to-use-github-tokens-on-the-command-line1357.html">
+How To Use Github Tokens on the Command Line
+</a></h3>
+<!-- bashblog_timestamp: #202305122120.39# -->
+<div class="subtitle">May 12, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>GitHub’s access policy requires you to use tokens instead of username/password to update your repositories. </p>
+
+<p>To adapt your existing local / cloned repos to token based auth:
+<br/><code>$ git remote remove origin</code>
+<br/><code>$ git remote add origin https://[TOKEN]@github.com/[USER]/[REPO]</code>
+<br/><code>$ git push</code>
+<br/><br/>
+Clone repos using token based authentication (non public repos)</code>
+<br/><code>$ git clone https://[username]:[token]@github.com/[accountname]/[reponame]</code>
+<br/></p>
+
+<p>Tags: <a href='tag_github.html'>github</a>, <a href='tag_tokens.html'>tokens</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_cli.html'>cli</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="sending-email-from-the-command-line8566.html">
 Sending Email from the Command Line
 </a></h3>
@@ -287,37 +309,6 @@ Gregg Szumowski
 <p>(BTW, to generate a ^M character using the PuTTY emulator is easy. Just press CTRL-^ followed by CTRL-M)</p>
 
 <p>Of course, in Linux, UNIX and AIX shells there are many ways to skin a cat and this is just one of many possible solutions. This solution was found on <a href="https://dailyvim.blogspot.com">a Daily Vim Blogspot site</a> which has more very interesting tips &amp; tutorials.</p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="get-the-hash-of-a-file-on-different-operating-systems17003.html">
-Get the Hash of a File on Different Operating Systems
-</a></h3>
-<!-- bashblog_timestamp: #202305041829.20# -->
-<div class="subtitle">May 04, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>Sometimes you just need to hash something. Here are some command lines to do just that.</p>
-
-<p>Windows PowerShell:</p>
-
-<p><code> Get-FileHash C:\path\to\file.iso -Algorithm [MD5|SHA1|SHA256|SHA384|SHA512|MACTripleDES|RIPEMD160] </code><br></p>
-
-<p>(SHA256 is the default if the parameter is omitted) </p>
-
-<p>Linux: </p>
-
-<p><code> md5sum /path/to/file </code><br>
-<code> sha1sum /path/to/file </code><br>
-<code> sha256sum /path/to/file </code><br></p>
-
-<p>macOS:</p>
-
-<p><code> MD5: md5 /path/to/file </code><br>
-<code> SHA1: shasum /path/to/file or shasum -a 1 /path/to/file </code><br>
-<code> SHA-256: shasum -a 256 /path/to/file </code><br></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->

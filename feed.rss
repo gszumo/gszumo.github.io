@@ -2,9 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Thu, 11 May 2023 18:15:38 -0400</lastBuildDate>
-<pubDate>Thu, 11 May 2023 18:15:38 -0400</pubDate>
+<lastBuildDate>Fri, 12 May 2023 21:27:47 -0400</lastBuildDate>
+<pubDate>Fri, 12 May 2023 21:27:47 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+How To Use Github Tokens on the Command Line
+</title><description><![CDATA[
+
+<p>GitHub’s access policy requires you to use tokens instead of username/password to update your repositories. </p>
+
+<p>To adapt your existing local / cloned repos to token based auth:
+<br/><code>$ git remote remove origin</code>
+<br/><code>$ git remote add origin https://[TOKEN]@github.com/[USER]/[REPO]</code>
+<br/><code>$ git push</code>
+<br/><br/>
+Clone repos using token based authentication (non public repos)</code>
+<br/><code>$ git clone https://[username]:[token]@github.com/[accountname]/[reponame]</code>
+<br/></p>
+
+<p>Tags: <a href='tag_github.html'>github</a>, <a href='tag_tokens.html'>tokens</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_cli.html'>cli</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/how-to-use-github-tokens-on-the-command-line1357.html</link>
+<guid>http://www.szumowski.org/./how-to-use-github-tokens-on-the-command-line1357.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Fri, 12 May 2023 21:20:39 -0400</pubDate></item>
 <item><title>
 Sending Email from the Command Line
 </title><description><![CDATA[
@@ -318,21 +339,4 @@ Copy Entire Directory Structure Using Tar
 <guid>http://www.szumowski.org/./copy-entire-directory-structure-using-tar3546.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 03 May 2023 18:13:27 -0400</pubDate></item>
-<item><title>
-Fixing Screen Resolution on Second Monitor in Linux
-</title><description><![CDATA[
-
-<p>I recently installed a 2nd hard drive in my Macbook Pro dedicated to Linux. When I hooked up a secondary monitor to it I found that I could not get a reasonable resolution. After some research I found that I can add a new mode to the "Display" choices by entering the following in a terminal console:</p>
-
-<p><code> xrandr </code> # to find the device name <br>
-<code> cvt 1920 1080 </code> # to generate the mode for the xrandr program. <br>
-<code> xrandr --newmode "1920x1080<em>60.00" 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync </code> # to add the new mode to the monitor choices. <br>
-<code>xrandr --addmode DP1 1920x1080</em>60.00 </code> # to associate the new mode to the monitor.   <br></p>
-
-<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/fixing-screen-resolution-on-second-monitor-in-linux4621.html</link>
-<guid>http://www.szumowski.org/./fixing-screen-resolution-on-second-monitor-in-linux4621.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 02 May 2023 18:16:35 -0400</pubDate></item>
 </channel></rss>

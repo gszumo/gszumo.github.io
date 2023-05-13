@@ -14,6 +14,28 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="how-to-use-github-tokens-on-the-command-line1357.html">
+How To Use Github Tokens on the Command Line
+</a></h3>
+<!-- bashblog_timestamp: #202305122120.39# -->
+<div class="subtitle">May 12, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>GitHub’s access policy requires you to use tokens instead of username/password to update your repositories. </p>
+
+<p>To adapt your existing local / cloned repos to token based auth:
+<br/><code>$ git remote remove origin</code>
+<br/><code>$ git remote add origin https://[TOKEN]@github.com/[USER]/[REPO]</code>
+<br/><code>$ git push</code>
+<br/><br/>
+Clone repos using token based authentication (non public repos)</code>
+<br/><code>$ git clone https://[username]:[token]@github.com/[accountname]/[reponame]</code>
+<br/></p>
+
+<p>Tags: <a href='tag_github.html'>github</a>, <a href='tag_tokens.html'>tokens</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_cli.html'>cli</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="how-to-count-all-the-files-extension-recursively-in-linux.html">
 How To Count All The Files Extension Recursively In Linux
 </a></h3>
