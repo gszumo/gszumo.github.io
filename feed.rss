@@ -2,9 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 13 May 2023 16:53:54 -0400</lastBuildDate>
-<pubDate>Sat, 13 May 2023 16:53:54 -0400</pubDate>
+<lastBuildDate>Sun, 14 May 2023 22:16:10 -0400</lastBuildDate>
+<pubDate>Sun, 14 May 2023 22:16:10 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Creating Passwordless SSH Keys
+</title><description><![CDATA[
+
+<p><br/>Create the key. Note those are two single quotes after the -N (for a blank passwd)
+<br/>
+<code> $ ssh-keygen -t rsa -b 4096 -N '' </code> <br/>
+<br/>Copy it to the target server
+<br/> <code> $ cat .ssh/id<em>rsa.pub | ssh username@192.168.1.123  'cat >> .ssh/authorized</em>keys' </code> <br/>
+<br/>
+Test it
+<br/>
+<code> 
+$ ssh username@192.168.1.123
+</code> <br/>
+<br/></p>
+
+<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/creating-passwordless-ssh-keys6962.html</link>
+<guid>http://www.szumowski.org/./creating-passwordless-ssh-keys6962.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 14 May 2023 22:14:46 -0400</pubDate></item>
 <item><title>
 SSH Directory Permissions Settings
 </title><description><![CDATA[
@@ -326,29 +349,4 @@ on the vim command line and save the file.</li>
 <guid>http://www.szumowski.org/./getting-rid-of-m-line-endings-in-a-text-file20658.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sat, 06 May 2023 13:37:12 -0400</pubDate></item>
-<item><title>
-Removing ^M Characters From Multiple Files
-</title><description><![CDATA[
-
-<p>In my day job I find that I frequently need to remove those pesky '^M' line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing</p>
-
-<p><code> :%s/^M//g </code><br></p>
-
-<p>solves the problem, but on occasion I might be confronted with performing this process on multiple files and sometimes recursively through many subdirectories. When that happens it becomes necessary to bring out the "big guns" and do:</p>
-
-<p><code> $ for file in $(find /path/to/dir -type f); do </code><br>
-<code>       tr -d '\r' <$file >temp.$$ &amp;&amp; mv temp.$$ $file </code><br>
-<code>   done </code><br>
-<code> $ </code><br></p>
-
-<p>(BTW, to generate a ^M character using the PuTTY emulator is easy. Just press CTRL-^ followed by CTRL-M)</p>
-
-<p>Of course, in Linux, UNIX and AIX shells there are many ways to skin a cat and this is just one of many possible solutions. This solution was found on <a href="https://dailyvim.blogspot.com">a Daily Vim Blogspot site</a> which has more very interesting tips &amp; tutorials.</p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/removing-m-characters-from-multiple-files19102.html</link>
-<guid>http://www.szumowski.org/./removing-m-characters-from-multiple-files19102.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Fri, 05 May 2023 22:25:36 -0400</pubDate></item>
 </channel></rss>
