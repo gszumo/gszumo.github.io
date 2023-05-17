@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 16 May 2023 22:08:37 -0400</lastBuildDate>
-<pubDate>Tue, 16 May 2023 22:08:37 -0400</pubDate>
+<lastBuildDate>Tue, 16 May 2023 22:16:13 -0400</lastBuildDate>
+<pubDate>Tue, 16 May 2023 22:16:13 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 Mastodon Automated Postings using the API
@@ -40,41 +40,6 @@ $ curl https://mastodon.sdf.org/api/v1/statuses -H 'Authorization: Bearer put-yo
 <guid>http://www.szumowski.org/./mastodon-automated-postings-using-the-api10012.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 16 May 2023 22:07:09 -0400</pubDate></item>
-<item><title>
-Mastodon Automated Postings using the API
-</title><description><![CDATA[
-
-<p>You can post to Mastodon using their API using <code>cURL</code>.</p>
-
-<h2>Create or Find Your Access Token</h2>
-
-<p>Once you have a Mastodon account, you need your account's access token. The steps you need to get that:</p>
-
-<ol>
-<li>Sign into your Mastodon account</li>
-<li>Click on In the <code>"Preferences"</code> link.</li>
-<li>On the bottom left corner of that page, click the <code>"Development"</code> link.</li>
-<li>On the <code>"Your Applications"</code> page, click the blue <code>NEW APPLICATION</code> button.</li>
-<li>Give your application a name, and decide what kind of access you want to have when you connect to your account via the Mastodon API (i<code>read</code>, <code>write</code>, and <code>follow</code> are the defaults). You can always change this later.</li>
-<li>At the bottom of the page, click the blue <code>SUBMIT</code> button.</li>
-<li>You will be directed back to the <code>Your applications</code> page, but now you should see your application name. Click that.</li>
-<li>In your application's page, there are three tokens. For this tutorial, you need the <code>Your access token</code> one.
-    Note: if your access token is ever compromised, you can click regenerate, and your old access token will stop working, and you'll be shown a new one.</li>
-</ol>
-
-<h2>Post a Status Update using cURL</h2>
-
-<p><br/>
-<code> 
-$ curl https://mastodon.sdf.org/api/v1/statuses -H 'Authorization: Bearer put-your-api-token-here' -F 'status=Hello, World'
-</code> <br/> <br/></p>
-
-<p>Tags: <a href='tag_curl.html'>curl</a>, <a href='tag_mastodon.html'>mastodon</a>, <a href='tag_api.html'>api</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/mastodon-automated-postings-using-the-api.html</link>
-<guid>http://www.szumowski.org/./mastodon-automated-postings-using-the-api.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 16 May 2023 22:04:55 -0400</pubDate></item>
 <item><title>
 Creating Passwordless SSH Keys
 </title><description><![CDATA[
@@ -289,4 +254,17 @@ Untar a Tarball to a Remote Directory
 <guid>http://www.szumowski.org/./untar-a-tarball-to-a-remote-directory5321.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Mon, 08 May 2023 18:44:08 -0400</pubDate></item>
+<item><title>
+Gnome3 Menu Icons
+</title><description><![CDATA[
+
+<p>To add your own menu icons to a GNOME3 environment check out this link: 
+<a href="https://developer.gnome.org/integration-guide/stable/desktop-files.html.en">Desktop files: putting your application in the desktop menus</a></p>
+
+<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/gnome3-menu-icons11060.html</link>
+<guid>http://www.szumowski.org/./gnome3-menu-icons11060.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 07 May 2023 17:06:05 -0400</pubDate></item>
 </channel></rss>
