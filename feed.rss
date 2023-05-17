@@ -2,9 +2,79 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sun, 14 May 2023 22:16:10 -0400</lastBuildDate>
-<pubDate>Sun, 14 May 2023 22:16:10 -0400</pubDate>
+<lastBuildDate>Tue, 16 May 2023 22:08:37 -0400</lastBuildDate>
+<pubDate>Tue, 16 May 2023 22:08:37 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Mastodon Automated Postings using the API
+</title><description><![CDATA[
+
+<p>You can post to Mastodon using their API using <code>cURL</code>.</p>
+
+<h4>Create or Find Your Access Token</h4>
+
+<p>Once you have a Mastodon account, you need your account's access token. The steps you need to get that:</p>
+
+<ol>
+<li>Sign into your Mastodon account</li>
+<li>Click on In the <code>"Preferences"</code> link.</li>
+<li>On the bottom left corner of that page, click the <code>"Development"</code> link.</li>
+<li>On the <code>"Your Applications"</code> page, click the blue <code>NEW APPLICATION</code> button.</li>
+<li>Give your application a name, and decide what kind of access you want to have when you connect to your account via the Mastodon API (i<code>read</code>, <code>write</code>, and <code>follow</code> are the defaults). You can always change this later.</li>
+<li>At the bottom of the page, click the blue <code>SUBMIT</code> button.</li>
+<li>You will be directed back to the <code>Your applications</code> page, but now you should see your application name. Click that.</li>
+<li>In your application's page, there are three tokens. For this tutorial, you need the <code>Your access token</code> one.
+    Note: if your access token is ever compromised, you can click regenerate, and your old access token will stop working, and you'll be shown a new one.</li>
+</ol>
+
+<h4>Post a Status Update using cURL</h4>
+
+<p><br/>
+<code> 
+$ curl https://mastodon.sdf.org/api/v1/statuses -H 'Authorization: Bearer put-your-api-token-here' -F 'status=Hello, World'
+</code> <br/> <br/></p>
+
+<p>Tags: <a href='tag_curl.html'>curl</a>, <a href='tag_mastodon.html'>mastodon</a>, <a href='tag_api.html'>api</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/mastodon-automated-postings-using-the-api10012.html</link>
+<guid>http://www.szumowski.org/./mastodon-automated-postings-using-the-api10012.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Tue, 16 May 2023 22:07:09 -0400</pubDate></item>
+<item><title>
+Mastodon Automated Postings using the API
+</title><description><![CDATA[
+
+<p>You can post to Mastodon using their API using <code>cURL</code>.</p>
+
+<h2>Create or Find Your Access Token</h2>
+
+<p>Once you have a Mastodon account, you need your account's access token. The steps you need to get that:</p>
+
+<ol>
+<li>Sign into your Mastodon account</li>
+<li>Click on In the <code>"Preferences"</code> link.</li>
+<li>On the bottom left corner of that page, click the <code>"Development"</code> link.</li>
+<li>On the <code>"Your Applications"</code> page, click the blue <code>NEW APPLICATION</code> button.</li>
+<li>Give your application a name, and decide what kind of access you want to have when you connect to your account via the Mastodon API (i<code>read</code>, <code>write</code>, and <code>follow</code> are the defaults). You can always change this later.</li>
+<li>At the bottom of the page, click the blue <code>SUBMIT</code> button.</li>
+<li>You will be directed back to the <code>Your applications</code> page, but now you should see your application name. Click that.</li>
+<li>In your application's page, there are three tokens. For this tutorial, you need the <code>Your access token</code> one.
+    Note: if your access token is ever compromised, you can click regenerate, and your old access token will stop working, and you'll be shown a new one.</li>
+</ol>
+
+<h2>Post a Status Update using cURL</h2>
+
+<p><br/>
+<code> 
+$ curl https://mastodon.sdf.org/api/v1/statuses -H 'Authorization: Bearer put-your-api-token-here' -F 'status=Hello, World'
+</code> <br/> <br/></p>
+
+<p>Tags: <a href='tag_curl.html'>curl</a>, <a href='tag_mastodon.html'>mastodon</a>, <a href='tag_api.html'>api</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/mastodon-automated-postings-using-the-api.html</link>
+<guid>http://www.szumowski.org/./mastodon-automated-postings-using-the-api.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Tue, 16 May 2023 22:04:55 -0400</pubDate></item>
 <item><title>
 Creating Passwordless SSH Keys
 </title><description><![CDATA[
@@ -219,134 +289,4 @@ Untar a Tarball to a Remote Directory
 <guid>http://www.szumowski.org/./untar-a-tarball-to-a-remote-directory5321.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Mon, 08 May 2023 18:44:08 -0400</pubDate></item>
-<item><title>
-Gnome3 Menu Icons
-</title><description><![CDATA[
-
-<p>To add your own menu icons to a GNOME3 environment check out this link: 
-<a href="https://developer.gnome.org/integration-guide/stable/desktop-files.html.en">Desktop files: putting your application in the desktop menus</a></p>
-
-<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/gnome3-menu-icons11060.html</link>
-<guid>http://www.szumowski.org/./gnome3-menu-icons11060.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sun, 07 May 2023 17:06:05 -0400</pubDate></item>
-<item><title>
-Getting Rid of ^M Line Endings in a Text File
-</title><description><![CDATA[
-
-<p>If you have a text file that has funny looking ^M characters at the end of each line, in most cases, you have to get rid of them before they can be used. This is especially the case when you've copied or transferred a file from a Windows-based system to a *nix-based one. If these files are shell scripts meant to run on the *nix-based system they more often than not won't work. There are various solutions to this problem.</p>
-
-<p>First, let's create two text files: one with ^M line endings and one without:</p>
-
-<p><code> $ for line in 1 2 3 4 5; do echo "This is line ${line}^M" >>file1.txt; done </code><br>
-<code> $ for line in 1 2 3 4 5; do echo "This is line ${line}" >>file2.txt; done </code><br></p>
-
-<p>Now let's see what's different between these two text files:</p>
-
-<p><code> $ ls -l </code><br>
-<code> total 8 </code><br>
-<code> -rw-rw-r--. 1 gszumo gszumo 80 Oct 29 17:43 file1.txt </code><br>
-<code> -rw-rw-r--. 1 gszumo gszumo 75 Oct 29 17:44 file2.txt </code><br></p>
-
-<p><code> $ file file1.txt </code><br>
-<code> file1.txt: ASCII text, with CRLF line terminators </code><br></p>
-
-<p><code> $ file file2.txt </code><br>
-<code> file2.txt: ASCII text </code><br></p>
-
-<p><code> $ diff file1.txt file2.txt </code><br>
-<code> 1,5c1,5 </code><br>
-<code> &lt; This is line 1 </code><br>
-<code> &lt; This is line 2 </code><br>
-<code> &lt; This is line 3 </code><br>
-<code> &lt; This is line 4 </code><br>
-<code> &lt; This is line 5 </code><br>
-<code> --- </code><br>
-<code> > This is line 1 </code><br>
-<code> > This is line 2 </code><br>
-<code> > This is line 3 </code><br>
-<code> > This is line 4 </code><br>
-<code> > This is line 5 </code><br>
-<code> $ </code><br></p>
-
-<p>What does this tell us?</p>
-
-<ul>
-<li>The ls command tells us the file sizes are different even though the visible text is the same.</li>
-<li>The file command tells us that both files are ASCII text  but file1.txt has CRLF line terminators, and</li>
-<li>The diff command tells us that each line is indeed showing us that it's different.</li>
-</ul>
-
-<p>So, how do we fix this?</p>
-
-<p>My favorite solution is to use vi or vim interactively. There are 2 easy ways to get rid of the ^M from a single file using vim:</p>
-
-<ol>
-<li>Enter the command:
-<br><code> :%s/^M//g </code><br>
-on the vim command line then save the file, or</li>
-<li>Enter the command:
-<br><code> :fileformat=unix </code><br>
-on the vim command line and save the file.</li>
-</ol>
-
-<p>However, if you have a whole directory or directory tree full of these kinds of files using vim on each one individually will become quite tedious. For this you need the scripting capability of the command line!</p>
-
-<p>The 'tr' command is one quick way of getting rid of them using the Linux or macOS command line:</p>
-
-<p><code> cat somefile | tr -d '^M' >outputfile </code><br></p>
-
-<p>We can use this as a template in order to determine whether or not the file needs to be updated:</p>
-
-<p><code> for i in * </code><br>
-<code> do </code><br>
-<code>   string=$(file ${i}) </code><br>
-<code>   test "${string#*'CRLF'}" != "$string" &amp;&amp; echo "CRLF found in ${i}" </code><br>
-<code> done </code><br></p>
-
-<p>If the 'echo' part of this snippet only gets called when the first part of the test is true, so then we know that the file has '^M' line endings. We have to turn the second part of the test into a script that will massage the file to remove the line endings. Here's a bash snippet that will put the two together and do the job:</p>
-
-<p><code> for i in * </code><br>
-<code> do </code><br>
-<code>   string=$(file ${i}) </code><br>
-<code>   if [ "${string#*'CRLF'}" != "$string" ];then </code><br>
-<code>     cp ${i} ${i}.bak </code><br>
-<code>     cat ${i}.bak|tr -d '^M' >${i} </code><br>
-<code>     rm ${i}.bak </code><br>
-<code>   fi </code><br>
-<code> done </code><br></p>
-
-<p>This is a bare-bones piece of code which doesn't do any error checking, which should be added in the event that the user running this script doesn't have the necessary permissions to copy, write or remove files that match the test.</p>
-
-<p>Remember, in order to create a '^M' character in the terminal hold down the CTRL key while  typing vm.</p>
-
-<p>You can also use 'ex' to replace a string in a file using:</p>
-
-<p><code> ex -s -c '%s/old-str/new-str/g|x' filename.txt </code><br></p>
-
-<p>Alternately, we can use sed to do the same thing. At the command line you can replace any string in a file dynamically by entering:</p>
-
-<p><code> sed -i 's/old-str/new-str/' filename.txt </code><br></p>
-
-<p>So to remove the ^M charaters just do:</p>
-
-<p><code> sed -i 's/^M//' filename.txt </code><br></p>
-
-<p>to remove the ^M characters. You can use the same for/do/done loop structure as mentioned above to iterate over multiple files:</p>
-
-<p><code> for i in *.txt </code><br>
-<code> do </code><br>
-<code>   sed -i 's/^M//' ${i} </code><br>
-<code> done </code><br></p>
-
-<p>'Nuff said.</p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/getting-rid-of-m-line-endings-in-a-text-file20658.html</link>
-<guid>http://www.szumowski.org/./getting-rid-of-m-line-endings-in-a-text-file20658.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sat, 06 May 2023 13:37:12 -0400</pubDate></item>
 </channel></rss>

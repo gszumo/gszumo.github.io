@@ -14,6 +14,78 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="mastodon-automated-postings-using-the-api10012.html">
+Mastodon Automated Postings using the API
+</a></h3>
+<!-- bashblog_timestamp: #202305162207.09# -->
+<div class="subtitle">May 16, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>You can post to Mastodon using their API using <code>cURL</code>.</p>
+
+<h4>Create or Find Your Access Token</h4>
+
+<p>Once you have a Mastodon account, you need your account's access token. The steps you need to get that:</p>
+
+<ol>
+<li>Sign into your Mastodon account</li>
+<li>Click on In the <code>"Preferences"</code> link.</li>
+<li>On the bottom left corner of that page, click the <code>"Development"</code> link.</li>
+<li>On the <code>"Your Applications"</code> page, click the blue <code>NEW APPLICATION</code> button.</li>
+<li>Give your application a name, and decide what kind of access you want to have when you connect to your account via the Mastodon API (i<code>read</code>, <code>write</code>, and <code>follow</code> are the defaults). You can always change this later.</li>
+<li>At the bottom of the page, click the blue <code>SUBMIT</code> button.</li>
+<li>You will be directed back to the <code>Your applications</code> page, but now you should see your application name. Click that.</li>
+<li>In your application's page, there are three tokens. For this tutorial, you need the <code>Your access token</code> one.
+    Note: if your access token is ever compromised, you can click regenerate, and your old access token will stop working, and you'll be shown a new one.</li>
+</ol>
+
+<h4>Post a Status Update using cURL</h4>
+
+<p><br/>
+<code> 
+$ curl https://mastodon.sdf.org/api/v1/statuses -H 'Authorization: Bearer put-your-api-token-here' -F 'status=Hello, World'
+</code> <br/> <br/></p>
+
+<p>Tags: <a href='tag_curl.html'>curl</a>, <a href='tag_mastodon.html'>mastodon</a>, <a href='tag_api.html'>api</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+<h3><a class="ablack" href="mastodon-automated-postings-using-the-api.html">
+Mastodon Automated Postings using the API
+</a></h3>
+<!-- bashblog_timestamp: #202305162204.55# -->
+<div class="subtitle">May 16, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>You can post to Mastodon using their API using <code>cURL</code>.</p>
+
+<h2>Create or Find Your Access Token</h2>
+
+<p>Once you have a Mastodon account, you need your account's access token. The steps you need to get that:</p>
+
+<ol>
+<li>Sign into your Mastodon account</li>
+<li>Click on In the <code>"Preferences"</code> link.</li>
+<li>On the bottom left corner of that page, click the <code>"Development"</code> link.</li>
+<li>On the <code>"Your Applications"</code> page, click the blue <code>NEW APPLICATION</code> button.</li>
+<li>Give your application a name, and decide what kind of access you want to have when you connect to your account via the Mastodon API (i<code>read</code>, <code>write</code>, and <code>follow</code> are the defaults). You can always change this later.</li>
+<li>At the bottom of the page, click the blue <code>SUBMIT</code> button.</li>
+<li>You will be directed back to the <code>Your applications</code> page, but now you should see your application name. Click that.</li>
+<li>In your application's page, there are three tokens. For this tutorial, you need the <code>Your access token</code> one.
+    Note: if your access token is ever compromised, you can click regenerate, and your old access token will stop working, and you'll be shown a new one.</li>
+</ol>
+
+<h2>Post a Status Update using cURL</h2>
+
+<p><br/>
+<code> 
+$ curl https://mastodon.sdf.org/api/v1/statuses -H 'Authorization: Bearer put-your-api-token-here' -F 'status=Hello, World'
+</code> <br/> <br/></p>
+
+<p>Tags: <a href='tag_curl.html'>curl</a>, <a href='tag_mastodon.html'>mastodon</a>, <a href='tag_api.html'>api</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="creating-passwordless-ssh-keys6962.html">
 Creating Passwordless SSH Keys
 </a></h3>
