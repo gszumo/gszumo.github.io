@@ -2,9 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Wed, 17 May 2023 22:12:47 -0400</lastBuildDate>
-<pubDate>Wed, 17 May 2023 22:12:47 -0400</pubDate>
+<lastBuildDate>Thu, 18 May 2023 16:11:55 -0400</lastBuildDate>
+<pubDate>Thu, 18 May 2023 16:11:55 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+How to Enable the Administrator Account in Windows
+</title><description><![CDATA[
+
+<p>To activate the Administrator account on Windows, open the Command Prompt as Administrator from the Start Menu, or you can right-click on the "Start" menu and select the "Powershell" menu item, then enter:</p>
+
+<p><code>
+net user administrator /active: yes
+</code></p>
+
+<p>into the window. You should disable the account again when you're done.</p>
+
+<p>Tags: <a href='tag_windows.html'>windows</a>, <a href='tag_sysadmin.html'>sysadmin</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/how-to-enable-the-administrator-account-in-windows19625.html</link>
+<guid>http://www.szumowski.org/./how-to-enable-the-administrator-account-in-windows19625.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Thu, 18 May 2023 16:08:36 -0400</pubDate></item>
 <item><title>
 Convert HTML Files to EPUB Using Pandoc
 </title><description><![CDATA[
@@ -266,18 +284,4 @@ How To Count All The Files Extension Recursively In Linux
 <guid>http://www.szumowski.org/./how-to-count-all-the-files-extension-recursively-in-linux.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 09 May 2023 22:00:54 -0400</pubDate></item>
-<item><title>
-Untar a Tarball to a Remote Directory
-</title><description><![CDATA[
-
-<p>Sometimes you may need to copy an entire directory structure to another system using the command line. Here is a quick way to do it using the tar command:</p>
-
-<p><code> cat myfile.tgz | ssh user@host "tar xzf - -C /some/dir" </code><br></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_tar.html'>tar</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/untar-a-tarball-to-a-remote-directory5321.html</link>
-<guid>http://www.szumowski.org/./untar-a-tarball-to-a-remote-directory5321.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Mon, 08 May 2023 18:44:08 -0400</pubDate></item>
 </channel></rss>
