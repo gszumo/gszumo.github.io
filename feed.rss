@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Thu, 18 May 2023 16:11:55 -0400</lastBuildDate>
-<pubDate>Thu, 18 May 2023 16:11:55 -0400</pubDate>
+<lastBuildDate>Fri, 19 May 2023 18:32:53 -0400</lastBuildDate>
+<pubDate>Fri, 19 May 2023 18:32:53 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
 <item><title>
 How to Enable the Administrator Account in Windows
@@ -136,34 +136,6 @@ SSH Directory Permissions Settings
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sat, 13 May 2023 16:53:49 -0400</pubDate></item>
 <item><title>
-SSH Directory Permissions Settings
-</title><description><![CDATA[
-
-<p>It is important to set the directory and file permissions for your ~/.ssh correctly. </p>
-
-<p>Typically you want the permissions to be:</p>
-
-<ul>
-<li>.ssh directory: 700 (drwx------)</li>
-<li>public key (.pub file): 644 (-rw-r--r--)</li>
-<li>private key (id_rsa): 600 (-rw-------)</li>
-<li>lastly your home directory should not be writeable by the group or others (at most 755 (drwxr-xr-x)).</li>
-</ul>
-
-<p><br/>
-<br/>
-<code> $ chmod 700 ~/.ssh </code> <br/>
-<code> $ chmod 600 ~/.ssh/* </code> <br/>
-<code> $ chmod 644 ~/.ssh/*.pub </code> <br/>
-<code> $ ls -ltr ~/.ssh/</code><br/></p>
-
-<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/ssh-directory-permissions-settings.html</link>
-<guid>http://www.szumowski.org/./ssh-directory-permissions-settings.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sat, 13 May 2023 16:51:02 -0400</pubDate></item>
-<item><title>
 How To Use Github Tokens on the Command Line
 </title><description><![CDATA[
 
@@ -284,4 +256,18 @@ How To Count All The Files Extension Recursively In Linux
 <guid>http://www.szumowski.org/./how-to-count-all-the-files-extension-recursively-in-linux.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 09 May 2023 22:00:54 -0400</pubDate></item>
+<item><title>
+Untar a Tarball to a Remote Directory
+</title><description><![CDATA[
+
+<p>Sometimes you may need to copy an entire directory structure to another system using the command line. Here is a quick way to do it using the tar command:</p>
+
+<p><code> cat myfile.tgz | ssh user@host "tar xzf - -C /some/dir" </code><br></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_tar.html'>tar</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/untar-a-tarball-to-a-remote-directory5321.html</link>
+<guid>http://www.szumowski.org/./untar-a-tarball-to-a-remote-directory5321.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 08 May 2023 18:44:08 -0400</pubDate></item>
 </channel></rss>

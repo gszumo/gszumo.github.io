@@ -149,35 +149,6 @@ Gregg Szumowski
 
 <p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
-<h3><a class="ablack" href="ssh-directory-permissions-settings.html">
-SSH Directory Permissions Settings
-</a></h3>
-<!-- bashblog_timestamp: #202305131651.02# -->
-<div class="subtitle">May 13, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>It is important to set the directory and file permissions for your ~/.ssh correctly. </p>
-
-<p>Typically you want the permissions to be:</p>
-
-<ul>
-<li>.ssh directory: 700 (drwx------)</li>
-<li>public key (.pub file): 644 (-rw-r--r--)</li>
-<li>private key (id_rsa): 600 (-rw-------)</li>
-<li>lastly your home directory should not be writeable by the group or others (at most 755 (drwxr-xr-x)).</li>
-</ul>
-
-<p><br/>
-<br/>
-<code> $ chmod 700 ~/.ssh </code> <br/>
-<code> $ chmod 600 ~/.ssh/* </code> <br/>
-<code> $ chmod 644 ~/.ssh/*.pub </code> <br/>
-<code> $ ls -ltr ~/.ssh/</code><br/></p>
-
-<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
 <h3><a class="ablack" href="how-to-use-github-tokens-on-the-command-line1357.html">
 How To Use Github Tokens on the Command Line
 </a></h3>
@@ -231,6 +202,33 @@ $ echo "message body" | mail -s "subject" test@example.com
 </code><br/><br/></p>
 
 <p>Tags: <a href='tag_mail.html'>mail</a>, <a href='tag_mutt.html'>mutt</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+<h3><a class="ablack" href="h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1.html">
+How to convert VirtualBox VDI to KVM qcow2
+</a></h3>
+<!-- bashblog_timestamp: #202305101707.58# -->
+<div class="subtitle">May 10, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>It is easy to convert a VirtualBox VDI image to a KVM qcow2 file. You have to use the RAW file format as an intermediate.</p>
+
+<p>Make sure the VirtualBox machine is shutdown.</p>
+
+<ol>
+<li>Convert the VDI to a raw disk image. <br/>
+Note: VDIs are compressed and raw images are not, so you will need to leave enough disk space for entire uncompressed disk.<br/>
+<br/><code>
+$ VBoxManage clonehd --format RAW vm.vdi vm.img
+</code><br/><br/></li>
+<li>Then on your KVM host:
+<br/><code>
+$ qemu-img convert -f raw vm.img -O qcow2 vm.qcow2
+</code><br/></li>
+</ol>
+
+<p>Tags: <a href='tag_virtualization.html'>virtualization</a>, <a href='tag_virtualbox.html'>virtualbox</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_qcow2.html'>qcow2</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

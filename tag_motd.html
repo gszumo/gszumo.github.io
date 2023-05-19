@@ -149,35 +149,6 @@ Gregg Szumowski
 
 <p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
-<h3><a class="ablack" href="ssh-directory-permissions-settings.html">
-SSH Directory Permissions Settings
-</a></h3>
-<!-- bashblog_timestamp: #202305131651.02# -->
-<div class="subtitle">May 13, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>It is important to set the directory and file permissions for your ~/.ssh correctly. </p>
-
-<p>Typically you want the permissions to be:</p>
-
-<ul>
-<li>.ssh directory: 700 (drwx------)</li>
-<li>public key (.pub file): 644 (-rw-r--r--)</li>
-<li>private key (id_rsa): 600 (-rw-------)</li>
-<li>lastly your home directory should not be writeable by the group or others (at most 755 (drwxr-xr-x)).</li>
-</ul>
-
-<p><br/>
-<br/>
-<code> $ chmod 700 ~/.ssh </code> <br/>
-<code> $ chmod 600 ~/.ssh/* </code> <br/>
-<code> $ chmod 644 ~/.ssh/*.pub </code> <br/>
-<code> $ ls -ltr ~/.ssh/</code><br/></p>
-
-<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
 <h3><a class="ablack" href="how-to-use-github-tokens-on-the-command-line1357.html">
 How To Use Github Tokens on the Command Line
 </a></h3>
