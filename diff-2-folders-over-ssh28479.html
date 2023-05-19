@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; Posts tagged "ssh"</title>
+<title>Diff 2 Folders Over SSH</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -14,6 +14,7 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<!-- entry begin -->
 <h3><a class="ablack" href="diff-2-folders-over-ssh28479.html">
 Diff 2 Folders Over SSH
 </a></h3>
@@ -31,59 +32,7 @@ $ diff &lt;(ssh username@192.168.1.60 ls -R /home/username/dir1) &lt;(ls -R /hom
 
 <p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_diff.html'>diff</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
-<h3><a class="ablack" href="creating-passwordless-ssh-keys6962.html">
-Creating Passwordless SSH Keys
-</a></h3>
-<!-- bashblog_timestamp: #202305142214.46# -->
-<div class="subtitle">May 14, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p><br/>Create the key. Note those are two single quotes after the -N (for a blank passwd)
-<br/>
-<code> $ ssh-keygen -t rsa -b 4096 -N '' </code> <br/>
-<br/>Copy it to the target server
-<br/> <code> $ cat .ssh/id<em>rsa.pub | ssh username@192.168.1.123  'cat >> .ssh/authorized</em>keys' </code> <br/>
-<br/>
-Test it
-<br/>
-<code> 
-$ ssh username@192.168.1.123
-</code> <br/>
-<br/></p>
-
-<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="ssh-directory-permissions-settings10237.html">
-SSH Directory Permissions Settings
-</a></h3>
-<!-- bashblog_timestamp: #202305131653.49# -->
-<div class="subtitle">May 13, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>It is important to set the directory and file permissions for your ~/.ssh correctly. </p>
-
-<p>Typically you want the permissions to be:</p>
-
-<ul>
-<li>.ssh directory: 700 (drwx------)</li>
-<li>public key (.pub file): 644 (-rw-r--r--)</li>
-<li>private key (id_rsa): 600 (-rw-------)</li>
-<li>lastly your home directory should not be writeable by the group or others (at most 755 (drwxr-xr-x)).</li>
-</ul>
-
-<p><br/>For example, to set this permissions do:
-<br/>
-<code> $ chmod 700 ~/.ssh </code> <br/>
-<code> $ chmod 600 ~/.ssh/* </code> <br/>
-<code> $ chmod 644 ~/.ssh/*.pub </code> <br/>
-<code> $ ls -ltr ~/.ssh/</code><br/></p>
-
-<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
+<!-- entry end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
 NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>

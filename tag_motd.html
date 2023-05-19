@@ -14,6 +14,23 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="diff-2-folders-over-ssh28479.html">
+Diff 2 Folders Over SSH
+</a></h3>
+<!-- bashblog_timestamp: #202305191836.28# -->
+<div class="subtitle">May 19, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>If you need to do a 'diff' on 2 folders and one of them is remote then you can accomplish that as follows:</p>
+
+<p><code>
+$ diff &lt;(ssh username@192.168.1.60 ls -R /home/username/dir1) &lt;(ls -R /home/username/dir2)
+</code></p>
+
+<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_diff.html'>diff</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="how-to-enable-the-administrator-account-in-windows19625.html">
 How to Enable the Administrator Account in Windows
 </a></h3>

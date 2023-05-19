@@ -14,6 +14,23 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="diff-2-folders-over-ssh28479.html">
+Diff 2 Folders Over SSH
+</a></h3>
+<!-- bashblog_timestamp: #202305191836.28# -->
+<div class="subtitle">May 19, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>If you need to do a 'diff' on 2 folders and one of them is remote then you can accomplish that as follows:</p>
+
+<p><code>
+$ diff &lt;(ssh username@192.168.1.60 ls -R /home/username/dir1) &lt;(ls -R /home/username/dir2)
+</code></p>
+
+<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_diff.html'>diff</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="how-to-enable-the-administrator-account-in-windows19625.html">
 How to Enable the Administrator Account in Windows
 </a></h3>
@@ -202,33 +219,6 @@ $ echo "message body" | mail -s "subject" test@example.com
 </code><br/><br/></p>
 
 <p>Tags: <a href='tag_mail.html'>mail</a>, <a href='tag_mutt.html'>mutt</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1.html">
-How to convert VirtualBox VDI to KVM qcow2
-</a></h3>
-<!-- bashblog_timestamp: #202305101707.58# -->
-<div class="subtitle">May 10, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>It is easy to convert a VirtualBox VDI image to a KVM qcow2 file. You have to use the RAW file format as an intermediate.</p>
-
-<p>Make sure the VirtualBox machine is shutdown.</p>
-
-<ol>
-<li>Convert the VDI to a raw disk image. <br/>
-Note: VDIs are compressed and raw images are not, so you will need to leave enough disk space for entire uncompressed disk.<br/>
-<br/><code>
-$ VBoxManage clonehd --format RAW vm.vdi vm.img
-</code><br/><br/></li>
-<li>Then on your KVM host:
-<br/><code>
-$ qemu-img convert -f raw vm.img -O qcow2 vm.qcow2
-</code><br/></li>
-</ol>
-
-<p>Tags: <a href='tag_virtualization.html'>virtualization</a>, <a href='tag_virtualbox.html'>virtualbox</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_qcow2.html'>qcow2</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

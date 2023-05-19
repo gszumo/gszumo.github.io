@@ -2,9 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Fri, 19 May 2023 18:32:53 -0400</lastBuildDate>
-<pubDate>Fri, 19 May 2023 18:32:53 -0400</pubDate>
+<lastBuildDate>Fri, 19 May 2023 18:36:37 -0400</lastBuildDate>
+<pubDate>Fri, 19 May 2023 18:36:37 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Diff 2 Folders Over SSH
+</title><description><![CDATA[
+
+<p>If you need to do a 'diff' on 2 folders and one of them is remote then you can accomplish that as follows:</p>
+
+<p><code>
+$ diff &lt;(ssh username@192.168.1.60 ls -R /home/username/dir1) &lt;(ls -R /home/username/dir2)
+</code></p>
+
+<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_diff.html'>diff</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/diff-2-folders-over-ssh28479.html</link>
+<guid>http://www.szumowski.org/./diff-2-folders-over-ssh28479.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Fri, 19 May 2023 18:36:28 -0400</pubDate></item>
 <item><title>
 How to Enable the Administrator Account in Windows
 </title><description><![CDATA[
@@ -256,18 +272,4 @@ How To Count All The Files Extension Recursively In Linux
 <guid>http://www.szumowski.org/./how-to-count-all-the-files-extension-recursively-in-linux.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 09 May 2023 22:00:54 -0400</pubDate></item>
-<item><title>
-Untar a Tarball to a Remote Directory
-</title><description><![CDATA[
-
-<p>Sometimes you may need to copy an entire directory structure to another system using the command line. Here is a quick way to do it using the tar command:</p>
-
-<p><code> cat myfile.tgz | ssh user@host "tar xzf - -C /some/dir" </code><br></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_tar.html'>tar</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/untar-a-tarball-to-a-remote-directory5321.html</link>
-<guid>http://www.szumowski.org/./untar-a-tarball-to-a-remote-directory5321.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Mon, 08 May 2023 18:44:08 -0400</pubDate></item>
 </channel></rss>
