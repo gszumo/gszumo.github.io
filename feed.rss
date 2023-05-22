@@ -2,9 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Fri, 19 May 2023 18:36:37 -0400</lastBuildDate>
-<pubDate>Fri, 19 May 2023 18:36:37 -0400</pubDate>
+<lastBuildDate>Sun, 21 May 2023 20:29:12 -0400</lastBuildDate>
+<pubDate>Sun, 21 May 2023 20:29:12 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+How To Find All of the Shell Scripts In a Directory
+</title><description><![CDATA[
+
+<p>This is a quick and dirty way which will list all of the files that are shell scripts:</p>
+
+<p><code> for i in * </code><br/>
+<code> do </code><br/>
+<code>     type=$(file ${i}|awk -F, '{print $2}')</code><br/>
+<code>     if [[ "${type}" = " ASCII text executable" ]]; then </code><br/>
+<code>         echo "${i} is a shell script"</code><br/>
+<code>     fi</code><br/>
+<code> done</code><br/>
+<br/></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_awk.html'>awk</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/how-to-find-all-of-the-shell-scripts-in-a-directory.html</link>
+<guid>http://www.szumowski.org/./how-to-find-all-of-the-shell-scripts-in-a-directory.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 21 May 2023 20:20:15 -0400</pubDate></item>
 <item><title>
 Diff 2 Folders Over SSH
 </title><description><![CDATA[
@@ -229,47 +250,4 @@ $ qemu-img convert -f raw vm.img -O qcow2 vm.qcow2
 <guid>http://www.szumowski.org/./h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 10 May 2023 17:07:58 -0400</pubDate></item>
-<item><title>
-How To Count All The Files Extension Recursively In Linux
-</title><description><![CDATA[
-
-<p>To count all the files by file extension recursively on the command line<br/><br/>
-<code> $ find . -type f | sed -n 's/..*.//p' | sort | uniq -c </code><br/>
-<code>     40 3g2</code><br/>
-<code>      5 AVI</code><br/>
-<code>     13 DS_Store</code><br/>
-<code>     28 JPG</code><br/>
-<code>     30 MOV</code><br/>
-<code>    133 MP4</code><br/>
-<code>     64 THM</code><br/>
-<code>      1 docx</code><br/>
-<code>     18 jpg</code><br/>
-<code>      1 json</code><br/>
-<code>      4 m3u</code><br/>
-<code>     89 m4a</code><br/>
-<code>      2 m4r</code><br/>
-<code>    156 m4v</code><br/>
-<code>     41 mkv</code><br/>
-<code>    112 mov</code><br/>
-<code>     38 mp3</code><br/>
-<code>    587 mp4</code><br/>
-<code>      1 nfo</code><br/>
-<code>      2 osp</code><br/>
-<code>     30 png</code><br/>
-<code>      1 sh</code><br/>
-<code>      4 srt</code><br/>
-<code>      6 svg</code><br/>
-<code>     10 torrent</code><br/>
-<code>      6 txt</code><br/>
-<code>      5 webm</code><br/>
-<code>     10 zip</code><br/>
-</code>
-<br></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_find.html'>find</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_sort.html'>sort</a>, <a href='tag_uniq.html'>uniq</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/how-to-count-all-the-files-extension-recursively-in-linux.html</link>
-<guid>http://www.szumowski.org/./how-to-count-all-the-files-extension-recursively-in-linux.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 09 May 2023 22:00:54 -0400</pubDate></item>
 </channel></rss>
