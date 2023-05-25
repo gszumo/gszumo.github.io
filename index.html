@@ -14,6 +14,39 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="bash-environment-variables11985.html">
+Bash Environment Variables
+</a></h3>
+<!-- bashblog_timestamp: #202305242059.35# -->
+<div class="subtitle">May 24, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>Here are some bash environment variables that are useful to know when you're using the command prompt:</p>
+
+<p>| Name | Description |
+| ---- | ----------- |
+| $0 | name of shell or shell script |
+| $1, $2, $3, ... | positional parameters to script |
+| $# | count of positional parameters |
+| $? | exit status of most recent foreground task |
+| $- | current options that are set for the shell |
+| $$ | PID of the current shell (not subshell) |
+| $! | the PID of the most recent background command |
+| $DESKTOP_SESSION | path to the current display manager |
+| $EDITOR | preferred text editor |
+| $LANG | current language |
+| $PATH | directory list to search for executables (programs) |
+| $PWD | current working directory |
+| $SHELL | current shell |
+| $USER | current username |
+| $HOME | current user's home directory |
+| $HOSTNAME | current name of the host |
+| $TERM | current terminal |</p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="bash-cli-keyboard-shortcuts21656.html">
 Bash CLI Keyboard Shortcuts
 </a></h3>
@@ -182,35 +215,6 @@ Test it
 $ ssh username@192.168.1.123
 </code> <br/>
 <br/></p>
-
-<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="ssh-directory-permissions-settings10237.html">
-SSH Directory Permissions Settings
-</a></h3>
-<!-- bashblog_timestamp: #202305131653.49# -->
-<div class="subtitle">May 13, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>It is important to set the directory and file permissions for your ~/.ssh correctly. </p>
-
-<p>Typically you want the permissions to be:</p>
-
-<ul>
-<li>.ssh directory: 700 (drwx------)</li>
-<li>public key (.pub file): 644 (-rw-r--r--)</li>
-<li>private key (id_rsa): 600 (-rw-------)</li>
-<li>lastly your home directory should not be writeable by the group or others (at most 755 (drwxr-xr-x)).</li>
-</ul>
-
-<p><br/>For example, to set this permissions do:
-<br/>
-<code> $ chmod 700 ~/.ssh </code> <br/>
-<code> $ chmod 600 ~/.ssh/* </code> <br/>
-<code> $ chmod 644 ~/.ssh/*.pub </code> <br/>
-<code> $ ls -ltr ~/.ssh/</code><br/></p>
 
 <p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
