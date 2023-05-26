@@ -14,6 +14,65 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="calibre-server-installation-on-a-raspberry-pi.html">
+Calibre Server Installation on a Raspberry Pi
+</a></h3>
+<!-- bashblog_timestamp: #202305261746.50# -->
+<div class="subtitle">May 26, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>These instructions are for installing the Calibre book management software on a Raspberry Pi 4 running Ubuntu 20.04 but should work with Raspian or other Debian-derived operating systems. This is just a briefer version of the same instructions that are posted <a href="https://www.digitalocean.com/community/tutorials/how-to-create-a-calibre-ebook-server-on-ubuntu-20-04">here</a>.</p>
+
+<p>Install the calibre-bin package and its dependencies:</p>
+
+<p><code>$ sudo apt update &amp;&amp; sudo apt install -y </code><br/>
+<code>$ sudo apt install calibre-bin</code><br/></p>
+
+<p>Create a user to run this program.</p>
+
+<p><code>$ sudo adduser calibre</code><br/></p>
+
+<p>Login as the 'calibre' user and create some directories:</p>
+
+<p><code>$ mkdir calibre-library</code><br/>
+<code>$ mkdir ~/books-to-add</code><br/></p>
+
+<p>Enable user authentication:</p>
+
+<p><code>calibre-server --manage-users</code><br/></p>
+
+<p>Create a service for the Calibre server</p>
+
+<p><code>[Unit]</code><br/>
+<code>Description=calibre content server</code><br/>
+<code>After=network.target</code><br/>
+<code></code><br/>
+<code>[Service]</code><br/>
+<code>Type=simple</code><br/>
+<code>User=calibre</code><br/>
+<code>Group=calibre</code><br/>
+<code>ExecStart=/usr/bin/calibre-server \</code><br/>
+<code>--port=8081 --enable-local-write --enable-auth \</code><br/>
+<code>/home/calibre/calibre-library</code><br/>
+<code></code><br/>
+<code>[Install]</code><br/>
+<code>WantedBy=multi-user.target</code><br/></p>
+
+<p>Enable the service:</p>
+
+<p><code>$ sudo systemctl enable calibre-server</code><br/>
+<code>$ sudo systemctl start calibre-server</code><br/></p>
+
+<p>Create a cron job to run periodically add books from the books-to-add directory:</p>
+
+<p><code><em>/5 * * * * calibredb add /home/calibre/books-to-add/ -r --with-library http://localhost:8081#calibre-library --username calibre --password <strong></em><em>*</em></strong></code><br/></p>
+
+<p>Supplemental instructions are <a href="https://manual.calibre-ebook.com/server.html">here</a></p>
+
+<p>Tags: <a href='tag_calibre.html'>calibre</a>, <a href='tag_raspberry-pi.html'>raspberry-pi</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="gitea-server-installation-on-a-raspberry-pi26652.html">
 Gitea Server Installation on a Raspberry Pi
 </a></h3>
@@ -210,42 +269,6 @@ pandoc -f html -t epub3 --epub-metadata=metadata.xml -o output.epub input.html
 <p><a href="https://linuxconfig.org/how-to-convert-various-ebook-formats-for-amazon-kindle-on-linux">How to convert various eBook formats for Amazon Kindle on Linux</a></p>
 
 <p>Tags: <a href='tag_epub.html'>epub</a>, <a href='tag_pandoc.html'>pandoc</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="mastodon-automated-postings-using-the-api10012.html">
-Mastodon Automated Postings using the API
-</a></h3>
-<!-- bashblog_timestamp: #202305162207.09# -->
-<div class="subtitle">May 16, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>You can post to Mastodon using their API using <code>cURL</code>.</p>
-
-<h4>Create or Find Your Access Token</h4>
-
-<p>Once you have a Mastodon account, you need your account's access token. The steps you need to get that:</p>
-
-<ol>
-<li>Sign into your Mastodon account</li>
-<li>Click on In the <code>"Preferences"</code> link.</li>
-<li>On the bottom left corner of that page, click the <code>"Development"</code> link.</li>
-<li>On the <code>"Your Applications"</code> page, click the blue <code>NEW APPLICATION</code> button.</li>
-<li>Give your application a name, and decide what kind of access you want to have when you connect to your account via the Mastodon API (i<code>read</code>, <code>write</code>, and <code>follow</code> are the defaults). You can always change this later.</li>
-<li>At the bottom of the page, click the blue <code>SUBMIT</code> button.</li>
-<li>You will be directed back to the <code>Your applications</code> page, but now you should see your application name. Click that.</li>
-<li>In your application's page, there are three tokens. For this tutorial, you need the <code>Your access token</code> one.
-    Note: if your access token is ever compromised, you can click regenerate, and your old access token will stop working, and you'll be shown a new one.</li>
-</ol>
-
-<h4>Post a Status Update using cURL</h4>
-
-<p><br/>
-<code> 
-$ curl https://mastodon.sdf.org/api/v1/statuses -H 'Authorization: Bearer put-your-api-token-here' -F 'status=Hello, World'
-</code> <br/> <br/></p>
-
-<p>Tags: <a href='tag_curl.html'>curl</a>, <a href='tag_mastodon.html'>mastodon</a>, <a href='tag_api.html'>api</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
