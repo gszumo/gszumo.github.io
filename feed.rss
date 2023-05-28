@@ -2,9 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 27 May 2023 21:22:58 -0400</lastBuildDate>
-<pubDate>Sat, 27 May 2023 21:22:58 -0400</pubDate>
+<lastBuildDate>Sun, 28 May 2023 15:54:52 -0400</lastBuildDate>
+<pubDate>Sun, 28 May 2023 15:54:52 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Edit a Remote File Using Vim
+</title><description><![CDATA[
+
+<p>To edit a file remotely using the vim editor, just do the following in a terminal window:</p>
+
+<p><code>
+$ scp://username@IP-address//path/to/file.txt
+</code></p>
+
+<p><br>The user must have access to the file being edited.<br></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_scp.html'>scp</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/edit-a-remote-file-using-vim.html</link>
+<guid>http://www.szumowski.org/./edit-a-remote-file-using-vim.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 28 May 2023 15:54:48 -0400</pubDate></item>
 <item><title>
 Echo File Until a Blank Line Is Reached
 </title><description><![CDATA[
@@ -269,39 +287,4 @@ pandoc -f html -t epub3 --epub-metadata=metadata.xml -o output.epub input.html
 <guid>http://www.szumowski.org/./convert-html-files-to-epub-using-pandoc8802.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 17 May 2023 22:11:18 -0400</pubDate></item>
-<item><title>
-Mastodon Automated Postings using the API
-</title><description><![CDATA[
-
-<p>You can post to Mastodon using their API using <code>cURL</code>.</p>
-
-<h4>Create or Find Your Access Token</h4>
-
-<p>Once you have a Mastodon account, you need your account's access token. The steps you need to get that:</p>
-
-<ol>
-<li>Sign into your Mastodon account</li>
-<li>Click on In the <code>"Preferences"</code> link.</li>
-<li>On the bottom left corner of that page, click the <code>"Development"</code> link.</li>
-<li>On the <code>"Your Applications"</code> page, click the blue <code>NEW APPLICATION</code> button.</li>
-<li>Give your application a name, and decide what kind of access you want to have when you connect to your account via the Mastodon API (i<code>read</code>, <code>write</code>, and <code>follow</code> are the defaults). You can always change this later.</li>
-<li>At the bottom of the page, click the blue <code>SUBMIT</code> button.</li>
-<li>You will be directed back to the <code>Your applications</code> page, but now you should see your application name. Click that.</li>
-<li>In your application's page, there are three tokens. For this tutorial, you need the <code>Your access token</code> one.
-    Note: if your access token is ever compromised, you can click regenerate, and your old access token will stop working, and you'll be shown a new one.</li>
-</ol>
-
-<h4>Post a Status Update using cURL</h4>
-
-<p><br/>
-<code> 
-$ curl https://mastodon.sdf.org/api/v1/statuses -H 'Authorization: Bearer put-your-api-token-here' -F 'status=Hello, World'
-</code> <br/> <br/></p>
-
-<p>Tags: <a href='tag_curl.html'>curl</a>, <a href='tag_mastodon.html'>mastodon</a>, <a href='tag_api.html'>api</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/mastodon-automated-postings-using-the-api10012.html</link>
-<guid>http://www.szumowski.org/./mastodon-automated-postings-using-the-api10012.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 16 May 2023 22:07:09 -0400</pubDate></item>
 </channel></rss>
