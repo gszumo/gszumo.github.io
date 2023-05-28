@@ -2,9 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Fri, 26 May 2023 17:46:55 -0400</lastBuildDate>
-<pubDate>Fri, 26 May 2023 17:46:55 -0400</pubDate>
+<lastBuildDate>Sat, 27 May 2023 21:22:58 -0400</lastBuildDate>
+<pubDate>Sat, 27 May 2023 21:22:58 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Echo File Until a Blank Line Is Reached
+</title><description><![CDATA[
+
+<p>You can use the <code>awk</code> program to search and print lines in a file. If you wanted to print a file until the first blank line is reached you can use the  following command to do that:</p>
+
+<p><code>
+awk '$0 ~ /^$/ {exit;} {print $0;}' somefile.txt
+</code></p>
+
+<p>Tags: <a href='tag_awk.html'>awk</a>, <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/echo-file-until-a-blank-line-is-reached.html</link>
+<guid>http://www.szumowski.org/./echo-file-until-a-blank-line-is-reached.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sat, 27 May 2023 21:22:53 -0400</pubDate></item>
 <item><title>
 Calibre Server Installation on a Raspberry Pi
 </title><description><![CDATA[
@@ -288,27 +304,4 @@ $ curl https://mastodon.sdf.org/api/v1/statuses -H 'Authorization: Bearer put-yo
 <guid>http://www.szumowski.org/./mastodon-automated-postings-using-the-api10012.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 16 May 2023 22:07:09 -0400</pubDate></item>
-<item><title>
-Creating Passwordless SSH Keys
-</title><description><![CDATA[
-
-<p><br/>Create the key. Note those are two single quotes after the -N (for a blank passwd)
-<br/>
-<code> $ ssh-keygen -t rsa -b 4096 -N '' </code> <br/>
-<br/>Copy it to the target server
-<br/> <code> $ cat .ssh/id<em>rsa.pub | ssh username@192.168.1.123  'cat >> .ssh/authorized</em>keys' </code> <br/>
-<br/>
-Test it
-<br/>
-<code> 
-$ ssh username@192.168.1.123
-</code> <br/>
-<br/></p>
-
-<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/creating-passwordless-ssh-keys6962.html</link>
-<guid>http://www.szumowski.org/./creating-passwordless-ssh-keys6962.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sun, 14 May 2023 22:14:46 -0400</pubDate></item>
 </channel></rss>

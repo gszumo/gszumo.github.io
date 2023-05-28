@@ -14,6 +14,23 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="echo-file-until-a-blank-line-is-reached.html">
+Echo File Until a Blank Line Is Reached
+</a></h3>
+<!-- bashblog_timestamp: #202305272122.53# -->
+<div class="subtitle">May 27, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>You can use the <code>awk</code> program to search and print lines in a file. If you wanted to print a file until the first blank line is reached you can use the  following command to do that:</p>
+
+<p><code>
+awk '$0 ~ /^$/ {exit;} {print $0;}' somefile.txt
+</code></p>
+
+<p>Tags: <a href='tag_awk.html'>awk</a>, <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="bash-environment-variables11985.html">
 Bash Environment Variables
 </a></h3>
