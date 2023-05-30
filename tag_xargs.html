@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; Posts tagged "awk"</title>
+<title>Gregg's MOTD &mdash; Posts tagged "xargs"</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -30,45 +30,6 @@ $ ls -al | awk '$0!~/^d/ {$1=$2=$3=$4=$5=$6=$7=$8=""; printf("%s\"\n", $0)}' | s
 </code></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_tar.html'>tar</a>, <a href='tag_awk.html'>awk</a>, <a href='tag_xargs.html'>xargs</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="echo-file-until-a-blank-line-is-reached.html">
-Echo File Until a Blank Line Is Reached
-</a></h3>
-<!-- bashblog_timestamp: #202305272122.53# -->
-<div class="subtitle">May 27, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>You can use the <code>awk</code> program to search and print lines in a file. If you wanted to print a file until the first blank line is reached you can use the  following command to do that:</p>
-
-<p><code>
-awk '$0 ~ /^$/ {exit;} {print $0;}' somefile.txt
-</code></p>
-
-<p>Tags: <a href='tag_awk.html'>awk</a>, <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="how-to-find-all-of-the-shell-scripts-in-a-directory.html">
-How To Find All of the Shell Scripts In a Directory
-</a></h3>
-<!-- bashblog_timestamp: #202305212020.15# -->
-<div class="subtitle">May 21, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>This is a quick and dirty way which will list all of the files that are shell scripts:</p>
-
-<p><code> for i in * </code><br/>
-<code> do </code><br/>
-<code>     type=$(file ${i}|awk -F, '{print $2}')</code><br/>
-<code>     if [[ "${type}" = " ASCII text executable" ]]; then </code><br/>
-<code>         echo "${i} is a shell script"</code><br/>
-<code>     fi</code><br/>
-<code> done</code><br/>
-<br/></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_awk.html'>awk</a></p>
 <!-- text end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>

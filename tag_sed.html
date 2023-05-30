@@ -14,6 +14,23 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="archive-only-files-in-a-directory23013.html">
+Archive Only Files In a Directory
+</a></h3>
+<!-- bashblog_timestamp: #202305292036.09# -->
+<div class="subtitle">May 29, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>If you want to create a tar archive of only the files of a directory and exclude any subdirectories you can use the <code>ls -la</code> command and pipe the output to <code>awk</code>. However you need to remove the first 8 fields from the output and leave all of the remaining parts of the line in case there are spaces in the filename. One quick and dirty way of doing that is to set each of the 8 fields to a blank and then use <code>sed</code> to trim the leading spaces. You can optionally add quotation marks around the filename in your output too.</p>
+
+<p><code>
+$ ls -al | awk '$0!~/^d/ {$1=$2=$3=$4=$5=$6=$7=$8=""; printf("%s\"\n", $0)}' | sed 's/^[[:space:]]*/"/' | xargs tar cvf archive-name.tar
+</code></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_tar.html'>tar</a>, <a href='tag_awk.html'>awk</a>, <a href='tag_xargs.html'>xargs</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="how-to-count-all-the-files-extension-recursively-in-linux.html">
 How To Count All The Files Extension Recursively In Linux
 </a></h3>
