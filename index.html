@@ -14,6 +14,33 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="installing-foliate-ebook-reader-on-slackware-1517738.html">
+Installing Foliate Ebook Reader on Slackware 15
+</a></h3>
+<!-- bashblog_timestamp: #202305301833.17# -->
+<div class="subtitle">May 30, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+
+<p>I don't know about you, but I love reading ebooks and I've used Foliate before on other distributions but can't find it for my OS of choice, Slackware. So, here's how to install it from source:</p>
+
+<ol>
+<li>Download the foliate software tarball from <a href="https://github.com/johnfactotum/foliate/releases">here</a></li>
+<li>Install appstream-glib (which provides dependency appstream-util) using sboinstall</li>
+<li>Install webkit2gtk (which provides dependency WebKit2) using sboinstall</li>
+<li>Build foliate. Instructions are on the GitHub <a href="https://github.com/johnfactotum/foliate">page</a> or just extract the tarball, cd into the directory and then execute the following on the command line:</li>
+</ol>
+
+<p><code>$ tar zxvf foliate-2.6.4.tar.gz </code><br/>
+<code>$ cd foliate-2.6.4</code><br/>
+<code>$ meson build --prefix=/usr</code><br/>
+<code>$ ninja -c build</code><br/>
+<code>$ ninja -C build</code><br/>
+<code>$ su -c "ninja -C build install"</code><br/></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ebooks.html'>ebooks</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="archive-only-files-in-a-directory23013.html">
 Archive Only Files In a Directory
 </a></h3>
@@ -237,28 +264,6 @@ Gregg Szumowski
 <br/><code>esc-.</code> -- gives the last command you typed.</p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="how-to-find-all-of-the-shell-scripts-in-a-directory.html">
-How To Find All of the Shell Scripts In a Directory
-</a></h3>
-<!-- bashblog_timestamp: #202305212020.15# -->
-<div class="subtitle">May 21, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>This is a quick and dirty way which will list all of the files that are shell scripts:</p>
-
-<p><code> for i in * </code><br/>
-<code> do </code><br/>
-<code>     type=$(file ${i}|awk -F, '{print $2}')</code><br/>
-<code>     if [[ "${type}" = " ASCII text executable" ]]; then </code><br/>
-<code>         echo "${i} is a shell script"</code><br/>
-<code>     fi</code><br/>
-<code> done</code><br/>
-<br/></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_awk.html'>awk</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

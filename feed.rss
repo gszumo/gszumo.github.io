@@ -2,9 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Mon, 29 May 2023 20:36:13 -0400</lastBuildDate>
-<pubDate>Mon, 29 May 2023 20:36:13 -0400</pubDate>
+<lastBuildDate>Tue, 30 May 2023 18:36:14 -0400</lastBuildDate>
+<pubDate>Tue, 30 May 2023 18:36:14 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Installing Foliate Ebook Reader on Slackware 15
+</title><description><![CDATA[
+
+<p>I don't know about you, but I love reading ebooks and I've used Foliate before on other distributions but can't find it for my OS of choice, Slackware. So, here's how to install it from source:</p>
+
+<ol>
+<li>Download the foliate software tarball from <a href="https://github.com/johnfactotum/foliate/releases">here</a></li>
+<li>Install appstream-glib (which provides dependency appstream-util) using sboinstall</li>
+<li>Install webkit2gtk (which provides dependency WebKit2) using sboinstall</li>
+<li>Build foliate. Instructions are on the GitHub <a href="https://github.com/johnfactotum/foliate">page</a> or just extract the tarball, cd into the directory and then execute the following on the command line:</li>
+</ol>
+
+<p><code>$ tar zxvf foliate-2.6.4.tar.gz </code><br/>
+<code>$ cd foliate-2.6.4</code><br/>
+<code>$ meson build --prefix=/usr</code><br/>
+<code>$ ninja -c build</code><br/>
+<code>$ ninja -C build</code><br/>
+<code>$ su -c "ninja -C build install"</code><br/></p>
+
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ebooks.html'>ebooks</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/installing-foliate-ebook-reader-on-slackware-1517738.html</link>
+<guid>http://www.szumowski.org/./installing-foliate-ebook-reader-on-slackware-1517738.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Tue, 30 May 2023 18:33:17 -0400</pubDate></item>
 <item><title>
 Archive Only Files In a Directory
 </title><description><![CDATA[
@@ -259,22 +285,4 @@ $ diff &lt;(ssh username@192.168.1.60 ls -R /home/username/dir1) &lt;(ls -R /hom
 <guid>http://www.szumowski.org/./diff-2-folders-over-ssh28479.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Fri, 19 May 2023 18:36:28 -0400</pubDate></item>
-<item><title>
-How to Enable the Administrator Account in Windows
-</title><description><![CDATA[
-
-<p>To activate the Administrator account on Windows, open the Command Prompt as Administrator from the Start Menu, or you can right-click on the "Start" menu and select the "Powershell" menu item, then enter:</p>
-
-<p><code>
-net user administrator /active: yes
-</code></p>
-
-<p>into the window. You should disable the account again when you're done.</p>
-
-<p>Tags: <a href='tag_windows.html'>windows</a>, <a href='tag_sysadmin.html'>sysadmin</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/how-to-enable-the-administrator-account-in-windows19625.html</link>
-<guid>http://www.szumowski.org/./how-to-enable-the-administrator-account-in-windows19625.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Thu, 18 May 2023 16:08:36 -0400</pubDate></item>
 </channel></rss>
