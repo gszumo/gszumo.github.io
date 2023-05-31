@@ -2,9 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 30 May 2023 18:36:14 -0400</lastBuildDate>
-<pubDate>Tue, 30 May 2023 18:36:14 -0400</pubDate>
+<lastBuildDate>Wed, 31 May 2023 18:22:20 -0400</lastBuildDate>
+<pubDate>Wed, 31 May 2023 18:22:20 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Update Slackware Broadcom Driver
+</title><description><![CDATA[
+<p>It doesn’t happen often, but whenever there’s a new kernel package
+for Slackware on my laptop I need to update the Broadcom driver. To do
+this:</p>
+<ol type="1">
+<li>Update your OS, as usual.</li>
+<li>Reboot</li>
+<li>Plug in the ethernet cable, if necessary</li>
+<li>Login as root</li>
+<li>Perform sbopkg -i broadcom-sta</li>
+<li>Done</li>
+</ol>
+<p>You can read more about it on the Slackware wiki <a
+href="https://www.slackwiki.com/Broadcom_Wireless">here</a></p>
+<p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_broadcom.html'>broadcom</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/update-slackware-broadcom-driver27466.html</link>
+<guid>http://www.szumowski.org/./update-slackware-broadcom-driver27466.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Wed, 31 May 2023 18:20:28 -0400</pubDate></item>
 <item><title>
 Installing Foliate Ebook Reader on Slackware 15
 </title><description><![CDATA[
@@ -269,20 +291,4 @@ How To Find All of the Shell Scripts In a Directory
 <guid>http://www.szumowski.org/./how-to-find-all-of-the-shell-scripts-in-a-directory.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sun, 21 May 2023 20:20:15 -0400</pubDate></item>
-<item><title>
-Diff 2 Folders Over SSH
-</title><description><![CDATA[
-
-<p>If you need to do a 'diff' on 2 folders and one of them is remote then you can accomplish that as follows:</p>
-
-<p><code>
-$ diff &lt;(ssh username@192.168.1.60 ls -R /home/username/dir1) &lt;(ls -R /home/username/dir2)
-</code></p>
-
-<p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_diff.html'>diff</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/diff-2-folders-over-ssh28479.html</link>
-<guid>http://www.szumowski.org/./diff-2-folders-over-ssh28479.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Fri, 19 May 2023 18:36:28 -0400</pubDate></item>
 </channel></rss>

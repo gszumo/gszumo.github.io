@@ -14,6 +14,29 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="update-slackware-broadcom-driver27466.html">
+Update Slackware Broadcom Driver
+</a></h3>
+<!-- bashblog_timestamp: #202305311820.28# -->
+<div class="subtitle">May 31, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>It doesn’t happen often, but whenever there’s a new kernel package
+for Slackware on my laptop I need to update the Broadcom driver. To do
+this:</p>
+<ol type="1">
+<li>Update your OS, as usual.</li>
+<li>Reboot</li>
+<li>Plug in the ethernet cable, if necessary</li>
+<li>Login as root</li>
+<li>Perform sbopkg -i broadcom-sta</li>
+<li>Done</li>
+</ol>
+<p>You can read more about it on the Slackware wiki <a
+href="https://www.slackwiki.com/Broadcom_Wireless">here</a></p>
+<p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_broadcom.html'>broadcom</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="installing-foliate-ebook-reader-on-slackware-1517738.html">
 Installing Foliate Ebook Reader on Slackware 15
 </a></h3>
@@ -238,32 +261,6 @@ Gregg Szumowski
 <code> $TERM</code> - current terminal <br/></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="bash-cli-keyboard-shortcuts21656.html">
-Bash CLI Keyboard Shortcuts
-</a></h3>
-<!-- bashblog_timestamp: #202305231807.26# -->
-<div class="subtitle">May 23, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>Here are some quick keyboard shortcuts you can use at the command prompt:</p>
-
-<p><br/><code>ctrl-l</code> -- clear screen
-<br/><code>ctrl-r</code> -- does a search in the previously given commands so that you don't have to repeat long command.
-<br/><code>ctrl-u</code> -- clears the typing before the hotkey.
-<br/><code>ctrl-a</code> -- takes you to the begining of the command you are currently typing.
-<br/><code>ctrl-e</code> -- takes you to the end of the command you are currently typing in.
-<br/><code>esc-b</code> -- takes you back by one word while typing a command.
-<br/><code>ctrl-c</code> -- kills the current command or process.
-<br/><code>ctrl-d</code> -- kills the shell.
-<br/><code>ctrl-h</code> -- deletes one letter at a time from the command you are typing in.
-<br/><code>ctrl-z</code> -- puts the currently running process in background, the process can be brought back to run state by using fg command.
-<br/><code>esc-p</code> -- like ctrl-r lets you search through the previously given commands.
-<br/><code>esc-.</code> -- gives the last command you typed.</p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
