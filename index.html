@@ -14,6 +14,26 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="install-kooha-on-ubuntu-2104.html">
+Install Kooha on Ubuntu 21.04
+</a></h3>
+<!-- bashblog_timestamp: #202306011817.47# -->
+<div class="subtitle">June 01, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p><code>Kooha</code> is a GTK-based screen recorder for Linux for
+recording screens and audio from your desktop or microphone. It is very
+simple to use</p>
+<p>Install <code>flathub</code> from the Ubuntu software repository:</p>
+<pre><code>$ sudo apt install flatpak from the repository:</code></pre>
+<p>Install Koohu from the command line:</p>
+<pre><code>$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+$ flatpak install flathub io.github.seadve.Kooha</code></pre>
+<p>You should now see an icon for <code>Kooha</code> in you GNOME
+applications window.</p>
+<p>Tags: <a href='tag_flatpak.html'>flatpak</a>, <a href='tag_kooha.html'>kooha</a>, <a href='tag_av.html'>av</a>, <a href='tag_recording.html'>recording</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="update-slackware-broadcom-driver27466.html">
 Update Slackware Broadcom Driver
 </a></h3>
@@ -230,37 +250,6 @@ $ sudo adduser git
 <code>sudo systemctl start gitea</code><br/></p>
 
 <p>Tags: <a href='tag_git.html'>git</a>, <a href='tag_gitea.html'>gitea</a>, <a href='tag_raspberry-pi.html'>raspberry-pi</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="bash-environment-variables11985.html">
-Bash Environment Variables
-</a></h3>
-<!-- bashblog_timestamp: #202305242059.35# -->
-<div class="subtitle">May 24, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>Here are some bash environment variables that are useful to know when you're using the command prompt:</p>
-
-<p><code> $0</code> - name of shell or shell script <br/>
-<code> $1, $2, $3, ...</code> - positional parameters to script <br/>
-<code> $#</code> - count of positional parameters <br/>
-<code> $?</code> - exit status of most recent foreground task <br/>
-<code> $-</code> - current options that are set for the shell <br/>
-<code> $$</code> - PID of the current shell (not subshell) <br/>
-<code> $!</code> - the PID of the most recent background command <br/>
-<code> $DESKTOP_SESSION</code> - path to the current display manager <br/>
-<code> $EDITOR</code> - preferred text editor <br/>
-<code> $LANG</code> - current language <br/>
-<code> $PATH</code> - directory list to search for executables (programs) <br/>
-<code> $PWD</code> - current working directory <br/>
-<code> $SHELL</code> - current shell <br/>
-<code> $USER</code> - current username <br/>
-<code> $HOME</code> - current user's home directory <br/>
-<code> $HOSTNAME</code> - current name of the host <br/>
-<code> $TERM</code> - current terminal <br/></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

@@ -2,9 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Wed, 31 May 2023 18:22:20 -0400</lastBuildDate>
-<pubDate>Wed, 31 May 2023 18:22:20 -0400</pubDate>
+<lastBuildDate>Thu, 01 Jun 2023 18:20:32 -0400</lastBuildDate>
+<pubDate>Thu, 01 Jun 2023 18:20:32 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Install Kooha on Ubuntu 21.04
+</title><description><![CDATA[
+<p><code>Kooha</code> is a GTK-based screen recorder for Linux for
+recording screens and audio from your desktop or microphone. It is very
+simple to use</p>
+<p>Install <code>flathub</code> from the Ubuntu software repository:</p>
+<pre><code>$ sudo apt install flatpak from the repository:</code></pre>
+<p>Install Koohu from the command line:</p>
+<pre><code>$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+$ flatpak install flathub io.github.seadve.Kooha</code></pre>
+<p>You should now see an icon for <code>Kooha</code> in you GNOME
+applications window.</p>
+<p>Tags: <a href='tag_flatpak.html'>flatpak</a>, <a href='tag_kooha.html'>kooha</a>, <a href='tag_av.html'>av</a>, <a href='tag_recording.html'>recording</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/install-kooha-on-ubuntu-2104.html</link>
+<guid>http://www.szumowski.org/./install-kooha-on-ubuntu-2104.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Thu, 01 Jun 2023 18:17:47 -0400</pubDate></item>
 <item><title>
 Update Slackware Broadcom Driver
 </title><description><![CDATA[
@@ -270,25 +289,4 @@ Bash CLI Keyboard Shortcuts
 <guid>http://www.szumowski.org/./bash-cli-keyboard-shortcuts21656.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 23 May 2023 18:07:26 -0400</pubDate></item>
-<item><title>
-How To Find All of the Shell Scripts In a Directory
-</title><description><![CDATA[
-
-<p>This is a quick and dirty way which will list all of the files that are shell scripts:</p>
-
-<p><code> for i in * </code><br/>
-<code> do </code><br/>
-<code>     type=$(file ${i}|awk -F, '{print $2}')</code><br/>
-<code>     if [[ "${type}" = " ASCII text executable" ]]; then </code><br/>
-<code>         echo "${i} is a shell script"</code><br/>
-<code>     fi</code><br/>
-<code> done</code><br/>
-<br/></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_awk.html'>awk</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/how-to-find-all-of-the-shell-scripts-in-a-directory.html</link>
-<guid>http://www.szumowski.org/./how-to-find-all-of-the-shell-scripts-in-a-directory.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sun, 21 May 2023 20:20:15 -0400</pubDate></item>
 </channel></rss>
