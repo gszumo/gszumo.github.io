@@ -2,9 +2,85 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Thu, 01 Jun 2023 18:20:32 -0400</lastBuildDate>
-<pubDate>Thu, 01 Jun 2023 18:20:32 -0400</pubDate>
+<lastBuildDate>Fri, 02 Jun 2023 18:54:37 -0400</lastBuildDate>
+<pubDate>Fri, 02 Jun 2023 18:54:37 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Windows Terminal Keyboard Shortcuts
+</title><description><![CDATA[
+<p>I have to use Windows where I work but I use the terminal as often as
+possible. Microsoft’s Windows Terminal application makes that experience
+tolerable. You can even think that you’re using <code>tmux</code> at
+times…well, not really, but you get the idea.</p>
+<p>Here are some of the keyboard shortcuts that I use:</p>
+<p><strong>Split current terminal window</strong></p>
+<p><code>Alt Shift</code> - split pane horizontal</p>
+<p><code>Alt Shift</code> - split pane vertical</p>
+<p><strong>Jump to other console</strong></p>
+<p><code>Alt &lt;arrow key&gt;</code></p>
+<p><strong>Resize current terminal window</strong></p>
+<p><code>Alt Shift &lt;arrow key&gt;</code></p>
+<p><strong>Close terminal window</strong></p>
+<p><code>Ctrl Shift W</code></p>
+<p><strong>Others that I don’t use as much</strong></p>
+<p><code>Ctrl + Shift + Number</code>: Open new profiles/tabs. Use this
+shortcut to open a new profile or tab in Windows Terminal. Each number
+represents a specific profile in the Terminal. Profiles are numbered in
+the top-down form in the profile selection dropdown menu on the title
+bar. For example, if the PowerShell profile is in the second position,
+you should press the “Ctrl + Shift + 2” to open it.</p>
+<p><code>Ctrl + Alt + Number</code>: Switch to a specific tab. Use this
+shortcut to switch between tabs. Tabs are numbered from left to right
+and start with “1.” For example, if you want to switch to the third tab,
+press “Ctrl + Alt + 3.”</p>
+<p><code>Ctrl + Shift + Space</code>: Opens profile selection dropdown
+menu. You can then use the up/down arrow keys to select and open the
+profile.</p>
+<p><code>Ctrl + Shift + T</code>: Opens a new tab with the default
+profile.</p>
+<p><code>Ctrl + Shift + N</code>: Opens a new Windows Terminal
+instance.</p>
+<p><code>Ctrl + Shift + D</code>: This shortcut will duplicate or open
+another instance of the current tab. However, it will not copy the
+content of the original tab.</p>
+<p><code>Ctrl + C</code>: Copy selected text. Select the text in the
+Terminal and press the shortcut to copy it to the clipboard. Once
+copied, you can paste it anywhere you want.</p>
+<p><code>Ctrl + V</code>: Paste clipboard content. Pressing this
+shortcut will paste the clipboard contents into the Terminal. Keep in
+mind that only compatible content, like text, will be pasted. If you try
+to paste incompatible content, like an image, the result will not be as
+expected or intended.</p>
+<p><code>Ctrl + Shift + W</code>: Close the current tab (not the entire
+application).</p>
+<p><code>Alt + F4</code>: Close the Windows Terminal window. If there
+are multiple tabs, you might see a warning prompt. In that case, click
+“Close all” to continue.</p>
+<p><code>Ctrl + Shift + F</code>: Opens the “Find” function. It can be
+used to find instances of a text or sentence in a terminal tab. This
+functionality is similar to what you find in a browser or other
+applications like Notepad, Word, etc.</p>
+<p><code>Ctrl + Numpad Add/Minus</code>: Increase or decrease the text
+size in the Windows Terminal tab.</p>
+<p><code>Ctrl + 0</code>: Reset the font or text size its default
+(100%).</p>
+<p><code>Ctrl + Shift + Up/Down arrow</code>: Scroll up or down in the
+Windows Terminal.</p>
+<p><code>Ctrl + Shift + PageUp/PageDown</code>: Move to top or bottom in
+the Windows Terminal.</p>
+<p><code>Alt + Shift + Minus/Plus</code>: Split current pane
+horizontally or vertically.</p>
+<p><code>Ctrl + Shift + P</code>: Toggle command palette. It can be used
+to select and execute a command or action from the available list.</p>
+<p><code>Ctrl + Shift + ,</code>: This shortcut opens the Settings tab
+in the Windows Terminal.</p>
+<p><code>F11</code>: Toggle fullscreen.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_windows.html'>windows</a>, <a href='tag_terminal.html'>terminal</a>, <a href='tag_shortcuts.html'>shortcuts</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/windows-terminal-keyboard-shortcuts30027.html</link>
+<guid>http://www.szumowski.org/./windows-terminal-keyboard-shortcuts30027.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Fri, 02 Jun 2023 18:47:19 -0400</pubDate></item>
 <item><title>
 Install Kooha on Ubuntu 21.04
 </title><description><![CDATA[
@@ -264,29 +340,4 @@ Bash Environment Variables
 <guid>http://www.szumowski.org/./bash-environment-variables11985.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 24 May 2023 20:59:35 -0400</pubDate></item>
-<item><title>
-Bash CLI Keyboard Shortcuts
-</title><description><![CDATA[
-
-<p>Here are some quick keyboard shortcuts you can use at the command prompt:</p>
-
-<p><br/><code>ctrl-l</code> -- clear screen
-<br/><code>ctrl-r</code> -- does a search in the previously given commands so that you don't have to repeat long command.
-<br/><code>ctrl-u</code> -- clears the typing before the hotkey.
-<br/><code>ctrl-a</code> -- takes you to the begining of the command you are currently typing.
-<br/><code>ctrl-e</code> -- takes you to the end of the command you are currently typing in.
-<br/><code>esc-b</code> -- takes you back by one word while typing a command.
-<br/><code>ctrl-c</code> -- kills the current command or process.
-<br/><code>ctrl-d</code> -- kills the shell.
-<br/><code>ctrl-h</code> -- deletes one letter at a time from the command you are typing in.
-<br/><code>ctrl-z</code> -- puts the currently running process in background, the process can be brought back to run state by using fg command.
-<br/><code>esc-p</code> -- like ctrl-r lets you search through the previously given commands.
-<br/><code>esc-.</code> -- gives the last command you typed.</p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/bash-cli-keyboard-shortcuts21656.html</link>
-<guid>http://www.szumowski.org/./bash-cli-keyboard-shortcuts21656.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 23 May 2023 18:07:26 -0400</pubDate></item>
 </channel></rss>
