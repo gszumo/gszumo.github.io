@@ -2,9 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Fri, 02 Jun 2023 18:54:37 -0400</lastBuildDate>
-<pubDate>Fri, 02 Jun 2023 18:54:37 -0400</pubDate>
+<lastBuildDate>Sat, 03 Jun 2023 18:36:34 -0400</lastBuildDate>
+<pubDate>Sat, 03 Jun 2023 18:36:34 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+How to Use DNF History
+</title><description><![CDATA[
+<p>If you are using a Red Hat/Fedora-based distro, here are some tips on
+how to use the <code>dnf</code> tool to query your install history:</p>
+<p>Retrieve a list of manually installed packages:</p>
+<p><code>$ dnf history userinstalled</code></p>
+<p>Retrieve a list of all transactions:</p>
+<p><code>$ dnf history list all</code></p>
+<p>List the changes in a particular transaction:</p>
+<p><code>$ history list &lt;num&gt;</code></p>
+<p>Undo/rollback a transaction:</p>
+<p><code>$ dnf history undo &lt;num&gt;</code></p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_packaging.html'>packaging</a>, <a href='tag_dnf.html'>dnf</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/how-to-use-dnf-history21154.html</link>
+<guid>http://www.szumowski.org/./how-to-use-dnf-history21154.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sat, 03 Jun 2023 18:36:30 -0400</pubDate></item>
 <item><title>
 Windows Terminal Keyboard Shortcuts
 </title><description><![CDATA[
@@ -310,34 +329,4 @@ $ sudo adduser git
 <guid>http://www.szumowski.org/./gitea-server-installation-on-a-raspberry-pi26652.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Thu, 25 May 2023 18:02:06 -0400</pubDate></item>
-<item><title>
-Bash Environment Variables
-</title><description><![CDATA[
-
-<p>Here are some bash environment variables that are useful to know when you're using the command prompt:</p>
-
-<p><code> $0</code> - name of shell or shell script <br/>
-<code> $1, $2, $3, ...</code> - positional parameters to script <br/>
-<code> $#</code> - count of positional parameters <br/>
-<code> $?</code> - exit status of most recent foreground task <br/>
-<code> $-</code> - current options that are set for the shell <br/>
-<code> $$</code> - PID of the current shell (not subshell) <br/>
-<code> $!</code> - the PID of the most recent background command <br/>
-<code> $DESKTOP_SESSION</code> - path to the current display manager <br/>
-<code> $EDITOR</code> - preferred text editor <br/>
-<code> $LANG</code> - current language <br/>
-<code> $PATH</code> - directory list to search for executables (programs) <br/>
-<code> $PWD</code> - current working directory <br/>
-<code> $SHELL</code> - current shell <br/>
-<code> $USER</code> - current username <br/>
-<code> $HOME</code> - current user's home directory <br/>
-<code> $HOSTNAME</code> - current name of the host <br/>
-<code> $TERM</code> - current terminal <br/></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/bash-environment-variables11985.html</link>
-<guid>http://www.szumowski.org/./bash-environment-variables11985.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Wed, 24 May 2023 20:59:35 -0400</pubDate></item>
 </channel></rss>
