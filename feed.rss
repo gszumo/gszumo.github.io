@@ -2,9 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 03 Jun 2023 18:36:34 -0400</lastBuildDate>
-<pubDate>Sat, 03 Jun 2023 18:36:34 -0400</pubDate>
+<lastBuildDate>Sun, 04 Jun 2023 16:01:50 -0400</lastBuildDate>
+<pubDate>Sun, 04 Jun 2023 16:01:50 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Install Openbox on Slackware
+</title><description><![CDATA[
+<p>I have been running blackbox on my Slackware desktop and decided that
+I’d try a different ‘flavor’ called openbox which are in the SBo
+repositories. I started by executing <code>sbopkg</code> at the
+<code>root</code> prompt and found these packages available:</p>
+<p>There is the primary <code>openbox</code> package and there are 4
+optional packages listed:</p>
+<ul>
+<li>openbox</li>
+<li>libfm-extra</li>
+<li>lxmenu-data</li>
+<li>menu-cache</li>
+<li>openbox-menu</li>
+</ul>
+<p>And several theme packages:</p>
+<ul>
+<li>arc-openbox</li>
+<li>openbox-simple-theme</li>
+</ul>
+<p>The openbox-menu and openbox-simple-theme downloads failed but I was
+able to get away with using <code>obconf</code> and <code>obmenu</code>
+tools.</p>
+<p>Configuration files are stored in <code>/etc/xdg/openbox</code> and
+you should copy the <code>menu.xml</code> file to
+<code>~/.config/openbox/</code> so that you can customize your menu.</p>
+<p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_openbox.html'>openbox</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/install-openbox-on-slackware31274.html</link>
+<guid>http://www.szumowski.org/./install-openbox-on-slackware31274.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 04 Jun 2023 15:54:46 -0400</pubDate></item>
 <item><title>
 How to Use DNF History
 </title><description><![CDATA[
@@ -275,58 +308,4 @@ Calibre Server Installation on a Raspberry Pi
 <guid>http://www.szumowski.org/./calibre-server-installation-on-a-raspberry-pi.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Fri, 26 May 2023 17:46:50 -0400</pubDate></item>
-<item><title>
-Gitea Server Installation on a Raspberry Pi
-</title><description><![CDATA[
-
-<p>Create a 'git' user:</p>
-
-<p><code>
-$ sudo adduser git
-</code></p>
-
-<p>Login as the 'git' user and download the gitea binary from the gitea website (choose the latest version):</p>
-
-<p><code>wget -O gitea https://dl.gitea.io/gitea/1.14.5/gitea-1.14.5-linux-amd64</code><br/>
-<code>chmod +x gitea</code><br/></p>
-
-<p>Create a service. We're keeping it simple here so we don't need a lot of the database-specific stuff:</p>
-
-<p><code>[Unit]</code><br/>
-<code>Description=Gitea (Git with a cup of tea)</code><br/>
-<code>After=syslog.target</code><br/>
-<code>After=network.target</code><br/>
-<code></code><br/>
-<code>[Service]</code><br/>
-<code># Modify these two values and uncomment them if you have</code><br/>
-<code># repos with lots of files and get an HTTP error 500 because</code><br/>
-<code># of that</code><br/>
-<code>#LimitMEMLOCK=infinity</code><br/>
-<code>#LimitNOFILE=65535</code><br/>
-<code>RestartSec=2s</code><br/>
-<code>Type=simple</code><br/>
-<code>User=git</code><br/>
-<code>Group=git</code><br/>
-<code>WorkingDirectory=/home/git/</code><br/>
-<code># If using Unix socket: tells systemd to create the /run/gitea folder, which will contain the gitea.sock file</code><br/>
-<code># (manually creating /run/gitea doesn't work, because it would not persist across reboots)</code><br/>
-<code>#RuntimeDirectory=gitea</code><br/>
-<code>ExecStart=/home/git/gitea web --config /home/git/custom/conf/app.ini</code><br/>
-<code>Restart=always</code><br/>
-<code>Environment=USER=git HOME=/home/git GITEA<em>WORK</em>DIR=/home/git</code><br/>
-<code></code><br/>
-<code>[Install]</code><br/>
-<code>WantedBy=multi-user.target</code><br/></p>
-
-<p>Enable and start Gitea at boot:</p>
-
-<p><code>sudo systemctl enable gitea</code><br/>
-<code>sudo systemctl start gitea</code><br/></p>
-
-<p>Tags: <a href='tag_git.html'>git</a>, <a href='tag_gitea.html'>gitea</a>, <a href='tag_raspberry-pi.html'>raspberry-pi</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/gitea-server-installation-on-a-raspberry-pi26652.html</link>
-<guid>http://www.szumowski.org/./gitea-server-installation-on-a-raspberry-pi26652.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Thu, 25 May 2023 18:02:06 -0400</pubDate></item>
 </channel></rss>
