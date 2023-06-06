@@ -14,6 +14,39 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="sending-email-from-the-command-line-with-curl.html">
+Sending Email from the Command Line with cURL
+</a></h3>
+<!-- bashblog_timestamp: #202306061746.07# -->
+<div class="subtitle">June 06, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Let’s assume that you had a RFC 5822 formatted file named
+<code>mail.txt</code> as follows:</p>
+<pre><code>From: Some Sender &lt;some.sender@gmail.com&gt;
+To: Some Recipient &lt;some.recipient@example.com&gt;
+Subject: Saying Hello
+Date: Tue, 6 Jun 2023 04:15:06 -0100
+Message-ID: &lt;1234@local.machine.example&gt;
+
+This is a message just to say hello.
+So, &quot;Hello&quot;.</code></pre>
+<p>You can forward this to a email recipient using Google’s SMTP with
+the following <code>curl</code> command provided you have a Google app
+password:</p>
+<pre><code>$ curl --url &#39;smtps://smtp.gmail.com:465&#39; --ssl-reqd \
+ --mail-from &#39;some.sender@gmail.com&#39; \ 
+ --mail-rcpt &#39;some.recipient@example.com&#39; \
+ --upload-file mail.txt \
+ --user &#39;some.sender@gmail.com:your-gmail-app-password&#39;</code></pre>
+<p>Output should be something like this:</p>
+<pre><code>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    12    0     0  100    12      0     10  0:00:01  0:00:01 --:--:--    10
+$</code></pre>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_curl.html'>curl</a>, <a href='tag_mail.html'>mail</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="transfering-files-using-netcat20089.html">
 Transfering Files Using netcat
 </a></h3>
@@ -231,23 +264,6 @@ Gregg Szumowski
 <code>$ su -c "ninja -C build install"</code><br/></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ebooks.html'>ebooks</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="archive-only-files-in-a-directory23013.html">
-Archive Only Files In a Directory
-</a></h3>
-<!-- bashblog_timestamp: #202305292036.09# -->
-<div class="subtitle">May 29, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>If you want to create a tar archive of only the files of a directory and exclude any subdirectories you can use the <code>ls -la</code> command and pipe the output to <code>awk</code>. However you need to remove the first 8 fields from the output and leave all of the remaining parts of the line in case there are spaces in the filename. One quick and dirty way of doing that is to set each of the 8 fields to a blank and then use <code>sed</code> to trim the leading spaces. You can optionally add quotation marks around the filename in your output too.</p>
-
-<p><code>
-$ ls -al | awk '$0!~/^d/ {$1=$2=$3=$4=$5=$6=$7=$8=""; printf("%s\"\n", $0)}' | sed 's/^[[:space:]]*/"/' | xargs tar cvf archive-name.tar
-</code></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_tar.html'>tar</a>, <a href='tag_awk.html'>awk</a>, <a href='tag_xargs.html'>xargs</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

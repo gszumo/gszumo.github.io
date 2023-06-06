@@ -2,9 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Mon, 05 Jun 2023 21:40:52 -0400</lastBuildDate>
-<pubDate>Mon, 05 Jun 2023 21:40:52 -0400</pubDate>
+<lastBuildDate>Tue, 06 Jun 2023 17:46:10 -0400</lastBuildDate>
+<pubDate>Tue, 06 Jun 2023 17:46:10 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Sending Email from the Command Line with cURL
+</title><description><![CDATA[
+<p>Let’s assume that you had a RFC 5822 formatted file named
+<code>mail.txt</code> as follows:</p>
+<pre><code>From: Some Sender &lt;some.sender@gmail.com&gt;
+To: Some Recipient &lt;some.recipient@example.com&gt;
+Subject: Saying Hello
+Date: Tue, 6 Jun 2023 04:15:06 -0100
+Message-ID: &lt;1234@local.machine.example&gt;
+
+This is a message just to say hello.
+So, &quot;Hello&quot;.</code></pre>
+<p>You can forward this to a email recipient using Google’s SMTP with
+the following <code>curl</code> command provided you have a Google app
+password:</p>
+<pre><code>$ curl --url &#39;smtps://smtp.gmail.com:465&#39; --ssl-reqd \
+ --mail-from &#39;some.sender@gmail.com&#39; \ 
+ --mail-rcpt &#39;some.recipient@example.com&#39; \
+ --upload-file mail.txt \
+ --user &#39;some.sender@gmail.com:your-gmail-app-password&#39;</code></pre>
+<p>Output should be something like this:</p>
+<pre><code>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    12    0     0  100    12      0     10  0:00:01  0:00:01 --:--:--    10
+$</code></pre>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_curl.html'>curl</a>, <a href='tag_mail.html'>mail</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/sending-email-from-the-command-line-with-curl.html</link>
+<guid>http://www.szumowski.org/./sending-email-from-the-command-line-with-curl.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Tue, 06 Jun 2023 17:46:07 -0400</pubDate></item>
 <item><title>
 Transfering Files Using netcat
 </title><description><![CDATA[
@@ -250,20 +282,4 @@ $ scp://username@IP-address//path/to/file.txt
 <guid>http://www.szumowski.org/./edit-a-remote-file-using-vim.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sun, 28 May 2023 15:54:48 -0400</pubDate></item>
-<item><title>
-Echo File Until a Blank Line Is Reached
-</title><description><![CDATA[
-
-<p>You can use the <code>awk</code> program to search and print lines in a file. If you wanted to print a file until the first blank line is reached you can use the  following command to do that:</p>
-
-<p><code>
-awk '$0 ~ /^$/ {exit;} {print $0;}' somefile.txt
-</code></p>
-
-<p>Tags: <a href='tag_awk.html'>awk</a>, <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/echo-file-until-a-blank-line-is-reached.html</link>
-<guid>http://www.szumowski.org/./echo-file-until-a-blank-line-is-reached.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sat, 27 May 2023 21:22:53 -0400</pubDate></item>
 </channel></rss>
