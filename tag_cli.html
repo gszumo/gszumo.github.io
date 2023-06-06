@@ -14,6 +14,23 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="transfering-files-using-netcat20089.html">
+Transfering Files Using netcat
+</a></h3>
+<!-- bashblog_timestamp: #202306052136.39# -->
+<div class="subtitle">June 05, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>You can use <code>netcat</code> to transfer a file from one machine
+to another machine. On the receiving machine enter the following
+command:</p>
+<p><code>$ netcat -l 12345 &gt; file.txt</code> or</p>
+<p><code>$ netcat -l -p 12345 &gt; file.pdf</code></p>
+<p>Then, on the sending machine use this command:</p>
+<p><code>$ netcat $MY_IP_ADDRESS 12345 &lt; file.txt</code></p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_netcat.html'>netcat</a>, <a href='tag_nc.html'>nc</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="how-to-use-dnf-history21154.html">
 How to Use DNF History
 </a></h3>

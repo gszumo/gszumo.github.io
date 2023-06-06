@@ -14,6 +14,23 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="transfering-files-using-netcat20089.html">
+Transfering Files Using netcat
+</a></h3>
+<!-- bashblog_timestamp: #202306052136.39# -->
+<div class="subtitle">June 05, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>You can use <code>netcat</code> to transfer a file from one machine
+to another machine. On the receiving machine enter the following
+command:</p>
+<p><code>$ netcat -l 12345 &gt; file.txt</code> or</p>
+<p><code>$ netcat -l -p 12345 &gt; file.pdf</code></p>
+<p>Then, on the sending machine use this command:</p>
+<p><code>$ netcat $MY_IP_ADDRESS 12345 &lt; file.txt</code></p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_netcat.html'>netcat</a>, <a href='tag_nc.html'>nc</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="install-openbox-on-slackware31274.html">
 Install Openbox on Slackware
 </a></h3>
@@ -231,25 +248,6 @@ $ ls -al | awk '$0!~/^d/ {$1=$2=$3=$4=$5=$6=$7=$8=""; printf("%s\"\n", $0)}' | s
 </code></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_tar.html'>tar</a>, <a href='tag_awk.html'>awk</a>, <a href='tag_xargs.html'>xargs</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="edit-a-remote-file-using-vim.html">
-Edit a Remote File Using Vim
-</a></h3>
-<!-- bashblog_timestamp: #202305281554.48# -->
-<div class="subtitle">May 28, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>To edit a file remotely using the vim editor, just do the following in a terminal window:</p>
-
-<p><code>
-$ scp://username@IP-address//path/to/file.txt
-</code></p>
-
-<p><br>The user must have access to the file being edited.<br></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_scp.html'>scp</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
