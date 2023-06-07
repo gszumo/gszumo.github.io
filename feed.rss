@@ -2,9 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 06 Jun 2023 17:46:10 -0400</lastBuildDate>
-<pubDate>Tue, 06 Jun 2023 17:46:10 -0400</pubDate>
+<lastBuildDate>Wed, 07 Jun 2023 10:52:31 -0400</lastBuildDate>
+<pubDate>Wed, 07 Jun 2023 10:52:31 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Sending Email from the Command Line with mutt
+</title><description><![CDATA[
+<p>If you prefer using <code>mutt</code> as your command line email
+tool, then here are a couple of examples of using <code>mutt</code> to
+send emails which can be automated quite easily to use in scripts.</p>
+<p>Sending a file attachment (-a) and an empty message body:</p>
+<p><code>$ mutt  -s "System Logs" -a /var/log/somelog.log -- username@example.com &lt; /dev/null</code></p>
+<p>Sending a message body using redirection:</p>
+<p><code>$ mutt -s "Email Subject" username@example.com &lt; email.html</code></p>
+<p>Sending a file attachment along with a message body:</p>
+<p><code>$ echo $message | mutt -s "Email Subject" -a attachment.txt -- username@example.com</code></p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_mutt.html'>mutt</a>, <a href='tag_mail.html'>mail</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/sending-email-from-the-command-line-with-mutt27176.html</link>
+<guid>http://www.szumowski.org/./sending-email-from-the-command-line-with-mutt27176.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Wed, 07 Jun 2023 10:52:23 -0400</pubDate></item>
 <item><title>
 Sending Email from the Command Line with cURL
 </title><description><![CDATA[
@@ -264,22 +282,4 @@ $ ls -al | awk '$0!~/^d/ {$1=$2=$3=$4=$5=$6=$7=$8=""; printf("%s\"\n", $0)}' | s
 <guid>http://www.szumowski.org/./archive-only-files-in-a-directory23013.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Mon, 29 May 2023 20:36:09 -0400</pubDate></item>
-<item><title>
-Edit a Remote File Using Vim
-</title><description><![CDATA[
-
-<p>To edit a file remotely using the vim editor, just do the following in a terminal window:</p>
-
-<p><code>
-$ scp://username@IP-address//path/to/file.txt
-</code></p>
-
-<p><br>The user must have access to the file being edited.<br></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_scp.html'>scp</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/edit-a-remote-file-using-vim.html</link>
-<guid>http://www.szumowski.org/./edit-a-remote-file-using-vim.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sun, 28 May 2023 15:54:48 -0400</pubDate></item>
 </channel></rss>

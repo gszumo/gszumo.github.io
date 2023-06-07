@@ -14,6 +14,25 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="sending-email-from-the-command-line-with-mutt27176.html">
+Sending Email from the Command Line with mutt
+</a></h3>
+<!-- bashblog_timestamp: #202306071052.23# -->
+<div class="subtitle">June 07, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you prefer using <code>mutt</code> as your command line email
+tool, then here are a couple of examples of using <code>mutt</code> to
+send emails which can be automated quite easily to use in scripts.</p>
+<p>Sending a file attachment (-a) and an empty message body:</p>
+<p><code>$ mutt  -s "System Logs" -a /var/log/somelog.log -- username@example.com &lt; /dev/null</code></p>
+<p>Sending a message body using redirection:</p>
+<p><code>$ mutt -s "Email Subject" username@example.com &lt; email.html</code></p>
+<p>Sending a file attachment along with a message body:</p>
+<p><code>$ echo $message | mutt -s "Email Subject" -a attachment.txt -- username@example.com</code></p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_mutt.html'>mutt</a>, <a href='tag_mail.html'>mail</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="sending-email-from-the-command-line-with-curl.html">
 Sending Email from the Command Line with cURL
 </a></h3>
@@ -237,33 +256,6 @@ this:</p>
 <p>You can read more about it on the Slackware wiki <a
 href="https://www.slackwiki.com/Broadcom_Wireless">here</a></p>
 <p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_broadcom.html'>broadcom</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="installing-foliate-ebook-reader-on-slackware-1517738.html">
-Installing Foliate Ebook Reader on Slackware 15
-</a></h3>
-<!-- bashblog_timestamp: #202305301833.17# -->
-<div class="subtitle">May 30, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>I don't know about you, but I love reading ebooks and I've used Foliate before on other distributions but can't find it for my OS of choice, Slackware. So, here's how to install it from source:</p>
-
-<ol>
-<li>Download the foliate software tarball from <a href="https://github.com/johnfactotum/foliate/releases">here</a></li>
-<li>Install appstream-glib (which provides dependency appstream-util) using sboinstall</li>
-<li>Install webkit2gtk (which provides dependency WebKit2) using sboinstall</li>
-<li>Build foliate. Instructions are on the GitHub <a href="https://github.com/johnfactotum/foliate">page</a> or just extract the tarball, cd into the directory and then execute the following on the command line:</li>
-</ol>
-
-<p><code>$ tar zxvf foliate-2.6.4.tar.gz </code><br/>
-<code>$ cd foliate-2.6.4</code><br/>
-<code>$ meson build --prefix=/usr</code><br/>
-<code>$ ninja -c build</code><br/>
-<code>$ ninja -C build</code><br/>
-<code>$ su -c "ninja -C build install"</code><br/></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ebooks.html'>ebooks</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
