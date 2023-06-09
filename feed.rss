@@ -2,9 +2,74 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Wed, 07 Jun 2023 10:52:31 -0400</lastBuildDate>
-<pubDate>Wed, 07 Jun 2023 10:52:31 -0400</pubDate>
+<lastBuildDate>Thu, 08 Jun 2023 12:50:45 -0400</lastBuildDate>
+<pubDate>Thu, 08 Jun 2023 12:50:45 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+LXC in Slackware
+</title><description><![CDATA[
+<p>Following directions from: <a
+href="https://docs.slackware.com/howtos:misc:lxc">lxc</a> for Slackware
+14.2. I haven’t tested on Slackware 15 yet. You will have to set this up
+while running as <code>root</code>.</p>
+<ol type="1">
+<li><p>Create the file <code>'/etc/default/lxc-net'</code> and add the
+line <code>USE_LXC_BRIDGE="true"</code> to it.</p></li>
+<li><p>Create the directory <code>'/var/lib/misc'</code></p></li>
+<li><p>Start the service:
+<code># /usr/libexec/lxc/lxc-net start</code></p></li>
+<li><p>Create a config file:</p></li>
+</ol>
+<blockquote>
+<p><code># cat &gt;slac-xlc.con &lt;&lt;“EOF”</code><br/> <code>
+lxc.network.type = veth</code><br/> <code> lxc.network.flags =
+up</code><br/> <code> lxc.network.link = lxcbr0</code><br/>
+<code>EOF</code><br/></p>
+</blockquote>
+<ol start="5" type="1">
+<li>Create the container:</li>
+</ol>
+<blockquote>
+<p><code># arch=x86_64 release=14.2 MIRROR=http://mirrors.us.kernel.org/slackware lxc-create -n Slackware64-14.2 -t slackware -f slack-xlc.conf</code></p>
+</blockquote>
+<ol start="6" type="1">
+<li>Start the container for the first time:</li>
+</ol>
+<blockquote>
+<p><code># lxc-start -n Slackware64-14.2</code></p>
+</blockquote>
+<ol start="7" type="1">
+<li>Login to the container:</li>
+</ol>
+<blockquote>
+<p><code># lxc-console -n Slackware64-14.2</code></p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p><code># lxc-attach -n Slackware64-14.2</code></p>
+</blockquote>
+<p>The difference between these two methods is that using the first you
+will require a username and password (root and root, in this case) and
+with the latter you won’t.</p>
+<ol start="8" type="1">
+<li><p>The first thing you will need to do is set up the container to
+connect to the network. Edit <code>'/etc/rc.d/rc.inet1.conf'</code> and
+update the <code>USE_DHCP</code> entry for <code>'eth0'</code> to
+<code>USE_DHCP[0]="yes"</code>.</p></li>
+<li><p>Restart the container and verify connectivity.</p></li>
+</ol>
+<blockquote>
+<p><code># lxc-stop -n Slackware64-14.2  &amp;&amp; lxc-start -n Slackware64-14.2</code></p>
+</blockquote>
+<ol start="10" type="1">
+<li>Login to the container and use ‘ping’ to verify connectivity.</li>
+</ol>
+<p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_lxc.html'>lxc</a>, <a href='tag_containers.html'>containers</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/lxc-in-slackware22712.html</link>
+<guid>http://www.szumowski.org/./lxc-in-slackware22712.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Thu, 08 Jun 2023 12:12:05 -0400</pubDate></item>
 <item><title>
 Sending Email from the Command Line with mutt
 </title><description><![CDATA[
@@ -266,20 +331,4 @@ Installing Foliate Ebook Reader on Slackware 15
 <guid>http://www.szumowski.org/./installing-foliate-ebook-reader-on-slackware-1517738.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 30 May 2023 18:33:17 -0400</pubDate></item>
-<item><title>
-Archive Only Files In a Directory
-</title><description><![CDATA[
-
-<p>If you want to create a tar archive of only the files of a directory and exclude any subdirectories you can use the <code>ls -la</code> command and pipe the output to <code>awk</code>. However you need to remove the first 8 fields from the output and leave all of the remaining parts of the line in case there are spaces in the filename. One quick and dirty way of doing that is to set each of the 8 fields to a blank and then use <code>sed</code> to trim the leading spaces. You can optionally add quotation marks around the filename in your output too.</p>
-
-<p><code>
-$ ls -al | awk '$0!~/^d/ {$1=$2=$3=$4=$5=$6=$7=$8=""; printf("%s\"\n", $0)}' | sed 's/^[[:space:]]*/"/' | xargs tar cvf archive-name.tar
-</code></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_tar.html'>tar</a>, <a href='tag_awk.html'>awk</a>, <a href='tag_xargs.html'>xargs</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/archive-only-files-in-a-directory23013.html</link>
-<guid>http://www.szumowski.org/./archive-only-files-in-a-directory23013.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Mon, 29 May 2023 20:36:09 -0400</pubDate></item>
 </channel></rss>
