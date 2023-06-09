@@ -14,6 +14,22 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="unable-to-burn-iso-file-to-dvd-with-k3b.html">
+Unable to Burn .ISO File to DVD With K3B
+</a></h3>
+<!-- bashblog_timestamp: #202306091231.40# -->
+<div class="subtitle">June 09, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you’re having a problem as a ‘regular’ Slackware user burning an
+ISO file to a blank DVD, this may resolve your issue:</p>
+<blockquote>
+<p><code># chown root:cdrom /usr/bin/cdrecord /usr/bin/cdrdao</code><br/>
+<code># chmod 4750 /usr/bin/cdrecord /usr/bin/cdrdao</code></p>
+</blockquote>
+<p>Tags: <a href='tag_dvd.html'>dvd</a>, <a href='tag_k3b.html'>k3b</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_kde.html'>kde</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="lxc-in-slackware22712.html">
 LXC in Slackware
 </a></h3>
@@ -279,26 +295,6 @@ to select and execute a command or action from the available list.</p>
 in the Windows Terminal.</p>
 <p><code>F11</code>: Toggle fullscreen.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_windows.html'>windows</a>, <a href='tag_terminal.html'>terminal</a>, <a href='tag_shortcuts.html'>shortcuts</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="install-kooha-on-ubuntu-2104.html">
-Install Kooha on Ubuntu 21.04
-</a></h3>
-<!-- bashblog_timestamp: #202306011817.47# -->
-<div class="subtitle">June 01, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p><code>Kooha</code> is a GTK-based screen recorder for Linux for
-recording screens and audio from your desktop or microphone. It is very
-simple to use</p>
-<p>Install <code>flathub</code> from the Ubuntu software repository:</p>
-<pre><code>$ sudo apt install flatpak from the repository:</code></pre>
-<p>Install Koohu from the command line:</p>
-<pre><code>$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-$ flatpak install flathub io.github.seadve.Kooha</code></pre>
-<p>You should now see an icon for <code>Kooha</code> in you GNOME
-applications window.</p>
-<p>Tags: <a href='tag_flatpak.html'>flatpak</a>, <a href='tag_kooha.html'>kooha</a>, <a href='tag_av.html'>av</a>, <a href='tag_recording.html'>recording</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

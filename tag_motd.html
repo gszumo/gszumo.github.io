@@ -14,6 +14,22 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="unable-to-burn-iso-file-to-dvd-with-k3b.html">
+Unable to Burn .ISO File to DVD With K3B
+</a></h3>
+<!-- bashblog_timestamp: #202306091231.40# -->
+<div class="subtitle">June 09, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you’re having a problem as a ‘regular’ Slackware user burning an
+ISO file to a blank DVD, this may resolve your issue:</p>
+<blockquote>
+<p><code># chown root:cdrom /usr/bin/cdrecord /usr/bin/cdrdao</code><br/>
+<code># chmod 4750 /usr/bin/cdrecord /usr/bin/cdrdao</code></p>
+</blockquote>
+<p>Tags: <a href='tag_dvd.html'>dvd</a>, <a href='tag_k3b.html'>k3b</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_kde.html'>kde</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="lxc-in-slackware22712.html">
 LXC in Slackware
 </a></h3>

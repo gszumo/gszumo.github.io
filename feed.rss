@@ -2,9 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Thu, 08 Jun 2023 12:50:45 -0400</lastBuildDate>
-<pubDate>Thu, 08 Jun 2023 12:50:45 -0400</pubDate>
+<lastBuildDate>Fri, 09 Jun 2023 12:34:53 -0400</lastBuildDate>
+<pubDate>Fri, 09 Jun 2023 12:34:53 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Unable to Burn .ISO File to DVD With K3B
+</title><description><![CDATA[
+<p>If you’re having a problem as a ‘regular’ Slackware user burning an
+ISO file to a blank DVD, this may resolve your issue:</p>
+<blockquote>
+<p><code># chown root:cdrom /usr/bin/cdrecord /usr/bin/cdrdao</code><br/>
+<code># chmod 4750 /usr/bin/cdrecord /usr/bin/cdrdao</code></p>
+</blockquote>
+<p>Tags: <a href='tag_dvd.html'>dvd</a>, <a href='tag_k3b.html'>k3b</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_kde.html'>kde</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/unable-to-burn-iso-file-to-dvd-with-k3b.html</link>
+<guid>http://www.szumowski.org/./unable-to-burn-iso-file-to-dvd-with-k3b.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Fri, 09 Jun 2023 12:31:40 -0400</pubDate></item>
 <item><title>
 LXC in Slackware
 </title><description><![CDATA[
@@ -305,30 +320,4 @@ href="https://www.slackwiki.com/Broadcom_Wireless">here</a></p>
 <guid>http://www.szumowski.org/./update-slackware-broadcom-driver27466.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 31 May 2023 18:20:28 -0400</pubDate></item>
-<item><title>
-Installing Foliate Ebook Reader on Slackware 15
-</title><description><![CDATA[
-
-<p>I don't know about you, but I love reading ebooks and I've used Foliate before on other distributions but can't find it for my OS of choice, Slackware. So, here's how to install it from source:</p>
-
-<ol>
-<li>Download the foliate software tarball from <a href="https://github.com/johnfactotum/foliate/releases">here</a></li>
-<li>Install appstream-glib (which provides dependency appstream-util) using sboinstall</li>
-<li>Install webkit2gtk (which provides dependency WebKit2) using sboinstall</li>
-<li>Build foliate. Instructions are on the GitHub <a href="https://github.com/johnfactotum/foliate">page</a> or just extract the tarball, cd into the directory and then execute the following on the command line:</li>
-</ol>
-
-<p><code>$ tar zxvf foliate-2.6.4.tar.gz </code><br/>
-<code>$ cd foliate-2.6.4</code><br/>
-<code>$ meson build --prefix=/usr</code><br/>
-<code>$ ninja -c build</code><br/>
-<code>$ ninja -C build</code><br/>
-<code>$ su -c "ninja -C build install"</code><br/></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ebooks.html'>ebooks</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/installing-foliate-ebook-reader-on-slackware-1517738.html</link>
-<guid>http://www.szumowski.org/./installing-foliate-ebook-reader-on-slackware-1517738.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 30 May 2023 18:33:17 -0400</pubDate></item>
 </channel></rss>
