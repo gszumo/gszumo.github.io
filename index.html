@@ -14,6 +14,35 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="rename-files-downloaded-using-youtube-dl10234.html">
+Rename Files Downloaded Using youtube-dl
+</a></h3>
+<!-- bashblog_timestamp: #202306101630.00# -->
+<div class="subtitle">June 10, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you have used <code>youtube-dl</code> to download content from
+YouTube then you know that the file names can get to be rather long. In
+addition to the video’s title there is a dash followed by what appears
+to be a random sequence of characters just before the file extension. If
+you find this to be annoying then here is a code snippet that you can
+use to remove it.</p>
+<p>This will remove the last field separated by a ‘-’ and replace it
+with the file extension of your choice, .mp4 is used in this
+example:</p>
+<blockquote>
+<p><code>#!/bin/bash</code><br/> <code>for i in *.mp4</code><br/>
+<code>do</code><br/>
+<code># Remove everything from the last hyphen to the end</code><br/>
+<code>file="${i%-*}"</code><br/>
+<code># Rename the file and remove the space between 'file'</code><br/>
+<code># and the file extension on the fly</code><br/>
+<code>mv "${i}" "${file%%*( )}.mp4"</code><br/>
+<code>done</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_youtube.html'>youtube</a>, <a href='tag_renaming.html'>renaming</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="unable-to-burn-iso-file-to-dvd-with-k3b.html">
 Unable to Burn .ISO File to DVD With K3B
 </a></h3>
@@ -218,83 +247,6 @@ how to use the <code>dnf</code> tool to query your install history:</p>
 <p>Undo/rollback a transaction:</p>
 <p><code>$ dnf history undo &lt;num&gt;</code></p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_packaging.html'>packaging</a>, <a href='tag_dnf.html'>dnf</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="windows-terminal-keyboard-shortcuts30027.html">
-Windows Terminal Keyboard Shortcuts
-</a></h3>
-<!-- bashblog_timestamp: #202306021847.19# -->
-<div class="subtitle">June 02, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>I have to use Windows where I work but I use the terminal as often as
-possible. Microsoft’s Windows Terminal application makes that experience
-tolerable. You can even think that you’re using <code>tmux</code> at
-times…well, not really, but you get the idea.</p>
-<p>Here are some of the keyboard shortcuts that I use:</p>
-<p><strong>Split current terminal window</strong></p>
-<p><code>Alt Shift</code> - split pane horizontal</p>
-<p><code>Alt Shift</code> - split pane vertical</p>
-<p><strong>Jump to other console</strong></p>
-<p><code>Alt &lt;arrow key&gt;</code></p>
-<p><strong>Resize current terminal window</strong></p>
-<p><code>Alt Shift &lt;arrow key&gt;</code></p>
-<p><strong>Close terminal window</strong></p>
-<p><code>Ctrl Shift W</code></p>
-<p><strong>Others that I don’t use as much</strong></p>
-<p><code>Ctrl + Shift + Number</code>: Open new profiles/tabs. Use this
-shortcut to open a new profile or tab in Windows Terminal. Each number
-represents a specific profile in the Terminal. Profiles are numbered in
-the top-down form in the profile selection dropdown menu on the title
-bar. For example, if the PowerShell profile is in the second position,
-you should press the “Ctrl + Shift + 2” to open it.</p>
-<p><code>Ctrl + Alt + Number</code>: Switch to a specific tab. Use this
-shortcut to switch between tabs. Tabs are numbered from left to right
-and start with “1.” For example, if you want to switch to the third tab,
-press “Ctrl + Alt + 3.”</p>
-<p><code>Ctrl + Shift + Space</code>: Opens profile selection dropdown
-menu. You can then use the up/down arrow keys to select and open the
-profile.</p>
-<p><code>Ctrl + Shift + T</code>: Opens a new tab with the default
-profile.</p>
-<p><code>Ctrl + Shift + N</code>: Opens a new Windows Terminal
-instance.</p>
-<p><code>Ctrl + Shift + D</code>: This shortcut will duplicate or open
-another instance of the current tab. However, it will not copy the
-content of the original tab.</p>
-<p><code>Ctrl + C</code>: Copy selected text. Select the text in the
-Terminal and press the shortcut to copy it to the clipboard. Once
-copied, you can paste it anywhere you want.</p>
-<p><code>Ctrl + V</code>: Paste clipboard content. Pressing this
-shortcut will paste the clipboard contents into the Terminal. Keep in
-mind that only compatible content, like text, will be pasted. If you try
-to paste incompatible content, like an image, the result will not be as
-expected or intended.</p>
-<p><code>Ctrl + Shift + W</code>: Close the current tab (not the entire
-application).</p>
-<p><code>Alt + F4</code>: Close the Windows Terminal window. If there
-are multiple tabs, you might see a warning prompt. In that case, click
-“Close all” to continue.</p>
-<p><code>Ctrl + Shift + F</code>: Opens the “Find” function. It can be
-used to find instances of a text or sentence in a terminal tab. This
-functionality is similar to what you find in a browser or other
-applications like Notepad, Word, etc.</p>
-<p><code>Ctrl + Numpad Add/Minus</code>: Increase or decrease the text
-size in the Windows Terminal tab.</p>
-<p><code>Ctrl + 0</code>: Reset the font or text size its default
-(100%).</p>
-<p><code>Ctrl + Shift + Up/Down arrow</code>: Scroll up or down in the
-Windows Terminal.</p>
-<p><code>Ctrl + Shift + PageUp/PageDown</code>: Move to top or bottom in
-the Windows Terminal.</p>
-<p><code>Alt + Shift + Minus/Plus</code>: Split current pane
-horizontally or vertically.</p>
-<p><code>Ctrl + Shift + P</code>: Toggle command palette. It can be used
-to select and execute a command or action from the available list.</p>
-<p><code>Ctrl + Shift + ,</code>: This shortcut opens the Settings tab
-in the Windows Terminal.</p>
-<p><code>F11</code>: Toggle fullscreen.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_windows.html'>windows</a>, <a href='tag_terminal.html'>terminal</a>, <a href='tag_shortcuts.html'>shortcuts</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

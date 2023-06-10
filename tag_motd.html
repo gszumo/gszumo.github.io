@@ -14,6 +14,35 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="rename-files-downloaded-using-youtube-dl10234.html">
+Rename Files Downloaded Using youtube-dl
+</a></h3>
+<!-- bashblog_timestamp: #202306101630.00# -->
+<div class="subtitle">June 10, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you have used <code>youtube-dl</code> to download content from
+YouTube then you know that the file names can get to be rather long. In
+addition to the video’s title there is a dash followed by what appears
+to be a random sequence of characters just before the file extension. If
+you find this to be annoying then here is a code snippet that you can
+use to remove it.</p>
+<p>This will remove the last field separated by a ‘-’ and replace it
+with the file extension of your choice, .mp4 is used in this
+example:</p>
+<blockquote>
+<p><code>#!/bin/bash</code><br/> <code>for i in *.mp4</code><br/>
+<code>do</code><br/>
+<code># Remove everything from the last hyphen to the end</code><br/>
+<code>file="${i%-*}"</code><br/>
+<code># Rename the file and remove the space between 'file'</code><br/>
+<code># and the file extension on the fly</code><br/>
+<code>mv "${i}" "${file%%*( )}.mp4"</code><br/>
+<code>done</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_youtube.html'>youtube</a>, <a href='tag_renaming.html'>renaming</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="unable-to-burn-iso-file-to-dvd-with-k3b.html">
 Unable to Burn .ISO File to DVD With K3B
 </a></h3>
