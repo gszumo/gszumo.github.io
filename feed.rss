@@ -2,9 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 10 Jun 2023 16:38:36 -0400</lastBuildDate>
-<pubDate>Sat, 10 Jun 2023 16:38:36 -0400</pubDate>
+<lastBuildDate>Sun, 11 Jun 2023 11:26:03 -0400</lastBuildDate>
+<pubDate>Sun, 11 Jun 2023 11:26:03 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Bulk Change of File Extensions in Directory
+</title><description><![CDATA[
+<p>If you have a directory of files where you want to change all of the
+file extensions you may find this code snippet useful to rename
+them:</p>
+<blockquote>
+<p><code>for i in *.tmp</code><br/> <code>do</code><br/>
+<code>mv ${i} ${i%.*}.txt</code><br/> <code>done</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_rename.html'>rename</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/bulk-change-of-file-extensions-in-directory32717.html</link>
+<guid>http://www.szumowski.org/./bulk-change-of-file-extensions-in-directory32717.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 11 Jun 2023 11:25:59 -0400</pubDate></item>
 <item><title>
 Rename Files Downloaded Using youtube-dl
 </title><description><![CDATA[
@@ -307,23 +323,4 @@ in the Windows Terminal.</p>
 <guid>http://www.szumowski.org/./windows-terminal-keyboard-shortcuts30027.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Fri, 02 Jun 2023 18:47:19 -0400</pubDate></item>
-<item><title>
-Install Kooha on Ubuntu 21.04
-</title><description><![CDATA[
-<p><code>Kooha</code> is a GTK-based screen recorder for Linux for
-recording screens and audio from your desktop or microphone. It is very
-simple to use</p>
-<p>Install <code>flathub</code> from the Ubuntu software repository:</p>
-<pre><code>$ sudo apt install flatpak from the repository:</code></pre>
-<p>Install Koohu from the command line:</p>
-<pre><code>$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-$ flatpak install flathub io.github.seadve.Kooha</code></pre>
-<p>You should now see an icon for <code>Kooha</code> in you GNOME
-applications window.</p>
-<p>Tags: <a href='tag_flatpak.html'>flatpak</a>, <a href='tag_kooha.html'>kooha</a>, <a href='tag_av.html'>av</a>, <a href='tag_recording.html'>recording</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/install-kooha-on-ubuntu-2104.html</link>
-<guid>http://www.szumowski.org/./install-kooha-on-ubuntu-2104.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Thu, 01 Jun 2023 18:17:47 -0400</pubDate></item>
 </channel></rss>

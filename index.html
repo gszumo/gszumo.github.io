@@ -14,6 +14,23 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="bulk-change-of-file-extensions-in-directory32717.html">
+Bulk Change of File Extensions in Directory
+</a></h3>
+<!-- bashblog_timestamp: #202306111125.59# -->
+<div class="subtitle">June 11, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you have a directory of files where you want to change all of the
+file extensions you may find this code snippet useful to rename
+them:</p>
+<blockquote>
+<p><code>for i in *.tmp</code><br/> <code>do</code><br/>
+<code>mv ${i} ${i%.*}.txt</code><br/> <code>done</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_rename.html'>rename</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="rename-files-downloaded-using-youtube-dl10234.html">
 Rename Files Downloaded Using youtube-dl
 </a></h3>
@@ -227,26 +244,6 @@ tools.</p>
 you should copy the <code>menu.xml</code> file to
 <code>~/.config/openbox/</code> so that you can customize your menu.</p>
 <p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_openbox.html'>openbox</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="how-to-use-dnf-history21154.html">
-How to Use DNF History
-</a></h3>
-<!-- bashblog_timestamp: #202306031836.30# -->
-<div class="subtitle">June 03, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>If you are using a Red Hat/Fedora-based distro, here are some tips on
-how to use the <code>dnf</code> tool to query your install history:</p>
-<p>Retrieve a list of manually installed packages:</p>
-<p><code>$ dnf history userinstalled</code></p>
-<p>Retrieve a list of all transactions:</p>
-<p><code>$ dnf history list all</code></p>
-<p>List the changes in a particular transaction:</p>
-<p><code>$ history list &lt;num&gt;</code></p>
-<p>Undo/rollback a transaction:</p>
-<p><code>$ dnf history undo &lt;num&gt;</code></p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_packaging.html'>packaging</a>, <a href='tag_dnf.html'>dnf</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

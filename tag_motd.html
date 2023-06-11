@@ -14,6 +14,23 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="bulk-change-of-file-extensions-in-directory32717.html">
+Bulk Change of File Extensions in Directory
+</a></h3>
+<!-- bashblog_timestamp: #202306111125.59# -->
+<div class="subtitle">June 11, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you have a directory of files where you want to change all of the
+file extensions you may find this code snippet useful to rename
+them:</p>
+<blockquote>
+<p><code>for i in *.tmp</code><br/> <code>do</code><br/>
+<code>mv ${i} ${i%.*}.txt</code><br/> <code>done</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_rename.html'>rename</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="rename-files-downloaded-using-youtube-dl10234.html">
 Rename Files Downloaded Using youtube-dl
 </a></h3>
