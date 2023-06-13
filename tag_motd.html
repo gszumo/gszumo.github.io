@@ -14,6 +14,35 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="install-svox-package-on-slackware-150-for-better-text-to-speech.html">
+Install svox Package on Slackware 15.0 for Better Text-to-Speech
+</a></h3>
+<!-- bashblog_timestamp: #202306122044.52# -->
+<div class="subtitle">June 12, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>I was having issues finding a good voice synthesis for Foliate to
+read my books to me. I have always had issues with the sound of the
+<code>espeak</code> and <code>espeak-ng</code> voices. So I was
+searching for an alternative. I couldn’t find a way to build
+<code>festival</code> on Slackware (yet) but while searching around
+found a package called <code>svox</code> that had a SlackBuild so I
+thought I’d give it a try.</p>
+<ol type="1">
+<li>Install the <code>svox</code> SlackBuild package using whatever
+tools you would normally use. I happen to use <code>sbotools</code>
+which make use of the packages maintained by Ponce.</li>
+<li>You will end up with a binary called <code>pico2audio</code> which
+is the program you need to perform all of your text-to-speech needs. See
+<code>pico2audio --help</code> for details (there aren’t really
+many).</li>
+</ol>
+<p>It was simpler than I thought. Just open Foliate, Settings (the
+hamburger menu), Preferences and then enter <code>pico2audio</code> in
+the <code>Text-to-Speech Command</code> box and you’re done.</p>
+<p>Tags: <a href='tag_svox.html'>svox</a>, <a href='tag_text-to-speech.html'>text-to-speech</a>, <a href='tag_audio.html'>audio</a>, <a href='tag_pico2audio.html'>pico2audio</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="bulk-change-of-file-extensions-in-directory32717.html">
 Bulk Change of File Extensions in Directory
 </a></h3>

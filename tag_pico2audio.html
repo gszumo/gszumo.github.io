@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Gregg's MOTD &mdash; Posts tagged "pico2audio"</title>
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://www.szumowski.org/index.html">Gregg's MOTD</a></h1>
+<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<h3><a class="ablack" href="install-svox-package-on-slackware-150-for-better-text-to-speech.html">
+Install svox Package on Slackware 15.0 for Better Text-to-Speech
+</a></h3>
+<!-- bashblog_timestamp: #202306122044.52# -->
+<div class="subtitle">June 12, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>I was having issues finding a good voice synthesis for Foliate to
+read my books to me. I have always had issues with the sound of the
+<code>espeak</code> and <code>espeak-ng</code> voices. So I was
+searching for an alternative. I couldn’t find a way to build
+<code>festival</code> on Slackware (yet) but while searching around
+found a package called <code>svox</code> that had a SlackBuild so I
+thought I’d give it a try.</p>
+<ol type="1">
+<li>Install the <code>svox</code> SlackBuild package using whatever
+tools you would normally use. I happen to use <code>sbotools</code>
+which make use of the packages maintained by Ponce.</li>
+<li>You will end up with a binary called <code>pico2audio</code> which
+is the program you need to perform all of your text-to-speech needs. See
+<code>pico2audio --help</code> for details (there aren’t really
+many).</li>
+</ol>
+<p>It was simpler than I thought. Just open Foliate, Settings (the
+hamburger menu), Preferences and then enter <code>pico2audio</code> in
+the <code>Text-to-Speech Command</code> box and you’re done.</p>
+<p>Tags: <a href='tag_svox.html'>svox</a>, <a href='tag_text-to-speech.html'>text-to-speech</a>, <a href='tag_audio.html'>audio</a>, <a href='tag_pico2audio.html'>pico2audio</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+</div>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
+NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+</body></html>
