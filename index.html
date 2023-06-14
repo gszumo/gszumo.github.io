@@ -14,6 +14,49 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="install-mimic-text-to-speech-on-slackware-1526910.html">
+Install mimic Text-To-Speech on Slackware 15
+</a></h3>
+<!-- bashblog_timestamp: #202306132119.44# -->
+<div class="subtitle">June 13, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Per the manpage: Mimic is a command line tool for synthesizing speech
+from text. If outfile.wav is omitted mimic will output the utterance
+using the computer sound card.</p>
+<p>Mimic is based on <a href="http://www.cmuflite.org">flite</a> and
+strives to extend functionality and add more languages while keeping the
+application fast and light.</p>
+<p>Mandatory arguments to long options are mandatory for short options
+too.</p>
+<blockquote>
+<p><code>$  git clone https://github.com/MycroftAI/mimic1.git</code><br/>
+<code>$  cd mimic1/</code><br/>
+<code>$  ./dependencies.sh --prefix="/usr/local"</code><br/>
+<code>$  ./autogen.sh</code><br/>
+<code>$  ./configure --prefix="/usr/local"</code><br/>
+<code>$  make</code><br/> <code>$  make check</code><br/>
+<code>$  su -c "make install"</code><br/></p>
+</blockquote>
+<p>You can list the default voices that are installed with
+<code>mimic</code> by passing it the <code>-lv</code> command line
+parameter.</p>
+<blockquote>
+<p><code>$ mimic -lv</code><br/>
+<code>Voices available: ap slt slt_hts kal awb kal16 rms awb_time</code><br/></p>
+</blockquote>
+<p>Which tells you that there are 8 voices available.</p>
+<p>You should now be able to do some testing at the command line:</p>
+<blockquote>
+<p><code>$  mimic -t "Hello world"</code><br/>
+<code>$  mimic -t "Hello world"</code><br/>
+<code>$  mimic -t 'Hello, this is a test of the emergency broadcasting system'</code><br/>
+<code>$  mimic -t 'Hello, this is a test of the emergency broadcasting system' -voice slt</code><br/></p>
+</blockquote>
+<p>See the manpage for more info and options.</p>
+<p>Tags: <a href='tag_text-to-speech.html'>text-to-speech</a>, <a href='tag_mimic.html'>mimic</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="install-svox-package-on-slackware-150-for-better-text-to-speech.html">
 Install svox Package on Slackware 15.0 for Better Text-to-Speech
 </a></h3>
@@ -222,23 +265,6 @@ password:</p>
 100    12    0     0  100    12      0     10  0:00:01  0:00:01 --:--:--    10
 $</code></pre>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_curl.html'>curl</a>, <a href='tag_mail.html'>mail</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="transfering-files-using-netcat20089.html">
-Transfering Files Using netcat
-</a></h3>
-<!-- bashblog_timestamp: #202306052136.39# -->
-<div class="subtitle">June 05, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>You can use <code>netcat</code> to transfer a file from one machine
-to another machine. On the receiving machine enter the following
-command:</p>
-<p><code>$ netcat -l 12345 &gt; file.txt</code> or</p>
-<p><code>$ netcat -l -p 12345 &gt; file.pdf</code></p>
-<p>Then, on the sending machine use this command:</p>
-<p><code>$ netcat $MY_IP_ADDRESS 12345 &lt; file.txt</code></p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_netcat.html'>netcat</a>, <a href='tag_nc.html'>nc</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

@@ -2,9 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Mon, 12 Jun 2023 20:44:57 -0400</lastBuildDate>
-<pubDate>Mon, 12 Jun 2023 20:44:57 -0400</pubDate>
+<lastBuildDate>Tue, 13 Jun 2023 22:19:42 -0400</lastBuildDate>
+<pubDate>Tue, 13 Jun 2023 22:19:42 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Install mimic Text-To-Speech on Slackware 15
+</title><description><![CDATA[
+<p>Per the manpage: Mimic is a command line tool for synthesizing speech
+from text. If outfile.wav is omitted mimic will output the utterance
+using the computer sound card.</p>
+<p>Mimic is based on <a href="http://www.cmuflite.org">flite</a> and
+strives to extend functionality and add more languages while keeping the
+application fast and light.</p>
+<p>Mandatory arguments to long options are mandatory for short options
+too.</p>
+<blockquote>
+<p><code>$  git clone https://github.com/MycroftAI/mimic1.git</code><br/>
+<code>$  cd mimic1/</code><br/>
+<code>$  ./dependencies.sh --prefix="/usr/local"</code><br/>
+<code>$  ./autogen.sh</code><br/>
+<code>$  ./configure --prefix="/usr/local"</code><br/>
+<code>$  make</code><br/> <code>$  make check</code><br/>
+<code>$  su -c "make install"</code><br/></p>
+</blockquote>
+<p>You can list the default voices that are installed with
+<code>mimic</code> by passing it the <code>-lv</code> command line
+parameter.</p>
+<blockquote>
+<p><code>$ mimic -lv</code><br/>
+<code>Voices available: ap slt slt_hts kal awb kal16 rms awb_time</code><br/></p>
+</blockquote>
+<p>Which tells you that there are 8 voices available.</p>
+<p>You should now be able to do some testing at the command line:</p>
+<blockquote>
+<p><code>$  mimic -t "Hello world"</code><br/>
+<code>$  mimic -t "Hello world"</code><br/>
+<code>$  mimic -t 'Hello, this is a test of the emergency broadcasting system'</code><br/>
+<code>$  mimic -t 'Hello, this is a test of the emergency broadcasting system' -voice slt</code><br/></p>
+</blockquote>
+<p>See the manpage for more info and options.</p>
+<p>Tags: <a href='tag_text-to-speech.html'>text-to-speech</a>, <a href='tag_mimic.html'>mimic</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/install-mimic-text-to-speech-on-slackware-1526910.html</link>
+<guid>http://www.szumowski.org/./install-mimic-text-to-speech-on-slackware-1526910.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Tue, 13 Jun 2023 21:19:44 -0400</pubDate></item>
 <item><title>
 Install svox Package on Slackware 15.0 for Better Text-to-Speech
 </title><description><![CDATA[
@@ -256,23 +298,4 @@ you should copy the <code>menu.xml</code> file to
 <guid>http://www.szumowski.org/./install-openbox-on-slackware31274.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sun, 04 Jun 2023 15:54:46 -0400</pubDate></item>
-<item><title>
-How to Use DNF History
-</title><description><![CDATA[
-<p>If you are using a Red Hat/Fedora-based distro, here are some tips on
-how to use the <code>dnf</code> tool to query your install history:</p>
-<p>Retrieve a list of manually installed packages:</p>
-<p><code>$ dnf history userinstalled</code></p>
-<p>Retrieve a list of all transactions:</p>
-<p><code>$ dnf history list all</code></p>
-<p>List the changes in a particular transaction:</p>
-<p><code>$ history list &lt;num&gt;</code></p>
-<p>Undo/rollback a transaction:</p>
-<p><code>$ dnf history undo &lt;num&gt;</code></p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_packaging.html'>packaging</a>, <a href='tag_dnf.html'>dnf</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/how-to-use-dnf-history21154.html</link>
-<guid>http://www.szumowski.org/./how-to-use-dnf-history21154.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sat, 03 Jun 2023 18:36:30 -0400</pubDate></item>
 </channel></rss>
