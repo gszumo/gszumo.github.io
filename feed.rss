@@ -2,9 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 13 Jun 2023 22:19:42 -0400</lastBuildDate>
-<pubDate>Tue, 13 Jun 2023 22:19:42 -0400</pubDate>
+<lastBuildDate>Wed, 14 Jun 2023 16:30:33 -0400</lastBuildDate>
+<pubDate>Wed, 14 Jun 2023 16:30:33 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Export VirtualBox VDI using CLI
+</title><description><![CDATA[
+<p>Sometimes you may want to move a virtual machine in VirtualBox from
+one server to another. Once way of doing that is to export it from the
+command line.</p>
+<ol type="1">
+<li>Locate the virtual machine that you want to export (I’ll use the
+name UbuntuServer for the one to be exported and name the new one
+UbuntuServerNew), and then</li>
+<li>Run the export command as follows:</li>
+</ol>
+<blockquote>
+<p><code>$ vboxmanage export UbuntuServer -o UbuntuServerNew.ova</code></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_virtualization.html'>virtualization</a>, <a href='tag_virtualbox.html'>virtualbox</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/export-virtualbox-vdi-using-cli1819.html</link>
+<guid>http://www.szumowski.org/./export-virtualbox-vdi-using-cli1819.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Wed, 14 Jun 2023 16:30:29 -0400</pubDate></item>
 <item><title>
 Install mimic Text-To-Speech on Slackware 15
 </title><description><![CDATA[
@@ -265,37 +286,4 @@ command:</p>
 <guid>http://www.szumowski.org/./transfering-files-using-netcat20089.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Mon, 05 Jun 2023 21:36:39 -0400</pubDate></item>
-<item><title>
-Install Openbox on Slackware
-</title><description><![CDATA[
-<p>I have been running blackbox on my Slackware desktop and decided that
-I’d try a different ‘flavor’ called openbox which are in the SBo
-repositories. I started by executing <code>sbopkg</code> at the
-<code>root</code> prompt and found these packages available:</p>
-<p>There is the primary <code>openbox</code> package and there are 4
-optional packages listed:</p>
-<ul>
-<li>openbox</li>
-<li>libfm-extra</li>
-<li>lxmenu-data</li>
-<li>menu-cache</li>
-<li>openbox-menu</li>
-</ul>
-<p>And several theme packages:</p>
-<ul>
-<li>arc-openbox</li>
-<li>openbox-simple-theme</li>
-</ul>
-<p>The openbox-menu and openbox-simple-theme downloads failed but I was
-able to get away with using <code>obconf</code> and <code>obmenu</code>
-tools.</p>
-<p>Configuration files are stored in <code>/etc/xdg/openbox</code> and
-you should copy the <code>menu.xml</code> file to
-<code>~/.config/openbox/</code> so that you can customize your menu.</p>
-<p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_openbox.html'>openbox</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/install-openbox-on-slackware31274.html</link>
-<guid>http://www.szumowski.org/./install-openbox-on-slackware31274.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sun, 04 Jun 2023 15:54:46 -0400</pubDate></item>
 </channel></rss>

@@ -14,6 +14,28 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="export-virtualbox-vdi-using-cli1819.html">
+Export VirtualBox VDI using CLI
+</a></h3>
+<!-- bashblog_timestamp: #202306141630.28# -->
+<div class="subtitle">June 14, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Sometimes you may want to move a virtual machine in VirtualBox from
+one server to another. Once way of doing that is to export it from the
+command line.</p>
+<ol type="1">
+<li>Locate the virtual machine that you want to export (I’ll use the
+name UbuntuServer for the one to be exported and name the new one
+UbuntuServerNew), and then</li>
+<li>Run the export command as follows:</li>
+</ol>
+<blockquote>
+<p><code>$ vboxmanage export UbuntuServer -o UbuntuServerNew.ova</code></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_virtualization.html'>virtualization</a>, <a href='tag_virtualbox.html'>virtualbox</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="install-mimic-text-to-speech-on-slackware-1526910.html">
 Install mimic Text-To-Speech on Slackware 15
 </a></h3>
@@ -232,39 +254,6 @@ send emails which can be automated quite easily to use in scripts.</p>
 <p>Sending a file attachment along with a message body:</p>
 <p><code>$ echo $message | mutt -s "Email Subject" -a attachment.txt -- username@example.com</code></p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_mutt.html'>mutt</a>, <a href='tag_mail.html'>mail</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="sending-email-from-the-command-line-with-curl.html">
-Sending Email from the Command Line with cURL
-</a></h3>
-<!-- bashblog_timestamp: #202306061746.07# -->
-<div class="subtitle">June 06, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Let’s assume that you had a RFC 5822 formatted file named
-<code>mail.txt</code> as follows:</p>
-<pre><code>From: Some Sender &lt;some.sender@gmail.com&gt;
-To: Some Recipient &lt;some.recipient@example.com&gt;
-Subject: Saying Hello
-Date: Tue, 6 Jun 2023 04:15:06 -0100
-Message-ID: &lt;1234@local.machine.example&gt;
-
-This is a message just to say hello.
-So, &quot;Hello&quot;.</code></pre>
-<p>You can forward this to a email recipient using Google’s SMTP with
-the following <code>curl</code> command provided you have a Google app
-password:</p>
-<pre><code>$ curl --url &#39;smtps://smtp.gmail.com:465&#39; --ssl-reqd \
- --mail-from &#39;some.sender@gmail.com&#39; \ 
- --mail-rcpt &#39;some.recipient@example.com&#39; \
- --upload-file mail.txt \
- --user &#39;some.sender@gmail.com:your-gmail-app-password&#39;</code></pre>
-<p>Output should be something like this:</p>
-<pre><code>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100    12    0     0  100    12      0     10  0:00:01  0:00:01 --:--:--    10
-$</code></pre>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_curl.html'>curl</a>, <a href='tag_mail.html'>mail</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

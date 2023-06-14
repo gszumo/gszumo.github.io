@@ -14,6 +14,28 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="export-virtualbox-vdi-using-cli1819.html">
+Export VirtualBox VDI using CLI
+</a></h3>
+<!-- bashblog_timestamp: #202306141630.28# -->
+<div class="subtitle">June 14, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Sometimes you may want to move a virtual machine in VirtualBox from
+one server to another. Once way of doing that is to export it from the
+command line.</p>
+<ol type="1">
+<li>Locate the virtual machine that you want to export (I’ll use the
+name UbuntuServer for the one to be exported and name the new one
+UbuntuServerNew), and then</li>
+<li>Run the export command as follows:</li>
+</ol>
+<blockquote>
+<p><code>$ vboxmanage export UbuntuServer -o UbuntuServerNew.ova</code></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_virtualization.html'>virtualization</a>, <a href='tag_virtualbox.html'>virtualbox</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="bulk-change-of-file-extensions-in-directory32717.html">
 Bulk Change of File Extensions in Directory
 </a></h3>
