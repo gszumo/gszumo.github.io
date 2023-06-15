@@ -2,9 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Wed, 14 Jun 2023 16:30:33 -0400</lastBuildDate>
-<pubDate>Wed, 14 Jun 2023 16:30:33 -0400</pubDate>
+<lastBuildDate>Thu, 15 Jun 2023 18:42:59 -0400</lastBuildDate>
+<pubDate>Thu, 15 Jun 2023 18:42:59 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Parsing Bitwarden CLI
+</title><description><![CDATA[
+<p>If you use the excellent Bitwarden app for you password storage you
+may not be aware that they also have a command line version on Linux. It
+outputs data using the JSON format. You can install the <code>jq</code>
+JSON parser and pipe the output of the CLI’s query to it in order to
+extract the username and password for a specific site in your
+search:</p>
+<blockquote>
+<p><code>$ bw list items --search accounts.google.com | jq '.[] | .login.uris[].uri,.login.username,.login.password'</code><br/>
+<code>"https://accounts.google.com"</code><br/>
+<code>"john.doe@gmail.com"</code><br/>
+<code>"** password1 **"</code><br/>
+<code>"https://accounts.google.com"</code><br/>
+<code>"jdoe@gmail.com"</code><br/>
+<code>"** password2 **"</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bitwarden.html'>bitwarden</a>, <a href='tag_json.html'>json</a>, <a href='tag_password-managers.html'>password-managers</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/parsing-bitwarden-cli4247.html</link>
+<guid>http://www.szumowski.org/./parsing-bitwarden-cli4247.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Thu, 15 Jun 2023 18:40:52 -0400</pubDate></item>
 <item><title>
 Export VirtualBox VDI using CLI
 </title><description><![CDATA[
@@ -270,20 +294,4 @@ $</code></pre>
 <guid>http://www.szumowski.org/./sending-email-from-the-command-line-with-curl.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 06 Jun 2023 17:46:07 -0400</pubDate></item>
-<item><title>
-Transfering Files Using netcat
-</title><description><![CDATA[
-<p>You can use <code>netcat</code> to transfer a file from one machine
-to another machine. On the receiving machine enter the following
-command:</p>
-<p><code>$ netcat -l 12345 &gt; file.txt</code> or</p>
-<p><code>$ netcat -l -p 12345 &gt; file.pdf</code></p>
-<p>Then, on the sending machine use this command:</p>
-<p><code>$ netcat $MY_IP_ADDRESS 12345 &lt; file.txt</code></p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_netcat.html'>netcat</a>, <a href='tag_nc.html'>nc</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/transfering-files-using-netcat20089.html</link>
-<guid>http://www.szumowski.org/./transfering-files-using-netcat20089.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Mon, 05 Jun 2023 21:36:39 -0400</pubDate></item>
 </channel></rss>

@@ -14,6 +14,31 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="parsing-bitwarden-cli4247.html">
+Parsing Bitwarden CLI
+</a></h3>
+<!-- bashblog_timestamp: #202306151840.52# -->
+<div class="subtitle">June 15, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you use the excellent Bitwarden app for you password storage you
+may not be aware that they also have a command line version on Linux. It
+outputs data using the JSON format. You can install the <code>jq</code>
+JSON parser and pipe the output of the CLI’s query to it in order to
+extract the username and password for a specific site in your
+search:</p>
+<blockquote>
+<p><code>$ bw list items --search accounts.google.com | jq '.[] | .login.uris[].uri,.login.username,.login.password'</code><br/>
+<code>"https://accounts.google.com"</code><br/>
+<code>"john.doe@gmail.com"</code><br/>
+<code>"** password1 **"</code><br/>
+<code>"https://accounts.google.com"</code><br/>
+<code>"jdoe@gmail.com"</code><br/>
+<code>"** password2 **"</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bitwarden.html'>bitwarden</a>, <a href='tag_json.html'>json</a>, <a href='tag_password-managers.html'>password-managers</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="export-virtualbox-vdi-using-cli1819.html">
 Export VirtualBox VDI using CLI
 </a></h3>
@@ -235,25 +260,6 @@ update the <code>USE_DHCP</code> entry for <code>'eth0'</code> to
 <li>Login to the container and use ‘ping’ to verify connectivity.</li>
 </ol>
 <p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_lxc.html'>lxc</a>, <a href='tag_containers.html'>containers</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="sending-email-from-the-command-line-with-mutt27176.html">
-Sending Email from the Command Line with mutt
-</a></h3>
-<!-- bashblog_timestamp: #202306071052.23# -->
-<div class="subtitle">June 07, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>If you prefer using <code>mutt</code> as your command line email
-tool, then here are a couple of examples of using <code>mutt</code> to
-send emails which can be automated quite easily to use in scripts.</p>
-<p>Sending a file attachment (-a) and an empty message body:</p>
-<p><code>$ mutt  -s "System Logs" -a /var/log/somelog.log -- username@example.com &lt; /dev/null</code></p>
-<p>Sending a message body using redirection:</p>
-<p><code>$ mutt -s "Email Subject" username@example.com &lt; email.html</code></p>
-<p>Sending a file attachment along with a message body:</p>
-<p><code>$ echo $message | mutt -s "Email Subject" -a attachment.txt -- username@example.com</code></p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_mutt.html'>mutt</a>, <a href='tag_mail.html'>mail</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
