@@ -2,9 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Thu, 15 Jun 2023 18:42:59 -0400</lastBuildDate>
-<pubDate>Thu, 15 Jun 2023 18:42:59 -0400</pubDate>
+<lastBuildDate>Sat, 17 Jun 2023 10:46:13 -0400</lastBuildDate>
+<pubDate>Sat, 17 Jun 2023 10:46:13 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Exporting your Pocket List Data
+</title><description><![CDATA[
+<p>The links you save to your Pocket are stored on Pocket’s servers. In
+other words, they’re stored “in the cloud”.</p>
+<p>This means that your List will be available on any computer or mobile
+device (phone or tablet) that is connected to your Pocket account. To
+log in to Pocket, please visit our website or download any of our mobile
+apps, then log in with your Pocket username and password.</p>
+<p>Because your List is stored in the cloud, you do not need to create
+special backups of your saved Pocket items. However, If you wish to
+download your list for other uses you can use our export tool which
+creates a downloadable HTML file with your List and Archive.</p>
+<p>To access our export tool, click here:</p>
+<blockquote>
+<p><code>http://getpocket.com/export</code></p>
+</blockquote>
+<p>Then click on the <code>Export HTML file</code> link to download your
+Pocket data.</p>
+<p>Tags: <a href='tag_pocket.html'>pocket</a>, <a href='tag_bookmarks.html'>bookmarks</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/exporting-your-pocket-list-data2865.html</link>
+<guid>http://www.szumowski.org/./exporting-your-pocket-list-data2865.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sat, 17 Jun 2023 10:46:08 -0400</pubDate></item>
 <item><title>
 Parsing Bitwarden CLI
 </title><description><![CDATA[
@@ -262,36 +287,4 @@ send emails which can be automated quite easily to use in scripts.</p>
 <guid>http://www.szumowski.org/./sending-email-from-the-command-line-with-mutt27176.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 07 Jun 2023 10:52:23 -0400</pubDate></item>
-<item><title>
-Sending Email from the Command Line with cURL
-</title><description><![CDATA[
-<p>Let’s assume that you had a RFC 5822 formatted file named
-<code>mail.txt</code> as follows:</p>
-<pre><code>From: Some Sender &lt;some.sender@gmail.com&gt;
-To: Some Recipient &lt;some.recipient@example.com&gt;
-Subject: Saying Hello
-Date: Tue, 6 Jun 2023 04:15:06 -0100
-Message-ID: &lt;1234@local.machine.example&gt;
-
-This is a message just to say hello.
-So, &quot;Hello&quot;.</code></pre>
-<p>You can forward this to a email recipient using Google’s SMTP with
-the following <code>curl</code> command provided you have a Google app
-password:</p>
-<pre><code>$ curl --url &#39;smtps://smtp.gmail.com:465&#39; --ssl-reqd \
- --mail-from &#39;some.sender@gmail.com&#39; \ 
- --mail-rcpt &#39;some.recipient@example.com&#39; \
- --upload-file mail.txt \
- --user &#39;some.sender@gmail.com:your-gmail-app-password&#39;</code></pre>
-<p>Output should be something like this:</p>
-<pre><code>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100    12    0     0  100    12      0     10  0:00:01  0:00:01 --:--:--    10
-$</code></pre>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_curl.html'>curl</a>, <a href='tag_mail.html'>mail</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/sending-email-from-the-command-line-with-curl.html</link>
-<guid>http://www.szumowski.org/./sending-email-from-the-command-line-with-curl.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 06 Jun 2023 17:46:07 -0400</pubDate></item>
 </channel></rss>
