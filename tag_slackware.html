@@ -14,6 +14,30 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="install-kdbg---a-kde-gdb-gui-on-slackware-150.html">
+Install KDbg - A KDE gdb GUI on Slackware 15.0
+</a></h3>
+<!-- bashblog_timestamp: #202306181039.29# -->
+<div class="subtitle">June 18, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>What is KDbg?</p>
+<p>From the <a href="https://www.kdbg.org/">homepage</a>:</p>
+<p>KDbg is a graphical user interface to gdb, the GNU debugger. It
+provides an intuitive interface for setting breakpoints, inspecting
+variables, and stepping through code.</p>
+<p>KDbg requires KDE, the K Desktop Environment, but you can of course
+debug any program.</p>
+<p>Here’s how to install it on Slackware 15 but this should work on any
+system that has KDE:</p>
+<blockquote>
+<p><code>$ git clone -b maint https://github.com/j6t/kdbg.git</code><br/>
+<code>$ cd kdbg/</code><br/> <code>$ cmake .</code><br/>
+<code>$ make</code><br/> <code>$ su -c "make install"</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_debugging.html'>debugging</a>, <a href='tag_gdb.html'>gdb</a>, <a href='tag_kde.html'>kde</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="install-mimic-text-to-speech-on-slackware-1526910.html">
 Install mimic Text-To-Speech on Slackware 15
 </a></h3>

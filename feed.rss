@@ -2,9 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 17 Jun 2023 10:46:13 -0400</lastBuildDate>
-<pubDate>Sat, 17 Jun 2023 10:46:13 -0400</pubDate>
+<lastBuildDate>Sun, 18 Jun 2023 10:39:35 -0400</lastBuildDate>
+<pubDate>Sun, 18 Jun 2023 10:39:35 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Install KDbg - A KDE gdb GUI on Slackware 15.0
+</title><description><![CDATA[
+<p>What is KDbg?</p>
+<p>From the <a href="https://www.kdbg.org/">homepage</a>:</p>
+<p>KDbg is a graphical user interface to gdb, the GNU debugger. It
+provides an intuitive interface for setting breakpoints, inspecting
+variables, and stepping through code.</p>
+<p>KDbg requires KDE, the K Desktop Environment, but you can of course
+debug any program.</p>
+<p>Here’s how to install it on Slackware 15 but this should work on any
+system that has KDE:</p>
+<blockquote>
+<p><code>$ git clone -b maint https://github.com/j6t/kdbg.git</code><br/>
+<code>$ cd kdbg/</code><br/> <code>$ cmake .</code><br/>
+<code>$ make</code><br/> <code>$ su -c "make install"</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_debugging.html'>debugging</a>, <a href='tag_gdb.html'>gdb</a>, <a href='tag_kde.html'>kde</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/install-kdbg---a-kde-gdb-gui-on-slackware-150.html</link>
+<guid>http://www.szumowski.org/./install-kdbg---a-kde-gdb-gui-on-slackware-150.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 18 Jun 2023 10:39:29 -0400</pubDate></item>
 <item><title>
 Exporting your Pocket List Data
 </title><description><![CDATA[
@@ -269,22 +292,4 @@ update the <code>USE_DHCP</code> entry for <code>'eth0'</code> to
 <guid>http://www.szumowski.org/./lxc-in-slackware22712.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Thu, 08 Jun 2023 12:12:05 -0400</pubDate></item>
-<item><title>
-Sending Email from the Command Line with mutt
-</title><description><![CDATA[
-<p>If you prefer using <code>mutt</code> as your command line email
-tool, then here are a couple of examples of using <code>mutt</code> to
-send emails which can be automated quite easily to use in scripts.</p>
-<p>Sending a file attachment (-a) and an empty message body:</p>
-<p><code>$ mutt  -s "System Logs" -a /var/log/somelog.log -- username@example.com &lt; /dev/null</code></p>
-<p>Sending a message body using redirection:</p>
-<p><code>$ mutt -s "Email Subject" username@example.com &lt; email.html</code></p>
-<p>Sending a file attachment along with a message body:</p>
-<p><code>$ echo $message | mutt -s "Email Subject" -a attachment.txt -- username@example.com</code></p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_mutt.html'>mutt</a>, <a href='tag_mail.html'>mail</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/sending-email-from-the-command-line-with-mutt27176.html</link>
-<guid>http://www.szumowski.org/./sending-email-from-the-command-line-with-mutt27176.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Wed, 07 Jun 2023 10:52:23 -0400</pubDate></item>
 </channel></rss>

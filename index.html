@@ -14,6 +14,30 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="install-kdbg---a-kde-gdb-gui-on-slackware-150.html">
+Install KDbg - A KDE gdb GUI on Slackware 15.0
+</a></h3>
+<!-- bashblog_timestamp: #202306181039.29# -->
+<div class="subtitle">June 18, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>What is KDbg?</p>
+<p>From the <a href="https://www.kdbg.org/">homepage</a>:</p>
+<p>KDbg is a graphical user interface to gdb, the GNU debugger. It
+provides an intuitive interface for setting breakpoints, inspecting
+variables, and stepping through code.</p>
+<p>KDbg requires KDE, the K Desktop Environment, but you can of course
+debug any program.</p>
+<p>Here’s how to install it on Slackware 15 but this should work on any
+system that has KDE:</p>
+<blockquote>
+<p><code>$ git clone -b maint https://github.com/j6t/kdbg.git</code><br/>
+<code>$ cd kdbg/</code><br/> <code>$ cmake .</code><br/>
+<code>$ make</code><br/> <code>$ su -c "make install"</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_debugging.html'>debugging</a>, <a href='tag_gdb.html'>gdb</a>, <a href='tag_kde.html'>kde</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="exporting-your-pocket-list-data2865.html">
 Exporting your Pocket List Data
 </a></h3>
@@ -204,22 +228,6 @@ example:</p>
 <code>done</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_youtube.html'>youtube</a>, <a href='tag_renaming.html'>renaming</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="unable-to-burn-iso-file-to-dvd-with-k3b.html">
-Unable to Burn .ISO File to DVD With K3B
-</a></h3>
-<!-- bashblog_timestamp: #202306091231.40# -->
-<div class="subtitle">June 09, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>If you’re having a problem as a ‘regular’ Slackware user burning an
-ISO file to a blank DVD, this may resolve your issue:</p>
-<blockquote>
-<p><code># chown root:cdrom /usr/bin/cdrecord /usr/bin/cdrdao</code><br/>
-<code># chmod 4750 /usr/bin/cdrecord /usr/bin/cdrdao</code></p>
-</blockquote>
-<p>Tags: <a href='tag_dvd.html'>dvd</a>, <a href='tag_k3b.html'>k3b</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_kde.html'>kde</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
