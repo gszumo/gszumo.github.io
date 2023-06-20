@@ -14,6 +14,27 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="deleting-blank-lines-using-grep16496.html">
+Deleting Blank Lines Using Grep
+</a></h3>
+<!-- bashblog_timestamp: #202306201035.38# -->
+<div class="subtitle">June 20, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you have a file (or a stream) that has blank lines you want to
+remove, you can use this command:</p>
+<blockquote>
+<p><code>$ grep -v "^ *$" file-with-blanks.txt &gt; output-file.txt</code></p>
+</blockquote>
+<p>where <code>file-with-blanks.txt</code> is the input file and has
+blank lines and <code>output-file.txt</code> will be the output file
+without the blank lines.</p>
+<p>You have to keep the <code>space</code> between the <code>^</code>
+and the <code>*$</code> otherwise blank lines which include spaces will
+not be removed.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_grep.html'>grep</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="convert-webm-to-mp429535.html">
 Convert webm to mp4
 </a></h3>
@@ -198,23 +219,6 @@ many).</li>
 hamburger menu), Preferences and then enter <code>pico2audio</code> in
 the <code>Text-to-Speech Command</code> box and you’re done.</p>
 <p>Tags: <a href='tag_svox.html'>svox</a>, <a href='tag_text-to-speech.html'>text-to-speech</a>, <a href='tag_audio.html'>audio</a>, <a href='tag_pico2audio.html'>pico2audio</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="bulk-change-of-file-extensions-in-directory32717.html">
-Bulk Change of File Extensions in Directory
-</a></h3>
-<!-- bashblog_timestamp: #202306111125.59# -->
-<div class="subtitle">June 11, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>If you have a directory of files where you want to change all of the
-file extensions you may find this code snippet useful to rename
-them:</p>
-<blockquote>
-<p><code>for i in *.tmp</code><br/> <code>do</code><br/>
-<code>mv ${i} ${i%.*}.txt</code><br/> <code>done</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_rename.html'>rename</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

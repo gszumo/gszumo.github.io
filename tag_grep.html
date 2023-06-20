@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Gregg's MOTD &mdash; Posts tagged "grep"</title>
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://www.szumowski.org/index.html">Gregg's MOTD</a></h1>
+<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<h3><a class="ablack" href="deleting-blank-lines-using-grep16496.html">
+Deleting Blank Lines Using Grep
+</a></h3>
+<!-- bashblog_timestamp: #202306201035.38# -->
+<div class="subtitle">June 20, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you have a file (or a stream) that has blank lines you want to
+remove, you can use this command:</p>
+<blockquote>
+<p><code>$ grep -v "^ *$" file-with-blanks.txt &gt; output-file.txt</code></p>
+</blockquote>
+<p>where <code>file-with-blanks.txt</code> is the input file and has
+blank lines and <code>output-file.txt</code> will be the output file
+without the blank lines.</p>
+<p>You have to keep the <code>space</code> between the <code>^</code>
+and the <code>*$</code> otherwise blank lines which include spaces will
+not be removed.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_grep.html'>grep</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+</div>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
+NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+</body></html>
