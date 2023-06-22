@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; Posts tagged "linux"</title>
+<title>Solus OS: Prevent Laptop from Sleeping When Closing the Lid</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -14,6 +14,7 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<!-- entry begin -->
 <h3><a class="ablack" href="solus-os-prevent-laptop-from-sleeping-when-closing-the-lid.html">
 Solus OS: Prevent Laptop from Sleeping When Closing the Lid
 </a></h3>
@@ -40,51 +41,7 @@ removed and the value needs to be changed from <code>suspend</code> to
 <code>ignore</code>.</p>
 <p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_solus.html'>solus</a>, <a href='tag_power.html'>power</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
-<h3><a class="ablack" href="gnome3-menu-icons11060.html">
-Gnome3 Menu Icons
-</a></h3>
-<!-- bashblog_timestamp: #202305071706.05# -->
-<div class="subtitle">May 07, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>To add your own menu icons to a GNOME3 environment check out this link: 
-<a href="https://developer.gnome.org/integration-guide/stable/desktop-files.html.en">Desktop files: putting your application in the desktop menus</a></p>
-
-<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="fixing-screen-resolution-on-second-monitor-in-linux4621.html">
-Fixing Screen Resolution on Second Monitor in Linux
-</a></h3>
-<!-- bashblog_timestamp: #202305021816.35# -->
-<div class="subtitle">May 02, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>I recently installed a 2nd hard drive in my Macbook Pro dedicated to Linux. When I hooked up a secondary monitor to it I found that I could not get a reasonable resolution. After some research I found that I can add a new mode to the "Display" choices by entering the following in a terminal console:</p>
-
-<p><code> xrandr </code> # to find the device name <br>
-<code> cvt 1920 1080 </code> # to generate the mode for the xrandr program. <br>
-<code> xrandr --newmode "1920x1080<em>60.00" 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync </code> # to add the new mode to the monitor choices. <br>
-<code>xrandr --addmode DP1 1920x1080</em>60.00 </code> # to associate the new mode to the monitor.   <br></p>
-
-<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="talkin-trash19647.html">
-Talkin' Trash
-</a></h3>
-<!-- bashblog_timestamp: #202304291129.11# -->
-<div class="subtitle">April 29, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>Having trouble getting the "Empty Trash" working in Thunar? Remove <code>"~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar*"</code>.</p>
-
-<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
+<!-- entry end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
 NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>

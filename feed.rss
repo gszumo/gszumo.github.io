@@ -2,9 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Wed, 21 Jun 2023 17:47:00 -0400</lastBuildDate>
-<pubDate>Wed, 21 Jun 2023 17:47:00 -0400</pubDate>
+<lastBuildDate>Thu, 22 Jun 2023 15:44:19 -0400</lastBuildDate>
+<pubDate>Thu, 22 Jun 2023 15:44:19 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Solus OS: Prevent Laptop from Sleeping When Closing the Lid
+</title><description><![CDATA[
+<p>If you’re using a laptop with an external monitor and you’ve recently
+installed Solus OS you might have noticed that the laptop goes to sleep
+when you close the lid and there is no way to adjust for this in the
+power settings. You can get around this by manually editing
+<code>/etc/systemd/logind.conf</code>, then uncommenting and changing
+the line:</p>
+<blockquote>
+<p><code>#HandleLidSwitch=suspend</code><br/></p>
+</blockquote>
+<p>to</p>
+<blockquote>
+<p><code>HandleLidSwitch=ignore</code><br/></p>
+</blockquote>
+<p>Note: The ‘#’ (comment) at the beginning of the line needs to be
+removed and the value needs to be changed from <code>suspend</code> to
+<code>ignore</code>.</p>
+<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_solus.html'>solus</a>, <a href='tag_power.html'>power</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/solus-os-prevent-laptop-from-sleeping-when-closing-the-lid.html</link>
+<guid>http://www.szumowski.org/./solus-os-prevent-laptop-from-sleeping-when-closing-the-lid.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Thu, 22 Jun 2023 15:42:40 -0400</pubDate></item>
 <item><title>
 Speed Up Firefox
 </title><description><![CDATA[
@@ -243,20 +268,4 @@ the <code>Text-to-Speech Command</code> box and you’re done.</p>
 <guid>http://www.szumowski.org/./install-svox-package-on-slackware-150-for-better-text-to-speech.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Mon, 12 Jun 2023 20:44:52 -0400</pubDate></item>
-<item><title>
-Bulk Change of File Extensions in Directory
-</title><description><![CDATA[
-<p>If you have a directory of files where you want to change all of the
-file extensions you may find this code snippet useful to rename
-them:</p>
-<blockquote>
-<p><code>for i in *.tmp</code><br/> <code>do</code><br/>
-<code>mv ${i} ${i%.*}.txt</code><br/> <code>done</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_rename.html'>rename</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/bulk-change-of-file-extensions-in-directory32717.html</link>
-<guid>http://www.szumowski.org/./bulk-change-of-file-extensions-in-directory32717.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sun, 11 Jun 2023 11:25:59 -0400</pubDate></item>
 </channel></rss>

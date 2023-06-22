@@ -14,6 +14,32 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="solus-os-prevent-laptop-from-sleeping-when-closing-the-lid.html">
+Solus OS: Prevent Laptop from Sleeping When Closing the Lid
+</a></h3>
+<!-- bashblog_timestamp: #202306221542.40# -->
+<div class="subtitle">June 22, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you’re using a laptop with an external monitor and you’ve recently
+installed Solus OS you might have noticed that the laptop goes to sleep
+when you close the lid and there is no way to adjust for this in the
+power settings. You can get around this by manually editing
+<code>/etc/systemd/logind.conf</code>, then uncommenting and changing
+the line:</p>
+<blockquote>
+<p><code>#HandleLidSwitch=suspend</code><br/></p>
+</blockquote>
+<p>to</p>
+<blockquote>
+<p><code>HandleLidSwitch=ignore</code><br/></p>
+</blockquote>
+<p>Note: The ‘#’ (comment) at the beginning of the line needs to be
+removed and the value needs to be changed from <code>suspend</code> to
+<code>ignore</code>.</p>
+<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_solus.html'>solus</a>, <a href='tag_power.html'>power</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="speed-up-firefox24999.html">
 Speed Up Firefox
 </a></h3>
