@@ -14,6 +14,82 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="git-deleting-multiple-commits24780.html">
+Git: Deleting Multiple Commits
+</a></h3>
+<!-- bashblog_timestamp: #202306231254.32# -->
+<div class="subtitle">June 23, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Let’s say that you want to delete the last 3 commits that you’ve
+already pushed to the remote repository. In this example, you want
+<code>566dab6</code> to be the new HEAD revision.</p>
+<blockquote>
+<p><code>$ git log --pretty=oneline --abbrev-commit</code><br/>
+<code>57bc36b (HEAD -&gt; master, origin/master, origin/HEAD) 3nd set of bad entries on 6th commit</code><br/>
+<code>dfb4bd3 2nd set of bad entries on 5th commit</code><br/>
+<code>0fd1e16 First set of bad entries on 4th commit</code><br/>
+<code>566dab6 Yet more good entries on third commit</code><br/>
+<code>d50370a More good entries on second commit</code><br/>
+<code>b5fbc6d Good entries on first commit</code><br/>
+<code>2cad4c7 Initial commit</code><br/></p>
+</blockquote>
+<p>You can use <code>git reset</code>, <code>git revert</code>, or
+<code>git checkout</code> to achieve this goal.</p>
+<p><strong>Using reset:</strong></p>
+<blockquote>
+<p><code>$ git reset --hard HEAD~3</code><br/> <br/>
+<code>$ git log --pretty=oneline --abbrev-commit</code><br/>
+<code>566dab6 (HEAD -&gt; master) Yet more good entries on third commit</code><br/>
+<code>d50370a More good entries on second commit</code><br/>
+<code>b5fbc6d Good entries on first commit</code><br/>
+<code>2cad4c7 Initial commit</code><br/></p>
+</blockquote>
+<p>Then you have to force push to the origin:</p>
+<blockquote>
+<p><code>$ git push --force</code><br/></p>
+</blockquote>
+<p><strong>Using revert:</strong></p>
+<blockquote>
+<p><code>$ git revert --no-commit 57bc36b</code><br/>
+<code>$ git revert --no-commit dfb4bd3</code><br/>
+<code>$ git revert --no-commit 0fd1e16</code><br/></p>
+</blockquote>
+<p>or do all 3 at once:</p>
+<blockquote>
+<p><code>$ git revert --no-commit HEAD~3..</code><br/></p>
+</blockquote>
+<p>Then do the commit:</p>
+<blockquote>
+<p><code>$ git commit -m "Fixed commits"</code><br/> <br/>
+<code>$ git log --pretty=oneline --abbrev-commit</code><br/>
+<code>0da0f42 (HEAD -&gt; master) Fixed commits</code><br/>
+<code>57bc36b 3nd set of bad entries on 6th commit</code><br/>
+<code>dfb4bd3 2nd set of bad entries on 5th commit</code><br/>
+<code>0fd1e16 First set of bad entries on 4th commit</code><br/>
+<code>566dab6 Yet more good entries on third commit</code><br/>
+<code>d50370a More good entries on second commit</code><br/>
+<code>b5fbc6d Good entries on first commit</code><br/>
+<code>2cad4c7 Initial commit</code><br/></p>
+</blockquote>
+<p><strong>Using checkout:</strong></p>
+<p>Checkout that revision over the top of local files</p>
+<blockquote>
+<p><code>$ git checkout -f 566dab6 -- .</code><br/>
+<code>$ git commit -a</code><br/> <br/>
+<code>$ git log --pretty=oneline --abbrev-commit</code><br/>
+<code>0da0f42 (HEAD -&gt; master) Fixed commits</code><br/>
+<code>57bc36b 3nd set of bad entries on 6th commit</code><br/>
+<code>dfb4bd3 2nd set of bad entries on 5th commit</code><br/>
+<code>0fd1e16 First set of bad entries on 4th commit</code><br/>
+<code>566dab6 Yet more good entries on third commit</code><br/>
+<code>d50370a More good entries on second commit</code><br/>
+<code>b5fbc6d Good entries on first commit</code><br/>
+<code>2cad4c7 Initial commit</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_source-control.html'>source-control</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="solus-os-prevent-laptop-from-sleeping-when-closing-the-lid.html">
 Solus OS: Prevent Laptop from Sleeping When Closing the Lid
 </a></h3>
@@ -192,28 +268,6 @@ search:</p>
 <code>"** password2 **"</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bitwarden.html'>bitwarden</a>, <a href='tag_json.html'>json</a>, <a href='tag_password-managers.html'>password-managers</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="export-virtualbox-vdi-using-cli1819.html">
-Export VirtualBox VDI using CLI
-</a></h3>
-<!-- bashblog_timestamp: #202306141630.28# -->
-<div class="subtitle">June 14, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Sometimes you may want to move a virtual machine in VirtualBox from
-one server to another. Once way of doing that is to export it from the
-command line.</p>
-<ol type="1">
-<li>Locate the virtual machine that you want to export (I’ll use the
-name UbuntuServer for the one to be exported and name the new one
-UbuntuServerNew), and then</li>
-<li>Run the export command as follows:</li>
-</ol>
-<blockquote>
-<p><code>$ vboxmanage export UbuntuServer -o UbuntuServerNew.ova</code></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_virtualization.html'>virtualization</a>, <a href='tag_virtualbox.html'>virtualbox</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

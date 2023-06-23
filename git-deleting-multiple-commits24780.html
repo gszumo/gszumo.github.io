@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; Posts tagged "git"</title>
+<title>Git: Deleting Multiple Commits</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -14,6 +14,7 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<!-- entry begin -->
 <h3><a class="ablack" href="git-deleting-multiple-commits24780.html">
 Git: Deleting Multiple Commits
 </a></h3>
@@ -90,86 +91,7 @@ already pushed to the remote repository. In this example, you want
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_source-control.html'>source-control</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
-<h3><a class="ablack" href="gitea-server-installation-on-a-raspberry-pi26652.html">
-Gitea Server Installation on a Raspberry Pi
-</a></h3>
-<!-- bashblog_timestamp: #202305251802.06# -->
-<div class="subtitle">May 25, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>Create a 'git' user:</p>
-
-<p><code>
-$ sudo adduser git
-</code></p>
-
-<p>Login as the 'git' user and download the gitea binary from the gitea website (choose the latest version):</p>
-
-<p><code>wget -O gitea https://dl.gitea.io/gitea/1.14.5/gitea-1.14.5-linux-amd64</code><br/>
-<code>chmod +x gitea</code><br/></p>
-
-<p>Create a service. We're keeping it simple here so we don't need a lot of the database-specific stuff:</p>
-
-<p><code>[Unit]</code><br/>
-<code>Description=Gitea (Git with a cup of tea)</code><br/>
-<code>After=syslog.target</code><br/>
-<code>After=network.target</code><br/>
-<code></code><br/>
-<code>[Service]</code><br/>
-<code># Modify these two values and uncomment them if you have</code><br/>
-<code># repos with lots of files and get an HTTP error 500 because</code><br/>
-<code># of that</code><br/>
-<code>#LimitMEMLOCK=infinity</code><br/>
-<code>#LimitNOFILE=65535</code><br/>
-<code>RestartSec=2s</code><br/>
-<code>Type=simple</code><br/>
-<code>User=git</code><br/>
-<code>Group=git</code><br/>
-<code>WorkingDirectory=/home/git/</code><br/>
-<code># If using Unix socket: tells systemd to create the /run/gitea folder, which will contain the gitea.sock file</code><br/>
-<code># (manually creating /run/gitea doesn't work, because it would not persist across reboots)</code><br/>
-<code>#RuntimeDirectory=gitea</code><br/>
-<code>ExecStart=/home/git/gitea web --config /home/git/custom/conf/app.ini</code><br/>
-<code>Restart=always</code><br/>
-<code>Environment=USER=git HOME=/home/git GITEA<em>WORK</em>DIR=/home/git</code><br/>
-<code></code><br/>
-<code>[Install]</code><br/>
-<code>WantedBy=multi-user.target</code><br/></p>
-
-<p>Enable and start Gitea at boot:</p>
-
-<p><code>sudo systemctl enable gitea</code><br/>
-<code>sudo systemctl start gitea</code><br/></p>
-
-<p>Tags: <a href='tag_git.html'>git</a>, <a href='tag_gitea.html'>gitea</a>, <a href='tag_raspberry-pi.html'>raspberry-pi</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="git-tips.html">
-git Tips
-</a></h3>
-<!-- bashblog_timestamp: #202304151337.14# -->
-<div class="subtitle">April 15, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>A useful tip to beautify your output is to use:
-<code>
-$ git log --graph --decorate --oneline --abbrev-commit --all --date=local
-</code>
-when looking at your log entries.
-Or you can add
-<code>
-[alias]
-</code>
-<code>
-   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
-</code>
-to your ~/.gitconfig file to use <code>$ git lola</code> as an alias.</p>
-
-<p>Tags: <a href='tag_git.html'>git</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
+<!-- entry end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
 NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>
