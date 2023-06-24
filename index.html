@@ -14,6 +14,42 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="how-to-list-installed-packages-in-fedora-rhel-centos.html">
+How to List Installed Packages in Fedora, RHEL, CentOS
+</a></h3>
+<!-- bashblog_timestamp: #202306241747.43# -->
+<div class="subtitle">June 24, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Listing installed packages with YUM:</p>
+<blockquote>
+<p><code>$ sudo yum list installed</code><br/></p>
+</blockquote>
+<p>To display details about a package:</p>
+<blockquote>
+<p><code>$ yum info nginx</code><br/></p>
+</blockquote>
+<p>You can cat all installed packages to a file, copy the file to
+another machine and duplicate the system:</p>
+<blockquote>
+<p><code>$ sudo yum list installed &gt; installed-packages.txt</code><br/>
+<code>$ sudo yum -y install $(cat installed-packages.txt)</code><br/></p>
+</blockquote>
+<p>List installed packages with RPM:</p>
+<blockquote>
+<p><code>$ sudo rpm -qa</code><br/></p>
+</blockquote>
+<p>List them by installation date:</p>
+<blockquote>
+<p><code>$ sudo rpm -qa --last</code><br/></p>
+</blockquote>
+<p>Display information about a package:</p>
+<blockquote>
+<p><code>$ rpm -qi nginx</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rpm.html'>rpm</a>, <a href='tag_yum.html'>yum</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_fedora.html'>fedora</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="git-deleting-multiple-commits24780.html">
 Git: Deleting Multiple Commits
 </a></h3>
@@ -243,31 +279,6 @@ creates a downloadable HTML file with your List and Archive.</p>
 <p>Then click on the <code>Export HTML file</code> link to download your
 Pocket data.</p>
 <p>Tags: <a href='tag_pocket.html'>pocket</a>, <a href='tag_bookmarks.html'>bookmarks</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="parsing-bitwarden-cli4247.html">
-Parsing Bitwarden CLI
-</a></h3>
-<!-- bashblog_timestamp: #202306151840.52# -->
-<div class="subtitle">June 15, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>If you use the excellent Bitwarden app for you password storage you
-may not be aware that they also have a command line version on Linux. It
-outputs data using the JSON format. You can install the <code>jq</code>
-JSON parser and pipe the output of the CLI’s query to it in order to
-extract the username and password for a specific site in your
-search:</p>
-<blockquote>
-<p><code>$ bw list items --search accounts.google.com | jq '.[] | .login.uris[].uri,.login.username,.login.password'</code><br/>
-<code>"https://accounts.google.com"</code><br/>
-<code>"john.doe@gmail.com"</code><br/>
-<code>"** password1 **"</code><br/>
-<code>"https://accounts.google.com"</code><br/>
-<code>"jdoe@gmail.com"</code><br/>
-<code>"** password2 **"</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bitwarden.html'>bitwarden</a>, <a href='tag_json.html'>json</a>, <a href='tag_password-managers.html'>password-managers</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

@@ -2,9 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Fri, 23 Jun 2023 12:59:44 -0400</lastBuildDate>
-<pubDate>Fri, 23 Jun 2023 12:59:44 -0400</pubDate>
+<lastBuildDate>Sat, 24 Jun 2023 17:47:48 -0400</lastBuildDate>
+<pubDate>Sat, 24 Jun 2023 17:47:48 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+How to List Installed Packages in Fedora, RHEL, CentOS
+</title><description><![CDATA[
+<p>Listing installed packages with YUM:</p>
+<blockquote>
+<p><code>$ sudo yum list installed</code><br/></p>
+</blockquote>
+<p>To display details about a package:</p>
+<blockquote>
+<p><code>$ yum info nginx</code><br/></p>
+</blockquote>
+<p>You can cat all installed packages to a file, copy the file to
+another machine and duplicate the system:</p>
+<blockquote>
+<p><code>$ sudo yum list installed &gt; installed-packages.txt</code><br/>
+<code>$ sudo yum -y install $(cat installed-packages.txt)</code><br/></p>
+</blockquote>
+<p>List installed packages with RPM:</p>
+<blockquote>
+<p><code>$ sudo rpm -qa</code><br/></p>
+</blockquote>
+<p>List them by installation date:</p>
+<blockquote>
+<p><code>$ sudo rpm -qa --last</code><br/></p>
+</blockquote>
+<p>Display information about a package:</p>
+<blockquote>
+<p><code>$ rpm -qi nginx</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rpm.html'>rpm</a>, <a href='tag_yum.html'>yum</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_fedora.html'>fedora</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/how-to-list-installed-packages-in-fedora-rhel-centos.html</link>
+<guid>http://www.szumowski.org/./how-to-list-installed-packages-in-fedora-rhel-centos.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sat, 24 Jun 2023 17:47:43 -0400</pubDate></item>
 <item><title>
 Git: Deleting Multiple Commits
 </title><description><![CDATA[
@@ -273,46 +308,4 @@ UbuntuServerNew), and then</li>
 <guid>http://www.szumowski.org/./export-virtualbox-vdi-using-cli1819.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 14 Jun 2023 16:30:29 -0400</pubDate></item>
-<item><title>
-Install mimic Text-To-Speech on Slackware 15
-</title><description><![CDATA[
-<p>Per the manpage: Mimic is a command line tool for synthesizing speech
-from text. If outfile.wav is omitted mimic will output the utterance
-using the computer sound card.</p>
-<p>Mimic is based on <a href="http://www.cmuflite.org">flite</a> and
-strives to extend functionality and add more languages while keeping the
-application fast and light.</p>
-<p>Mandatory arguments to long options are mandatory for short options
-too.</p>
-<blockquote>
-<p><code>$  git clone https://github.com/MycroftAI/mimic1.git</code><br/>
-<code>$  cd mimic1/</code><br/>
-<code>$  ./dependencies.sh --prefix="/usr/local"</code><br/>
-<code>$  ./autogen.sh</code><br/>
-<code>$  ./configure --prefix="/usr/local"</code><br/>
-<code>$  make</code><br/> <code>$  make check</code><br/>
-<code>$  su -c "make install"</code><br/></p>
-</blockquote>
-<p>You can list the default voices that are installed with
-<code>mimic</code> by passing it the <code>-lv</code> command line
-parameter.</p>
-<blockquote>
-<p><code>$ mimic -lv</code><br/>
-<code>Voices available: ap slt slt_hts kal awb kal16 rms awb_time</code><br/></p>
-</blockquote>
-<p>Which tells you that there are 8 voices available.</p>
-<p>You should now be able to do some testing at the command line:</p>
-<blockquote>
-<p><code>$  mimic -t "Hello world"</code><br/>
-<code>$  mimic -t "Hello world"</code><br/>
-<code>$  mimic -t 'Hello, this is a test of the emergency broadcasting system'</code><br/>
-<code>$  mimic -t 'Hello, this is a test of the emergency broadcasting system' -voice slt</code><br/></p>
-</blockquote>
-<p>See the manpage for more info and options.</p>
-<p>Tags: <a href='tag_text-to-speech.html'>text-to-speech</a>, <a href='tag_mimic.html'>mimic</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/install-mimic-text-to-speech-on-slackware-1526910.html</link>
-<guid>http://www.szumowski.org/./install-mimic-text-to-speech-on-slackware-1526910.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 13 Jun 2023 21:19:44 -0400</pubDate></item>
 </channel></rss>
