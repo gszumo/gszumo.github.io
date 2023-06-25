@@ -2,9 +2,54 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 24 Jun 2023 17:47:48 -0400</lastBuildDate>
-<pubDate>Sat, 24 Jun 2023 17:47:48 -0400</pubDate>
+<lastBuildDate>Sun, 25 Jun 2023 11:20:11 -0400</lastBuildDate>
+<pubDate>Sun, 25 Jun 2023 11:20:11 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Find System Hogs and Child Processes
+</title><description><![CDATA[
+<p>There are a lot of tools out there that can help you to do this that
+are both GUI or command line-based but sometimes you’re on a production
+server that may have limited tools and sometimes the simplest tools are
+best in cases like this.</p>
+<p>List the processes that are not owned by you that are using a lot of
+CPU:</p>
+<blockquote>
+<p><code>$ ps aux --sort=-%cpu | grep -m 8 -v</code>whoami<code></code><br/></p>
+</blockquote>
+<p>or by memory:</p>
+<blockquote>
+<p><code>$ ps aux --sort=-%mem | grep -m 8 -v</code>whoami<code></code><br/></p>
+</blockquote>
+<p>or by longest running process:</p>
+<blockquote>
+<p><code>$ ps aux --sort=-time | grep -m 8 -v</code>whoami<code></code><br/></p>
+</blockquote>
+<p>List processes by a specific user:</p>
+<blockquote>
+<p><code>$ ps -U gszumo</code><br/></p>
+</blockquote>
+<p>or multiple users:</p>
+<blockquote>
+<p><code>$ ps -U gszumo -U katy</code><br/></p>
+</blockquote>
+<p>You can see child proceses:</p>
+<blockquote>
+<p><code>$ ps -eo pid,args --forest</code><br/></p>
+</blockquote>
+<p>or children of a specific process:</p>
+<blockquote>
+<p><code>$ ps -f --ppid 4775</code><br/></p>
+</blockquote>
+<p>I don’t remember where I found these tips but they have come in handy
+on many occasions and I am documenting them here hoping that readers
+(whatever few there are) will also benefit from them.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ps.html'>ps</a>, <a href='tag_processes.html'>processes</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/find-system-hogs-and-child-processes30247.html</link>
+<guid>http://www.szumowski.org/./find-system-hogs-and-child-processes30247.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 25 Jun 2023 11:20:06 -0400</pubDate></item>
 <item><title>
 How to List Installed Packages in Fedora, RHEL, CentOS
 </title><description><![CDATA[
@@ -287,25 +332,4 @@ search:</p>
 <guid>http://www.szumowski.org/./parsing-bitwarden-cli4247.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Thu, 15 Jun 2023 18:40:52 -0400</pubDate></item>
-<item><title>
-Export VirtualBox VDI using CLI
-</title><description><![CDATA[
-<p>Sometimes you may want to move a virtual machine in VirtualBox from
-one server to another. Once way of doing that is to export it from the
-command line.</p>
-<ol type="1">
-<li>Locate the virtual machine that you want to export (I’ll use the
-name UbuntuServer for the one to be exported and name the new one
-UbuntuServerNew), and then</li>
-<li>Run the export command as follows:</li>
-</ol>
-<blockquote>
-<p><code>$ vboxmanage export UbuntuServer -o UbuntuServerNew.ova</code></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_virtualization.html'>virtualization</a>, <a href='tag_virtualbox.html'>virtualbox</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/export-virtualbox-vdi-using-cli1819.html</link>
-<guid>http://www.szumowski.org/./export-virtualbox-vdi-using-cli1819.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Wed, 14 Jun 2023 16:30:29 -0400</pubDate></item>
 </channel></rss>

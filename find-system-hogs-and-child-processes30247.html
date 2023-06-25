@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Find System Hogs and Child Processes</title>
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://www.szumowski.org/index.html">Gregg's MOTD</a></h1>
+<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="find-system-hogs-and-child-processes30247.html">
+Find System Hogs and Child Processes
+</a></h3>
+<!-- bashblog_timestamp: #202306251120.06# -->
+<div class="subtitle">June 25, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>There are a lot of tools out there that can help you to do this that
+are both GUI or command line-based but sometimes you’re on a production
+server that may have limited tools and sometimes the simplest tools are
+best in cases like this.</p>
+<p>List the processes that are not owned by you that are using a lot of
+CPU:</p>
+<blockquote>
+<p><code>$ ps aux --sort=-%cpu | grep -m 8 -v</code>whoami<code></code><br/></p>
+</blockquote>
+<p>or by memory:</p>
+<blockquote>
+<p><code>$ ps aux --sort=-%mem | grep -m 8 -v</code>whoami<code></code><br/></p>
+</blockquote>
+<p>or by longest running process:</p>
+<blockquote>
+<p><code>$ ps aux --sort=-time | grep -m 8 -v</code>whoami<code></code><br/></p>
+</blockquote>
+<p>List processes by a specific user:</p>
+<blockquote>
+<p><code>$ ps -U gszumo</code><br/></p>
+</blockquote>
+<p>or multiple users:</p>
+<blockquote>
+<p><code>$ ps -U gszumo -U katy</code><br/></p>
+</blockquote>
+<p>You can see child proceses:</p>
+<blockquote>
+<p><code>$ ps -eo pid,args --forest</code><br/></p>
+</blockquote>
+<p>or children of a specific process:</p>
+<blockquote>
+<p><code>$ ps -f --ppid 4775</code><br/></p>
+</blockquote>
+<p>I don’t remember where I found these tips but they have come in handy
+on many occasions and I am documenting them here hoping that readers
+(whatever few there are) will also benefit from them.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ps.html'>ps</a>, <a href='tag_processes.html'>processes</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+<!-- entry end -->
+</div>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
+NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+</body></html>
