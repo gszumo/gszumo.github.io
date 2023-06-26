@@ -14,6 +14,25 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="rhel-qcow-image-password23397.html">
+RHEL QCOW Image Password
+</a></h3>
+<!-- bashblog_timestamp: #202306261907.09# -->
+<div class="subtitle">June 26, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Did you know that although you can install RHEL from an
+<code>ISO</code>, you can also download a <code>QCOW2</code> image from
+Red Hat. However, when you try to start it up under
+<code>virt-manager</code> you’ll see that it boots to a
+<code>root</code> prompt and you don’t know what the password is. This
+can be fixed by running the following from the host’s terminal:</p>
+<blockquote>
+<p><code># virt-customize -a &lt;qcow2-image-file-name&gt; --root-password password:&lt;password&gt;</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_qcow.html'>qcow</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="find-system-hogs-and-child-processes30247.html">
 Find System Hogs and Child Processes
 </a></h3>

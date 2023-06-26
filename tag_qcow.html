@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; Posts tagged "rhel"</title>
+<title>Gregg's MOTD &mdash; Posts tagged "qcow"</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -32,42 +32,6 @@ can be fixed by running the following from the host’s terminal:</p>
 <p><code># virt-customize -a &lt;qcow2-image-file-name&gt; --root-password password:&lt;password&gt;</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_qcow.html'>qcow</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="how-to-list-installed-packages-in-fedora-rhel-centos.html">
-How to List Installed Packages in Fedora, RHEL, CentOS
-</a></h3>
-<!-- bashblog_timestamp: #202306241747.43# -->
-<div class="subtitle">June 24, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Listing installed packages with YUM:</p>
-<blockquote>
-<p><code>$ sudo yum list installed</code><br/></p>
-</blockquote>
-<p>To display details about a package:</p>
-<blockquote>
-<p><code>$ yum info nginx</code><br/></p>
-</blockquote>
-<p>You can cat all installed packages to a file, copy the file to
-another machine and duplicate the system:</p>
-<blockquote>
-<p><code>$ sudo yum list installed &gt; installed-packages.txt</code><br/>
-<code>$ sudo yum -y install $(cat installed-packages.txt)</code><br/></p>
-</blockquote>
-<p>List installed packages with RPM:</p>
-<blockquote>
-<p><code>$ sudo rpm -qa</code><br/></p>
-</blockquote>
-<p>List them by installation date:</p>
-<blockquote>
-<p><code>$ sudo rpm -qa --last</code><br/></p>
-</blockquote>
-<p>Display information about a package:</p>
-<blockquote>
-<p><code>$ rpm -qi nginx</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rpm.html'>rpm</a>, <a href='tag_yum.html'>yum</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_fedora.html'>fedora</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
