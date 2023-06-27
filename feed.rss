@@ -2,9 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Mon, 26 Jun 2023 19:11:47 -0400</lastBuildDate>
-<pubDate>Mon, 26 Jun 2023 19:11:47 -0400</pubDate>
+<lastBuildDate>Tue, 27 Jun 2023 18:01:48 -0400</lastBuildDate>
+<pubDate>Tue, 27 Jun 2023 18:01:48 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Red Hat Subscripion Manager - Registering
+</title><description><![CDATA[
+<p>Registering your RHEL instance with Red Hat is straightforward
+assuming that you already have an account:</p>
+<blockquote>
+<p><code># subscription-manager register --username &lt;your-rh-user&gt; --password &lt;password&gt;</code><br/></p>
+</blockquote>
+<p>List the available repos or just go with a default:</p>
+<blockquote>
+<p><code># subscription-manager list --available</code><br/>
+<code># subscription-manager attach --auto</code><br/></p>
+</blockquote>
+<p>Then you can do your update:</p>
+<blockquote>
+<p><code># yum update</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/red-hat-subscripion-manager---registering.html</link>
+<guid>http://www.szumowski.org/./red-hat-subscripion-manager---registering.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Tue, 27 Jun 2023 18:01:40 -0400</pubDate></item>
 <item><title>
 RHEL QCOW Image Password
 </title><description><![CDATA[
@@ -301,29 +324,4 @@ system that has KDE:</p>
 <guid>http://www.szumowski.org/./install-kdbg---a-kde-gdb-gui-on-slackware-150.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sun, 18 Jun 2023 10:39:29 -0400</pubDate></item>
-<item><title>
-Exporting your Pocket List Data
-</title><description><![CDATA[
-<p>The links you save to your Pocket are stored on Pocket’s servers. In
-other words, they’re stored “in the cloud”.</p>
-<p>This means that your List will be available on any computer or mobile
-device (phone or tablet) that is connected to your Pocket account. To
-log in to Pocket, please visit our website or download any of our mobile
-apps, then log in with your Pocket username and password.</p>
-<p>Because your List is stored in the cloud, you do not need to create
-special backups of your saved Pocket items. However, If you wish to
-download your list for other uses you can use our export tool which
-creates a downloadable HTML file with your List and Archive.</p>
-<p>To access our export tool, click here:</p>
-<blockquote>
-<p><code>http://getpocket.com/export</code></p>
-</blockquote>
-<p>Then click on the <code>Export HTML file</code> link to download your
-Pocket data.</p>
-<p>Tags: <a href='tag_pocket.html'>pocket</a>, <a href='tag_bookmarks.html'>bookmarks</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/exporting-your-pocket-list-data2865.html</link>
-<guid>http://www.szumowski.org/./exporting-your-pocket-list-data2865.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sat, 17 Jun 2023 10:46:08 -0400</pubDate></item>
 </channel></rss>

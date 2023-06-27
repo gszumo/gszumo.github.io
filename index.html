@@ -14,6 +14,30 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="red-hat-subscripion-manager---registering.html">
+Red Hat Subscripion Manager - Registering
+</a></h3>
+<!-- bashblog_timestamp: #202306271801.40# -->
+<div class="subtitle">June 27, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Registering your RHEL instance with Red Hat is straightforward
+assuming that you already have an account:</p>
+<blockquote>
+<p><code># subscription-manager register --username &lt;your-rh-user&gt; --password &lt;password&gt;</code><br/></p>
+</blockquote>
+<p>List the available repos or just go with a default:</p>
+<blockquote>
+<p><code># subscription-manager list --available</code><br/>
+<code># subscription-manager attach --auto</code><br/></p>
+</blockquote>
+<p>Then you can do your update:</p>
+<blockquote>
+<p><code># yum update</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="rhel-qcow-image-password23397.html">
 RHEL QCOW Image Password
 </a></h3>
@@ -278,22 +302,6 @@ without the blank lines.</p>
 and the <code>*$</code> otherwise blank lines which include spaces will
 not be removed.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_grep.html'>grep</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="convert-webm-to-mp429535.html">
-Convert webm to mp4
-</a></h3>
-<!-- bashblog_timestamp: #202306191112.17# -->
-<div class="subtitle">June 19, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>You can use ffmpeg to convert webm to mp4 on the command line very
-easily:</p>
-<blockquote>
-<p><code>$ ffmpeg -i file.webm -c copy file.mp4</code><br/></p>
-</blockquote>
-<p>This will stream copy (re-mux) and avoid re-encoding.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ffmpeg.html'>ffmpeg</a>, <a href='tag_webm.html'>webm</a>, <a href='tag_mp4.html'>mp4</a>, <a href='tag_convert.html'>convert</a>, <a href='tag_video.html'>video</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
