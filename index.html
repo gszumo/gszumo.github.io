@@ -14,6 +14,35 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="gcc-cant-find-stdioh-in-alpine-linux.html">
+GCC can’t find stdio.h in Alpine Linux
+</a></h3>
+<!-- bashblog_timestamp: #202306291801.37# -->
+<div class="subtitle">June 29, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>A while ago, I installed the <a
+href="https://github.com/ish-app/ish">iSH</a> app on my iPad which made
+it possible for me to develop Python and C code as well as use it as an
+SSH client. However, I ran into an issue when trying to compile C code
+because the compiler couldn’t resolve <code>stdio.h</code>. The
+following excerpt from <a
+href="http://stackoverflow.com/questions/42366739/ddg#42366740">StackOverflow</a>
+resolves the issue:</p>
+<p>Install <code>libc-dev</code> in addition to <code>GCC</code>, or
+just install <code>build-base</code> for everything
+(<code>alpine-sdk</code> is probably an overkill). To install run the
+following command:</p>
+<blockquote>
+<p><code># apk add libc-dev</code><br/></p>
+</blockquote>
+<p>You need to install it separately because in Alpine Linux, the
+package GCC doesn’t depend on <code>libc-dev</code> for good reason: You
+can use <code>gcc</code> to compile things without <code>libc</code>,
+for example hypervisors firmware etc.</p>
+<p>Tags: <a href='tag_gcc.html'>gcc</a>, <a href='tag_alpine-linux.html'>alpine-linux</a>, <a href='tag_ipad.html'>ipad</a>, <a href='tag_ish.html'>ish</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="ubuntu-disable-cloud-init-on-startup9393.html">
 Ubuntu: Disable cloud-init on Startup
 </a></h3>
@@ -261,47 +290,6 @@ the line:</p>
 removed and the value needs to be changed from <code>suspend</code> to
 <code>ignore</code>.</p>
 <p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_solus.html'>solus</a>, <a href='tag_power.html'>power</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="speed-up-firefox24999.html">
-Speed Up Firefox
-</a></h3>
-<!-- bashblog_timestamp: #202306211746.55# -->
-<div class="subtitle">June 21, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>If you are experiencing <em>tearing</em> while using
-<code>Firefox</code> you may want to see if graphics accelleration is
-enabled on the browser. You can try this tip to force hardware
-accelleration on in the browser.</p>
-<p>First, check to make sure that your Linux desktop installation
-supports it by running the following command and making sure that
-<code>direct rendering</code> returns <code>Yes</code>:</p>
-<blockquote>
-<p><code>$ glxinfo | grep render</code><br/>
-<code>direct rendering: Yes</code><br/></p>
-</blockquote>
-<p>Then, open Firefox if it’s not already running, and enter
-<code>about:config</code> in the address bar. Click
-<code>Accept The Risk And Continue</code> when prompted, to get to the
-<code>Firefox Advanced Configuration Editor</code></p>
-<p>Search for “<code>layers.acceleration.force-enabled</code>” and you
-should then see it listed in the results.</p>
-<p>Click the right and left pointing arrow icon associated with the
-entry until false changes to true. Once that’s taken care of, close and
-restart Firefox.</p>
-<p>If you don’t see <code>layers.acceleration.force-enabled</code>
-listed, you’ll need to create it by right-clicking an empty area and
-selecting New | Boolean. Name the new entry
-<code>layers.acceleration.force-enabled</code> and set it to true.
-Restart Firefox and you’re done.</p>
-<p>If you notice any issues with Firefox after that and you need to
-revert your change, just search again and toggle it back to
-<code>false</code>.</p>
-<p>Some folks report that setting <code>gfx.xrender.enabled=true</code>
-and <code>layers.acceleration.force-enabled</code> and
-<code>layers.force-active</code> also works. YMMV ;^)</p>
-<p>Tags: <a href='tag_firefox.html'>firefox</a>, <a href='tag_tearing.html'>tearing</a>, <a href='tag_accelleration.html'>accelleration</a>, <a href='tag_glxinfo.html'>glxinfo</a>, <a href='tag_direct-rendering.html'>direct-rendering</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
