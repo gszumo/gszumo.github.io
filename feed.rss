@@ -2,9 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 27 Jun 2023 18:01:48 -0400</lastBuildDate>
-<pubDate>Tue, 27 Jun 2023 18:01:48 -0400</pubDate>
+<lastBuildDate>Wed, 28 Jun 2023 20:03:13 -0400</lastBuildDate>
+<pubDate>Wed, 28 Jun 2023 20:03:13 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Ubuntu: Disable cloud-init on Startup
+</title><description><![CDATA[
+<p>In systems that use <code>systemd</code> and have a current (17.0+)
+version of <code>cloud-init</code>, upstream documentation describes the
+process for disabling <code>cloud-init</code> with either of the
+following:</p>
+<blockquote>
+<p><code>* touch /etc/cloud/cloud-init.disabled</code><br/></p>
+</blockquote>
+<p>or,</p>
+<blockquote>
+<p><code>* add cloud-init=disabled to the kernel command line.</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ubuntu.html'>ubuntu</a>, <a href='tag_cloud-init.html'>cloud-init</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/ubuntu-disable-cloud-init-on-startup9393.html</link>
+<guid>http://www.szumowski.org/./ubuntu-disable-cloud-init-on-startup9393.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Wed, 28 Jun 2023 20:03:08 -0400</pubDate></item>
 <item><title>
 Red Hat Subscripion Manager - Registering
 </title><description><![CDATA[
@@ -301,27 +321,4 @@ easily:</p>
 <guid>http://www.szumowski.org/./convert-webm-to-mp429535.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Mon, 19 Jun 2023 11:12:17 -0400</pubDate></item>
-<item><title>
-Install KDbg - A KDE gdb GUI on Slackware 15.0
-</title><description><![CDATA[
-<p>What is KDbg?</p>
-<p>From the <a href="https://www.kdbg.org/">homepage</a>:</p>
-<p>KDbg is a graphical user interface to gdb, the GNU debugger. It
-provides an intuitive interface for setting breakpoints, inspecting
-variables, and stepping through code.</p>
-<p>KDbg requires KDE, the K Desktop Environment, but you can of course
-debug any program.</p>
-<p>Here’s how to install it on Slackware 15 but this should work on any
-system that has KDE:</p>
-<blockquote>
-<p><code>$ git clone -b maint https://github.com/j6t/kdbg.git</code><br/>
-<code>$ cd kdbg/</code><br/> <code>$ cmake .</code><br/>
-<code>$ make</code><br/> <code>$ su -c "make install"</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_debugging.html'>debugging</a>, <a href='tag_gdb.html'>gdb</a>, <a href='tag_kde.html'>kde</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/install-kdbg---a-kde-gdb-gui-on-slackware-150.html</link>
-<guid>http://www.szumowski.org/./install-kdbg---a-kde-gdb-gui-on-slackware-150.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sun, 18 Jun 2023 10:39:29 -0400</pubDate></item>
 </channel></rss>

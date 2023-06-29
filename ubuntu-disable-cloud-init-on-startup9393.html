@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Ubuntu: Disable cloud-init on Startup</title>
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://www.szumowski.org/index.html">Gregg's MOTD</a></h1>
+<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="ubuntu-disable-cloud-init-on-startup9393.html">
+Ubuntu: Disable cloud-init on Startup
+</a></h3>
+<!-- bashblog_timestamp: #202306282003.08# -->
+<div class="subtitle">June 28, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>In systems that use <code>systemd</code> and have a current (17.0+)
+version of <code>cloud-init</code>, upstream documentation describes the
+process for disabling <code>cloud-init</code> with either of the
+following:</p>
+<blockquote>
+<p><code>* touch /etc/cloud/cloud-init.disabled</code><br/></p>
+</blockquote>
+<p>or,</p>
+<blockquote>
+<p><code>* add cloud-init=disabled to the kernel command line.</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ubuntu.html'>ubuntu</a>, <a href='tag_cloud-init.html'>cloud-init</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+<!-- entry end -->
+</div>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
+NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+</body></html>
