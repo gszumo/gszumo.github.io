@@ -2,9 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Thu, 29 Jun 2023 18:01:41 -0400</lastBuildDate>
-<pubDate>Thu, 29 Jun 2023 18:01:41 -0400</pubDate>
+<lastBuildDate>Fri, 30 Jun 2023 19:08:00 -0400</lastBuildDate>
+<pubDate>Fri, 30 Jun 2023 19:08:00 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Printing Numbers using Thousand Separators
+</title><description><![CDATA[
+<p>You can use a pipe to <code>awk</code> to output numbers with
+thousands separators (commas). For Example, here’s how you can total the
+5th column of the <code>ls -l</code> command and print it with thousands
+separators:</p>
+<blockquote>
+<p><code>$ ls -l | awk '{total = total + $5}END{print total}' | LC_ALL=en_US.UTF-8 awk '{printf("%'"'"'d\n", $0) }'</code><br/>
+<code>21,387</code><br/></p>
+</blockquote>
+<p>This can be adapted to other commands as necessary.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_awk.html'>awk</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/printing-numbers-using-thousand-separators.html</link>
+<guid>http://www.szumowski.org/./printing-numbers-using-thousand-separators.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Fri, 30 Jun 2023 19:05:13 -0400</pubDate></item>
 <item><title>
 GCC can’t find stdio.h in Alpine Linux
 </title><description><![CDATA[
@@ -314,24 +332,4 @@ and <code>layers.acceleration.force-enabled</code> and
 <guid>http://www.szumowski.org/./speed-up-firefox24999.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 21 Jun 2023 17:46:55 -0400</pubDate></item>
-<item><title>
-Deleting Blank Lines Using Grep
-</title><description><![CDATA[
-<p>If you have a file (or a stream) that has blank lines you want to
-remove, you can use this command:</p>
-<blockquote>
-<p><code>$ grep -v "^ *$" file-with-blanks.txt &gt; output-file.txt</code></p>
-</blockquote>
-<p>where <code>file-with-blanks.txt</code> is the input file and has
-blank lines and <code>output-file.txt</code> will be the output file
-without the blank lines.</p>
-<p>You have to keep the <code>space</code> between the <code>^</code>
-and the <code>*$</code> otherwise blank lines which include spaces will
-not be removed.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_grep.html'>grep</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/deleting-blank-lines-using-grep16496.html</link>
-<guid>http://www.szumowski.org/./deleting-blank-lines-using-grep16496.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 20 Jun 2023 10:35:38 -0400</pubDate></item>
 </channel></rss>

@@ -14,6 +14,25 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="printing-numbers-using-thousand-separators.html">
+Printing Numbers using Thousand Separators
+</a></h3>
+<!-- bashblog_timestamp: #202306301905.13# -->
+<div class="subtitle">June 30, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>You can use a pipe to <code>awk</code> to output numbers with
+thousands separators (commas). For Example, here’s how you can total the
+5th column of the <code>ls -l</code> command and print it with thousands
+separators:</p>
+<blockquote>
+<p><code>$ ls -l | awk '{total = total + $5}END{print total}' | LC_ALL=en_US.UTF-8 awk '{printf("%'"'"'d\n", $0) }'</code><br/>
+<code>21,387</code><br/></p>
+</blockquote>
+<p>This can be adapted to other commands as necessary.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_awk.html'>awk</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="ubuntu-disable-cloud-init-on-startup9393.html">
 Ubuntu: Disable cloud-init on Startup
 </a></h3>
