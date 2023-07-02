@@ -2,9 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 01 Jul 2023 20:07:53 -0400</lastBuildDate>
-<pubDate>Sat, 01 Jul 2023 20:07:53 -0400</pubDate>
+<lastBuildDate>Sun, 02 Jul 2023 11:51:58 -0400</lastBuildDate>
+<pubDate>Sun, 02 Jul 2023 11:51:58 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Creating a Python requirements.txt File
+</title><description><![CDATA[
+<p>This can be done quickly by typing:</p>
+<blockquote>
+<p><code>$ pip freeze &gt;requirements.txt</code><br/></p>
+</blockquote>
+<p>at the command line.</p>
+<p>To install packages using a <code>requirements</code> file just use
+<code>pip</code>:</p>
+<blockquote>
+<p><code>$ pip install -r requirements.txt</code><br/></p>
+</blockquote>
+<p>To check if the packages in your <code>requirements.txt</code> file
+are up-to-date use:</p>
+<blockquote>
+<p><code>$ pip list --outdated</code><br/></p>
+</blockquote>
+<p>and to update those packages:</p>
+<blockquote>
+<p><code>$ pip install -U &lt;packagename&gt;</code><br/></p>
+</blockquote>
+<p>This process has some drawbacks as packages are sometimes included
+that are no longer needed and should only be used initially and then
+maintained manually.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_python.html'>python</a>, <a href='tag_pip.html'>pip</a>, <a href='tag_requirements.html'>requirements</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/creating-a-python-requirementstxt-file.html</link>
+<guid>http://www.szumowski.org/./creating-a-python-requirementstxt-file.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 02 Jul 2023 11:51:53 -0400</pubDate></item>
 <item><title>
 Python: Initializing a New Project using venv
 </title><description><![CDATA[
@@ -302,29 +333,4 @@ already pushed to the remote repository. In this example, you want
 <guid>http://www.szumowski.org/./git-deleting-multiple-commits24780.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Fri, 23 Jun 2023 12:54:32 -0400</pubDate></item>
-<item><title>
-Solus OS: Prevent Laptop from Sleeping When Closing the Lid
-</title><description><![CDATA[
-<p>If you’re using a laptop with an external monitor and you’ve recently
-installed Solus OS you might have noticed that the laptop goes to sleep
-when you close the lid and there is no way to adjust for this in the
-power settings. You can get around this by manually editing
-<code>/etc/systemd/logind.conf</code>, then uncommenting and changing
-the line:</p>
-<blockquote>
-<p><code>#HandleLidSwitch=suspend</code><br/></p>
-</blockquote>
-<p>to</p>
-<blockquote>
-<p><code>HandleLidSwitch=ignore</code><br/></p>
-</blockquote>
-<p>Note: The ‘#’ (comment) at the beginning of the line needs to be
-removed and the value needs to be changed from <code>suspend</code> to
-<code>ignore</code>.</p>
-<p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_solus.html'>solus</a>, <a href='tag_power.html'>power</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/solus-os-prevent-laptop-from-sleeping-when-closing-the-lid.html</link>
-<guid>http://www.szumowski.org/./solus-os-prevent-laptop-from-sleeping-when-closing-the-lid.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Thu, 22 Jun 2023 15:42:40 -0400</pubDate></item>
 </channel></rss>

@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; Posts tagged "python"</title>
+<title>Creating a Python requirements.txt File</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -14,6 +14,7 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<!-- entry begin -->
 <h3><a class="ablack" href="creating-a-python-requirementstxt-file.html">
 Creating a Python requirements.txt File
 </a></h3>
@@ -46,42 +47,7 @@ that are no longer needed and should only be used initially and then
 maintained manually.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_python.html'>python</a>, <a href='tag_pip.html'>pip</a>, <a href='tag_requirements.html'>requirements</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
-<h3><a class="ablack" href="python-initializing-a-new-project-using-venv.html">
-Python: Initializing a New Project using venv
-</a></h3>
-<!-- bashblog_timestamp: #202307012007.47# -->
-<div class="subtitle">July 01, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Start out by creating a new directory or cloning a repository (which
-creates a directory) and <em>cd</em> into it:</p>
-<blockquote>
-<p><code>$ git clone https://gitlab.com/username/proj-name</code><br/>
-<code>$ cd proj-name/</code><br/></p>
-</blockquote>
-<p>Initialize the virtual environment:</p>
-<blockquote>
-<p><code>$ python3 -m venv venv</code><br/>
-<code>$ source venv/bin/activate</code><br/></p>
-</blockquote>
-<p>Install whatever dependencies you need:</p>
-<blockquote>
-<p><code>$ pip install package1 package2</code><br/></p>
-</blockquote>
-<p>Then develop and/or run your program:</p>
-<blockquote>
-<p><code>$ python data_model.py</code><br/>
-<code>$ python app.py</code><br/>
-<code>$ sqlite3 hpr.sqlite "select count(*) from users"</code><br/></p>
-</blockquote>
-<p>When you’re done working you can <em>deactivate</em> the environment
-by typing:</p>
-<blockquote>
-<p><code>$ deactivate</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_python.html'>python</a>, <a href='tag_venv.html'>venv</a>, <a href='tag_virtual.html'>virtual</a>, <a href='tag_environment.html'>environment</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
+<!-- entry end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
 NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>

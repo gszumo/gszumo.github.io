@@ -14,6 +14,38 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="creating-a-python-requirementstxt-file.html">
+Creating a Python requirements.txt File
+</a></h3>
+<!-- bashblog_timestamp: #202307021151.53# -->
+<div class="subtitle">July 02, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>This can be done quickly by typing:</p>
+<blockquote>
+<p><code>$ pip freeze &gt;requirements.txt</code><br/></p>
+</blockquote>
+<p>at the command line.</p>
+<p>To install packages using a <code>requirements</code> file just use
+<code>pip</code>:</p>
+<blockquote>
+<p><code>$ pip install -r requirements.txt</code><br/></p>
+</blockquote>
+<p>To check if the packages in your <code>requirements.txt</code> file
+are up-to-date use:</p>
+<blockquote>
+<p><code>$ pip list --outdated</code><br/></p>
+</blockquote>
+<p>and to update those packages:</p>
+<blockquote>
+<p><code>$ pip install -U &lt;packagename&gt;</code><br/></p>
+</blockquote>
+<p>This process has some drawbacks as packages are sometimes included
+that are no longer needed and should only be used initially and then
+maintained manually.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_python.html'>python</a>, <a href='tag_pip.html'>pip</a>, <a href='tag_requirements.html'>requirements</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="python-initializing-a-new-project-using-venv.html">
 Python: Initializing a New Project using venv
 </a></h3>
