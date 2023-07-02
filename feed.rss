@@ -2,9 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Fri, 30 Jun 2023 19:08:00 -0400</lastBuildDate>
-<pubDate>Fri, 30 Jun 2023 19:08:00 -0400</pubDate>
+<lastBuildDate>Sat, 01 Jul 2023 20:07:53 -0400</lastBuildDate>
+<pubDate>Sat, 01 Jul 2023 20:07:53 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Python: Initializing a New Project using venv
+</title><description><![CDATA[
+<p>Start out by creating a new directory or cloning a repository (which
+creates a directory) and <em>cd</em> into it:</p>
+<blockquote>
+<p><code>$ git clone https://gitlab.com/username/proj-name</code><br/>
+<code>$ cd proj-name/</code><br/></p>
+</blockquote>
+<p>Initialize the virtual environment:</p>
+<blockquote>
+<p><code>$ python3 -m venv venv</code><br/>
+<code>$ source venv/bin/activate</code><br/></p>
+</blockquote>
+<p>Install whatever dependencies you need:</p>
+<blockquote>
+<p><code>$ pip install package1 package2</code><br/></p>
+</blockquote>
+<p>Then develop and/or run your program:</p>
+<blockquote>
+<p><code>$ python data_model.py</code><br/>
+<code>$ python app.py</code><br/>
+<code>$ sqlite3 hpr.sqlite "select count(*) from users"</code><br/></p>
+</blockquote>
+<p>When you’re done working you can <em>deactivate</em> the environment
+by typing:</p>
+<blockquote>
+<p><code>$ deactivate</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_python.html'>python</a>, <a href='tag_venv.html'>venv</a>, <a href='tag_virtual.html'>virtual</a>, <a href='tag_environment.html'>environment</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/python-initializing-a-new-project-using-venv.html</link>
+<guid>http://www.szumowski.org/./python-initializing-a-new-project-using-venv.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sat, 01 Jul 2023 20:07:47 -0400</pubDate></item>
 <item><title>
 Printing Numbers using Thousand Separators
 </title><description><![CDATA[
@@ -292,44 +327,4 @@ removed and the value needs to be changed from <code>suspend</code> to
 <guid>http://www.szumowski.org/./solus-os-prevent-laptop-from-sleeping-when-closing-the-lid.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Thu, 22 Jun 2023 15:42:40 -0400</pubDate></item>
-<item><title>
-Speed Up Firefox
-</title><description><![CDATA[
-<p>If you are experiencing <em>tearing</em> while using
-<code>Firefox</code> you may want to see if graphics accelleration is
-enabled on the browser. You can try this tip to force hardware
-accelleration on in the browser.</p>
-<p>First, check to make sure that your Linux desktop installation
-supports it by running the following command and making sure that
-<code>direct rendering</code> returns <code>Yes</code>:</p>
-<blockquote>
-<p><code>$ glxinfo | grep render</code><br/>
-<code>direct rendering: Yes</code><br/></p>
-</blockquote>
-<p>Then, open Firefox if it’s not already running, and enter
-<code>about:config</code> in the address bar. Click
-<code>Accept The Risk And Continue</code> when prompted, to get to the
-<code>Firefox Advanced Configuration Editor</code></p>
-<p>Search for “<code>layers.acceleration.force-enabled</code>” and you
-should then see it listed in the results.</p>
-<p>Click the right and left pointing arrow icon associated with the
-entry until false changes to true. Once that’s taken care of, close and
-restart Firefox.</p>
-<p>If you don’t see <code>layers.acceleration.force-enabled</code>
-listed, you’ll need to create it by right-clicking an empty area and
-selecting New | Boolean. Name the new entry
-<code>layers.acceleration.force-enabled</code> and set it to true.
-Restart Firefox and you’re done.</p>
-<p>If you notice any issues with Firefox after that and you need to
-revert your change, just search again and toggle it back to
-<code>false</code>.</p>
-<p>Some folks report that setting <code>gfx.xrender.enabled=true</code>
-and <code>layers.acceleration.force-enabled</code> and
-<code>layers.force-active</code> also works. YMMV ;^)</p>
-<p>Tags: <a href='tag_firefox.html'>firefox</a>, <a href='tag_tearing.html'>tearing</a>, <a href='tag_accelleration.html'>accelleration</a>, <a href='tag_glxinfo.html'>glxinfo</a>, <a href='tag_direct-rendering.html'>direct-rendering</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/speed-up-firefox24999.html</link>
-<guid>http://www.szumowski.org/./speed-up-firefox24999.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Wed, 21 Jun 2023 17:46:55 -0400</pubDate></item>
 </channel></rss>
