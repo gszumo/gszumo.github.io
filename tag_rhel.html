@@ -14,6 +14,31 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="speed-up-dnf-package-manager7346.html">
+Speed Up DNF Package Manager
+</a></h3>
+<!-- bashblog_timestamp: #202307031728.52# -->
+<div class="subtitle">July 03, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>You can increase the download speed for installing packages using DNF
+by updating the maximum number of simultaneous package downloads.</p>
+<p>Start by editing the <code>/etc/dnf/dnf.conf</code> file:</p>
+<blockquote>
+<p><code>$ sudo nano /etc/dnf/dnf.conf</code><br/></p>
+</blockquote>
+<p>Add the following line to enable DNF parallel downloads:</p>
+<blockquote>
+<p><code>max_parallel_downloads=10</code><br/></p>
+</blockquote>
+<p>Another option is to select the fastest mirror from the Fedora public
+mirrors by adding the following line:</p>
+<blockquote>
+<p><code>fastestmirror=True</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_dnf.html'>dnf</a>, <a href='tag_fedora.html'>fedora</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_package-managers.html'>package-managers</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="red-hat-subscripion-manager---registering.html">
 Red Hat Subscripion Manager - Registering
 </a></h3>
