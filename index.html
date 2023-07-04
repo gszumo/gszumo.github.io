@@ -14,6 +14,43 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="red-hat-subscription-service27393.html">
+Red Hat Subscription Service
+</a></h3>
+<!-- bashblog_timestamp: #202307041118.03# -->
+<div class="subtitle">July 04, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Once you have installed RHEL 9, register your RHEL subscription by
+running the following command on the terminal. The username and password
+are the login details to your Red Hat account.</p>
+<blockquote>
+<p><code>$ sudo subscription-manager register --username=username --password=password</code><br/></p>
+</blockquote>
+<p>To confirm that the system is registered to Red Hat Subscription
+Management (RHSM), run the command:</p>
+<blockquote>
+<p><code>$ sudo subscription-manager list --installed</code><br/></p>
+</blockquote>
+<p>Then refresh and subscribe:</p>
+<blockquote>
+<p><code>$ sudo subscription-manager refresh</code><br/>
+<code>$ sudo subscription-manager attach --auto</code><br/></p>
+</blockquote>
+<p>Or, list the subscriptions that are available:</p>
+<blockquote>
+<p><code>$ subscription-manager list --available --all</code><br/>
+<code>$ subscription-manager attach --pool=&lt;POOL_ID&gt;</code><br/></p>
+</blockquote>
+<p>Unregistering a system:</p>
+<blockquote>
+<p><code>$ subscription-manager remove --all</code><br/>
+<code>$ subscription-manager unregister</code><br/>
+<code>$ subscription-manager clean</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="speed-up-dnf-package-manager7346.html">
 Speed Up DNF Package Manager
 </a></h3>
@@ -199,25 +236,6 @@ assuming that you already have an account:</p>
 <p><code># yum update</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="rhel-qcow-image-password23397.html">
-RHEL QCOW Image Password
-</a></h3>
-<!-- bashblog_timestamp: #202306261907.09# -->
-<div class="subtitle">June 26, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Did you know that although you can install RHEL from an
-<code>ISO</code>, you can also download a <code>QCOW2</code> image from
-Red Hat. However, when you try to start it up under
-<code>virt-manager</code> you’ll see that it boots to a
-<code>root</code> prompt and you don’t know what the password is. This
-can be fixed by running the following from the host’s terminal:</p>
-<blockquote>
-<p><code># virt-customize -a &lt;qcow2-image-file-name&gt; --root-password password:&lt;password&gt;</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_qcow.html'>qcow</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
