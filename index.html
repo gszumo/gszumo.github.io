@@ -14,6 +14,33 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="slackware-current-minimal-installation26343.html">
+Slackware Current: Minimal Installation
+</a></h3>
+<!-- bashblog_timestamp: #202307051857.49# -->
+<div class="subtitle">July 05, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>I’ve been looking for a way to install a minimal version of Slackware
+(current) in a VM and the smallest that I’ve safely come up with so far
+is this:</p>
+<ul>
+<li>Package group A</li>
+<li>Package group AP</li>
+<li>Package group D</li>
+<li>Package group F</li>
+<li>Package group K</li>
+<li>Package group L</li>
+<li>Package group N</li>
+</ul>
+<p>I will try to get it smaller but I need this startup environment for
+another <em>experiment</em> so I’ll settle for this. Yes, it is still a
+wopping 12GB. Geez…</p>
+<p>More info <a
+href="https://wiki.linuxquestions.org/wiki/Slackware-Minimal_Install">here</a></p>
+<p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_distros.html'>distros</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="red-hat-subscription-service27393.html">
 Red Hat Subscription Service
 </a></h3>
@@ -212,30 +239,6 @@ following:</p>
 <p><code>* add cloud-init=disabled to the kernel command line.</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ubuntu.html'>ubuntu</a>, <a href='tag_cloud-init.html'>cloud-init</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="red-hat-subscripion-manager---registering.html">
-Red Hat Subscripion Manager - Registering
-</a></h3>
-<!-- bashblog_timestamp: #202306271801.40# -->
-<div class="subtitle">June 27, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Registering your RHEL instance with Red Hat is straightforward
-assuming that you already have an account:</p>
-<blockquote>
-<p><code># subscription-manager register --username &lt;your-rh-user&gt; --password &lt;password&gt;</code><br/></p>
-</blockquote>
-<p>List the available repos or just go with a default:</p>
-<blockquote>
-<p><code># subscription-manager list --available</code><br/>
-<code># subscription-manager attach --auto</code><br/></p>
-</blockquote>
-<p>Then you can do your update:</p>
-<blockquote>
-<p><code># yum update</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

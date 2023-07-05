@@ -2,9 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 04 Jul 2023 11:18:08 -0400</lastBuildDate>
-<pubDate>Tue, 04 Jul 2023 11:18:08 -0400</pubDate>
+<lastBuildDate>Wed, 05 Jul 2023 18:57:53 -0400</lastBuildDate>
+<pubDate>Wed, 05 Jul 2023 18:57:53 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Slackware Current: Minimal Installation
+</title><description><![CDATA[
+<p>I’ve been looking for a way to install a minimal version of Slackware
+(current) in a VM and the smallest that I’ve safely come up with so far
+is this:</p>
+<ul>
+<li>Package group A</li>
+<li>Package group AP</li>
+<li>Package group D</li>
+<li>Package group F</li>
+<li>Package group K</li>
+<li>Package group L</li>
+<li>Package group N</li>
+</ul>
+<p>I will try to get it smaller but I need this startup environment for
+another <em>experiment</em> so I’ll settle for this. Yes, it is still a
+wopping 12GB. Geez…</p>
+<p>More info <a
+href="https://wiki.linuxquestions.org/wiki/Slackware-Minimal_Install">here</a></p>
+<p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_distros.html'>distros</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/slackware-current-minimal-installation26343.html</link>
+<guid>http://www.szumowski.org/./slackware-current-minimal-installation26343.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Wed, 05 Jul 2023 18:57:49 -0400</pubDate></item>
 <item><title>
 Red Hat Subscription Service
 </title><description><![CDATA[
@@ -238,49 +264,4 @@ can be fixed by running the following from the host’s terminal:</p>
 <guid>http://www.szumowski.org/./rhel-qcow-image-password23397.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Mon, 26 Jun 2023 19:07:09 -0400</pubDate></item>
-<item><title>
-Find System Hogs and Child Processes
-</title><description><![CDATA[
-<p>There are a lot of tools out there that can help you to do this that
-are both GUI or command line-based but sometimes you’re on a production
-server that may have limited tools and sometimes the simplest tools are
-best in cases like this.</p>
-<p>List the processes that are not owned by you that are using a lot of
-CPU:</p>
-<blockquote>
-<p><code>$ ps aux --sort=-%cpu | grep -m 8 -v</code>whoami<code></code><br/></p>
-</blockquote>
-<p>or by memory:</p>
-<blockquote>
-<p><code>$ ps aux --sort=-%mem | grep -m 8 -v</code>whoami<code></code><br/></p>
-</blockquote>
-<p>or by longest running process:</p>
-<blockquote>
-<p><code>$ ps aux --sort=-time | grep -m 8 -v</code>whoami<code></code><br/></p>
-</blockquote>
-<p>List processes by a specific user:</p>
-<blockquote>
-<p><code>$ ps -U gszumo</code><br/></p>
-</blockquote>
-<p>or multiple users:</p>
-<blockquote>
-<p><code>$ ps -U gszumo -U katy</code><br/></p>
-</blockquote>
-<p>You can see child proceses:</p>
-<blockquote>
-<p><code>$ ps -eo pid,args --forest</code><br/></p>
-</blockquote>
-<p>or children of a specific process:</p>
-<blockquote>
-<p><code>$ ps -f --ppid 4775</code><br/></p>
-</blockquote>
-<p>I don’t remember where I found these tips but they have come in handy
-on many occasions and I am documenting them here hoping that readers
-(whatever few there are) will also benefit from them.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ps.html'>ps</a>, <a href='tag_processes.html'>processes</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/find-system-hogs-and-child-processes30247.html</link>
-<guid>http://www.szumowski.org/./find-system-hogs-and-child-processes30247.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sun, 25 Jun 2023 11:20:06 -0400</pubDate></item>
 </channel></rss>
