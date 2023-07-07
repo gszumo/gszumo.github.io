@@ -14,6 +14,22 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="backup-files-with-specific-file-extension29561.html">
+Backup Files with Specific File Extension
+</a></h3>
+<!-- bashblog_timestamp: #202307071814.55# -->
+<div class="subtitle">July 07, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Here is how you can use <code>rsync</code> to backup only the
+<em>.ogg</em> files in the <em>Music</em> directory to the <em>OGG</em>
+directory:</p>
+<blockquote>
+<p><code>$ rsync -a --prune-empty-dirs --include='*/' --include='*.ogg' --exclude='*' Music/ OGG/</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rsync.html'>rsync</a>, <a href='tag_backups.html'>backups</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="some-sed-tips27116.html">
 Some sed Tips
 </a></h3>
@@ -240,35 +256,6 @@ separators:</p>
 </blockquote>
 <p>This can be adapted to other commands as necessary.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_awk.html'>awk</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="gcc-cant-find-stdioh-in-alpine-linux.html">
-GCC can’t find stdio.h in Alpine Linux
-</a></h3>
-<!-- bashblog_timestamp: #202306291801.37# -->
-<div class="subtitle">June 29, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>A while ago, I installed the <a
-href="https://github.com/ish-app/ish">iSH</a> app on my iPad which made
-it possible for me to develop Python and C code as well as use it as an
-SSH client. However, I ran into an issue when trying to compile C code
-because the compiler couldn’t resolve <code>stdio.h</code>. The
-following excerpt from <a
-href="http://stackoverflow.com/questions/42366739/ddg#42366740">StackOverflow</a>
-resolves the issue:</p>
-<p>Install <code>libc-dev</code> in addition to <code>GCC</code>, or
-just install <code>build-base</code> for everything
-(<code>alpine-sdk</code> is probably an overkill). To install run the
-following command:</p>
-<blockquote>
-<p><code># apk add libc-dev</code><br/></p>
-</blockquote>
-<p>You need to install it separately because in Alpine Linux, the
-package GCC doesn’t depend on <code>libc-dev</code> for good reason: You
-can use <code>gcc</code> to compile things without <code>libc</code>,
-for example hypervisors firmware etc.</p>
-<p>Tags: <a href='tag_gcc.html'>gcc</a>, <a href='tag_alpine-linux.html'>alpine-linux</a>, <a href='tag_ipad.html'>ipad</a>, <a href='tag_ish.html'>ish</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

@@ -2,9 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Thu, 06 Jul 2023 20:56:30 -0400</lastBuildDate>
-<pubDate>Thu, 06 Jul 2023 20:56:30 -0400</pubDate>
+<lastBuildDate>Fri, 07 Jul 2023 18:16:50 -0400</lastBuildDate>
+<pubDate>Fri, 07 Jul 2023 18:16:50 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Backup Files with Specific File Extension
+</title><description><![CDATA[
+<p>Here is how you can use <code>rsync</code> to backup only the
+<em>.ogg</em> files in the <em>Music</em> directory to the <em>OGG</em>
+directory:</p>
+<blockquote>
+<p><code>$ rsync -a --prune-empty-dirs --include='*/' --include='*.ogg' --exclude='*' Music/ OGG/</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rsync.html'>rsync</a>, <a href='tag_backups.html'>backups</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/backup-files-with-specific-file-extension29561.html</link>
+<guid>http://www.szumowski.org/./backup-files-with-specific-file-extension29561.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Fri, 07 Jul 2023 18:14:55 -0400</pubDate></item>
 <item><title>
 Some sed Tips
 </title><description><![CDATA[
@@ -273,27 +288,4 @@ following:</p>
 <guid>http://www.szumowski.org/./ubuntu-disable-cloud-init-on-startup9393.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 28 Jun 2023 20:03:08 -0400</pubDate></item>
-<item><title>
-Red Hat Subscripion Manager - Registering
-</title><description><![CDATA[
-<p>Registering your RHEL instance with Red Hat is straightforward
-assuming that you already have an account:</p>
-<blockquote>
-<p><code># subscription-manager register --username &lt;your-rh-user&gt; --password &lt;password&gt;</code><br/></p>
-</blockquote>
-<p>List the available repos or just go with a default:</p>
-<blockquote>
-<p><code># subscription-manager list --available</code><br/>
-<code># subscription-manager attach --auto</code><br/></p>
-</blockquote>
-<p>Then you can do your update:</p>
-<blockquote>
-<p><code># yum update</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/red-hat-subscripion-manager---registering.html</link>
-<guid>http://www.szumowski.org/./red-hat-subscripion-manager---registering.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 27 Jun 2023 18:01:40 -0400</pubDate></item>
 </channel></rss>
