@@ -2,9 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Wed, 05 Jul 2023 18:57:53 -0400</lastBuildDate>
-<pubDate>Wed, 05 Jul 2023 18:57:53 -0400</pubDate>
+<lastBuildDate>Thu, 06 Jul 2023 20:56:30 -0400</lastBuildDate>
+<pubDate>Thu, 06 Jul 2023 20:56:30 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Some sed Tips
+</title><description><![CDATA[
+<p>Put an * between the number 5 and 6</p>
+<blockquote>
+<p><code>$ echo '12345678901234567890'| sed  -e 's/^.\{5\}/&amp;*/'</code><br/>
+<code>12345*678901234567890</code><br/></p>
+</blockquote>
+<p>Put a comma between each number</p>
+<blockquote>
+<p><code>$ echo "1234567890" |sed  -e 's/./&amp;,/g' -e 's/,$//'</code><br/>
+<code>1,2,3,4,5,6,7,8,9,0</code><br/></p>
+</blockquote>
+<p>Put comma after every 2, if not even then last number exist by
+itself</p>
+<blockquote>
+<p><code>$ echo "1234567890" |sed  -e 's/../&amp;,/g' -e 's/,$//'</code><br/>
+<code>12,34,56,78,90</code><br/></p>
+</blockquote>
+<p>Double space the data in file data1</p>
+<blockquote>
+<p><code>$ sed G data1</code><br/></p>
+</blockquote>
+<p>Triple space the data file file data1</p>
+<blockquote>
+<p><code>$ sed  'G;G' data1</code><br/></p>
+</blockquote>
+<p>Single space a double spaced file</p>
+<blockquote>
+<p><code>$ sed 'n;d' data1</code><br/></p>
+</blockquote>
+<p>DOS to Linux conversion</p>
+<blockquote>
+<p><code>$ sed 's/.$//' DOSfile &gt;Linuxfile</code><br/></p>
+</blockquote>
+<p>Truncate everything after a substring (‘with’ in this case):</p>
+<blockquote>
+<p><code>$ cat file.txt</code><br/>
+<code>Brown Potatoes with Cheese</code><br/>
+<code>Yellow Potatoes with Sugar and Cheese</code><br/>
+<code>$ sed -i.bak 's/with.*//g' file.txt</code><br/>
+<code>$ cat file.txt</code><br/> <code>Brown Potatoes</code><br/>
+<code>Yellow Potatoes</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/some-sed-tips27116.html</link>
+<guid>http://www.szumowski.org/./some-sed-tips27116.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Thu, 06 Jul 2023 20:52:03 -0400</pubDate></item>
 <item><title>
 Slackware Current: Minimal Installation
 </title><description><![CDATA[
@@ -246,22 +296,4 @@ assuming that you already have an account:</p>
 <guid>http://www.szumowski.org/./red-hat-subscripion-manager---registering.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 27 Jun 2023 18:01:40 -0400</pubDate></item>
-<item><title>
-RHEL QCOW Image Password
-</title><description><![CDATA[
-<p>Did you know that although you can install RHEL from an
-<code>ISO</code>, you can also download a <code>QCOW2</code> image from
-Red Hat. However, when you try to start it up under
-<code>virt-manager</code> you’ll see that it boots to a
-<code>root</code> prompt and you don’t know what the password is. This
-can be fixed by running the following from the host’s terminal:</p>
-<blockquote>
-<p><code># virt-customize -a &lt;qcow2-image-file-name&gt; --root-password password:&lt;password&gt;</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_qcow.html'>qcow</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/rhel-qcow-image-password23397.html</link>
-<guid>http://www.szumowski.org/./rhel-qcow-image-password23397.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Mon, 26 Jun 2023 19:07:09 -0400</pubDate></item>
 </channel></rss>
