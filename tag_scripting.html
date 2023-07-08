@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; Posts tagged "bash"</title>
+<title>Gregg's MOTD &mdash; Posts tagged "scripting"</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -76,73 +76,6 @@ when you need to forcefully display error messages on screen</td>
 </table>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_scripting.html'>scripting</a>, <a href='tag_redirection.html'>redirection</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="printing-numbers-using-thousand-separators.html">
-Printing Numbers using Thousand Separators
-</a></h3>
-<!-- bashblog_timestamp: #202306301905.13# -->
-<div class="subtitle">June 30, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>You can use a pipe to <code>awk</code> to output numbers with
-thousands separators (commas). For Example, here’s how you can total the
-5th column of the <code>ls -l</code> command and print it with thousands
-separators:</p>
-<blockquote>
-<p><code>$ ls -l | awk '{total = total + $5}END{print total}' | LC_ALL=en_US.UTF-8 awk '{printf("%'"'"'d\n", $0) }'</code><br/>
-<code>21,387</code><br/></p>
-</blockquote>
-<p>This can be adapted to other commands as necessary.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_awk.html'>awk</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="bulk-change-of-file-extensions-in-directory32717.html">
-Bulk Change of File Extensions in Directory
-</a></h3>
-<!-- bashblog_timestamp: #202306111125.59# -->
-<div class="subtitle">June 11, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>If you have a directory of files where you want to change all of the
-file extensions you may find this code snippet useful to rename
-them:</p>
-<blockquote>
-<p><code>for i in *.tmp</code><br/> <code>do</code><br/>
-<code>mv ${i} ${i%.*}.txt</code><br/> <code>done</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_rename.html'>rename</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="bash-environment-variables11985.html">
-Bash Environment Variables
-</a></h3>
-<!-- bashblog_timestamp: #202305242059.35# -->
-<div class="subtitle">May 24, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>Here are some bash environment variables that are useful to know when you're using the command prompt:</p>
-
-<p><code> $0</code> - name of shell or shell script <br/>
-<code> $1, $2, $3, ...</code> - positional parameters to script <br/>
-<code> $#</code> - count of positional parameters <br/>
-<code> $?</code> - exit status of most recent foreground task <br/>
-<code> $-</code> - current options that are set for the shell <br/>
-<code> $$</code> - PID of the current shell (not subshell) <br/>
-<code> $!</code> - the PID of the most recent background command <br/>
-<code> $DESKTOP_SESSION</code> - path to the current display manager <br/>
-<code> $EDITOR</code> - preferred text editor <br/>
-<code> $LANG</code> - current language <br/>
-<code> $PATH</code> - directory list to search for executables (programs) <br/>
-<code> $PWD</code> - current working directory <br/>
-<code> $SHELL</code> - current shell <br/>
-<code> $USER</code> - current username <br/>
-<code> $HOME</code> - current user's home directory <br/>
-<code> $HOSTNAME</code> - current name of the host <br/>
-<code> $TERM</code> - current terminal <br/></p>
-
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
