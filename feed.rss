@@ -2,9 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 08 Jul 2023 10:39:54 -0400</lastBuildDate>
-<pubDate>Sat, 08 Jul 2023 10:39:54 -0400</pubDate>
+<lastBuildDate>Sun, 09 Jul 2023 16:49:08 -0400</lastBuildDate>
+<pubDate>Sun, 09 Jul 2023 16:49:08 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Using Tar with a Text Input File
+</title><description><![CDATA[
+<p>If you have a lot of files in a directory and you only need to
+<code>tar</code> a subset of them you can create a list of the files you
+want in a text file and pass it to the <code>tar</code> command like
+this:</p>
+<blockquote>
+<p><code>$ tar -cvf tarball.tar -T filelist.txt</code><br/></p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p><code>$ tar cvf tarball.tar $(cat filelist.txt)</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_tar.html'>tar</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/using-tar-with-a-text-input-file23818.html</link>
+<guid>http://www.szumowski.org/./using-tar-with-a-text-input-file23818.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 09 Jul 2023 16:49:03 -0400</pubDate></item>
 <item><title>
 Command Line Redirection
 </title><description><![CDATA[
@@ -302,32 +322,4 @@ separators:</p>
 <guid>http://www.szumowski.org/./printing-numbers-using-thousand-separators.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Fri, 30 Jun 2023 19:05:13 -0400</pubDate></item>
-<item><title>
-GCC can’t find stdio.h in Alpine Linux
-</title><description><![CDATA[
-<p>A while ago, I installed the <a
-href="https://github.com/ish-app/ish">iSH</a> app on my iPad which made
-it possible for me to develop Python and C code as well as use it as an
-SSH client. However, I ran into an issue when trying to compile C code
-because the compiler couldn’t resolve <code>stdio.h</code>. The
-following excerpt from <a
-href="http://stackoverflow.com/questions/42366739/ddg#42366740">StackOverflow</a>
-resolves the issue:</p>
-<p>Install <code>libc-dev</code> in addition to <code>GCC</code>, or
-just install <code>build-base</code> for everything
-(<code>alpine-sdk</code> is probably an overkill). To install run the
-following command:</p>
-<blockquote>
-<p><code># apk add libc-dev</code><br/></p>
-</blockquote>
-<p>You need to install it separately because in Alpine Linux, the
-package GCC doesn’t depend on <code>libc-dev</code> for good reason: You
-can use <code>gcc</code> to compile things without <code>libc</code>,
-for example hypervisors firmware etc.</p>
-<p>Tags: <a href='tag_gcc.html'>gcc</a>, <a href='tag_alpine-linux.html'>alpine-linux</a>, <a href='tag_ipad.html'>ipad</a>, <a href='tag_ish.html'>ish</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/gcc-cant-find-stdioh-in-alpine-linux.html</link>
-<guid>http://www.szumowski.org/./gcc-cant-find-stdioh-in-alpine-linux.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Thu, 29 Jun 2023 18:01:37 -0400</pubDate></item>
 </channel></rss>

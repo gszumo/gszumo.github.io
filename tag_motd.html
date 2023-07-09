@@ -14,6 +14,27 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="using-tar-with-a-text-input-file23818.html">
+Using Tar with a Text Input File
+</a></h3>
+<!-- bashblog_timestamp: #202307091649.03# -->
+<div class="subtitle">July 09, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you have a lot of files in a directory and you only need to
+<code>tar</code> a subset of them you can create a list of the files you
+want in a text file and pass it to the <code>tar</code> command like
+this:</p>
+<blockquote>
+<p><code>$ tar -cvf tarball.tar -T filelist.txt</code><br/></p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p><code>$ tar cvf tarball.tar $(cat filelist.txt)</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_tar.html'>tar</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="command-line-redirection28985.html">
 Command Line Redirection
 </a></h3>
