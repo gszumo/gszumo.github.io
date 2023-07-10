@@ -14,6 +14,32 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="bind-to-a-remote-port-using-ssh22839.html">
+Bind to a Remote Port Using SSH
+</a></h3>
+<!-- bashblog_timestamp: #202307101810.28# -->
+<div class="subtitle">July 10, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you are trying to access the web page of an application running on
+a remote machine and you find that you are blocked, you can bind to it
+using SSH with similar parameters to this:</p>
+<blockquote>
+<p><code>$ ssh pi@raspberrypi.local -L 8384:127.0.0.1:8384 -N</code><br/></p>
+</blockquote>
+<p>Where:</p>
+<ul>
+<li><code>pi@raspberrypi.local</code> is the remote server,</li>
+<li><code>8384</code> is the port number on the remote that you wish to
+connect with,</li>
+<li><code>127.0.0.1:8384</code> is the local machine and the port that
+you want to redirect to, and</li>
+<li><code>-N</code> is a flag telling <code>ssh</code> not to execute a
+remote command.</li>
+</ul>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="using-tar-with-a-text-input-file23818.html">
 Using Tar with a Text Input File
 </a></h3>
