@@ -2,9 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Mon, 10 Jul 2023 18:10:35 -0400</lastBuildDate>
-<pubDate>Mon, 10 Jul 2023 18:10:35 -0400</pubDate>
+<lastBuildDate>Tue, 11 Jul 2023 17:30:36 -0400</lastBuildDate>
+<pubDate>Tue, 11 Jul 2023 17:30:36 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+How to recursively find the latest modified file in a directory
+</title><description><![CDATA[
+<blockquote>
+<p><code>find . -type f -printf '%T@ %p\n' | sort -n | tail -1 | cut -f2- -d" "</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_find.html'>find</a>, <a href='tag_sort.html'>sort</a>, <a href='tag_tail.html'>tail</a>, <a href='tag_cut.html'>cut</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/how-to-recursively-find-the-latest-modified-file-in-a-directory.html</link>
+<guid>http://www.szumowski.org/./how-to-recursively-find-the-latest-modified-file-in-a-directory.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Tue, 11 Jul 2023 17:28:59 -0400</pubDate></item>
 <item><title>
 Bind to a Remote Port Using SSH
 </title><description><![CDATA[
@@ -294,39 +306,4 @@ maintained manually.</p>
 <guid>http://www.szumowski.org/./creating-a-python-requirementstxt-file.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sun, 02 Jul 2023 11:51:53 -0400</pubDate></item>
-<item><title>
-Python: Initializing a New Project using venv
-</title><description><![CDATA[
-<p>Start out by creating a new directory or cloning a repository (which
-creates a directory) and <em>cd</em> into it:</p>
-<blockquote>
-<p><code>$ git clone https://gitlab.com/username/proj-name</code><br/>
-<code>$ cd proj-name/</code><br/></p>
-</blockquote>
-<p>Initialize the virtual environment:</p>
-<blockquote>
-<p><code>$ python3 -m venv venv</code><br/>
-<code>$ source venv/bin/activate</code><br/></p>
-</blockquote>
-<p>Install whatever dependencies you need:</p>
-<blockquote>
-<p><code>$ pip install package1 package2</code><br/></p>
-</blockquote>
-<p>Then develop and/or run your program:</p>
-<blockquote>
-<p><code>$ python data_model.py</code><br/>
-<code>$ python app.py</code><br/>
-<code>$ sqlite3 hpr.sqlite "select count(*) from users"</code><br/></p>
-</blockquote>
-<p>When you’re done working you can <em>deactivate</em> the environment
-by typing:</p>
-<blockquote>
-<p><code>$ deactivate</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_python.html'>python</a>, <a href='tag_venv.html'>venv</a>, <a href='tag_virtual.html'>virtual</a>, <a href='tag_environment.html'>environment</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/python-initializing-a-new-project-using-venv.html</link>
-<guid>http://www.szumowski.org/./python-initializing-a-new-project-using-venv.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sat, 01 Jul 2023 20:07:47 -0400</pubDate></item>
 </channel></rss>
