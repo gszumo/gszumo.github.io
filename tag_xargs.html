@@ -14,6 +14,23 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="scping-files-using-a-text-file-list.html">
+scp’ing Files using a Text File List
+</a></h3>
+<!-- bashblog_timestamp: #202307121810.28# -->
+<div class="subtitle">July 12, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you have a collection of files that you want to transfer to a
+remote server and they are a subset of files in the current directory or
+scattered among different directories you can create a list of files and
+then pipe the list to <code>scp</code>:</p>
+<blockquote>
+<p><code>$ cat filelist.txt | xargs -i scp {} user@remote:~/backup/</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_xargs.html'>xargs</a>, <a href='tag_scp.html'>scp</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="archive-only-files-in-a-directory23013.html">
 Archive Only Files In a Directory
 </a></h3>

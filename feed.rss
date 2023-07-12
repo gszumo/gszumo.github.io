@@ -2,9 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 11 Jul 2023 17:30:36 -0400</lastBuildDate>
-<pubDate>Tue, 11 Jul 2023 17:30:36 -0400</pubDate>
+<lastBuildDate>Wed, 12 Jul 2023 18:10:33 -0400</lastBuildDate>
+<pubDate>Wed, 12 Jul 2023 18:10:33 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+scp’ing Files using a Text File List
+</title><description><![CDATA[
+<p>If you have a collection of files that you want to transfer to a
+remote server and they are a subset of files in the current directory or
+scattered among different directories you can create a list of files and
+then pipe the list to <code>scp</code>:</p>
+<blockquote>
+<p><code>$ cat filelist.txt | xargs -i scp {} user@remote:~/backup/</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_xargs.html'>xargs</a>, <a href='tag_scp.html'>scp</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/scping-files-using-a-text-file-list.html</link>
+<guid>http://www.szumowski.org/./scping-files-using-a-text-file-list.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Wed, 12 Jul 2023 18:10:28 -0400</pubDate></item>
 <item><title>
 How to recursively find the latest modified file in a directory
 </title><description><![CDATA[
@@ -275,35 +291,4 @@ mirrors by adding the following line:</p>
 <guid>http://www.szumowski.org/./speed-up-dnf-package-manager7346.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Mon, 03 Jul 2023 17:28:52 -0400</pubDate></item>
-<item><title>
-Creating a Python requirements.txt File
-</title><description><![CDATA[
-<p>This can be done quickly by typing:</p>
-<blockquote>
-<p><code>$ pip freeze &gt;requirements.txt</code><br/></p>
-</blockquote>
-<p>at the command line.</p>
-<p>To install packages using a <code>requirements</code> file just use
-<code>pip</code>:</p>
-<blockquote>
-<p><code>$ pip install -r requirements.txt</code><br/></p>
-</blockquote>
-<p>To check if the packages in your <code>requirements.txt</code> file
-are up-to-date use:</p>
-<blockquote>
-<p><code>$ pip list --outdated</code><br/></p>
-</blockquote>
-<p>and to update those packages:</p>
-<blockquote>
-<p><code>$ pip install -U &lt;packagename&gt;</code><br/></p>
-</blockquote>
-<p>This process has some drawbacks as packages are sometimes included
-that are no longer needed and should only be used initially and then
-maintained manually.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_python.html'>python</a>, <a href='tag_pip.html'>pip</a>, <a href='tag_requirements.html'>requirements</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/creating-a-python-requirementstxt-file.html</link>
-<guid>http://www.szumowski.org/./creating-a-python-requirementstxt-file.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sun, 02 Jul 2023 11:51:53 -0400</pubDate></item>
 </channel></rss>
