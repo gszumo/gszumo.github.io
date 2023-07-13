@@ -2,9 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Wed, 12 Jul 2023 18:10:33 -0400</lastBuildDate>
-<pubDate>Wed, 12 Jul 2023 18:10:33 -0400</pubDate>
+<lastBuildDate>Thu, 13 Jul 2023 18:44:09 -0400</lastBuildDate>
+<pubDate>Thu, 13 Jul 2023 18:44:09 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Rename Files That Start With a Special Character
+</title><description><![CDATA[
+<p>Suppose you find that you have a file with a <em>special</em>
+character and you want to delete it:</p>
+<blockquote>
+<p><code>$ ls</code><br/>
+<code>-badfile.txt              PrintHood                   reg57.txt</code><br/>
+<code>Favorites                 Recent                      scripts</code><br/>
+<code></code><br/> <code>$ rm -badfile.txt</code><br/>
+<code>rm: invalid option -- 'b'</code><br/>
+<code>Try 'rm ./-badfile.txt' to remove the file '-badfile.txt'.</code><br/>
+<code>Try 'rm --help' for more information.</code><br/>
+<code></code><br/> <code>$ ls *.txt</code><br/>
+<code>ls: invalid option -- 'e'</code><br/>
+<code>Try 'ls --help' for more information.</code><br/></p>
+</blockquote>
+<p>First, find the <code>inode</code> of the file by using
+<code>ls -i</code> on the command line:</p>
+<blockquote>
+<p><code>$ ls -i</code><br/>
+<code>54804119 -badfile.txt                56634824 PrintHood</code><br/>
+<code>56634825 Recent                      56634807 Favorites</code><br/>
+<code>54804251 reg57.txt                   56634833 scripts</code><br/></p>
+</blockquote>
+<p>The “-i” flag will display the file’s inode:<br/> <em>54804119</em>
+-badfile.txt</p>
+<p>The inode for the “bad” file is <em>54804119</em>. Once the inode is
+identified, use the find command to rename the file:</p>
+<blockquote>
+<p><code>$ find . -inum 54804119 -exec mv {} NewName \;</code><br/>
+<code></code><br/> <code>$ ls NewName</code><br/>
+<code>NewName</code><br/></p>
+</blockquote>
+<p>Now you can delete it.</p>
+<blockquote>
+<p><code>$ rm NewName</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rename.html'>rename</a>, <a href='tag_find.html'>find</a>, <a href='tag_inode.html'>inode</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/rename-files-that-start-with-a-special-character22468.html</link>
+<guid>http://www.szumowski.org/./rename-files-that-start-with-a-special-character22468.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Thu, 13 Jul 2023 18:39:20 -0400</pubDate></item>
 <item><title>
 scp’ing Files using a Text File List
 </title><description><![CDATA[
@@ -267,28 +311,4 @@ Management (RHSM), run the command:</p>
 <guid>http://www.szumowski.org/./red-hat-subscription-service27393.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 04 Jul 2023 11:18:03 -0400</pubDate></item>
-<item><title>
-Speed Up DNF Package Manager
-</title><description><![CDATA[
-<p>You can increase the download speed for installing packages using DNF
-by updating the maximum number of simultaneous package downloads.</p>
-<p>Start by editing the <code>/etc/dnf/dnf.conf</code> file:</p>
-<blockquote>
-<p><code>$ sudo nano /etc/dnf/dnf.conf</code><br/></p>
-</blockquote>
-<p>Add the following line to enable DNF parallel downloads:</p>
-<blockquote>
-<p><code>max_parallel_downloads=10</code><br/></p>
-</blockquote>
-<p>Another option is to select the fastest mirror from the Fedora public
-mirrors by adding the following line:</p>
-<blockquote>
-<p><code>fastestmirror=True</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_dnf.html'>dnf</a>, <a href='tag_fedora.html'>fedora</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_package-managers.html'>package-managers</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/speed-up-dnf-package-manager7346.html</link>
-<guid>http://www.szumowski.org/./speed-up-dnf-package-manager7346.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Mon, 03 Jul 2023 17:28:52 -0400</pubDate></item>
 </channel></rss>

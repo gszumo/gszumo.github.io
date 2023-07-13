@@ -14,6 +14,51 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="rename-files-that-start-with-a-special-character22468.html">
+Rename Files That Start With a Special Character
+</a></h3>
+<!-- bashblog_timestamp: #202307131839.20# -->
+<div class="subtitle">July 13, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Suppose you find that you have a file with a <em>special</em>
+character and you want to delete it:</p>
+<blockquote>
+<p><code>$ ls</code><br/>
+<code>-badfile.txt              PrintHood                   reg57.txt</code><br/>
+<code>Favorites                 Recent                      scripts</code><br/>
+<code></code><br/> <code>$ rm -badfile.txt</code><br/>
+<code>rm: invalid option -- 'b'</code><br/>
+<code>Try 'rm ./-badfile.txt' to remove the file '-badfile.txt'.</code><br/>
+<code>Try 'rm --help' for more information.</code><br/>
+<code></code><br/> <code>$ ls *.txt</code><br/>
+<code>ls: invalid option -- 'e'</code><br/>
+<code>Try 'ls --help' for more information.</code><br/></p>
+</blockquote>
+<p>First, find the <code>inode</code> of the file by using
+<code>ls -i</code> on the command line:</p>
+<blockquote>
+<p><code>$ ls -i</code><br/>
+<code>54804119 -badfile.txt                56634824 PrintHood</code><br/>
+<code>56634825 Recent                      56634807 Favorites</code><br/>
+<code>54804251 reg57.txt                   56634833 scripts</code><br/></p>
+</blockquote>
+<p>The “-i” flag will display the file’s inode:<br/> <em>54804119</em>
+-badfile.txt</p>
+<p>The inode for the “bad” file is <em>54804119</em>. Once the inode is
+identified, use the find command to rename the file:</p>
+<blockquote>
+<p><code>$ find . -inum 54804119 -exec mv {} NewName \;</code><br/>
+<code></code><br/> <code>$ ls NewName</code><br/>
+<code>NewName</code><br/></p>
+</blockquote>
+<p>Now you can delete it.</p>
+<blockquote>
+<p><code>$ rm NewName</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rename.html'>rename</a>, <a href='tag_find.html'>find</a>, <a href='tag_inode.html'>inode</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="scping-files-using-a-text-file-list.html">
 scp’ing Files using a Text File List
 </a></h3>
@@ -220,33 +265,6 @@ itself</p>
 <code>Yellow Potatoes</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="slackware-current-minimal-installation26343.html">
-Slackware Current: Minimal Installation
-</a></h3>
-<!-- bashblog_timestamp: #202307051857.49# -->
-<div class="subtitle">July 05, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>I’ve been looking for a way to install a minimal version of Slackware
-(current) in a VM and the smallest that I’ve safely come up with so far
-is this:</p>
-<ul>
-<li>Package group A</li>
-<li>Package group AP</li>
-<li>Package group D</li>
-<li>Package group F</li>
-<li>Package group K</li>
-<li>Package group L</li>
-<li>Package group N</li>
-</ul>
-<p>I will try to get it smaller but I need this startup environment for
-another <em>experiment</em> so I’ll settle for this. Yes, it is still a
-wopping 12GB. Geez…</p>
-<p>More info <a
-href="https://wiki.linuxquestions.org/wiki/Slackware-Minimal_Install">here</a></p>
-<p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_distros.html'>distros</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
