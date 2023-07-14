@@ -14,6 +14,40 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="using-passwordgen-on-slackware8846.html">
+Using passwordgen On Slackware
+</a></h3>
+<!-- bashblog_timestamp: #202307141844.55# -->
+<div class="subtitle">July 14, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>The well known <a href="https://ss64.com">ss64.com</a> site has a lot
+of useful tips and tricks for **nix* users and they also have a script
+that you can download which will create and maintain passwords for
+you.</p>
+<p>If you go to their <a
+href="https://ss64.com/pass/command-line.html">command line</a> section
+you can use the link to their GitHub site and download it for yourself.
+However, when I followed their installation instructions I ran into
+difficulty because the script has a dependency on <code>pbcopy</code> or
+<code>gclip</code> (which wasn’t documented) and since I run Slackware
+15.0 the copy to clipboard feature failed.</p>
+<p>The workaround for this is to install either <code>xclip</code> or
+<code>xsel</code> from <em>Slackbuilds.org</em> and make a minor
+modification to the script as described here:</p>
+<blockquote>
+<p><code>22c22,23</code><br/>
+<code>&lt;     which gclip pbcopy | grep -v -m 1 'not found'</code><br/>
+<code>---</code><br/>
+<code>&gt;     which xclip xsel | grep -v -m 1 'not found'</code><br/>
+<code>&gt;</code><br/> <code>52c53</code><br/>
+<code>&lt;             ss64pwd_to_clipboard $one_arg</code><br/>
+<code>---</code><br/>
+<code>&gt;             ss64pwd_to_clipboard -selecton clipboard $one_arg</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_password-managers.html'>password-managers</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="rename-files-that-start-with-a-special-character22468.html">
 Rename Files That Start With a Special Character
 </a></h3>
@@ -214,57 +248,6 @@ directory:</p>
 <p><code>$ rsync -a --prune-empty-dirs --include='*/' --include='*.ogg' --exclude='*' Music/ OGG/</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rsync.html'>rsync</a>, <a href='tag_backups.html'>backups</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="some-sed-tips27116.html">
-Some sed Tips
-</a></h3>
-<!-- bashblog_timestamp: #202307062052.03# -->
-<div class="subtitle">July 06, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Put an * between the number 5 and 6</p>
-<blockquote>
-<p><code>$ echo '12345678901234567890'| sed  -e 's/^.\{5\}/&amp;*/'</code><br/>
-<code>12345*678901234567890</code><br/></p>
-</blockquote>
-<p>Put a comma between each number</p>
-<blockquote>
-<p><code>$ echo "1234567890" |sed  -e 's/./&amp;,/g' -e 's/,$//'</code><br/>
-<code>1,2,3,4,5,6,7,8,9,0</code><br/></p>
-</blockquote>
-<p>Put comma after every 2, if not even then last number exist by
-itself</p>
-<blockquote>
-<p><code>$ echo "1234567890" |sed  -e 's/../&amp;,/g' -e 's/,$//'</code><br/>
-<code>12,34,56,78,90</code><br/></p>
-</blockquote>
-<p>Double space the data in file data1</p>
-<blockquote>
-<p><code>$ sed G data1</code><br/></p>
-</blockquote>
-<p>Triple space the data file file data1</p>
-<blockquote>
-<p><code>$ sed  'G;G' data1</code><br/></p>
-</blockquote>
-<p>Single space a double spaced file</p>
-<blockquote>
-<p><code>$ sed 'n;d' data1</code><br/></p>
-</blockquote>
-<p>DOS to Linux conversion</p>
-<blockquote>
-<p><code>$ sed 's/.$//' DOSfile &gt;Linuxfile</code><br/></p>
-</blockquote>
-<p>Truncate everything after a substring (‘with’ in this case):</p>
-<blockquote>
-<p><code>$ cat file.txt</code><br/>
-<code>Brown Potatoes with Cheese</code><br/>
-<code>Yellow Potatoes with Sugar and Cheese</code><br/>
-<code>$ sed -i.bak 's/with.*//g' file.txt</code><br/>
-<code>$ cat file.txt</code><br/> <code>Brown Potatoes</code><br/>
-<code>Yellow Potatoes</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

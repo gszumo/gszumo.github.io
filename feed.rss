@@ -2,9 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Thu, 13 Jul 2023 18:44:09 -0400</lastBuildDate>
-<pubDate>Thu, 13 Jul 2023 18:44:09 -0400</pubDate>
+<lastBuildDate>Fri, 14 Jul 2023 18:46:15 -0400</lastBuildDate>
+<pubDate>Fri, 14 Jul 2023 18:46:15 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Using passwordgen On Slackware
+</title><description><![CDATA[
+<p>The well known <a href="https://ss64.com">ss64.com</a> site has a lot
+of useful tips and tricks for **nix* users and they also have a script
+that you can download which will create and maintain passwords for
+you.</p>
+<p>If you go to their <a
+href="https://ss64.com/pass/command-line.html">command line</a> section
+you can use the link to their GitHub site and download it for yourself.
+However, when I followed their installation instructions I ran into
+difficulty because the script has a dependency on <code>pbcopy</code> or
+<code>gclip</code> (which wasn’t documented) and since I run Slackware
+15.0 the copy to clipboard feature failed.</p>
+<p>The workaround for this is to install either <code>xclip</code> or
+<code>xsel</code> from <em>Slackbuilds.org</em> and make a minor
+modification to the script as described here:</p>
+<blockquote>
+<p><code>22c22,23</code><br/>
+<code>&lt;     which gclip pbcopy | grep -v -m 1 'not found'</code><br/>
+<code>---</code><br/>
+<code>&gt;     which xclip xsel | grep -v -m 1 'not found'</code><br/>
+<code>&gt;</code><br/> <code>52c53</code><br/>
+<code>&lt;             ss64pwd_to_clipboard $one_arg</code><br/>
+<code>---</code><br/>
+<code>&gt;             ss64pwd_to_clipboard -selecton clipboard $one_arg</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_password-managers.html'>password-managers</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/using-passwordgen-on-slackware8846.html</link>
+<guid>http://www.szumowski.org/./using-passwordgen-on-slackware8846.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Fri, 14 Jul 2023 18:44:55 -0400</pubDate></item>
 <item><title>
 Rename Files That Start With a Special Character
 </title><description><![CDATA[
@@ -275,40 +308,4 @@ href="https://wiki.linuxquestions.org/wiki/Slackware-Minimal_Install">here</a></
 <guid>http://www.szumowski.org/./slackware-current-minimal-installation26343.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 05 Jul 2023 18:57:49 -0400</pubDate></item>
-<item><title>
-Red Hat Subscription Service
-</title><description><![CDATA[
-<p>Once you have installed RHEL 9, register your RHEL subscription by
-running the following command on the terminal. The username and password
-are the login details to your Red Hat account.</p>
-<blockquote>
-<p><code>$ sudo subscription-manager register --username=username --password=password</code><br/></p>
-</blockquote>
-<p>To confirm that the system is registered to Red Hat Subscription
-Management (RHSM), run the command:</p>
-<blockquote>
-<p><code>$ sudo subscription-manager list --installed</code><br/></p>
-</blockquote>
-<p>Then refresh and subscribe:</p>
-<blockquote>
-<p><code>$ sudo subscription-manager refresh</code><br/>
-<code>$ sudo subscription-manager attach --auto</code><br/></p>
-</blockquote>
-<p>Or, list the subscriptions that are available:</p>
-<blockquote>
-<p><code>$ subscription-manager list --available --all</code><br/>
-<code>$ subscription-manager attach --pool=&lt;POOL_ID&gt;</code><br/></p>
-</blockquote>
-<p>Unregistering a system:</p>
-<blockquote>
-<p><code>$ subscription-manager remove --all</code><br/>
-<code>$ subscription-manager unregister</code><br/>
-<code>$ subscription-manager clean</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/red-hat-subscription-service27393.html</link>
-<guid>http://www.szumowski.org/./red-hat-subscription-service27393.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 04 Jul 2023 11:18:03 -0400</pubDate></item>
 </channel></rss>

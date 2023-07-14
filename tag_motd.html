@@ -14,6 +14,40 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="using-passwordgen-on-slackware8846.html">
+Using passwordgen On Slackware
+</a></h3>
+<!-- bashblog_timestamp: #202307141844.55# -->
+<div class="subtitle">July 14, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>The well known <a href="https://ss64.com">ss64.com</a> site has a lot
+of useful tips and tricks for **nix* users and they also have a script
+that you can download which will create and maintain passwords for
+you.</p>
+<p>If you go to their <a
+href="https://ss64.com/pass/command-line.html">command line</a> section
+you can use the link to their GitHub site and download it for yourself.
+However, when I followed their installation instructions I ran into
+difficulty because the script has a dependency on <code>pbcopy</code> or
+<code>gclip</code> (which wasn’t documented) and since I run Slackware
+15.0 the copy to clipboard feature failed.</p>
+<p>The workaround for this is to install either <code>xclip</code> or
+<code>xsel</code> from <em>Slackbuilds.org</em> and make a minor
+modification to the script as described here:</p>
+<blockquote>
+<p><code>22c22,23</code><br/>
+<code>&lt;     which gclip pbcopy | grep -v -m 1 'not found'</code><br/>
+<code>---</code><br/>
+<code>&gt;     which xclip xsel | grep -v -m 1 'not found'</code><br/>
+<code>&gt;</code><br/> <code>52c53</code><br/>
+<code>&lt;             ss64pwd_to_clipboard $one_arg</code><br/>
+<code>---</code><br/>
+<code>&gt;             ss64pwd_to_clipboard -selecton clipboard $one_arg</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_password-managers.html'>password-managers</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="rename-files-that-start-with-a-special-character22468.html">
 Rename Files That Start With a Special Character
 </a></h3>
