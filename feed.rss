@@ -2,9 +2,71 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Fri, 14 Jul 2023 18:46:15 -0400</lastBuildDate>
-<pubDate>Fri, 14 Jul 2023 18:46:15 -0400</pubDate>
+<lastBuildDate>Sat, 15 Jul 2023 12:58:16 -0400</lastBuildDate>
+<pubDate>Sat, 15 Jul 2023 12:58:16 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Create a QEMU/KVM Virtual Machine from the Command Line
+</title><description><![CDATA[
+<p>You can use a combination of command line tools to create and
+configure a virtual machine. Here we will use few tools from the
+<em>QEMU</em> and <em>libvirt</em> packages to do this.</p>
+<p>Use QEMU to create a 15GB QCOW disk image:</p>
+<blockquote>
+<p><code>$ qemu-img create -f qcow2 /home/user/KVM/CentOS-Stream-9.qcow2 15G</code><br/>
+<code>Formatting '/home/user/KVM/CentOS-Stream-9.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=16106127360 lazy_refcounts=off refcount_bits=16</code><br/></p>
+</blockquote>
+<p>Start the installation:</p>
+<blockquote>
+<p><code>$ sudo virt-install --name=CentOS-Stream-9 --vcpus=1 --memory=1024 --location=/home/user/Downloads/CentOS-Stream-9-20230704.1-x86_64-boot.iso --os-variant=centos8 --network bridge:virbr0 --disk path=/home/user/KVM/CentOS-Stream-9.qcow2 --disk size=15</code><br/>
+<code>Password:</code><br/>
+<code>WARNING  Requested memory 1024 MiB is less than the recommended 1536 MiB for OS centos8</code><br/>
+<code></code><br/> <code>Starting install...</code><br/>
+<code>Retrieving 'vmlinuz'                                               |    0 B  00:00:00 ...</code><br/>
+<code>Retrieving 'initrd.img'                                            |    0 B  00:00:00 ...</code><br/>
+<code>Allocating 'CentOS-Stream-9.qcow2'                                 | 2.5 MB  00:00:03 ...</code><br/>
+<code>WARNING  Overriding memory to 3072 MiB needed for centos8 network install.</code><br/>
+<code>Creating domain...                                                 |    0 B  00:00:00</code><br/>
+<code>Running graphical console command: virt-viewer --connect qemu:///system --wait CentOS-Stream-9</code><br/></p>
+</blockquote>
+<p>Once this gets to this point another window should open up by the
+<code>virt-viewer</code> application (which you should install if you
+didn’t already) and you can complete the installation and reboot. You’ll
+use the same <code>virt-viewer</code> window to use the shell or desktop
+(depending upon the distro you installed).</p>
+<p>When you are done and close the <code>virt-viewer</code> GUI you can
+find the VM in the <em>running</em> state using <code>virsh</code>:</p>
+<blockquote>
+<p><code>$ sudo virsh list --all</code><br/> <code>Password:</code><br/>
+<code>Id   Name                State</code><br/>
+<code>------------------------------------</code><br/>
+<code>5    CentOS-Stream-9     running</code><br/>
+<code>-    slackware-current   shut off</code><br/></p>
+</blockquote>
+<p>Then you can shut it down:</p>
+<blockquote>
+<p><code>$ sudo virsh shutdown 5</code><br/> <code>Password:</code><br/>
+<code>Domain '5' is being shutdown</code><br/>
+<code>$ sudo virsh list --all</code><br/> <code>Password:</code><br/>
+<code>Id   Name                State</code><br/>
+<code>------------------------------------</code><br/>
+<code>-    CentOS-Stream-9     shut off</code><br/>
+<code>-    slackware-current   shut off</code><br/></p>
+</blockquote>
+<p>Optionally, you can delete the VM domain and the QCOW file using the
+<code>undefine</code> parameter:</p>
+<blockquote>
+<p><code>$ sudo virsh undefine --domain CentOS-Stream-9 --remove-all-storage</code><br/>
+<code>Password:</code><br/>
+<code>Domain 'CentOS-Stream-9' has been undefined</code><br/>
+<code>Volume 'vda'(/home/user/KVM/CentOS-Stream-9.qcow2) removed.</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_qemu.html'>qemu</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/create-a-qemukvm-virtual-machine-from-the-command-line.html</link>
+<guid>http://www.szumowski.org/./create-a-qemukvm-virtual-machine-from-the-command-line.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sat, 15 Jul 2023 12:52:32 -0400</pubDate></item>
 <item><title>
 Using passwordgen On Slackware
 </title><description><![CDATA[
@@ -282,30 +344,4 @@ itself</p>
 <guid>http://www.szumowski.org/./some-sed-tips27116.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Thu, 06 Jul 2023 20:52:03 -0400</pubDate></item>
-<item><title>
-Slackware Current: Minimal Installation
-</title><description><![CDATA[
-<p>I’ve been looking for a way to install a minimal version of Slackware
-(current) in a VM and the smallest that I’ve safely come up with so far
-is this:</p>
-<ul>
-<li>Package group A</li>
-<li>Package group AP</li>
-<li>Package group D</li>
-<li>Package group F</li>
-<li>Package group K</li>
-<li>Package group L</li>
-<li>Package group N</li>
-</ul>
-<p>I will try to get it smaller but I need this startup environment for
-another <em>experiment</em> so I’ll settle for this. Yes, it is still a
-wopping 12GB. Geez…</p>
-<p>More info <a
-href="https://wiki.linuxquestions.org/wiki/Slackware-Minimal_Install">here</a></p>
-<p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_distros.html'>distros</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/slackware-current-minimal-installation26343.html</link>
-<guid>http://www.szumowski.org/./slackware-current-minimal-installation26343.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Wed, 05 Jul 2023 18:57:49 -0400</pubDate></item>
 </channel></rss>
