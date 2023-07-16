@@ -2,9 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 15 Jul 2023 12:58:16 -0400</lastBuildDate>
-<pubDate>Sat, 15 Jul 2023 12:58:16 -0400</pubDate>
+<lastBuildDate>Sun, 16 Jul 2023 15:19:07 -0400</lastBuildDate>
+<pubDate>Sun, 16 Jul 2023 15:19:07 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Prefix The Output of Any Command with a Timestamp
+</title><description><![CDATA[
+<p>You can prefix the output of every line with a timestamp by piping
+the command to the following <em>sed</em> command:</p>
+<blockquote>
+<p><code>$ command | sed "s/^/\[</code>date
++“%Y%m%d%H%M%S”<code>]/"</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/prefix-the-output-of-any-command-with-a-timestamp.html</link>
+<guid>http://www.szumowski.org/./prefix-the-output-of-any-command-with-a-timestamp.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 16 Jul 2023 15:19:01 -0400</pubDate></item>
 <item><title>
 Create a QEMU/KVM Virtual Machine from the Command Line
 </title><description><![CDATA[
@@ -294,54 +309,4 @@ directory:</p>
 <guid>http://www.szumowski.org/./backup-files-with-specific-file-extension29561.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Fri, 07 Jul 2023 18:14:55 -0400</pubDate></item>
-<item><title>
-Some sed Tips
-</title><description><![CDATA[
-<p>Put an * between the number 5 and 6</p>
-<blockquote>
-<p><code>$ echo '12345678901234567890'| sed  -e 's/^.\{5\}/&amp;*/'</code><br/>
-<code>12345*678901234567890</code><br/></p>
-</blockquote>
-<p>Put a comma between each number</p>
-<blockquote>
-<p><code>$ echo "1234567890" |sed  -e 's/./&amp;,/g' -e 's/,$//'</code><br/>
-<code>1,2,3,4,5,6,7,8,9,0</code><br/></p>
-</blockquote>
-<p>Put comma after every 2, if not even then last number exist by
-itself</p>
-<blockquote>
-<p><code>$ echo "1234567890" |sed  -e 's/../&amp;,/g' -e 's/,$//'</code><br/>
-<code>12,34,56,78,90</code><br/></p>
-</blockquote>
-<p>Double space the data in file data1</p>
-<blockquote>
-<p><code>$ sed G data1</code><br/></p>
-</blockquote>
-<p>Triple space the data file file data1</p>
-<blockquote>
-<p><code>$ sed  'G;G' data1</code><br/></p>
-</blockquote>
-<p>Single space a double spaced file</p>
-<blockquote>
-<p><code>$ sed 'n;d' data1</code><br/></p>
-</blockquote>
-<p>DOS to Linux conversion</p>
-<blockquote>
-<p><code>$ sed 's/.$//' DOSfile &gt;Linuxfile</code><br/></p>
-</blockquote>
-<p>Truncate everything after a substring (‘with’ in this case):</p>
-<blockquote>
-<p><code>$ cat file.txt</code><br/>
-<code>Brown Potatoes with Cheese</code><br/>
-<code>Yellow Potatoes with Sugar and Cheese</code><br/>
-<code>$ sed -i.bak 's/with.*//g' file.txt</code><br/>
-<code>$ cat file.txt</code><br/> <code>Brown Potatoes</code><br/>
-<code>Yellow Potatoes</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/some-sed-tips27116.html</link>
-<guid>http://www.szumowski.org/./some-sed-tips27116.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Thu, 06 Jul 2023 20:52:03 -0400</pubDate></item>
 </channel></rss>
