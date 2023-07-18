@@ -14,6 +14,27 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="test-if-a-port-is-open-with-bash.html">
+Test If a Port is Open with Bash
+</a></h3>
+<!-- bashblog_timestamp: #202307181820.32# -->
+<div class="subtitle">July 18, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If netcat isn’t available on your machine and you don’t have the
+priviledge to install it you can use this trick to test if a port is
+open or not. It will throw a connection refused message if a port is
+closed.</p>
+<blockquote>
+<p><code>$ : &lt;/dev/tcp/127.0.0.1/80</code><br/></p>
+</blockquote>
+<p>And you can use it in a script like this:</p>
+<blockquote>
+<p><code>(: &lt;/dev/tcp/127.0.0.1/80) &amp;&gt;/dev/null &amp;&amp; echo "OPEN" || echo "CLOSED"</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_networking.html'>networking</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="command-line-redirection28985.html">
 Command Line Redirection
 </a></h3>
