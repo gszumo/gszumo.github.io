@@ -2,9 +2,65 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sun, 16 Jul 2023 15:19:07 -0400</lastBuildDate>
-<pubDate>Sun, 16 Jul 2023 15:19:07 -0400</pubDate>
+<lastBuildDate>Mon, 17 Jul 2023 21:11:40 -0400</lastBuildDate>
+<pubDate>Mon, 17 Jul 2023 21:11:40 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Recover Your Wi-Fi Password from Windows CLI
+</title><description><![CDATA[
+<p>In case you misplaced your wi-fi password you can recover it very
+easily using 2 commands on Windoze:</p>
+<p>Open the Terminal or PowerShell</p>
+<blockquote>
+<p><code>PS C:\Users\user&gt; netsh wlan show profile</code><br/></p>
+</blockquote>
+<p>The output will be similar to this. You need to obtain the <em>User
+Profile</em> of the connection that you’re interested in:</p>
+<blockquote>
+<p><code>Profiles on interface Wi-Fi:</code><br/> <code></code><br/>
+<code>Group policy profiles (read only)</code><br/>
+<code>---------------------------------</code><br/>
+<code>&lt;None&gt;</code><br/> <code></code><br/>
+<code>User profiles</code><br/> <code>-------------</code><br/>
+<code>All User Profile     : ROUTER21</code><br/>
+<code>All User Profile     : 4YWD8-5G</code><br/>
+<code>All User Profile     : 4YWD8</code><br/></p>
+</blockquote>
+<p>OK, so we know we have 3 profiles. Run the next command with the
+profile you’re interested in:</p>
+<blockquote>
+<p><code>PS C:\Users\user&gt; netsh wlan show profile name="ROUTER21" key=clear</code><br/></p>
+</blockquote>
+<p>You’ll get a bunch of output, but what you’re interested in is the
+field named <em>Key Content</em> in the <em>Security settings</em>
+section which holds the wi-fi password in cleartext:</p>
+<blockquote>
+<p><code>Profile ROUTER21 on interface Wi-Fi:</code><br/>
+<code>:</code><br/> <code>blah blah blah</code><br/> <code>:</code><br/>
+<code>Connectivity settings</code><br/>
+<code>---------------------</code><br/>
+<code>Number of SSIDs        : 1</code><br/>
+<code>SSID name              : "ROUTER21"</code><br/>
+<code>Network type           : Infrastructure</code><br/>
+<code>Radio type             : [ Any Radio Type ]</code><br/>
+<code>Vendor extension          : Not present</code><br/>
+<code></code><br/> <code>Security settings</code><br/>
+<code>-----------------</code><br/>
+<code>Authentication         : WPA2-Personal</code><br/>
+<code>Cipher                 : CCMP</code><br/>
+<code>Authentication         : WPA2-Personal</code><br/>
+<code>Cipher                 : GCMP</code><br/>
+<code>Security key           : Present</code><br/>
+<code>Key Content            : mywifitpassword</code><br/>
+<code>:</code><br/> <code>blah blah blah</code><br/> <code>:</code><br/>
+<code>:</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_wi-fi.html'>wi-fi</a>, <a href='tag_networking.html'>networking</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/recover-your-wi-fi-password-from-windows-cli.html</link>
+<guid>http://www.szumowski.org/./recover-your-wi-fi-password-from-windows-cli.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 17 Jul 2023 21:11:34 -0400</pubDate></item>
 <item><title>
 Prefix The Output of Any Command with a Timestamp
 </title><description><![CDATA[
@@ -294,19 +350,4 @@ when you need to forcefully display error messages on screen</td>
 <guid>http://www.szumowski.org/./command-line-redirection28985.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sat, 08 Jul 2023 10:25:10 -0400</pubDate></item>
-<item><title>
-Backup Files with Specific File Extension
-</title><description><![CDATA[
-<p>Here is how you can use <code>rsync</code> to backup only the
-<em>.ogg</em> files in the <em>Music</em> directory to the <em>OGG</em>
-directory:</p>
-<blockquote>
-<p><code>$ rsync -a --prune-empty-dirs --include='*/' --include='*.ogg' --exclude='*' Music/ OGG/</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rsync.html'>rsync</a>, <a href='tag_backups.html'>backups</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/backup-files-with-specific-file-extension29561.html</link>
-<guid>http://www.szumowski.org/./backup-files-with-specific-file-extension29561.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Fri, 07 Jul 2023 18:14:55 -0400</pubDate></item>
 </channel></rss>
