@@ -14,6 +14,35 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="list-tcp-connections-sorted-by-host-and-most-connections.html">
+List TCP Connections Sorted By Host and Most Connections
+</a></h3>
+<!-- bashblog_timestamp: #202307191902.37# -->
+<div class="subtitle">July 19, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Assuming your system still has <em>netstat</em> installed (Slackware
+15.0 does :^), you can summarize the TCP connections on you host using
+the following command:</p>
+<blockquote>
+<p><code>$ netstat -ntu|awk '{print $5}'|cut -d: -f1 -s|sort|uniq -c|sort -nk1 -r</code><br/>
+<code></code><br/> <code>3 52.50.230.xxx</code><br/>
+<code>3 104.18.27.xxx</code><br/> <code>3 104.18.26.xxx</code><br/>
+<code>2 205.166.94.xx</code><br/> <code>2 192.168.1.xx</code><br/>
+<code>2 142.251.40.xxx</code><br/> <code>2 104.18.13.xx</code><br/>
+<code>1 74.120.9.xxx</code><br/> <code>1 66.255.245.xxx</code><br/>
+<code>1 54.154.65.xxx</code><br/> <code>1 52.96.182.xxx</code><br/>
+<code>1 45.56.116.xxx</code><br/> <code>1 45.33.73.xxx</code><br/>
+<code>1 34.117.65.xx</code><br/> <code>1 20.190.135.xx</code><br/>
+<code>1 192.168.122.xxx</code><br/> <code>1 192.168.1.xx</code><br/>
+<code>1 172.253.63.xxx</code><br/> <code>1 162.159.61.x</code><br/>
+<code>1 162.125.21.x</code><br/> <code>1 142.251.40.xxx</code><br/>
+<code>1 142.251.32.xxx</code><br/> <code>1 142.251.16.xxx</code><br/>
+<code>1 127.0.0.x</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_networking.html'>networking</a>, <a href='tag_netstat.html'>netstat</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="test-if-a-port-is-open-with-bash.html">
 Test If a Port is Open with Bash
 </a></h3>
