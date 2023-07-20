@@ -2,9 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Wed, 19 Jul 2023 19:26:36 -0400</lastBuildDate>
-<pubDate>Wed, 19 Jul 2023 19:26:36 -0400</pubDate>
+<lastBuildDate>Thu, 20 Jul 2023 17:47:02 -0400</lastBuildDate>
+<pubDate>Thu, 20 Jul 2023 17:47:02 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+View lshw Output as a HTML Page
+</title><description><![CDATA[
+<p>You can use the <em>lshw</em> command to output your hardware
+configuration to an <em>html</em> file by passing the <em>-html</em>
+parameter to it:</p>
+<blockquote>
+<p><code>$ sudo lshw -html &gt;hardware.html</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_lshw.html'>lshw</a>, <a href='tag_html.html'>html</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/view-lshw-output-as-a-html-page.html</link>
+<guid>http://www.szumowski.org/./view-lshw-output-as-a-html-page.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Thu, 20 Jul 2023 17:46:57 -0400</pubDate></item>
 <item><title>
 List TCP Connections Sorted By Host and Most Connections
 </title><description><![CDATA[
@@ -291,29 +306,4 @@ How to recursively find the latest modified file in a directory
 <guid>http://www.szumowski.org/./how-to-recursively-find-the-latest-modified-file-in-a-directory.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 11 Jul 2023 17:28:59 -0400</pubDate></item>
-<item><title>
-Bind to a Remote Port Using SSH
-</title><description><![CDATA[
-<p>If you are trying to access the web page of an application running on
-a remote machine and you find that you are blocked, you can bind to it
-using SSH with similar parameters to this:</p>
-<blockquote>
-<p><code>$ ssh pi@raspberrypi.local -L 8384:127.0.0.1:8384 -N</code><br/></p>
-</blockquote>
-<p>Where:</p>
-<ul>
-<li><code>pi@raspberrypi.local</code> is the remote server,</li>
-<li><code>8384</code> is the port number on the remote that you wish to
-connect with,</li>
-<li><code>127.0.0.1:8384</code> is the local machine and the port that
-you want to redirect to, and</li>
-<li><code>-N</code> is a flag telling <code>ssh</code> not to execute a
-remote command.</li>
-</ul>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/bind-to-a-remote-port-using-ssh22839.html</link>
-<guid>http://www.szumowski.org/./bind-to-a-remote-port-using-ssh22839.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Mon, 10 Jul 2023 18:10:28 -0400</pubDate></item>
 </channel></rss>
