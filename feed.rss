@@ -2,9 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Thu, 20 Jul 2023 17:47:02 -0400</lastBuildDate>
-<pubDate>Thu, 20 Jul 2023 17:47:02 -0400</pubDate>
+<lastBuildDate>Fri, 21 Jul 2023 17:07:33 -0400</lastBuildDate>
+<pubDate>Fri, 21 Jul 2023 17:07:33 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+SSH Escape Sequences
+</title><description><![CDATA[
+<p>Have you ever had an SSH connection timeout on you and you’re left
+with what looks like a locked session. Repeatedly hitting the
+<em>Enter</em> key does nothing. It seems that there is nothing that you
+can do except close the console terminal session…or is there something
+else?</p>
+<p>Many people are not aware that SSH has its own set of keyboard
+shortcuts. The solution to the above problem is to terminate the
+connection using the first of these shortcuts.</p>
+<ol type="1">
+<li>Press the <em>Enter</em> key.</li>
+<li>Press the <em>tilde</em> followed by a <em>period</em>.</li>
+<li>Press <em>Enter</em> again. You should now be back at your command
+prompt.</li>
+</ol>
+<p>Supported escape sequences:<br/> <code>~.</code> - terminate
+connection (and any multiplexed sessions)<br/> <code>~B</code> - send a
+BREAK to the remote system<br/> <code>~R</code> - request rekey<br/>
+<code>~V/v</code> - decrease/increase verbosity (LogLevel)<br/>
+<code>~^Z</code> - suspend ssh<br/> <code>~#</code> - list forwarded
+connections<br/> <code>~&amp;</code> - background ssh (when waiting for
+connections to terminate)<br/> <code>~?</code> - this message<br/>
+<code>~~</code> - send the escape character by typing it twice<br/>
+(Note that escapes are only recognized immediately after newline.)</p>
+<p>It is important to note that you always press the <em>Enter</em> key
+before typing the key sequences above.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssh.html'>ssh</a>, <a href='tag_shortcuts.html'>shortcuts</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/ssh-escape-sequences24826.html</link>
+<guid>http://www.szumowski.org/./ssh-escape-sequences24826.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Fri, 21 Jul 2023 17:05:54 -0400</pubDate></item>
 <item><title>
 View lshw Output as a HTML Page
 </title><description><![CDATA[
@@ -294,16 +328,4 @@ then pipe the list to <code>scp</code>:</p>
 <guid>http://www.szumowski.org/./scping-files-using-a-text-file-list.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 12 Jul 2023 18:10:28 -0400</pubDate></item>
-<item><title>
-How to recursively find the latest modified file in a directory
-</title><description><![CDATA[
-<blockquote>
-<p><code>find . -type f -printf '%T@ %p\n' | sort -n | tail -1 | cut -f2- -d" "</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_find.html'>find</a>, <a href='tag_sort.html'>sort</a>, <a href='tag_tail.html'>tail</a>, <a href='tag_cut.html'>cut</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/how-to-recursively-find-the-latest-modified-file-in-a-directory.html</link>
-<guid>http://www.szumowski.org/./how-to-recursively-find-the-latest-modified-file-in-a-directory.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 11 Jul 2023 17:28:59 -0400</pubDate></item>
 </channel></rss>

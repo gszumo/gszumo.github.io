@@ -14,6 +14,41 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="ssh-escape-sequences24826.html">
+SSH Escape Sequences
+</a></h3>
+<!-- bashblog_timestamp: #202307211705.54# -->
+<div class="subtitle">July 21, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Have you ever had an SSH connection timeout on you and you’re left
+with what looks like a locked session. Repeatedly hitting the
+<em>Enter</em> key does nothing. It seems that there is nothing that you
+can do except close the console terminal session…or is there something
+else?</p>
+<p>Many people are not aware that SSH has its own set of keyboard
+shortcuts. The solution to the above problem is to terminate the
+connection using the first of these shortcuts.</p>
+<ol type="1">
+<li>Press the <em>Enter</em> key.</li>
+<li>Press the <em>tilde</em> followed by a <em>period</em>.</li>
+<li>Press <em>Enter</em> again. You should now be back at your command
+prompt.</li>
+</ol>
+<p>Supported escape sequences:<br/> <code>~.</code> - terminate
+connection (and any multiplexed sessions)<br/> <code>~B</code> - send a
+BREAK to the remote system<br/> <code>~R</code> - request rekey<br/>
+<code>~V/v</code> - decrease/increase verbosity (LogLevel)<br/>
+<code>~^Z</code> - suspend ssh<br/> <code>~#</code> - list forwarded
+connections<br/> <code>~&amp;</code> - background ssh (when waiting for
+connections to terminate)<br/> <code>~?</code> - this message<br/>
+<code>~~</code> - send the escape character by typing it twice<br/>
+(Note that escapes are only recognized immediately after newline.)</p>
+<p>It is important to note that you always press the <em>Enter</em> key
+before typing the key sequences above.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssh.html'>ssh</a>, <a href='tag_shortcuts.html'>shortcuts</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="windows-terminal-keyboard-shortcuts30027.html">
 Windows Terminal Keyboard Shortcuts
 </a></h3>
