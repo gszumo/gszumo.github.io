@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Gregg's MOTD &mdash; Posts tagged "onedrive"</title>
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://www.szumowski.org/index.html">Gregg's MOTD</a></h1>
+<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<h3><a class="ablack" href="using-rclone-to-mount-your-onedrive-folder-in-linux4329.html">
+Using RClone to Mount Your OneDrive Folder in Linux
+</a></h3>
+<!-- bashblog_timestamp: #202307231626.09# -->
+<div class="subtitle">July 23, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you have a Microsoft Office 365 account you know that it comes
+with 1TB of storage. You can use <em>RClone</em> to mount your
+<em>OneDrive</em> locally on your Linux machine so that you can read and
+write documents stored there.</p>
+<ol type="1">
+<li>Install <em>rclone</em> from whatever package repository that your
+Linux operating system uses.</li>
+<li>Follow the instructions <a
+href="https://rclone.org/onedrive/">here</a> to configure your
+<em>OneDrive</em> environment. The instructions are rather
+straightforward and a couple pieces of extra advice follows:</li>
+</ol>
+<p>In the first section, type <code>n</code> for a <em>new</em>
+installation and give your mountpoint a name:</p>
+<blockquote>
+<p><code>$ rclone config</code><br/>
+<code>No remotes found - make a new one</code><br/>
+<code>n) New remote</code><br/>
+<code>s) Set configuration password</code><br/>
+<code>q) Quit config</code><br/>
+<code>n/s/q&gt;</code>n<code></code><br/>
+<code>name&gt; remote</code><br/></p>
+</blockquote>
+<p>In the next section just press enter to accept the default:</p>
+<blockquote>
+<p><code>Type of storage to configure.</code><br/>
+<code>Enter a string value. Press Enter for the default ("").</code><br/></p>
+</blockquote>
+<p>Now you have to choose the <em>vendor</em> of the service you’re
+configuring. There are a lot of selections hereso just look for
+<em>Microsoft OneDrive</em>, in my case it was <em>26</em>:</p>
+<blockquote>
+<p><code>Choose a number from below, or type in your own value</code><br/>
+<code>1 / 1Fichier</code><br/> <code>\ "fichier"</code><br/>
+<code>2 / Alias for an existing remote</code><br/>
+<code>\ "alias"</code><br/> <code>etc.</code><br/>
+<code>25 / Microsoft Azure Blob Storage</code><br/>
+<code>\ "azureblob"</code><br/>
+<code>26 / Microsoft OneDrive</code><br/> <code>\ "onedrive"</code><br/>
+<code>27 / OpenDrive</code><br/> <code>\ "opendrive"</code><br/>
+<code>28 / OpenStack Swift (Rackspace Cloud Files, Memset Memstore, OVH)</code><br/>
+<code>\ "swift"</code><br/> <code>Storage&gt; 26</code><br/></p>
+</blockquote>
+<p>The next couple of selections are just the default, so press the
+<em>Enter</em> key:</p>
+<blockquote>
+<p><code>OAuth Client Id</code><br/>
+<code>Leave blank normally.</code><br/>
+<code>Enter a string value. Press Enter for the default ("").</code><br/>
+<code>client_id&gt;</code><br/> <code>OAuth Client Secret</code><br/>
+<code>Leave blank normally.</code><br/>
+<code>Enter a string value. Press Enter for the default ("").</code><br/>
+<code>client_secret&gt;</code><br/></p>
+</blockquote>
+<p>Now select the <em>global</em> choice:</p>
+<blockquote>
+<p><code>Choose national cloud region for OneDrive.</code><br/>
+<code>Enter a string value. Press Enter for the default ("global").</code><br/>
+<code>Choose a number from below, or type in your own value</code><br/>
+<code>1 / Microsoft Cloud Global</code><br/>
+<code>\ "global"</code><br/>
+<code>2 / Microsoft Cloud for US Government</code><br/>
+<code>\ "us"</code><br/> <code>3 / Microsoft Cloud Germany</code><br/>
+<code>\ "de"</code><br/>
+<code>4 / Azure and Office 365 operated by 21Vianet in China</code><br/>
+<code>\ "cn"</code><br/> <code>region&gt; 1</code><br/></p>
+</blockquote>
+<p>Select the <em>default</em> here:</p>
+<blockquote>
+<p><code>Edit advanced config? (y/n)</code><br/>
+<code>y) Yes</code><br/> <code>n) No (default)</code><br/>
+<code>y/n&gt; n</code><br/></p>
+</blockquote>
+<p>Select the <em>default</em> here:</p>
+<blockquote>
+<p><code>Remote config</code><br/> <code>Use auto config?</code><br/>
+<code>* Say Y if not sure</code><br/>
+<code>* Say N if you are working on a remote or headless machine</code><br/>
+<code>y) Yes (default)</code><br/> <code>n) No</code><br/>
+<code>y/n&gt; y</code><br/></p>
+</blockquote>
+<p>Now the browser should open and you should provide your Microsoft
+credentials:</p>
+<blockquote>
+<p><code>If your browser doesn't open automatically go to the following link: http://127.0.0.1:53682/auth?state=&lt;some long key here&gt;</code><br/>
+<code></code><br/>
+<code>Log in and authorize rclone for access</code><br/>
+<code>Waiting for code...</code><br/> <code>Got code</code><br/></p>
+</blockquote>
+<p>Select <em>1</em> for <em>Personal or Business</em>:</p>
+<blockquote>
+<p><code>Choose a number from below, or type in an existing value</code><br/>
+<code>1 / OneDrive Personal or Business</code><br/>
+<code>\ "onedrive"</code><br/>
+<code>2 / Root Sharepoint site</code><br/>
+<code>\ "sharepoint"</code><br/>
+<code>3 / Sharepoint site name or URL (e.g. mysite or https://contoso.sharepoint.com/sites/mysite)</code><br/>
+<code>\ "url"</code><br/>
+<code>4 / Search for a Sharepoint site</code><br/>
+<code>\ "search"</code><br/>
+<code>5 / Type in driveID (advanced)</code><br/>
+<code>\ "driveid"</code><br/>
+<code>6 / Type in SiteID (advanced)</code><br/>
+<code>\ "siteid"</code><br/>
+<code>7 / Sharepoint server-relative path (advanced, e.g. /teams/hr)</code><br/>
+<code>\ "path"</code><br/> <code>Your choice&gt; 1</code><br/></p>
+</blockquote>
+<p>Select the drive number from the list, there will probably be only
+one to choose from, and then select the default:</p>
+<blockquote>
+<p><code>Found 1 drives, please select the one you want to use:</code><br/>
+<code>0:  (personal) id=&lt;id key&gt;</code><br/>
+<code>Chose drive to use:&gt; 0</code><br/>
+<code>Found drive 'root' of type 'personal', URL: https://onedrive.live.com/?cid=&lt;id key&gt;</code><br/>
+<code>Is that okay?</code><br/> <code>y) Yes (default)</code><br/>
+<code>n) No</code><br/> <code>y/n&gt; y</code><br/></p>
+</blockquote>
+<p>Now <em>rclone</em> will list out the configuration information and
+ask for confirmation. If all looks good then select <em>y</em> and
+you’re done:</p>
+<blockquote>
+<p><code>--------------------</code><br/> <code>[remote]</code><br/>
+<code>type = onedrive</code><br/> <code>region = global</code><br/>
+<code>token = &lt;some long token string here&gt;</code><br/>
+<code></code><br/>
+<code>drive_id = &lt;some long token string here&gt;</code><br/>
+<code></code><br/> <code>drive_type = personal</code><br/>
+<code>--------------------</code><br/>
+<code>y) Yes this is OK (default)</code><br/>
+<code>e) Edit this remote</code><br/>
+<code>d) Delete this remote</code><br/> <code>y/e/d&gt; y</code><br/>
+<code>Current remotes:</code><br/> <code></code><br/>
+<code>Name                 Type</code><br/>
+<code>====                 ====</code><br/>
+<code>remote               onedrive</code><br/> <code></code><br/>
+<code>e) Edit existing remote</code><br/>
+<code>n) New remote</code><br/> <code>d) Delete remote</code><br/>
+<code>r) Rename remote</code><br/> <code>c) Copy remote</code><br/>
+<code>s) Set configuration password</code><br/>
+<code>q) Quit config</code><br/>
+<code>e/n/d/r/c/s/q&gt; q</code><br/></p>
+</blockquote>
+<ol start="3" type="1">
+<li>Now you should be able to list the contents of the OneDrive
+directory on the console:</li>
+</ol>
+<blockquote>
+<p><code>$ rclone lsd remote:</code><br/>
+<code>-1 2023-06-23 04:15:30         3 .Trash-1000</code><br/>
+<code>-1 2023-07-23 15:21:03         1 Apps</code><br/>
+<code>-1 2017-09-20 15:34:22         0 Attachments</code><br/>
+<code>-1 2023-07-04 23:53:04         0 Desktop</code><br/>
+<code>-1 2023-07-23 14:33:10       472 Documents</code><br/>
+<code>-1 2023-07-22 02:43:07       135 Documents from Macbook</code><br/>
+<code>-1 2019-11-08 21:22:23         0 Email attachments</code><br/>
+<code>-1 2019-11-08 21:22:23         0 Movies</code><br/>
+<code>-1 2023-07-23 03:39:57        53 Music</code><br/>
+<code>-1 2023-07-02 16:34:04        37 Pictures</code><br/>
+<code>-1 2022-05-24 10:39:02         2 Public</code><br/>
+<code>-1 2021-08-01 13:47:30         2 SyncFusion</code><br/>
+<code>-1 2023-06-20 11:41:24         4 Videos</code><br/></p>
+</blockquote>
+<p>If for some reason it isn’t mounted you can mount it manually with
+the following command:</p>
+<blockquote>
+<p><code>$ rclone --vfs-cache-mode writes mount remote: ~/OneDrive &amp;</code><br/>
+<code>[2] 69267</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rclone.html'>rclone</a>, <a href='tag_onedrive.html'>onedrive</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+</div>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
+NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+</body></html>

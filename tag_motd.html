@@ -14,6 +14,184 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="using-rclone-to-mount-your-onedrive-folder-in-linux4329.html">
+Using RClone to Mount Your OneDrive Folder in Linux
+</a></h3>
+<!-- bashblog_timestamp: #202307231626.09# -->
+<div class="subtitle">July 23, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you have a Microsoft Office 365 account you know that it comes
+with 1TB of storage. You can use <em>RClone</em> to mount your
+<em>OneDrive</em> locally on your Linux machine so that you can read and
+write documents stored there.</p>
+<ol type="1">
+<li>Install <em>rclone</em> from whatever package repository that your
+Linux operating system uses.</li>
+<li>Follow the instructions <a
+href="https://rclone.org/onedrive/">here</a> to configure your
+<em>OneDrive</em> environment. The instructions are rather
+straightforward and a couple pieces of extra advice follows:</li>
+</ol>
+<p>In the first section, type <code>n</code> for a <em>new</em>
+installation and give your mountpoint a name:</p>
+<blockquote>
+<p><code>$ rclone config</code><br/>
+<code>No remotes found - make a new one</code><br/>
+<code>n) New remote</code><br/>
+<code>s) Set configuration password</code><br/>
+<code>q) Quit config</code><br/>
+<code>n/s/q&gt;</code>n<code></code><br/>
+<code>name&gt; remote</code><br/></p>
+</blockquote>
+<p>In the next section just press enter to accept the default:</p>
+<blockquote>
+<p><code>Type of storage to configure.</code><br/>
+<code>Enter a string value. Press Enter for the default ("").</code><br/></p>
+</blockquote>
+<p>Now you have to choose the <em>vendor</em> of the service you’re
+configuring. There are a lot of selections hereso just look for
+<em>Microsoft OneDrive</em>, in my case it was <em>26</em>:</p>
+<blockquote>
+<p><code>Choose a number from below, or type in your own value</code><br/>
+<code>1 / 1Fichier</code><br/> <code>\ "fichier"</code><br/>
+<code>2 / Alias for an existing remote</code><br/>
+<code>\ "alias"</code><br/> <code>etc.</code><br/>
+<code>25 / Microsoft Azure Blob Storage</code><br/>
+<code>\ "azureblob"</code><br/>
+<code>26 / Microsoft OneDrive</code><br/> <code>\ "onedrive"</code><br/>
+<code>27 / OpenDrive</code><br/> <code>\ "opendrive"</code><br/>
+<code>28 / OpenStack Swift (Rackspace Cloud Files, Memset Memstore, OVH)</code><br/>
+<code>\ "swift"</code><br/> <code>Storage&gt; 26</code><br/></p>
+</blockquote>
+<p>The next couple of selections are just the default, so press the
+<em>Enter</em> key:</p>
+<blockquote>
+<p><code>OAuth Client Id</code><br/>
+<code>Leave blank normally.</code><br/>
+<code>Enter a string value. Press Enter for the default ("").</code><br/>
+<code>client_id&gt;</code><br/> <code>OAuth Client Secret</code><br/>
+<code>Leave blank normally.</code><br/>
+<code>Enter a string value. Press Enter for the default ("").</code><br/>
+<code>client_secret&gt;</code><br/></p>
+</blockquote>
+<p>Now select the <em>global</em> choice:</p>
+<blockquote>
+<p><code>Choose national cloud region for OneDrive.</code><br/>
+<code>Enter a string value. Press Enter for the default ("global").</code><br/>
+<code>Choose a number from below, or type in your own value</code><br/>
+<code>1 / Microsoft Cloud Global</code><br/>
+<code>\ "global"</code><br/>
+<code>2 / Microsoft Cloud for US Government</code><br/>
+<code>\ "us"</code><br/> <code>3 / Microsoft Cloud Germany</code><br/>
+<code>\ "de"</code><br/>
+<code>4 / Azure and Office 365 operated by 21Vianet in China</code><br/>
+<code>\ "cn"</code><br/> <code>region&gt; 1</code><br/></p>
+</blockquote>
+<p>Select the <em>default</em> here:</p>
+<blockquote>
+<p><code>Edit advanced config? (y/n)</code><br/>
+<code>y) Yes</code><br/> <code>n) No (default)</code><br/>
+<code>y/n&gt; n</code><br/></p>
+</blockquote>
+<p>Select the <em>default</em> here:</p>
+<blockquote>
+<p><code>Remote config</code><br/> <code>Use auto config?</code><br/>
+<code>* Say Y if not sure</code><br/>
+<code>* Say N if you are working on a remote or headless machine</code><br/>
+<code>y) Yes (default)</code><br/> <code>n) No</code><br/>
+<code>y/n&gt; y</code><br/></p>
+</blockquote>
+<p>Now the browser should open and you should provide your Microsoft
+credentials:</p>
+<blockquote>
+<p><code>If your browser doesn't open automatically go to the following link: http://127.0.0.1:53682/auth?state=&lt;some long key here&gt;</code><br/>
+<code></code><br/>
+<code>Log in and authorize rclone for access</code><br/>
+<code>Waiting for code...</code><br/> <code>Got code</code><br/></p>
+</blockquote>
+<p>Select <em>1</em> for <em>Personal or Business</em>:</p>
+<blockquote>
+<p><code>Choose a number from below, or type in an existing value</code><br/>
+<code>1 / OneDrive Personal or Business</code><br/>
+<code>\ "onedrive"</code><br/>
+<code>2 / Root Sharepoint site</code><br/>
+<code>\ "sharepoint"</code><br/>
+<code>3 / Sharepoint site name or URL (e.g. mysite or https://contoso.sharepoint.com/sites/mysite)</code><br/>
+<code>\ "url"</code><br/>
+<code>4 / Search for a Sharepoint site</code><br/>
+<code>\ "search"</code><br/>
+<code>5 / Type in driveID (advanced)</code><br/>
+<code>\ "driveid"</code><br/>
+<code>6 / Type in SiteID (advanced)</code><br/>
+<code>\ "siteid"</code><br/>
+<code>7 / Sharepoint server-relative path (advanced, e.g. /teams/hr)</code><br/>
+<code>\ "path"</code><br/> <code>Your choice&gt; 1</code><br/></p>
+</blockquote>
+<p>Select the drive number from the list, there will probably be only
+one to choose from, and then select the default:</p>
+<blockquote>
+<p><code>Found 1 drives, please select the one you want to use:</code><br/>
+<code>0:  (personal) id=&lt;id key&gt;</code><br/>
+<code>Chose drive to use:&gt; 0</code><br/>
+<code>Found drive 'root' of type 'personal', URL: https://onedrive.live.com/?cid=&lt;id key&gt;</code><br/>
+<code>Is that okay?</code><br/> <code>y) Yes (default)</code><br/>
+<code>n) No</code><br/> <code>y/n&gt; y</code><br/></p>
+</blockquote>
+<p>Now <em>rclone</em> will list out the configuration information and
+ask for confirmation. If all looks good then select <em>y</em> and
+you’re done:</p>
+<blockquote>
+<p><code>--------------------</code><br/> <code>[remote]</code><br/>
+<code>type = onedrive</code><br/> <code>region = global</code><br/>
+<code>token = &lt;some long token string here&gt;</code><br/>
+<code></code><br/>
+<code>drive_id = &lt;some long token string here&gt;</code><br/>
+<code></code><br/> <code>drive_type = personal</code><br/>
+<code>--------------------</code><br/>
+<code>y) Yes this is OK (default)</code><br/>
+<code>e) Edit this remote</code><br/>
+<code>d) Delete this remote</code><br/> <code>y/e/d&gt; y</code><br/>
+<code>Current remotes:</code><br/> <code></code><br/>
+<code>Name                 Type</code><br/>
+<code>====                 ====</code><br/>
+<code>remote               onedrive</code><br/> <code></code><br/>
+<code>e) Edit existing remote</code><br/>
+<code>n) New remote</code><br/> <code>d) Delete remote</code><br/>
+<code>r) Rename remote</code><br/> <code>c) Copy remote</code><br/>
+<code>s) Set configuration password</code><br/>
+<code>q) Quit config</code><br/>
+<code>e/n/d/r/c/s/q&gt; q</code><br/></p>
+</blockquote>
+<ol start="3" type="1">
+<li>Now you should be able to list the contents of the OneDrive
+directory on the console:</li>
+</ol>
+<blockquote>
+<p><code>$ rclone lsd remote:</code><br/>
+<code>-1 2023-06-23 04:15:30         3 .Trash-1000</code><br/>
+<code>-1 2023-07-23 15:21:03         1 Apps</code><br/>
+<code>-1 2017-09-20 15:34:22         0 Attachments</code><br/>
+<code>-1 2023-07-04 23:53:04         0 Desktop</code><br/>
+<code>-1 2023-07-23 14:33:10       472 Documents</code><br/>
+<code>-1 2023-07-22 02:43:07       135 Documents from Macbook</code><br/>
+<code>-1 2019-11-08 21:22:23         0 Email attachments</code><br/>
+<code>-1 2019-11-08 21:22:23         0 Movies</code><br/>
+<code>-1 2023-07-23 03:39:57        53 Music</code><br/>
+<code>-1 2023-07-02 16:34:04        37 Pictures</code><br/>
+<code>-1 2022-05-24 10:39:02         2 Public</code><br/>
+<code>-1 2021-08-01 13:47:30         2 SyncFusion</code><br/>
+<code>-1 2023-06-20 11:41:24         4 Videos</code><br/></p>
+</blockquote>
+<p>If for some reason it isn’t mounted you can mount it manually with
+the following command:</p>
+<blockquote>
+<p><code>$ rclone --vfs-cache-mode writes mount remote: ~/OneDrive &amp;</code><br/>
+<code>[2] 69267</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rclone.html'>rclone</a>, <a href='tag_onedrive.html'>onedrive</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="how-to-find-the-ip-addresses-of-virtual-machines-from-the-command.html">
 Find the IP Addresses of KVM Virtual Machines (Command Line)
 </a></h3>
@@ -58,6 +236,7 @@ domain called <em>centos7-bbk</em>:</p>
 <code></code><br/> <code>root@slacker:~#</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_virsh.html'>virsh</a>, <a href='tag_networking.html'>networking</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="ssh-escape-sequences24826.html">
 SSH Escape Sequences
@@ -93,6 +272,7 @@ connections to terminate)<br/> <code>~?</code> - this message<br/>
 <p>It is important to note that you always press the <em>Enter</em> key
 before typing the key sequences above.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssh.html'>ssh</a>, <a href='tag_shortcuts.html'>shortcuts</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="view-lshw-output-as-a-html-page.html">
 View lshw Output as a HTML Page
@@ -109,6 +289,7 @@ parameter to it:</p>
 <p><code>$ sudo lshw -html &gt;hardware.html</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_lshw.html'>lshw</a>, <a href='tag_html.html'>html</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="list-tcp-connections-sorted-by-host-and-most-connections.html">
 List TCP Connections Sorted By Host and Most Connections
@@ -138,6 +319,7 @@ the following command:</p>
 <code>1 127.0.0.x</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_networking.html'>networking</a>, <a href='tag_netstat.html'>netstat</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="test-if-a-port-is-open-with-bash.html">
 Test If a Port is Open with Bash
@@ -159,6 +341,7 @@ closed.</p>
 <p><code>(: &lt;/dev/tcp/127.0.0.1/80) &amp;&gt;/dev/null &amp;&amp; echo "OPEN" || echo "CLOSED"</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_networking.html'>networking</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="recover-your-wi-fi-password-from-windows-cli.html">
 Recover Your Wi-Fi Password from Windows CLI
@@ -216,6 +399,7 @@ section which holds the wi-fi password in cleartext:</p>
 <code>:</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_wi-fi.html'>wi-fi</a>, <a href='tag_networking.html'>networking</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="prefix-the-output-of-any-command-with-a-timestamp.html">
 Prefix The Output of Any Command with a Timestamp
@@ -232,6 +416,7 @@ the command to the following <em>sed</em> command:</p>
 +“%Y%m%d%H%M%S”<code>]/"</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="create-a-qemukvm-virtual-machine-from-the-command-line.html">
 Create a QEMU/KVM Virtual Machine from the Command Line
@@ -295,6 +480,7 @@ find the VM in the <em>running</em> state using <code>virsh</code>:</p>
 <code>Volume 'vda'(/home/user/KVM/CentOS-Stream-9.qcow2) removed.</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_qemu.html'>qemu</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="using-passwordgen-on-slackware8846.html">
 Using passwordgen On Slackware
@@ -329,6 +515,7 @@ modification to the script as described here:</p>
 <code>&gt;             ss64pwd_to_clipboard -selecton clipboard $one_arg</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_password-managers.html'>password-managers</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="rename-files-that-start-with-a-special-character22468.html">
 Rename Files That Start With a Special Character
@@ -374,6 +561,7 @@ identified, use the find command to rename the file:</p>
 <p><code>$ rm NewName</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rename.html'>rename</a>, <a href='tag_find.html'>find</a>, <a href='tag_inode.html'>inode</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="scping-files-using-a-text-file-list.html">
 scp’ing Files using a Text File List
@@ -391,6 +579,7 @@ then pipe the list to <code>scp</code>:</p>
 <p><code>$ cat filelist.txt | xargs -i scp {} user@remote:~/backup/</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_xargs.html'>xargs</a>, <a href='tag_scp.html'>scp</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="how-to-recursively-find-the-latest-modified-file-in-a-directory.html">
 How to recursively find the latest modified file in a directory
@@ -404,6 +593,7 @@ Gregg Szumowski
 <p><code>find . -type f -printf '%T@ %p\n' | sort -n | tail -1 | cut -f2- -d" "</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_find.html'>find</a>, <a href='tag_sort.html'>sort</a>, <a href='tag_tail.html'>tail</a>, <a href='tag_cut.html'>cut</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="bind-to-a-remote-port-using-ssh22839.html">
 Bind to a Remote Port Using SSH
@@ -430,6 +620,7 @@ you want to redirect to, and</li>
 remote command.</li>
 </ul>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="using-tar-with-a-text-input-file23818.html">
 Using Tar with a Text Input File
@@ -451,6 +642,7 @@ this:</p>
 <p><code>$ tar cvf tarball.tar $(cat filelist.txt)</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_tar.html'>tar</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="command-line-redirection28985.html">
 Command Line Redirection
@@ -514,6 +706,7 @@ when you need to forcefully display error messages on screen</td>
 </table>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_scripting.html'>scripting</a>, <a href='tag_redirection.html'>redirection</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="backup-files-with-specific-file-extension29561.html">
 Backup Files with Specific File Extension
@@ -530,6 +723,7 @@ directory:</p>
 <p><code>$ rsync -a --prune-empty-dirs --include='*/' --include='*.ogg' --exclude='*' Music/ OGG/</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rsync.html'>rsync</a>, <a href='tag_backups.html'>backups</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="some-sed-tips27116.html">
 Some sed Tips
@@ -581,6 +775,7 @@ itself</p>
 <code>Yellow Potatoes</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="slackware-current-minimal-installation26343.html">
 Slackware Current: Minimal Installation
@@ -608,6 +803,7 @@ wopping 12GB. Geez…</p>
 <p>More info <a
 href="https://wiki.linuxquestions.org/wiki/Slackware-Minimal_Install">here</a></p>
 <p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_distros.html'>distros</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="red-hat-subscription-service27393.html">
 Red Hat Subscription Service
@@ -645,6 +841,7 @@ Management (RHSM), run the command:</p>
 <code>$ subscription-manager clean</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="speed-up-dnf-package-manager7346.html">
 Speed Up DNF Package Manager
@@ -670,6 +867,7 @@ mirrors by adding the following line:</p>
 <p><code>fastestmirror=True</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_dnf.html'>dnf</a>, <a href='tag_fedora.html'>fedora</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_package-managers.html'>package-managers</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="creating-a-python-requirementstxt-file.html">
 Creating a Python requirements.txt File
@@ -702,6 +900,7 @@ are up-to-date use:</p>
 that are no longer needed and should only be used initially and then
 maintained manually.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_python.html'>python</a>, <a href='tag_pip.html'>pip</a>, <a href='tag_requirements.html'>requirements</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="python-initializing-a-new-project-using-venv.html">
 Python: Initializing a New Project using venv
@@ -738,6 +937,7 @@ by typing:</p>
 <p><code>$ deactivate</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_python.html'>python</a>, <a href='tag_venv.html'>venv</a>, <a href='tag_virtual.html'>virtual</a>, <a href='tag_environment.html'>environment</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="printing-numbers-using-thousand-separators.html">
 Printing Numbers using Thousand Separators
@@ -757,6 +957,7 @@ separators:</p>
 </blockquote>
 <p>This can be adapted to other commands as necessary.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_awk.html'>awk</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="gcc-cant-find-stdioh-in-alpine-linux.html">
 GCC can’t find stdio.h in Alpine Linux
@@ -786,6 +987,7 @@ package GCC doesn’t depend on <code>libc-dev</code> for good reason: You
 can use <code>gcc</code> to compile things without <code>libc</code>,
 for example hypervisors firmware etc.</p>
 <p>Tags: <a href='tag_gcc.html'>gcc</a>, <a href='tag_alpine-linux.html'>alpine-linux</a>, <a href='tag_ipad.html'>ipad</a>, <a href='tag_ish.html'>ish</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="ubuntu-disable-cloud-init-on-startup9393.html">
 Ubuntu: Disable cloud-init on Startup
@@ -807,6 +1009,7 @@ following:</p>
 <p><code>* add cloud-init=disabled to the kernel command line.</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ubuntu.html'>ubuntu</a>, <a href='tag_cloud-init.html'>cloud-init</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="red-hat-subscripion-manager---registering.html">
 Red Hat Subscripion Manager - Registering
@@ -831,6 +1034,7 @@ assuming that you already have an account:</p>
 <p><code># yum update</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="rhel-qcow-image-password23397.html">
 RHEL QCOW Image Password
@@ -850,6 +1054,7 @@ can be fixed by running the following from the host’s terminal:</p>
 <p><code># virt-customize -a &lt;qcow2-image-file-name&gt; --root-password password:&lt;password&gt;</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_qcow.html'>qcow</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="find-system-hogs-and-child-processes30247.html">
 Find System Hogs and Child Processes
@@ -896,6 +1101,7 @@ CPU:</p>
 on many occasions and I am documenting them here hoping that readers
 (whatever few there are) will also benefit from them.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ps.html'>ps</a>, <a href='tag_processes.html'>processes</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="how-to-list-installed-packages-in-fedora-rhel-centos.html">
 How to List Installed Packages in Fedora, RHEL, CentOS
@@ -932,6 +1138,7 @@ another machine and duplicate the system:</p>
 <p><code>$ rpm -qi nginx</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rpm.html'>rpm</a>, <a href='tag_yum.html'>yum</a>, <a href='tag_rhel.html'>rhel</a>, <a href='tag_fedora.html'>fedora</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="git-deleting-multiple-commits24780.html">
 Git: Deleting Multiple Commits
@@ -1008,6 +1215,7 @@ already pushed to the remote repository. In this example, you want
 <code>2cad4c7 Initial commit</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_source-control.html'>source-control</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="solus-os-prevent-laptop-from-sleeping-when-closing-the-lid.html">
 Solus OS: Prevent Laptop from Sleeping When Closing the Lid
@@ -1034,6 +1242,7 @@ the line:</p>
 removed and the value needs to be changed from <code>suspend</code> to
 <code>ignore</code>.</p>
 <p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_solus.html'>solus</a>, <a href='tag_power.html'>power</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="speed-up-firefox24999.html">
 Speed Up Firefox
@@ -1075,6 +1284,7 @@ revert your change, just search again and toggle it back to
 and <code>layers.acceleration.force-enabled</code> and
 <code>layers.force-active</code> also works. YMMV ;^)</p>
 <p>Tags: <a href='tag_firefox.html'>firefox</a>, <a href='tag_tearing.html'>tearing</a>, <a href='tag_accelleration.html'>accelleration</a>, <a href='tag_glxinfo.html'>glxinfo</a>, <a href='tag_direct-rendering.html'>direct-rendering</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="deleting-blank-lines-using-grep16496.html">
 Deleting Blank Lines Using Grep
@@ -1096,6 +1306,7 @@ without the blank lines.</p>
 and the <code>*$</code> otherwise blank lines which include spaces will
 not be removed.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_grep.html'>grep</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="convert-webm-to-mp429535.html">
 Convert webm to mp4
@@ -1112,6 +1323,7 @@ easily:</p>
 </blockquote>
 <p>This will stream copy (re-mux) and avoid re-encoding.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ffmpeg.html'>ffmpeg</a>, <a href='tag_webm.html'>webm</a>, <a href='tag_mp4.html'>mp4</a>, <a href='tag_convert.html'>convert</a>, <a href='tag_video.html'>video</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="install-kdbg---a-kde-gdb-gui-on-slackware-150.html">
 Install KDbg - A KDE gdb GUI on Slackware 15.0
@@ -1136,6 +1348,7 @@ system that has KDE:</p>
 <code>$ make</code><br/> <code>$ su -c "make install"</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_debugging.html'>debugging</a>, <a href='tag_gdb.html'>gdb</a>, <a href='tag_kde.html'>kde</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="exporting-your-pocket-list-data2865.html">
 Exporting your Pocket List Data
@@ -1162,6 +1375,7 @@ creates a downloadable HTML file with your List and Archive.</p>
 <p>Then click on the <code>Export HTML file</code> link to download your
 Pocket data.</p>
 <p>Tags: <a href='tag_pocket.html'>pocket</a>, <a href='tag_bookmarks.html'>bookmarks</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="parsing-bitwarden-cli4247.html">
 Parsing Bitwarden CLI
@@ -1187,6 +1401,7 @@ search:</p>
 <code>"** password2 **"</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bitwarden.html'>bitwarden</a>, <a href='tag_json.html'>json</a>, <a href='tag_password-managers.html'>password-managers</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="export-virtualbox-vdi-using-cli1819.html">
 Export VirtualBox VDI using CLI
@@ -1209,6 +1424,7 @@ UbuntuServerNew), and then</li>
 <p><code>$ vboxmanage export UbuntuServer -o UbuntuServerNew.ova</code></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_virtualization.html'>virtualization</a>, <a href='tag_virtualbox.html'>virtualbox</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="install-mimic-text-to-speech-on-slackware-1526910.html">
 Install mimic Text-To-Speech on Slackware 15
@@ -1252,6 +1468,7 @@ parameter.</p>
 </blockquote>
 <p>See the manpage for more info and options.</p>
 <p>Tags: <a href='tag_text-to-speech.html'>text-to-speech</a>, <a href='tag_mimic.html'>mimic</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="install-svox-package-on-slackware-150-for-better-text-to-speech.html">
 Install svox Package on Slackware 15.0 for Better Text-to-Speech
@@ -1281,6 +1498,7 @@ many).</li>
 hamburger menu), Preferences and then enter <code>pico2audio</code> in
 the <code>Text-to-Speech Command</code> box and you’re done.</p>
 <p>Tags: <a href='tag_svox.html'>svox</a>, <a href='tag_text-to-speech.html'>text-to-speech</a>, <a href='tag_audio.html'>audio</a>, <a href='tag_pico2audio.html'>pico2audio</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="bulk-change-of-file-extensions-in-directory32717.html">
 Bulk Change of File Extensions in Directory
@@ -1298,6 +1516,7 @@ them:</p>
 <code>mv ${i} ${i%.*}.txt</code><br/> <code>done</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_rename.html'>rename</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="rename-files-downloaded-using-youtube-dl10234.html">
 Rename Files Downloaded Using youtube-dl
@@ -1327,6 +1546,7 @@ example:</p>
 <code>done</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_youtube.html'>youtube</a>, <a href='tag_renaming.html'>renaming</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="unable-to-burn-iso-file-to-dvd-with-k3b.html">
 Unable to Burn .ISO File to DVD With K3B
@@ -1343,6 +1563,7 @@ ISO file to a blank DVD, this may resolve your issue:</p>
 <code># chmod 4750 /usr/bin/cdrecord /usr/bin/cdrdao</code></p>
 </blockquote>
 <p>Tags: <a href='tag_dvd.html'>dvd</a>, <a href='tag_k3b.html'>k3b</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_kde.html'>kde</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="lxc-in-slackware22712.html">
 LXC in Slackware
@@ -1409,6 +1630,7 @@ update the <code>USE_DHCP</code> entry for <code>'eth0'</code> to
 <li>Login to the container and use ‘ping’ to verify connectivity.</li>
 </ol>
 <p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_lxc.html'>lxc</a>, <a href='tag_containers.html'>containers</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="sending-email-from-the-command-line-with-mutt27176.html">
 Sending Email from the Command Line with mutt
@@ -1428,6 +1650,7 @@ send emails which can be automated quite easily to use in scripts.</p>
 <p>Sending a file attachment along with a message body:</p>
 <p><code>$ echo $message | mutt -s "Email Subject" -a attachment.txt -- username@example.com</code></p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_mutt.html'>mutt</a>, <a href='tag_mail.html'>mail</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="sending-email-from-the-command-line-with-curl.html">
 Sending Email from the Command Line with cURL
@@ -1461,6 +1684,7 @@ password:</p>
 100    12    0     0  100    12      0     10  0:00:01  0:00:01 --:--:--    10
 $</code></pre>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_curl.html'>curl</a>, <a href='tag_mail.html'>mail</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="transfering-files-using-netcat20089.html">
 Transfering Files Using netcat
@@ -1478,6 +1702,7 @@ command:</p>
 <p>Then, on the sending machine use this command:</p>
 <p><code>$ netcat $MY_IP_ADDRESS 12345 &lt; file.txt</code></p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_netcat.html'>netcat</a>, <a href='tag_nc.html'>nc</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="install-openbox-on-slackware31274.html">
 Install Openbox on Slackware
@@ -1512,6 +1737,7 @@ tools.</p>
 you should copy the <code>menu.xml</code> file to
 <code>~/.config/openbox/</code> so that you can customize your menu.</p>
 <p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_openbox.html'>openbox</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="how-to-use-dnf-history21154.html">
 How to Use DNF History
@@ -1532,6 +1758,7 @@ how to use the <code>dnf</code> tool to query your install history:</p>
 <p>Undo/rollback a transaction:</p>
 <p><code>$ dnf history undo &lt;num&gt;</code></p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_packaging.html'>packaging</a>, <a href='tag_dnf.html'>dnf</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="windows-terminal-keyboard-shortcuts30027.html">
 Windows Terminal Keyboard Shortcuts
@@ -1609,6 +1836,7 @@ to select and execute a command or action from the available list.</p>
 in the Windows Terminal.</p>
 <p><code>F11</code>: Toggle fullscreen.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_windows.html'>windows</a>, <a href='tag_terminal.html'>terminal</a>, <a href='tag_shortcuts.html'>shortcuts</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="install-kooha-on-ubuntu-2104.html">
 Install Kooha on Ubuntu 21.04
@@ -1629,6 +1857,7 @@ $ flatpak install flathub io.github.seadve.Kooha</code></pre>
 <p>You should now see an icon for <code>Kooha</code> in you GNOME
 applications window.</p>
 <p>Tags: <a href='tag_flatpak.html'>flatpak</a>, <a href='tag_kooha.html'>kooha</a>, <a href='tag_av.html'>av</a>, <a href='tag_recording.html'>recording</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="update-slackware-broadcom-driver27466.html">
 Update Slackware Broadcom Driver
@@ -1652,6 +1881,7 @@ this:</p>
 <p>You can read more about it on the Slackware wiki <a
 href="https://www.slackwiki.com/Broadcom_Wireless">here</a></p>
 <p>Tags: <a href='tag_slackware.html'>slackware</a>, <a href='tag_broadcom.html'>broadcom</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="installing-foliate-ebook-reader-on-slackware-1517738.html">
 Installing Foliate Ebook Reader on Slackware 15
@@ -1679,6 +1909,7 @@ Gregg Szumowski
 <code>$ su -c "ninja -C build install"</code><br/></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ebooks.html'>ebooks</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="archive-only-files-in-a-directory23013.html">
 Archive Only Files In a Directory
@@ -1696,6 +1927,7 @@ $ ls -al | awk '$0!~/^d/ {$1=$2=$3=$4=$5=$6=$7=$8=""; printf("%s\"\n", $0)}' | s
 </code></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_tar.html'>tar</a>, <a href='tag_awk.html'>awk</a>, <a href='tag_xargs.html'>xargs</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="edit-a-remote-file-using-vim.html">
 Edit a Remote File Using Vim
@@ -1715,6 +1947,7 @@ $ scp://username@IP-address//path/to/file.txt
 <p><br>The user must have access to the file being edited.<br></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_scp.html'>scp</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="echo-file-until-a-blank-line-is-reached.html">
 Echo File Until a Blank Line Is Reached
@@ -1732,6 +1965,7 @@ awk '$0 ~ /^$/ {exit;} {print $0;}' somefile.txt
 </code></p>
 
 <p>Tags: <a href='tag_awk.html'>awk</a>, <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="calibre-server-installation-on-a-raspberry-pi.html">
 Calibre Server Installation on a Raspberry Pi
@@ -1791,6 +2025,7 @@ Gregg Szumowski
 <p>Supplemental instructions are <a href="https://manual.calibre-ebook.com/server.html">here</a></p>
 
 <p>Tags: <a href='tag_calibre.html'>calibre</a>, <a href='tag_raspberry-pi.html'>raspberry-pi</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="gitea-server-installation-on-a-raspberry-pi26652.html">
 Gitea Server Installation on a Raspberry Pi
@@ -1846,6 +2081,7 @@ $ sudo adduser git
 <code>sudo systemctl start gitea</code><br/></p>
 
 <p>Tags: <a href='tag_git.html'>git</a>, <a href='tag_gitea.html'>gitea</a>, <a href='tag_raspberry-pi.html'>raspberry-pi</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="bash-environment-variables11985.html">
 Bash Environment Variables
@@ -1877,6 +2113,7 @@ Gregg Szumowski
 <code> $TERM</code> - current terminal <br/></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="bash-cli-keyboard-shortcuts21656.html">
 Bash CLI Keyboard Shortcuts
@@ -1903,6 +2140,7 @@ Gregg Szumowski
 <br/><code>esc-.</code> -- gives the last command you typed.</p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="how-to-find-all-of-the-shell-scripts-in-a-directory.html">
 How To Find All of the Shell Scripts In a Directory
@@ -1925,6 +2163,7 @@ Gregg Szumowski
 <br/></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_awk.html'>awk</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="diff-2-folders-over-ssh28479.html">
 Diff 2 Folders Over SSH
@@ -1942,6 +2181,7 @@ $ diff &lt;(ssh username@192.168.1.60 ls -R /home/username/dir1) &lt;(ls -R /hom
 </code></p>
 
 <p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_diff.html'>diff</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="how-to-enable-the-administrator-account-in-windows19625.html">
 How to Enable the Administrator Account in Windows
@@ -1961,6 +2201,7 @@ net user administrator /active: yes
 <p>into the window. You should disable the account again when you're done.</p>
 
 <p>Tags: <a href='tag_windows.html'>windows</a>, <a href='tag_sysadmin.html'>sysadmin</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="convert-html-files-to-epub-using-pandoc8802.html">
 Convert HTML Files to EPUB Using Pandoc
@@ -1988,6 +2229,7 @@ pandoc -f html -t epub3 --epub-metadata=metadata.xml -o output.epub input.html
 <p><a href="https://linuxconfig.org/how-to-convert-various-ebook-formats-for-amazon-kindle-on-linux">How to convert various eBook formats for Amazon Kindle on Linux</a></p>
 
 <p>Tags: <a href='tag_epub.html'>epub</a>, <a href='tag_pandoc.html'>pandoc</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="mastodon-automated-postings-using-the-api10012.html">
 Mastodon Automated Postings using the API
@@ -2024,6 +2266,7 @@ $ curl https://mastodon.sdf.org/api/v1/statuses -H 'Authorization: Bearer put-yo
 </code> <br/> <br/></p>
 
 <p>Tags: <a href='tag_curl.html'>curl</a>, <a href='tag_mastodon.html'>mastodon</a>, <a href='tag_api.html'>api</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="creating-passwordless-ssh-keys6962.html">
 Creating Passwordless SSH Keys
@@ -2048,6 +2291,7 @@ $ ssh username@192.168.1.123
 <br/></p>
 
 <p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="ssh-directory-permissions-settings10237.html">
 SSH Directory Permissions Settings
@@ -2077,6 +2321,7 @@ Gregg Szumowski
 <code> $ ls -ltr ~/.ssh/</code><br/></p>
 
 <p>Tags: <a href='tag_ssh.html'>ssh</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="how-to-use-github-tokens-on-the-command-line1357.html">
 How To Use Github Tokens on the Command Line
@@ -2099,6 +2344,7 @@ Clone repos using token based authentication (non public repos)</code>
 <br/></p>
 
 <p>Tags: <a href='tag_github.html'>github</a>, <a href='tag_tokens.html'>tokens</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_cli.html'>cli</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="sending-email-from-the-command-line8566.html">
 Sending Email from the Command Line
@@ -2131,6 +2377,7 @@ $ echo "message body" | mail -s "subject" test@example.com
 </code><br/><br/></p>
 
 <p>Tags: <a href='tag_mail.html'>mail</a>, <a href='tag_mutt.html'>mutt</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1.html">
 How to convert VirtualBox VDI to KVM qcow2
@@ -2158,6 +2405,7 @@ $ qemu-img convert -f raw vm.img -O qcow2 vm.qcow2
 </ol>
 
 <p>Tags: <a href='tag_virtualization.html'>virtualization</a>, <a href='tag_virtualbox.html'>virtualbox</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_qcow2.html'>qcow2</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="how-to-count-all-the-files-extension-recursively-in-linux.html">
 How To Count All The Files Extension Recursively In Linux
@@ -2202,6 +2450,7 @@ Gregg Szumowski
 <br></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_find.html'>find</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_sort.html'>sort</a>, <a href='tag_uniq.html'>uniq</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="untar-a-tarball-to-a-remote-directory5321.html">
 Untar a Tarball to a Remote Directory
@@ -2217,6 +2466,7 @@ Gregg Szumowski
 <p><code> cat myfile.tgz | ssh user@host "tar xzf - -C /some/dir" </code><br></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a>, <a href='tag_tar.html'>tar</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="gnome3-menu-icons11060.html">
 Gnome3 Menu Icons
@@ -2231,6 +2481,7 @@ Gregg Szumowski
 <a href="https://developer.gnome.org/integration-guide/stable/desktop-files.html.en">Desktop files: putting your application in the desktop menus</a></p>
 
 <p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="getting-rid-of-m-line-endings-in-a-text-file20658.html">
 Getting Rid of ^M Line Endings in a Text File
@@ -2349,6 +2600,7 @@ on the vim command line and save the file.</li>
 <p>'Nuff said.</p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="removing-m-characters-from-multiple-files19102.html">
 Removing ^M Characters From Multiple Files
@@ -2375,6 +2627,7 @@ Gregg Szumowski
 <p>Of course, in Linux, UNIX and AIX shells there are many ways to skin a cat and this is just one of many possible solutions. This solution was found on <a href="https://dailyvim.blogspot.com">a Daily Vim Blogspot site</a> which has more very interesting tips &amp; tutorials.</p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="get-the-hash-of-a-file-on-different-operating-systems17003.html">
 Get the Hash of a File on Different Operating Systems
@@ -2406,6 +2659,7 @@ Gregg Szumowski
 <code> SHA-256: shasum -a 256 /path/to/file </code><br></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="copy-entire-directory-structure-using-tar3546.html">
 Copy Entire Directory Structure Using Tar
@@ -2421,6 +2675,7 @@ Gregg Szumowski
 <p><code> tar cf - * | ( cd /target; tar xfp -) </code><br></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="fixing-screen-resolution-on-second-monitor-in-linux4621.html">
 Fixing Screen Resolution on Second Monitor in Linux
@@ -2439,6 +2694,7 @@ Gregg Szumowski
 <code>xrandr --addmode DP1 1920x1080</em>60.00 </code> # to associate the new mode to the monitor.   <br></p>
 
 <p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="sort-directory-by-file-size1118.html">
 Sort Directory by File Size
@@ -2460,6 +2716,7 @@ $ du -s * | sort -n -r | more
 <br></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="talkin-trash19647.html">
 Talkin' Trash
@@ -2473,6 +2730,7 @@ Gregg Szumowski
 <p>Having trouble getting the "Empty Trash" working in Thunar? Remove <code>"~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar*"</code>.</p>
 
 <p>Tags: <a href='tag_linux.html'>linux</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="uptime-statistics-for-windows.html">
 Uptime Statistics for Windows
@@ -2490,6 +2748,7 @@ C:&gt; net statistics server
 </code></p>
 
 <p>Tags: <a href='tag_windows.html'>windows</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="alternative-to-using-cp.html">
 Alternative to Using cp
@@ -2526,6 +2785,7 @@ cpbytar
 </code></p>
 
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 <h3><a class="ablack" href="git-tips.html">
 git Tips
@@ -2551,6 +2811,7 @@ Or you can add
 to your ~/.gitconfig file to use <code>$ git lola</code> as an alias.</p>
 
 <p>Tags: <a href='tag_git.html'>git</a>, <a href='tag_motd.html'>motd</a></p>
+
 <!-- text end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
