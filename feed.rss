@@ -2,9 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Mon, 24 Jul 2023 20:35:24 -0400</lastBuildDate>
-<pubDate>Mon, 24 Jul 2023 20:35:24 -0400</pubDate>
+<lastBuildDate>Tue, 25 Jul 2023 17:32:43 -0400</lastBuildDate>
+<pubDate>Tue, 25 Jul 2023 17:32:43 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Build, Tag, and Push a Docker Image with One Command
+</title><description><![CDATA[
+<p>You can build, tag, and push a docker image to a remote all in one
+command with the –quiet parameter on docker build, which only outputs
+the SHA256 hash (annoyingly prefixed with SHA256:, but nothing a little
+cutting can’t fix).</p>
+<blockquote>
+<p><code>$ docker tag $(docker build . -q | cut -c 8-999) myregid/imagename:1.0.1 &amp;&amp; docker push myregid/imagename</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_docker.html'>docker</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/build-tag-and-push-a-docker-image-with-one-command.html</link>
+<guid>http://www.szumowski.org/./build-tag-and-push-a-docker-image-with-one-command.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Tue, 25 Jul 2023 17:32:36 -0400</pubDate></item>
 <item><title>
 Vim Tips: Searching a File for Multiple Strings
 </title><description><![CDATA[
@@ -417,67 +433,4 @@ the command to the following <em>sed</em> command:</p>
 <guid>http://www.szumowski.org/./prefix-the-output-of-any-command-with-a-timestamp.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sun, 16 Jul 2023 15:19:01 -0400</pubDate></item>
-<item><title>
-Create a QEMU/KVM Virtual Machine from the Command Line
-</title><description><![CDATA[
-<p>You can use a combination of command line tools to create and
-configure a virtual machine. Here we will use few tools from the
-<em>QEMU</em> and <em>libvirt</em> packages to do this.</p>
-<p>Use QEMU to create a 15GB QCOW disk image:</p>
-<blockquote>
-<p><code>$ qemu-img create -f qcow2 /home/user/KVM/CentOS-Stream-9.qcow2 15G</code><br/>
-<code>Formatting '/home/user/KVM/CentOS-Stream-9.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=16106127360 lazy_refcounts=off refcount_bits=16</code><br/></p>
-</blockquote>
-<p>Start the installation:</p>
-<blockquote>
-<p><code>$ sudo virt-install --name=CentOS-Stream-9 --vcpus=1 --memory=1024 --location=/home/user/Downloads/CentOS-Stream-9-20230704.1-x86_64-boot.iso --os-variant=centos8 --network bridge:virbr0 --disk path=/home/user/KVM/CentOS-Stream-9.qcow2 --disk size=15</code><br/>
-<code>Password:</code><br/>
-<code>WARNING  Requested memory 1024 MiB is less than the recommended 1536 MiB for OS centos8</code><br/>
-<code></code><br/> <code>Starting install...</code><br/>
-<code>Retrieving 'vmlinuz'                                               |    0 B  00:00:00 ...</code><br/>
-<code>Retrieving 'initrd.img'                                            |    0 B  00:00:00 ...</code><br/>
-<code>Allocating 'CentOS-Stream-9.qcow2'                                 | 2.5 MB  00:00:03 ...</code><br/>
-<code>WARNING  Overriding memory to 3072 MiB needed for centos8 network install.</code><br/>
-<code>Creating domain...                                                 |    0 B  00:00:00</code><br/>
-<code>Running graphical console command: virt-viewer --connect qemu:///system --wait CentOS-Stream-9</code><br/></p>
-</blockquote>
-<p>Once this gets to this point another window should open up by the
-<code>virt-viewer</code> application (which you should install if you
-didn’t already) and you can complete the installation and reboot. You’ll
-use the same <code>virt-viewer</code> window to use the shell or desktop
-(depending upon the distro you installed).</p>
-<p>When you are done and close the <code>virt-viewer</code> GUI you can
-find the VM in the <em>running</em> state using <code>virsh</code>:</p>
-<blockquote>
-<p><code>$ sudo virsh list --all</code><br/> <code>Password:</code><br/>
-<code>Id   Name                State</code><br/>
-<code>------------------------------------</code><br/>
-<code>5    CentOS-Stream-9     running</code><br/>
-<code>-    slackware-current   shut off</code><br/></p>
-</blockquote>
-<p>Then you can shut it down:</p>
-<blockquote>
-<p><code>$ sudo virsh shutdown 5</code><br/> <code>Password:</code><br/>
-<code>Domain '5' is being shutdown</code><br/>
-<code>$ sudo virsh list --all</code><br/> <code>Password:</code><br/>
-<code>Id   Name                State</code><br/>
-<code>------------------------------------</code><br/>
-<code>-    CentOS-Stream-9     shut off</code><br/>
-<code>-    slackware-current   shut off</code><br/></p>
-</blockquote>
-<p>Optionally, you can delete the VM domain and the QCOW file using the
-<code>undefine</code> parameter:</p>
-<blockquote>
-<p><code>$ sudo virsh undefine --domain CentOS-Stream-9 --remove-all-storage</code><br/>
-<code>Password:</code><br/>
-<code>Domain 'CentOS-Stream-9' has been undefined</code><br/>
-<code>Volume 'vda'(/home/user/KVM/CentOS-Stream-9.qcow2) removed.</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_qemu.html'>qemu</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_motd.html'>motd</a></p>
-
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/create-a-qemukvm-virtual-machine-from-the-command-line.html</link>
-<guid>http://www.szumowski.org/./create-a-qemukvm-virtual-machine-from-the-command-line.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sat, 15 Jul 2023 12:52:32 -0400</pubDate></item>
 </channel></rss>
