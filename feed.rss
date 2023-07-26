@@ -2,9 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 25 Jul 2023 17:32:43 -0400</lastBuildDate>
-<pubDate>Tue, 25 Jul 2023 17:32:43 -0400</pubDate>
+<lastBuildDate>Wed, 26 Jul 2023 17:08:34 -0400</lastBuildDate>
+<pubDate>Wed, 26 Jul 2023 17:08:34 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Move Files Older Than So Many Days with Find
+</title><description><![CDATA[
+<p>You may want to clean up a directory that has files older than a
+certain number of days, for example, 30 days. You can do this with the
+<em>find</em> command:</p>
+<p>To move files older than 30 days in current folder to the
+<em>old</em> folder:</p>
+<blockquote>
+<p><code>$ find . -mtime +30 -exec mv {} old/ \;</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_find.html'>find</a>, <a href='tag_mtime.html'>mtime</a>, <a href='tag_mv.html'>mv</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/move-files-older-than-so-many-days-with-find.html</link>
+<guid>http://www.szumowski.org/./move-files-older-than-so-many-days-with-find.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Wed, 26 Jul 2023 17:08:26 -0400</pubDate></item>
 <item><title>
 Build, Tag, and Push a Docker Image with One Command
 </title><description><![CDATA[
@@ -417,20 +434,4 @@ section which holds the wi-fi password in cleartext:</p>
 <guid>http://www.szumowski.org/./recover-your-wi-fi-password-from-windows-cli.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Mon, 17 Jul 2023 21:11:34 -0400</pubDate></item>
-<item><title>
-Prefix The Output of Any Command with a Timestamp
-</title><description><![CDATA[
-<p>You can prefix the output of every line with a timestamp by piping
-the command to the following <em>sed</em> command:</p>
-<blockquote>
-<p><code>$ command | sed "s/^/\[</code>date
-+“%Y%m%d%H%M%S”<code>]/"</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_sed.html'>sed</a>, <a href='tag_motd.html'>motd</a></p>
-
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/prefix-the-output-of-any-command-with-a-timestamp.html</link>
-<guid>http://www.szumowski.org/./prefix-the-output-of-any-command-with-a-timestamp.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sun, 16 Jul 2023 15:19:01 -0400</pubDate></item>
 </channel></rss>
