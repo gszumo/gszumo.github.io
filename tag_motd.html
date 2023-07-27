@@ -14,6 +14,28 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="using-rsync-to-sync-two-directories17585.html">
+Using rsync to Sync Two Directories
+</a></h3>
+<!-- bashblog_timestamp: #202307271709.20# -->
+<div class="subtitle">July 27, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>You can sync two directories using <em>rsync</em> tool. The following
+command:</p>
+<blockquote>
+<p><code>$ rsync -a -v --delete sending_directory target_directory;</code><br/></p>
+</blockquote>
+<p>will copy <em>sending_directory</em> to <em>target_directory</em>
+creating a directory structure of
+<em>sending_directory/target_directory</em>. The <code>--delete</code>
+flag will ensure that any files that were previously in
+<em>sending_directory/target_directory</em> that are not in
+<em>sending_directory</em> will be deleted so that the contents of the
+two directories are the same.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rsync.html'>rsync</a>, <a href='tag_backups.html'>backups</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="move-files-older-than-so-many-days-with-find.html">
 Move Files Older Than So Many Days with Find
 </a></h3>
