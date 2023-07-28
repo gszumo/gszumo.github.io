@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; Posts tagged "docker"</title>
+<title>Gregg's MOTD &mdash; Posts tagged "registry"</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -92,23 +92,6 @@ and if you’re interested in setting up authentication for your private
 registry you can find more information <a
 href="https://www.baeldung.com/ops/docker-private-registry">here</a></p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_docker.html'>docker</a>, <a href='tag_registry.html'>registry</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="build-tag-and-push-a-docker-image-with-one-command.html">
-Build, Tag, and Push a Docker Image with One Command
-</a></h3>
-<!-- bashblog_timestamp: #202307251732.36# -->
-<div class="subtitle">July 25, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>You can build, tag, and push a docker image to a remote all in one
-command with the –quiet parameter on docker build, which only outputs
-the SHA256 hash (annoyingly prefixed with SHA256:, but nothing a little
-cutting can’t fix).</p>
-<blockquote>
-<p><code>$ docker tag $(docker build . -q | cut -c 8-999) myregid/imagename:1.0.1 &amp;&amp; docker push myregid/imagename</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_docker.html'>docker</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>

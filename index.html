@@ -14,6 +14,85 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="creating-a-docker-registry8450.html">
+Creating a Docker Registry
+</a></h3>
+<!-- bashblog_timestamp: #202307281948.04# -->
+<div class="subtitle">July 28, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Creating a docker registry is rather straightforward, but you may
+need to do some <em>tweaking</em> of your docker installation in order
+to get it working as indicated below.</p>
+<p>Let’s assume that you already have docker up and running on your
+machine.</p>
+<p>We are going to set up a Docker registry on our local server. This
+server will not have a secure connection and will only be used
+internally, so we will need to allow this access by creating a file in
+<code>/etc/docker</code> called <em>daemon.json</em> to designate
+this:</p>
+<blockquote>
+<p><code>{</code><br/> <code>"insecure-registries":[</code><br/>
+<code>"localhost:5000"</code><br/> <code>]</code><br/>
+<code>}</code><br/></p>
+</blockquote>
+<p>Don’t forget to restart the docker daemon after making this
+change.</p>
+<p>Now, create a docker volume that will persist your registry data when
+it goes offline:</p>
+<blockquote>
+<p><code># docker volume create /mnt/registry</code><br/></p>
+</blockquote>
+<p>This next part is optional. You can use whatever means you want to
+download and start the container: Create a script to download the image
+and start the container:</p>
+<blockquote>
+<p><code># mkdir /mnt/registry</code><br/>
+<code># cat &gt;start-registry.sh &lt;&lt;"EOF"</code><br/>
+<code>&gt; docker run -d \</code><br/>
+<code>&gt;   -p 5000:5000 \</code><br/>
+<code>&gt;   --restart=always \</code><br/>
+<code>&gt;   --name registry \</code><br/>
+<code>&gt;   -v /mnt/registry:/var/lib/registry \</code><br/>
+<code>&gt;   registry:2</code><br/> <code>&gt; EOF</code><br/></p>
+</blockquote>
+<p>Now start the registry (using the above script):</p>
+<blockquote>
+<p><code># ./start-registry.sh</code><br/></p>
+</blockquote>
+<p>Now, let’s test it by pushing a sample <em>hello-world</em> image to
+the registry:</p>
+<blockquote>
+<p><code>$ docker tag hello-world:latest localhost:5000/hello-world:latest</code><br/>
+<code>$ docker push localhost:5000/hello-world:latest</code><br/>
+<code>The push refers to repository [localhost:5000/hello-world]</code><br/>
+<code>e07ee1baac5f: Pushed</code><br/>
+<code>latest: digest: sha256:f54a58bc1aac5ea1a25d796ae155dc228b3f0e11d046ae276b39c4bf2f13d8c4 size: 525</code><br/></p>
+</blockquote>
+<p>NOTE: If you are pushing to this registry from another server you
+need to add the following to <code>/etc/docker/daemon.json</code> and
+restart <em>docker</em> before you will be able to do a <em>push</em>
+(replace <em>localhost</em> with the IP address of the server that’s
+running the registry):</p>
+<blockquote>
+<p><code>{</code><br/> <code>"insecure-registries":[</code><br/>
+<code>"localhost:5000"</code><br/> <code>]</code><br/>
+<code>}</code><br/></p>
+</blockquote>
+<p>Now we can use <em>curl</em> to list the repositories in the
+registry:</p>
+<blockquote>
+<p><code>curl localhost:5000/v2/_catalog</code><br/></p>
+</blockquote>
+<p>More information about creating a <em>docker registry</em> can be
+found <a
+href="https://www.tutorialspoint.com/docker/docker_private_registries.htm">here</a>
+and if you’re interested in setting up authentication for your private
+registry you can find more information <a
+href="https://www.baeldung.com/ops/docker-private-registry">here</a></p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_docker.html'>docker</a>, <a href='tag_registry.html'>registry</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="using-rsync-to-sync-two-directories17585.html">
 Using rsync to Sync Two Directories
 </a></h3>
@@ -346,23 +425,6 @@ connections to terminate)<br/> <code>~?</code> - this message<br/>
 <p>It is important to note that you always press the <em>Enter</em> key
 before typing the key sequences above.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssh.html'>ssh</a>, <a href='tag_shortcuts.html'>shortcuts</a>, <a href='tag_motd.html'>motd</a></p>
-
-<!-- text end -->
-<h3><a class="ablack" href="view-lshw-output-as-a-html-page.html">
-View lshw Output as a HTML Page
-</a></h3>
-<!-- bashblog_timestamp: #202307201746.57# -->
-<div class="subtitle">July 20, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>You can use the <em>lshw</em> command to output your hardware
-configuration to an <em>html</em> file by passing the <em>-html</em>
-parameter to it:</p>
-<blockquote>
-<p><code>$ sudo lshw -html &gt;hardware.html</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_lshw.html'>lshw</a>, <a href='tag_html.html'>html</a>, <a href='tag_motd.html'>motd</a></p>
 
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>

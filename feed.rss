@@ -2,9 +2,87 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Thu, 27 Jul 2023 17:09:27 -0400</lastBuildDate>
-<pubDate>Thu, 27 Jul 2023 17:09:27 -0400</pubDate>
+<lastBuildDate>Fri, 28 Jul 2023 19:56:31 -0400</lastBuildDate>
+<pubDate>Fri, 28 Jul 2023 19:56:31 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Creating a Docker Registry
+</title><description><![CDATA[
+<p>Creating a docker registry is rather straightforward, but you may
+need to do some <em>tweaking</em> of your docker installation in order
+to get it working as indicated below.</p>
+<p>Let’s assume that you already have docker up and running on your
+machine.</p>
+<p>We are going to set up a Docker registry on our local server. This
+server will not have a secure connection and will only be used
+internally, so we will need to allow this access by creating a file in
+<code>/etc/docker</code> called <em>daemon.json</em> to designate
+this:</p>
+<blockquote>
+<p><code>{</code><br/> <code>"insecure-registries":[</code><br/>
+<code>"localhost:5000"</code><br/> <code>]</code><br/>
+<code>}</code><br/></p>
+</blockquote>
+<p>Don’t forget to restart the docker daemon after making this
+change.</p>
+<p>Now, create a docker volume that will persist your registry data when
+it goes offline:</p>
+<blockquote>
+<p><code># docker volume create /mnt/registry</code><br/></p>
+</blockquote>
+<p>This next part is optional. You can use whatever means you want to
+download and start the container: Create a script to download the image
+and start the container:</p>
+<blockquote>
+<p><code># mkdir /mnt/registry</code><br/>
+<code># cat &gt;start-registry.sh &lt;&lt;"EOF"</code><br/>
+<code>&gt; docker run -d \</code><br/>
+<code>&gt;   -p 5000:5000 \</code><br/>
+<code>&gt;   --restart=always \</code><br/>
+<code>&gt;   --name registry \</code><br/>
+<code>&gt;   -v /mnt/registry:/var/lib/registry \</code><br/>
+<code>&gt;   registry:2</code><br/> <code>&gt; EOF</code><br/></p>
+</blockquote>
+<p>Now start the registry (using the above script):</p>
+<blockquote>
+<p><code># ./start-registry.sh</code><br/></p>
+</blockquote>
+<p>Now, let’s test it by pushing a sample <em>hello-world</em> image to
+the registry:</p>
+<blockquote>
+<p><code>$ docker tag hello-world:latest localhost:5000/hello-world:latest</code><br/>
+<code>$ docker push localhost:5000/hello-world:latest</code><br/>
+<code>The push refers to repository [localhost:5000/hello-world]</code><br/>
+<code>e07ee1baac5f: Pushed</code><br/>
+<code>latest: digest: sha256:f54a58bc1aac5ea1a25d796ae155dc228b3f0e11d046ae276b39c4bf2f13d8c4 size: 525</code><br/></p>
+</blockquote>
+<p>NOTE: If you are pushing to this registry from another server you
+need to add the following to <code>/etc/docker/daemon.json</code> and
+restart <em>docker</em> before you will be able to do a <em>push</em>
+(replace <em>localhost</em> with the IP address of the server that’s
+running the registry):</p>
+<blockquote>
+<p><code>{</code><br/> <code>"insecure-registries":[</code><br/>
+<code>"localhost:5000"</code><br/> <code>]</code><br/>
+<code>}</code><br/></p>
+</blockquote>
+<p>Now we can use <em>curl</em> to list the repositories in the
+registry:</p>
+<blockquote>
+<p><code>curl localhost:5000/v2/_catalog</code><br/></p>
+</blockquote>
+<p>More information about creating a <em>docker registry</em> can be
+found <a
+href="https://www.tutorialspoint.com/docker/docker_private_registries.htm">here</a>
+and if you’re interested in setting up authentication for your private
+registry you can find more information <a
+href="https://www.baeldung.com/ops/docker-private-registry">here</a></p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_docker.html'>docker</a>, <a href='tag_registry.html'>registry</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/creating-a-docker-registry8450.html</link>
+<guid>http://www.szumowski.org/./creating-a-docker-registry8450.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Fri, 28 Jul 2023 19:48:04 -0400</pubDate></item>
 <item><title>
 Using rsync to Sync Two Directories
 </title><description><![CDATA[
@@ -377,25 +455,4 @@ the following command:</p>
 <guid>http://www.szumowski.org/./list-tcp-connections-sorted-by-host-and-most-connections.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 19 Jul 2023 19:02:37 -0400</pubDate></item>
-<item><title>
-Test If a Port is Open with Bash
-</title><description><![CDATA[
-<p>If netcat isn’t available on your machine and you don’t have the
-priviledge to install it you can use this trick to test if a port is
-open or not. It will throw a connection refused message if a port is
-closed.</p>
-<blockquote>
-<p><code>$ : &lt;/dev/tcp/127.0.0.1/80</code><br/></p>
-</blockquote>
-<p>And you can use it in a script like this:</p>
-<blockquote>
-<p><code>(: &lt;/dev/tcp/127.0.0.1/80) &amp;&gt;/dev/null &amp;&amp; echo "OPEN" || echo "CLOSED"</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_networking.html'>networking</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_motd.html'>motd</a></p>
-
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/test-if-a-port-is-open-with-bash.html</link>
-<guid>http://www.szumowski.org/./test-if-a-port-is-open-with-bash.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 18 Jul 2023 18:20:32 -0400</pubDate></item>
 </channel></rss>
