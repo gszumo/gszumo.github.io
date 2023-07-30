@@ -14,6 +14,22 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="set-mac-hostname15613.html">
+Set Mac Hostname
+</a></h3>
+<!-- bashblog_timestamp: #202307301545.42# -->
+<div class="subtitle">July 30, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>To set the host name of your Mac (in my case macbook-pro) in the
+command prompt, type the following command:</p>
+<blockquote>
+<p><code>$ sudo scutil --set HostName "macbook-pro"</code><br/>
+<code>$ sudo scutil --set LocalHostName "macbook-pro"</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_macOS.html'>macOS</a>, <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="reset-mac-launchpad.html">
 Reset Mac Launchpad
 </a></h3>
@@ -361,52 +377,6 @@ the following command:</p>
 <code>[2] 69267</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rclone.html'>rclone</a>, <a href='tag_onedrive.html'>onedrive</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="how-to-find-the-ip-addresses-of-virtual-machines-from-the-command.html">
-Find the IP Addresses of KVM Virtual Machines (Command Line)
-</a></h3>
-<!-- bashblog_timestamp: #202307221540.26# -->
-<div class="subtitle">July 22, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>To find details about the virtual network you can use these
-commands:</p>
-<blockquote>
-<p><code>root@slacker:~# virsh net-list</code><br/>
-<code>Name      State    Autostart   Persistent</code><br/>
-<code>--------------------------------------------</code><br/>
-<code>default   active   yes         yes</code><br/> <code></code><br/>
-<code>root@slacker:~# virsh net-info default</code><br/>
-<code>Name:           default</code><br/>
-<code>UUID:           14a90f27-9a85-42ca-b434-6ce6c142690c</code><br/>
-<code>Active:         yes</code><br/>
-<code>Persistent:     yes</code><br/>
-<code>Autostart:      yes</code><br/>
-<code>Bridge:         virbr0</code><br/> <code></code><br/>
-<code>root@slacker:~# virsh net-dhcp-leases default</code><br/>
-<code>Expiry Time           MAC address         Protocol   IP address           Hostname      Client ID or DUID</code><br/>
-<code>------------------------------------------------------------------------------------------------------------</code><br/>
-<code>2023-07-22 16:18:45   52:54:00:dd:7b:62   ipv4       192.168.122.216/24   centos7-bbk   -</code><br/>
-<code></code><br/></p>
-</blockquote>
-<p>You will find the IP address and hostname listed in the last
-command’s output.</p>
-<p>Optionally, to find the network interfaces’s addresses for a running
-domain called <em>centos7-bbk</em>:</p>
-<blockquote>
-<p><code>root@slacker:~# virsh list</code><br/>
-<code>Id   Name          State</code><br/>
-<code>-----------------------------</code><br/>
-<code>3    centos7-bbk   running</code><br/> <code></code><br/>
-<code>root@slacker:~# virsh domifaddr centos7-bbk</code><br/>
-<code>Name       MAC address          Protocol     Address</code><br/>
-<code>-------------------------------------------------------------------------------</code><br/>
-<code>vnet2      52:54:00:dd:7b:62    ipv4         192.168.122.216/24</code><br/>
-<code></code><br/> <code>root@slacker:~#</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_virsh.html'>virsh</a>, <a href='tag_networking.html'>networking</a>, <a href='tag_motd.html'>motd</a></p>
-
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

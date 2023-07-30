@@ -2,9 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 29 Jul 2023 20:53:50 -0400</lastBuildDate>
-<pubDate>Sat, 29 Jul 2023 20:53:50 -0400</pubDate>
+<lastBuildDate>Sun, 30 Jul 2023 15:45:50 -0400</lastBuildDate>
+<pubDate>Sun, 30 Jul 2023 15:45:50 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Set Mac Hostname
+</title><description><![CDATA[
+<p>To set the host name of your Mac (in my case macbook-pro) in the
+command prompt, type the following command:</p>
+<blockquote>
+<p><code>$ sudo scutil --set HostName "macbook-pro"</code><br/>
+<code>$ sudo scutil --set LocalHostName "macbook-pro"</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_macOS.html'>macOS</a>, <a href='tag_cli.html'>cli</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/set-mac-hostname15613.html</link>
+<guid>http://www.szumowski.org/./set-mac-hostname15613.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 30 Jul 2023 15:45:42 -0400</pubDate></item>
 <item><title>
 Reset Mac Launchpad
 </title><description><![CDATA[
@@ -426,20 +441,4 @@ before typing the key sequences above.</p>
 <guid>http://www.szumowski.org/./ssh-escape-sequences24826.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Fri, 21 Jul 2023 17:05:54 -0400</pubDate></item>
-<item><title>
-View lshw Output as a HTML Page
-</title><description><![CDATA[
-<p>You can use the <em>lshw</em> command to output your hardware
-configuration to an <em>html</em> file by passing the <em>-html</em>
-parameter to it:</p>
-<blockquote>
-<p><code>$ sudo lshw -html &gt;hardware.html</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_lshw.html'>lshw</a>, <a href='tag_html.html'>html</a>, <a href='tag_motd.html'>motd</a></p>
-
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/view-lshw-output-as-a-html-page.html</link>
-<guid>http://www.szumowski.org/./view-lshw-output-as-a-html-page.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Thu, 20 Jul 2023 17:46:57 -0400</pubDate></item>
 </channel></rss>
