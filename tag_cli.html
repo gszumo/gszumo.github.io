@@ -14,6 +14,43 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="locking-down-ssh-user-access947.html">
+Locking Down SSH User Access
+</a></h3>
+<!-- bashblog_timestamp: #202308011756.03# -->
+<div class="subtitle">August 01, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>To secure your system, you shouldn’t allow root to login remotely.
+Instead, if an admin needs to use the <em>root</em> account they should
+login using their own account and then <code>su -</code> or
+<code>sudo</code> to the <em>root</em> account as needed.</p>
+<p>Edit the <code>/etc/ssh/sshd_config</code> file and change the
+following lines:</p>
+<blockquote>
+<p><code>PermitRootLogin no</code><br/>
+<code>PermitEmptyPasswords no</code><br/></p>
+</blockquote>
+<p>Some of these properties may be commented out in the file, so all
+you’d need to do is remove the <em>#</em> sign.</p>
+<p>Once these changes are made you should then restart ssh. On my system
+this is done by:</p>
+<blockquote>
+<p><code># /etc/rc.d/rc.sshd restart</code><br/></p>
+</blockquote>
+<p>After the restart your changes will be in affect. However, root can
+still login “from the local terminal”.</p>
+<p>You can go a step further and restrict only specific users access to
+login via ssh. For example, if you wanted only <em>user1</em> and
+<em>user2</em> the ability to login with ssh you can add a line to the
+above file:</p>
+<blockquote>
+<p><code>AllowUsers user1 user2</code><br/></p>
+</blockquote>
+<p>Everyone except these two users will be denied access via ssh.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssh.html'>ssh</a>, <a href='tag_ssh-config.html'>ssh-config</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="make-a-file-immutable19051.html">
 Make a File Immutable
 </a></h3>

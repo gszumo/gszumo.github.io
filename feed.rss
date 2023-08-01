@@ -2,9 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Mon, 31 Jul 2023 20:56:28 -0400</lastBuildDate>
-<pubDate>Mon, 31 Jul 2023 20:56:28 -0400</pubDate>
+<lastBuildDate>Tue, 01 Aug 2023 17:56:10 -0400</lastBuildDate>
+<pubDate>Tue, 01 Aug 2023 17:56:10 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Locking Down SSH User Access
+</title><description><![CDATA[
+<p>To secure your system, you shouldn’t allow root to login remotely.
+Instead, if an admin needs to use the <em>root</em> account they should
+login using their own account and then <code>su -</code> or
+<code>sudo</code> to the <em>root</em> account as needed.</p>
+<p>Edit the <code>/etc/ssh/sshd_config</code> file and change the
+following lines:</p>
+<blockquote>
+<p><code>PermitRootLogin no</code><br/>
+<code>PermitEmptyPasswords no</code><br/></p>
+</blockquote>
+<p>Some of these properties may be commented out in the file, so all
+you’d need to do is remove the <em>#</em> sign.</p>
+<p>Once these changes are made you should then restart ssh. On my system
+this is done by:</p>
+<blockquote>
+<p><code># /etc/rc.d/rc.sshd restart</code><br/></p>
+</blockquote>
+<p>After the restart your changes will be in affect. However, root can
+still login “from the local terminal”.</p>
+<p>You can go a step further and restrict only specific users access to
+login via ssh. For example, if you wanted only <em>user1</em> and
+<em>user2</em> the ability to login with ssh you can add a line to the
+above file:</p>
+<blockquote>
+<p><code>AllowUsers user1 user2</code><br/></p>
+</blockquote>
+<p>Everyone except these two users will be denied access via ssh.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssh.html'>ssh</a>, <a href='tag_ssh-config.html'>ssh-config</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/locking-down-ssh-user-access947.html</link>
+<guid>http://www.szumowski.org/./locking-down-ssh-user-access947.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Tue, 01 Aug 2023 17:56:03 -0400</pubDate></item>
 <item><title>
 Make a File Immutable
 </title><description><![CDATA[
@@ -402,49 +438,4 @@ the following command:</p>
 <guid>http://www.szumowski.org/./using-rclone-to-mount-your-onedrive-folder-in-linux4329.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sun, 23 Jul 2023 16:26:09 -0400</pubDate></item>
-<item><title>
-Find the IP Addresses of KVM Virtual Machines (Command Line)
-</title><description><![CDATA[
-<p>To find details about the virtual network you can use these
-commands:</p>
-<blockquote>
-<p><code>root@slacker:~# virsh net-list</code><br/>
-<code>Name      State    Autostart   Persistent</code><br/>
-<code>--------------------------------------------</code><br/>
-<code>default   active   yes         yes</code><br/> <code></code><br/>
-<code>root@slacker:~# virsh net-info default</code><br/>
-<code>Name:           default</code><br/>
-<code>UUID:           14a90f27-9a85-42ca-b434-6ce6c142690c</code><br/>
-<code>Active:         yes</code><br/>
-<code>Persistent:     yes</code><br/>
-<code>Autostart:      yes</code><br/>
-<code>Bridge:         virbr0</code><br/> <code></code><br/>
-<code>root@slacker:~# virsh net-dhcp-leases default</code><br/>
-<code>Expiry Time           MAC address         Protocol   IP address           Hostname      Client ID or DUID</code><br/>
-<code>------------------------------------------------------------------------------------------------------------</code><br/>
-<code>2023-07-22 16:18:45   52:54:00:dd:7b:62   ipv4       192.168.122.216/24   centos7-bbk   -</code><br/>
-<code></code><br/></p>
-</blockquote>
-<p>You will find the IP address and hostname listed in the last
-command’s output.</p>
-<p>Optionally, to find the network interfaces’s addresses for a running
-domain called <em>centos7-bbk</em>:</p>
-<blockquote>
-<p><code>root@slacker:~# virsh list</code><br/>
-<code>Id   Name          State</code><br/>
-<code>-----------------------------</code><br/>
-<code>3    centos7-bbk   running</code><br/> <code></code><br/>
-<code>root@slacker:~# virsh domifaddr centos7-bbk</code><br/>
-<code>Name       MAC address          Protocol     Address</code><br/>
-<code>-------------------------------------------------------------------------------</code><br/>
-<code>vnet2      52:54:00:dd:7b:62    ipv4         192.168.122.216/24</code><br/>
-<code></code><br/> <code>root@slacker:~#</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_virsh.html'>virsh</a>, <a href='tag_networking.html'>networking</a>, <a href='tag_motd.html'>motd</a></p>
-
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/how-to-find-the-ip-addresses-of-virtual-machines-from-the-command.html</link>
-<guid>http://www.szumowski.org/./how-to-find-the-ip-addresses-of-virtual-machines-from-the-command.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sat, 22 Jul 2023 15:40:26 -0400</pubDate></item>
 </channel></rss>
