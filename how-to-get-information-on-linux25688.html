@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>How To Get Information on Linux</title>
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://www.szumowski.org/index.html">Gregg's MOTD</a></h1>
+<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="how-to-get-information-on-linux25688.html">
+How To Get Information on Linux
+</a></h3>
+<!-- bashblog_timestamp: #202308021712.52# -->
+<div class="subtitle">August 02, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>The <em>manpages</em> are historically <strong>the place to
+go</strong> for any information about the software and utilities
+installed on a Linux machine. I believe that the <em>info</em> page
+seems to be the best place for <em>newbies</em> to go because it is so
+much easier to navigate, and, like <em>manpages</em>, it is a still a
+great place to get information about your system.</p>
+<p>Suppose you want to get information about <em>socket</em>. You would
+type:</p>
+<blockquote>
+<p><code>$ info socket</code><br/></p>
+</blockquote>
+<p>and you’d get a page that looks similar to a <em>manpage</em> but it
+can be navigated by using keyboard shortcuts:</p>
+<blockquote>
+<p><code></code>q<code>- exits back to the shell</code><br/>
+<code></code>u<code>- moves up one level</code><br/>
+<code></code>n<code>- moves to the next node on the current level</code><br/>
+<code></code>p<code>- moves to the previous node on the current level</code><br/>
+<code></code>space<code>- goes to the selected node under the cursor</code><br/>
+<code></code>H<code>- lists all of the Info commands</code><br/></p>
+</blockquote>
+<p>The commands <em>whatis</em> and <em>whereis</em> are also very
+useful in finding information on the system.</p>
+<blockquote>
+<p><code>$ whatis printf</code><br/>
+<code>printf (3)           - formatted output conversion</code><br/>
+<code>printf (1)           - format and print data</code><br/></p>
+</blockquote>
+<p>The <em>whatis</em> command will list the set of manpages for a
+specific keyword. The keyword <em>printf</em> is used in the
+<em>bash</em> shell as well as the <em>c</em> programming language. Here
+you see separate pages for each usage. To view them you would specify
+the section number in your command to <em>man</em>, i.e.,
+<code>$ man 3 printf</code> or <code>man printf</code> (which defaults
+to section 1). This is the same output as entering
+<code>$ man -f printf</code>.</p>
+<p>The <em>whereis</em> command will list which system files reference a
+specified keyword or command. For example,</p>
+<blockquote>
+<p><code>$ whereis socket</code><br/>
+<code>socket: /usr/man/man7/socket.7.gz /usr/man/mann/socket.n.gz /usr/man/man2/socket.2.gz</code><br/>
+<code>$ whereis printf</code><br/>
+<code>printf: /usr/bin/printf /bin/printf /usr/man/man3/printf.3.gz /usr/man/man1/printf.1.gz</code><br/></p>
+</blockquote>
+<p>In case you aren’t really sure of what you’re looking for you can use
+a ‘keyword’ search to the <em>man</em> or <em>apropos</em> commands
+which will use the <em>keyword</em> you enter as a <em>regex</em>
+(regular expression) to find all of the matches throughout the
+manpages:</p>
+<blockquote>
+<p><code>$ man -k printf</code><br/>
+<code>aa_printf (3)        - print text to AA-lib output buffers.</code><br/>
+<code>asprintf (3)         - print to allocated string</code><br/>
+<code>ber_printf (3)       - OpenLDAP LBER simplified Basic Encoding Rules library routines f...</code><br/>
+<code>BIO_printf (3)       - formatted output to a BIO</code><br/>
+<code>BIO_snprintf (3)     - formatted output to a BIO</code><br/>
+<code>BIO_vprintf (3)      - formatted output to a BIO</code><br/>
+<code>BIO_vsnprintf (3)    - formatted output to a BIO</code><br/>
+<code>buffer_printf.c (3)  - Buffer management functions.</code><br/>
+<code>curl_mprintf (3)     - formatted output conversion</code><br/>
+<code>dprintf (3)          - formatted output conversion</code><br/>
+<code>format (n)           - Format a string in the style of sprintf</code><br/>
+<code>fprintf (3)          - formatted output conversion</code><br/>
+<code>etc...</code><br/></p>
+</blockquote>
+<p>In case you are interested, the <em>manpages</em> are broken down
+into different sections as listed here:</p>
+<blockquote>
+<p><code>1  General Commands</code><br/>
+<code>2  System Calls and Error Numbers</code><br/>
+<code>3  C Libraries</code><br/> <code>3p perl</code><br/>
+<code>4  Devices and device drivers</code><br/>
+<code>5  File Formats and config files</code><br/>
+<code>6  Game instructions</code><br/>
+<code>7  Miscellaneous information</code><br/>
+<code>8  System maintenance</code><br/>
+<code>9  Kernel internals</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_man.html'>man</a>, <a href='tag_apropos.html'>apropos</a>, <a href='tag_whereis.html'>whereis</a>, <a href='tag_whatis.html'>whatis</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+<!-- entry end -->
+</div>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
+NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+</body></html>
