@@ -14,6 +14,108 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="using-ssmtp-on-slackware-150.html">
+Using sSMTP on Slackware 15.0
+</a></h3>
+<!-- bashblog_timestamp: #202308031836.09# -->
+<div class="subtitle">August 03, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p><strong>How to Install and Use ssmtp to Send Emails from the Linux
+Terminal</strong></p>
+<p>ssmtp is a simple utility that can be used to send emails from a
+Linux system to a specified email address. It is just an MTA (Mail
+Transfer Agent); it does not receive mail, expand aliases, or manage a
+queue. Instead, it forwards automated emails to an external email
+address. This can be useful for forwarding system alerts or other
+automated emails from your system to an external email address.</p>
+<p>According to the SlackBuild comments:</p>
+<p>sSMTP, replaces sendmail on workstations that should send their mail
+via the departmental mailhub from which they pick up their mail (via
+pop, imap, rsmtp, pop_fetch, NFS… or the like). This program accepts
+mail and sends it to the mailhub, optionally replacing the domain in the
+From: line with a different one.</p>
+<p>Normally, when using ssmtp, you want to remove the OS’s MTA
+package(s), sendmail and/or postfix. In this case, ssmtp will be
+symlinked to /usr/sbin/sendmail, and software that sends mail shouldn’t
+have to be modified. If you keep sendmail/postfix installed, there’s no
+conflict, but any software that sends mail will have to be configured or
+modified to use /usr/sbin/ssmtp.</p>
+<p>NOTE: After installing, you’ll want to edit “/etc/ssmtp/ssmtp.conf”.
+There’s a man page for it (man ssmtp.conf).</p>
+<p>In this post, we’ll show you how to install and use ssmtp to send an
+email from the command-line interface.</p>
+<p><strong>Step 1: Install ssmtp</strong></p>
+<p>By default, the ssmtp package is not included in the default install
+of Slackware but you can install it by running the following command if
+you use sbotools:</p>
+<blockquote>
+<p><code># sboinstall ssmtp</code><br/></p>
+</blockquote>
+<p><strong>Step 2: Configure ssmtp</strong></p>
+<p>Next, you’ll need to define your Gmail or other SMTP servers in the
+ssmtp configuration file. You can do this by editing the
+<code>/etc/ssmtp/ssmtp.conf</code> file:</p>
+<blockquote>
+<p><code>vim /etc/ssmtp/ssmtp.conf</code><br/></p>
+</blockquote>
+<p>Add the following lines:</p>
+<blockquote>
+<p><code>UseSTARTTLS=YES</code><br/>
+<code>root=user@your-isp.com</code><br/>
+<code>mailhub=smtp-mail.your-isp.com:587</code><br/>
+<code>rewriteDomain=192.168.1.12</code><br/>
+<code>hostname=192.168.1.12</code><br/>
+<code>FromLineOverride=YES</code><br/>
+<code>AuthUser=user@your-isp.com</code><br/>
+<code>AuthPass=your-email-password</code><br/>
+<code>AuthMethod=LOGIN</code><br/></p>
+</blockquote>
+<p>Save and close the file when you’re finished. ssmtp is now configured
+to use your SMTP server address to send an email.</p>
+<p>Also modify the revaliases file in the same directory. A reverse
+alias gives the From: address placed on a user’s outgoing messages and
+(optionally) the mailhub these messages will be sent through.
+Example:</p>
+<blockquote>
+<p><code>root:jdoe@isp.com:mail.isp.com</code><br/></p>
+</blockquote>
+<p>Messages root sends will be identified as from jdoe@isp.com and sent
+through mail.isp.com.</p>
+<blockquote>
+<p><code>$ cat /etc/ssmtp/revaliases</code><br/>
+<code># sSMTP aliases</code><br/> <code>#</code><br/>
+<code># Format:    local_account:outgoing_address:mailhub</code><br/>
+<code>#</code><br/>
+<code># Example: root:your_login@your.domain:mailhub.your.domain[:port]</code><br/>
+<code># where [:port] is an optional port number that defaults to 25.</code><br/>
+<code>user:user@your-isp.com:smtp.your-isp.com:587</code><br/></p>
+</blockquote>
+<p><strong>Step 3: Send an Email with ssmtp</strong></p>
+<p>First, create a text file and write some content:</p>
+<blockquote>
+<p><code>vim file.txt</code><br/></p>
+</blockquote>
+<p>Add the following lines:</p>
+<blockquote>
+<p><code>Subject: This is Subject Line</code><br/> <code></code><br/>
+<code>Email content line 1</code><br/>
+<code>Email content line 2</code><br/></p>
+</blockquote>
+<p>Save and close the file, then send an email with attachment
+<code>file.txt</code> to the external address
+<code>user@your-isp.com</code>:</p>
+<blockquote>
+<p><code>ssmtp -v user@your-isp.com &lt; file.txt</code><br/></p>
+</blockquote>
+<p>If everything is fine, you should see output indicating that the
+email was sent successfully.</p>
+<p>And that’s it! You’ve successfully installed and used ssmtp to send
+an email from the Linux terminal. This can be a useful tool for sending
+automated emails from your system to an external email address.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssmtp.html'>ssmtp</a>, <a href='tag_email.html'>email</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="how-to-get-information-on-linux25688.html">
 How To Get Information on Linux
 </a></h3>
@@ -314,24 +416,6 @@ flag will ensure that any files that were previously in
 <em>sending_directory</em> will be deleted so that the contents of the
 two directories are the same.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_rsync.html'>rsync</a>, <a href='tag_backups.html'>backups</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="move-files-older-than-so-many-days-with-find.html">
-Move Files Older Than So Many Days with Find
-</a></h3>
-<!-- bashblog_timestamp: #202307261708.26# -->
-<div class="subtitle">July 26, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>You may want to clean up a directory that has files older than a
-certain number of days, for example, 30 days. You can do this with the
-<em>find</em> command:</p>
-<p>To move files older than 30 days in current folder to the
-<em>old</em> folder:</p>
-<blockquote>
-<p><code>$ find . -mtime +30 -exec mv {} old/ \;</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_find.html'>find</a>, <a href='tag_mtime.html'>mtime</a>, <a href='tag_mv.html'>mv</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
