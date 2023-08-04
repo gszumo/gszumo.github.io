@@ -2,9 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Thu, 03 Aug 2023 18:36:15 -0400</lastBuildDate>
-<pubDate>Thu, 03 Aug 2023 18:36:15 -0400</pubDate>
+<lastBuildDate>Fri, 04 Aug 2023 17:03:53 -0400</lastBuildDate>
+<pubDate>Fri, 04 Aug 2023 17:03:53 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Mounting an ISO Image as a File System
+</title><description><![CDATA[
+<p>If you need to get one or more files from an ISO image and don’t have
+a CD/DVD drive you can mount the ISO image to a directory and navigate
+to the file(s) you need using a terminal or file explorer. You’ll have
+to do this as <em>root</em>.</p>
+<blockquote>
+<p><code># mkdir /mnt/iso</code><br/>
+<code># mount -o loop -t iso9660 /home/user/Downloads/Custom-Build/custom.iso /mnt/iso</code><br/>
+<code>mount: /mnt/iso: WARNING: source write-protected, mounted read-only.</code><br/>
+<code># cd /mnt/iso/</code><br/> <code># ls</code><br/>
+<code>DateBuilt  System/  boot/  boot.catalog  efi.img  initrd  linux  mach_kernel  slint.txt</code><br/>
+<code>#</code><br/></p>
+</blockquote>
+<p>When you’re done just unmount the location:</p>
+<blockquote>
+<p><code># umount /mnt/iso/</code><br/> <code>#</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_mount.html'>mount</a>, <a href='tag_iso.html'>iso</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/mounting-an-iso-image-as-a-file-system14927.html</link>
+<guid>http://www.szumowski.org/./mounting-an-iso-image-as-a-file-system14927.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Fri, 04 Aug 2023 17:03:46 -0400</pubDate></item>
 <item><title>
 Using sSMTP on Slackware 15.0
 </title><description><![CDATA[
@@ -417,20 +442,4 @@ certain number of days, for example, 30 days. You can do this with the
 <guid>http://www.szumowski.org/./move-files-older-than-so-many-days-with-find.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 26 Jul 2023 17:08:26 -0400</pubDate></item>
-<item><title>
-Build, Tag, and Push a Docker Image with One Command
-</title><description><![CDATA[
-<p>You can build, tag, and push a docker image to a remote all in one
-command with the –quiet parameter on docker build, which only outputs
-the SHA256 hash (annoyingly prefixed with SHA256:, but nothing a little
-cutting can’t fix).</p>
-<blockquote>
-<p><code>$ docker tag $(docker build . -q | cut -c 8-999) myregid/imagename:1.0.1 &amp;&amp; docker push myregid/imagename</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_docker.html'>docker</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/build-tag-and-push-a-docker-image-with-one-command.html</link>
-<guid>http://www.szumowski.org/./build-tag-and-push-a-docker-image-with-one-command.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 25 Jul 2023 17:32:36 -0400</pubDate></item>
 </channel></rss>

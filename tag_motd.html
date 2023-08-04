@@ -14,6 +14,32 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="mounting-an-iso-image-as-a-file-system14927.html">
+Mounting an ISO Image as a File System
+</a></h3>
+<!-- bashblog_timestamp: #202308041703.46# -->
+<div class="subtitle">August 04, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you need to get one or more files from an ISO image and don’t have
+a CD/DVD drive you can mount the ISO image to a directory and navigate
+to the file(s) you need using a terminal or file explorer. You’ll have
+to do this as <em>root</em>.</p>
+<blockquote>
+<p><code># mkdir /mnt/iso</code><br/>
+<code># mount -o loop -t iso9660 /home/user/Downloads/Custom-Build/custom.iso /mnt/iso</code><br/>
+<code>mount: /mnt/iso: WARNING: source write-protected, mounted read-only.</code><br/>
+<code># cd /mnt/iso/</code><br/> <code># ls</code><br/>
+<code>DateBuilt  System/  boot/  boot.catalog  efi.img  initrd  linux  mach_kernel  slint.txt</code><br/>
+<code>#</code><br/></p>
+</blockquote>
+<p>When you’re done just unmount the location:</p>
+<blockquote>
+<p><code># umount /mnt/iso/</code><br/> <code>#</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_mount.html'>mount</a>, <a href='tag_iso.html'>iso</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="using-ssmtp-on-slackware-150.html">
 Using sSMTP on Slackware 15.0
 </a></h3>
