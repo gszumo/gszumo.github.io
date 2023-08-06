@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Using crontab</title>
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://www.szumowski.org/index.html">Gregg's MOTD</a></h1>
+<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<!-- entry begin -->
+<h3><a class="ablack" href="using-crontab25619.html">
+Using crontab
+</a></h3>
+<!-- bashblog_timestamp: #202308061426.41# -->
+<div class="subtitle">August 06, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Crontab is a utility found on Linux and UNIX that allows you to
+schedule repetitive tasks on your system, like backups, updates,
+etc.</p>
+<p>The crontab command manages a table containing specially formatted
+lines of text which is processed periodically by the system. Each line
+consists of a “schedule” followed by one or more commands to be
+processed at the scheduled time.</p>
+<p>If you want to use the vim, emacs or nano editor for editing cron
+jobs, then, set the following in your environment and in your
+<code>~/.bash_profile</code> file:</p>
+<blockquote>
+<p><code>EDITOR=vim</code><br/></p>
+</blockquote>
+<p>Then, to edit the default cron job, as <em>root</em> enter this:</p>
+<blockquote>
+<p><code># crontab -e</code><br/></p>
+</blockquote>
+<p>If this is the first time you are editing the crontab, you may want
+to put in the following header as a reminder or a template of the
+format:</p>
+<blockquote>
+<p><code>#MINUTE(0-59) HOUR(0-23) DAYOFMONTH(1-31) MONTHOFYEAR(1-12) DAYOFWEEK(0-6)</code><br/>
+<code>#Note that 0=Sun and 7=Sun</code><br/>
+<code>#14,15 10 * * 0   /usr/bin/somecommmand  &gt;/dev/null 2&gt;&amp;1</code><br/></p>
+</blockquote>
+<p>The sample “commented out command” will run at 10:14 and 10:15 every
+Sunday. There will be no <em>mail</em> sent to the user because of the
+<code>&gt;/dev/null 2&gt;&amp;1</code> entry.</p>
+<p>To list all cron jobs enter:</p>
+<blockquote>
+<p><code># crontab -l</code><br/></p>
+</blockquote>
+<p>If you’re logged in as <em>root</em> you can view or edit the crontab
+entries of any of the users:</p>
+<blockquote>
+<p><code># crontab -l -u &lt;username&gt;</code><br/>
+<code># crontab -e -u &lt;username&gt;</code><br/></p>
+</blockquote>
+<p>You can also run jobs on an hourly, daily, weekly or monthly basis by
+adding shell scripts into one or more of the following directories:</p>
+<ul>
+<li>/etc/cron.hourly/</li>
+<li>/etc/cron.daily/</li>
+<li>/etc/cron.weekly/</li>
+<li>/etc/cron.monthly/</li>
+</ul>
+<p>You can find out more information on the <em>crontab</em>
+manpage.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_crontab.html'>crontab</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+<!-- entry end -->
+</div>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
+NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+</body></html>
