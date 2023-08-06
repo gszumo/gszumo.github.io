@@ -2,9 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Fri, 04 Aug 2023 17:03:53 -0400</lastBuildDate>
-<pubDate>Fri, 04 Aug 2023 17:03:53 -0400</pubDate>
+<lastBuildDate>Sat, 05 Aug 2023 20:16:53 -0400</lastBuildDate>
+<pubDate>Sat, 05 Aug 2023 20:16:53 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Ansible Cheatsheet
+</title><description><![CDATA[
+<p>Ping all hosts:</p>
+<blockquote>
+<p><code>$ ansible all -i hosts -m ping</code><br/></p>
+</blockquote>
+<p>Ping a specific host:</p>
+<blockquote>
+<p><code>$ ansible raspberry-pi  -m ping</code><br/></p>
+</blockquote>
+<p>Check uptime on all hosts:</p>
+<blockquote>
+<p><code>$ ansible -m shell -a 'uptime' all</code><br/></p>
+</blockquote>
+<p>Check uname on all hosts:</p>
+<blockquote>
+<p><code>$ ansible -m shell -a 'uname -a' all</code><br/></p>
+</blockquote>
+<p>Run playbook on more than one host:</p>
+<blockquote>
+<p><code>$ ansible-playbook playbook1.yml  -l 'host1.com,host2com'</code><br/></p>
+</blockquote>
+<p>Enable Debug and Increase Verbosity in Ansible</p>
+<blockquote>
+<p><code>$ ANSIBLE_DEBUG=true ANSIBLE_VERBOSITY=4 ansible-playbook playbook.yml</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ansible.html'>ansible</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/ansible-cheatsheet19575.html</link>
+<guid>http://www.szumowski.org/./ansible-cheatsheet19575.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sat, 05 Aug 2023 20:16:47 -0400</pubDate></item>
 <item><title>
 Mounting an ISO Image as a File System
 </title><description><![CDATA[
@@ -425,21 +458,4 @@ two directories are the same.</p>
 <guid>http://www.szumowski.org/./using-rsync-to-sync-two-directories17585.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Thu, 27 Jul 2023 17:09:20 -0400</pubDate></item>
-<item><title>
-Move Files Older Than So Many Days with Find
-</title><description><![CDATA[
-<p>You may want to clean up a directory that has files older than a
-certain number of days, for example, 30 days. You can do this with the
-<em>find</em> command:</p>
-<p>To move files older than 30 days in current folder to the
-<em>old</em> folder:</p>
-<blockquote>
-<p><code>$ find . -mtime +30 -exec mv {} old/ \;</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_find.html'>find</a>, <a href='tag_mtime.html'>mtime</a>, <a href='tag_mv.html'>mv</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/move-files-older-than-so-many-days-with-find.html</link>
-<guid>http://www.szumowski.org/./move-files-older-than-so-many-days-with-find.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Wed, 26 Jul 2023 17:08:26 -0400</pubDate></item>
 </channel></rss>
