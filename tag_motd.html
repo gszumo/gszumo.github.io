@@ -14,6 +14,199 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="installing-and-using-sbotools-in-slackware-150.html">
+Installing and Using sbotools in Slackware 15.0
+</a></h3>
+<!-- bashblog_timestamp: #202308082059.51# -->
+<div class="subtitle">August 08, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Slackware was the first Linux distribution that I ever used but I was
+always curious and did a lot of distro-hopping from Slackware, Caldera,
+Turbo Linux, Mandrake, Red Hat, Ubuntu, multiple Ubuntu derivatives,
+then Fedora for quite a while until I finally settled on…(drum roll
+please)…Slackware! Yeah, I’ve come full circle.</p>
+<p>One of the reasons why I was doing so much hopping around is that I
+was never really happy with something about the distribution that I was
+currently using. Maybe it was the default colors (Ubuntu, come on with
+all of that orange stuff), choice of default software, difficulty with
+setting it up. Whatever. With Slackware it was always the (lack of) a
+decent package management system. That is until I found “sbotools”.</p>
+<p>Yeah, slackpkg is there. So are a few others, like (list a few of
+them here). But the lack of a distribution that didn’t have dependency
+management in its package manager is a real pain in the backside.</p>
+<p>So what’s the big deal? Well, one of the points of running Slackware
+is installing packages that you choose to install and not letting the
+package manager run amuck and automatically select and install a full
+list of dependencies without letting the user know what they are and
+what they do. That’s where sbotools comes in.</p>
+<p>Klaatu talks about <a
+href="https://pink-mist.github.io/sbotools/">sbotools</a> in his Gnu
+World Order Episode <a
+href="https://gnuworldorder.info/audiophile/gnuWorldOrder_473_ogg.ogg">473</a>
+so you can find more information about it in his review.</p>
+<p>As sbotools is highly influenced by FreeBSD’s ports system and its
+pkgtools, the interface will be more or less familiar to anyone familiar
+with portupgrade, etc.</p>
+<p>When you use sbotools it finds the dependencies for the software you
+want to install and for each one, displays what it is, what it does, and
+prompts you if you want to install it or not. Also, if the dependency
+has optional parameters it asks you if you want to see them and gives
+you a choice to modify them or not.</p>
+<p>Now all of this is done in the console, which is another thing that I
+like about sbotools. No fancy ncurses or GUI dialogs. Just a simple
+console program which is handy if you’re using a <em>headless</em>
+server.</p>
+<p>Once you are done selecting your package and providing whatever
+responses are required, sbotools downloads the Slackbuilds and the
+source code from wherever it needs to and compiles the packages one by
+one in the order required and installs them. If a compilation fails then
+it asks you if you wish to continue or quit. Then you have the option to
+try figuring out what went wrong but looking at the build logs or by
+scrolling back on the console output.</p>
+<p>The sbotools package is not a single program but a collection of
+about a half a dozen programs that work very much like the BSD ports.
+You have a tool to initialize and fetch the latest list of packages,
+another to check to see if you need to update your locally installed
+programs, another to search for them and one to install new
+packages.</p>
+<p>Installing sbotools is rather simple if you’re use to installing
+packages by hand in Slackware. It comes as a tz package that you install
+using the ‘installpkg’ command.</p>
+<p>First you need to install the <a
+href="https://pink-mist.github.io/sbotools/downloads//">sbotools</a>
+package. Then you need to “sync” the SlackBuild repository to your
+machine using the command:</p>
+<blockquote>
+<p><code># sbosnap fetch</code><br/></p>
+</blockquote>
+<p>This will create a <em>git repository</em> of all of the SlackBuilds
+supported by this tool (which is a lot). Now you can use the
+<em>sbofind</em> command to search for a package.</p>
+<p>Next we will run <em>sbocheck</em> to see if there are any updates
+since the last time. In this case since this is the first time we’re
+using it we shouldn’t expect anything new. The example below shows the
+results when you do have new results:</p>
+<blockquote>
+<p><code># sbocheck</code><br/>
+<code>Updating SlackBuilds tree...</code><br/>
+<code>Updating files: 100% (44404/44404), done.</code><br/>
+<code>HEAD is now at 49808a413d 20230729.1 global branch merge.</code><br/>
+<code>Checking for updated SlackBuilds...</code><br/> <code></code><br/>
+<code>plexmediaserver 1.32.5.7328_2632c9d3a  &lt;  needs updating (1.32.5.7349_8f4248874 from SBo)</code><br/>
+<code></code><br/>
+<code>A copy of the above result is kept in /var/log/sbocheck.log</code><br/></p>
+</blockquote>
+<p>If the above command indicates that there are updates then you can
+initiate an upgrade using the following command:</p>
+<blockquote>
+<p><code># sboupgrade --all</code><br/>
+<code>Checking for updated SlackBuilds...</code><br/></p>
+</blockquote>
+<p>OK, so now your repository is set up. Let’s use it.</p>
+<p>Suppose we want to find a software package that can read guitar
+tabs:</p>
+<blockquote>
+<p><code># sbofind guitar</code><br/>
+<code>SBo:    tuxguitar 1.5.1</code><br/>
+<code>Path:   /usr/sbo/repo/audio/tuxguitar</code><br/>
+<code></code><br/> <code>SBo:    guitarix 0.44.1</code><br/>
+<code>Path:   /usr/sbo/repo/audio/guitarix</code><br/></p>
+</blockquote>
+<p>We received two results. Let’s query their details:</p>
+<blockquote>
+<p><code># sbofind -r guitarix</code><br/>
+<code>SBo:    guitarix 0.44.1</code><br/>
+<code>Path:   /usr/sbo/repo/audio/guitarix</code><br/>
+<code>README:</code><br/>
+<code>guitarix (virtual guitar amplifier for jack)</code><br/>
+<code></code><br/>
+<code>guitarix offers the range of sounds you would expect from a</code><br/>
+<code>full-featured universal guitar-amp. You can get crisp clean-sounds,</code><br/>
+<code>nice overdrive, fat distortion and a diversity of crazy sounds never</code><br/>
+<code>heard before. Guitarix can be used as a standalone application, as</code><br/>
+<code>LADSPA plugins, or as LV2 plugins.</code><br/> <code></code><br/>
+<code>For 32-bit x86, a CPU with SSE instructions is required. For other</code><br/>
+<code>architectures, SSE will be used if available.</code><br/>
+<code></code><br/>
+<code>meterbridge is an optional runtime dependency.</code><br/>
+<code></code><br/>
+<code>Starting with version 0.35.4, guitarix's 'Online presets' feature no</code><br/>
+<code>longer requires webkitgtk. See README.online for more information.</code><br/>
+<code></code><br/>
+<code>This package uses POSIX filesystem capabilities to execute with</code><br/>
+<code>elevated privileges (required for realtime audio processing). This</code><br/>
+<code>may be considered a security/stability risk. Please read</code><br/>
+<code>http://www.slackbuilds.org/caps/ for more information. To disable</code><br/>
+<code>capabilities, pass SETCAP=no to the script.</code><br/>
+<code></code><br/>
+<code>root@slacker:~# sbofind -r tuxguitar</code><br/>
+<code>SBo:    tuxguitar 1.5.1</code><br/>
+<code>Path:   /usr/sbo/repo/audio/tuxguitar</code><br/>
+<code>README:</code><br/>
+<code>TuxGuitar is a multitrack guitar tablature editor and player written</code><br/>
+<code>in Java-SWT. It can open GuitarPro, PowerTab, and TablEdit files.</code><br/></p>
+</blockquote>
+<p>Ah, looks like <em>tuxguitar</em> is the one we want. So let’s
+install it:</p>
+<blockquote>
+<p><code># sboinstall tuxguitar</code><br/> <code></code><br/>
+<code>This is a SlackBuild to repackage the Azul's Zulu build of OpenJDK that</code><br/>
+<code>is compliant with the Java SE 8 standard.</code><br/>
+<code></code><br/>
+<code>Before installing this package please consider any other jdk's/jre's</code><br/>
+<code>that you have already installed as they may cause conflicts with the</code><br/>
+<code>PATH, JAVA_HOME and MANPATH variables.</code><br/>
+<code></code><br/>
+<code>After installing the package you will need to logout/reboot your machine</code><br/>
+<code>as it will add files to the /etc/profile.d folder.</code><br/>
+<code></code><br/>
+<code>Note: zulu-openjdk8 does not have a browser plugin nor support for Java</code><br/>
+<code>Network Launching Protocol (JNLP).</code><br/> <code></code><br/>
+<code>Proceed with zulu-openjdk8? [y] n</code><br/></p>
+</blockquote>
+<p>I already have a different version of Java installed so I will skip
+this part</p>
+<blockquote>
+<p><code>TuxGuitar is a multitrack guitar tablature editor and player written</code><br/>
+<code>in Java-SWT. It can open GuitarPro, PowerTab, and TablEdit files.</code><br/>
+<code></code><br/> <code>Proceed with tuxguitar? [y]</code><br/>
+<code>tuxguitar added to install queue.</code><br/> <code></code><br/>
+<code>Install queue: tuxguitar</code><br/> <code></code><br/>
+<code>Are you sure you wish to continue? [y]</code><br/>
+<code></code><br/>
+<code>Slackware package /tmp/tuxguitar-1.5.1-x86_64-1_SBo.tgz created.</code><br/>
+<code></code><br/> <code></code><br/>
+<code>+==============================================================================</code><br/>
+<code>| Installing new package /tmp/tuxguitar-1.5.1-x86_64-1_SBo.tgz</code><br/>
+<code>+==============================================================================</code><br/>
+<code></code><br/>
+<code>Verifying package tuxguitar-1.5.1-x86_64-1_SBo.tgz.</code><br/>
+<code>Installing package tuxguitar-1.5.1-x86_64-1_SBo.tgz:</code><br/>
+<code>PACKAGE DESCRIPTION:</code><br/>
+<code># tuxguitar (A Multitrack tablature editor and player)</code><br/>
+<code>#</code><br/>
+<code># TuxGuitar is a multitrack guitar tablature editor and player</code><br/>
+<code># written in Java-SWT. It can open GuitarPro, PowerTab, and</code><br/>
+<code># TablEdit files.</code><br/> <code>#</code><br/>
+<code>Executing install script for tuxguitar-1.5.1-x86_64-1_SBo.tgz.</code><br/>
+<code>Package tuxguitar-1.5.1-x86_64-1_SBo.tgz installed.</code><br/>
+<code>Cleaning for tuxguitar-1.5.1...</code><br/>
+<code>#</code><br/></p>
+</blockquote>
+<p>So, sboinstall will not install <em>any</em> package without telling
+you first and it will describe what the packages does and if there are
+any additional (optional or otherwise) command line parameters which it
+will prompt you for.</p>
+<p>Once you respond to the last prompt it will download and install (and
+compile if necessary) all of the packages you requested. If it fails one
+of the installations it will ask you if it should continue. If it
+succeeds in installing all of the packages then you’re ready to start
+using your software.</p>
+<p>Each of the command line tools has it’s own manpage. Have fun!</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_sbotools.html'>sbotools</a>, <a href='tag_slackbuilds.html'>slackbuilds</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="sorting-stuff-in-the-vim-buffer26213.html">
 Sorting Stuff in the VIM Buffer
 </a></h3>
