@@ -14,6 +14,47 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="printing-from-virtualbox30746.html">
+Printing from Virtualbox
+</a></h3>
+<!-- bashblog_timestamp: #202308091742.45# -->
+<div class="subtitle">August 09, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you want to set up your system so that you can access your Linux
+host’s printer from a Windows VirtualBox client then:</p>
+<p><strong>On Your Linux Host</strong></p>
+<ol type="1">
+<li>Install your printer driver. Get your printer working on your host
+first.</li>
+<li>Install <em>CUPS</em> if it is not already installed.</li>
+<li>Add your printer to <em>CUPS</em> at
+<code>http://localhost:631/admin</code>.</li>
+<li>Set your virtual machine’s Network to <em>Bridged Adapter
+(eth0)</em> in Settings and connect the cable as necessary (Advanced
+menu).<br />
+</li>
+<li>Startup VirtualBox.<br />
+</li>
+<li>In a terminal, enter <code>ifconfig</code> to list your current
+network settings and copy down your host’s (eth0) address or you can
+optionally access this address using Network Manager.</li>
+</ol>
+<p><strong>On You Windows Client</strong></p>
+<ol type="1">
+<li>Add a new Network printer in “<em>Printers and Faxes</em>” from the
+<em>Control Panel</em></li>
+<li>Enter the URL address of your host’s printer, i.e.,
+<code>http://192.168.0.2:631/printers/Your_printer's_name</code>. You
+need the <code>:631</code> after your host’s address as this is the port
+that <em>CUPS</em> listens to. The <em>Your_printer’s_name</em> is the
+name of the printer you added to <em>CUPS</em>.</li>
+</ol>
+<p>If you can’t establish a connection then check your firewall
+settings.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_virtualbox.html'>virtualbox</a>, <a href='tag_printing.html'>printing</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="installing-and-using-sbotools-in-slackware-150.html">
 Installing and Using sbotools in Slackware 15.0
 </a></h3>
@@ -621,43 +662,6 @@ into different sections as listed here:</p>
 <code>9  Kernel internals</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_man.html'>man</a>, <a href='tag_apropos.html'>apropos</a>, <a href='tag_whereis.html'>whereis</a>, <a href='tag_whatis.html'>whatis</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="locking-down-ssh-user-access947.html">
-Locking Down SSH User Access
-</a></h3>
-<!-- bashblog_timestamp: #202308011756.03# -->
-<div class="subtitle">August 01, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>To secure your system, you shouldn’t allow root to login remotely.
-Instead, if an admin needs to use the <em>root</em> account they should
-login using their own account and then <code>su -</code> or
-<code>sudo</code> to the <em>root</em> account as needed.</p>
-<p>Edit the <code>/etc/ssh/sshd_config</code> file and change the
-following lines:</p>
-<blockquote>
-<p><code>PermitRootLogin no</code><br/>
-<code>PermitEmptyPasswords no</code><br/></p>
-</blockquote>
-<p>Some of these properties may be commented out in the file, so all
-you’d need to do is remove the <em>#</em> sign.</p>
-<p>Once these changes are made you should then restart ssh. On my system
-this is done by:</p>
-<blockquote>
-<p><code># /etc/rc.d/rc.sshd restart</code><br/></p>
-</blockquote>
-<p>After the restart your changes will be in affect. However, root can
-still login “from the local terminal”.</p>
-<p>You can go a step further and restrict only specific users access to
-login via ssh. For example, if you wanted only <em>user1</em> and
-<em>user2</em> the ability to login with ssh you can add a line to the
-above file:</p>
-<blockquote>
-<p><code>AllowUsers user1 user2</code><br/></p>
-</blockquote>
-<p>Everyone except these two users will be denied access via ssh.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssh.html'>ssh</a>, <a href='tag_ssh-config.html'>ssh-config</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
