@@ -14,6 +14,41 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="git-committing-to-a-different-branch12884.html">
+Git: Committing to a Different Branch
+</a></h3>
+<!-- bashblog_timestamp: #202308101734.40# -->
+<div class="subtitle">August 10, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Let’s imaging that you’ve made some changes to files in your work
+directory and then realized that you aren’t in the correct branch. Now
+you want to get the changes you’ve made to the right branch but no
+change the current branch. What do you do?</p>
+<p>There is no <em>git</em> command to do this but you can use the
+<em>git stash</em> command to fix this.</p>
+<p>This involves:</p>
+<ol type="1">
+<li>Using the <em>git stash</em> command to temporarily store our
+changes elsewhere,</li>
+<li>Checkout the correct branch, and</li>
+<li>“Unstash” the changes to the correct branch.</li>
+</ol>
+<p>Let’s say that we’ve made some changes in our repository’s
+new-release branch but they should have been made in the new-feature
+branch.</p>
+<blockquote>
+<p><code>git stash</code><br/>
+<code>git checkout new-feature</code><br/>
+<code>git stash pop</code><br/></p>
+</blockquote>
+<p>We can now perform a commit, and update this branch.</p>
+<blockquote>
+<p><code>git commit -a -m "Updated functions in new-feature branch."</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="printing-from-virtualbox30746.html">
 Printing from Virtualbox
 </a></h3>

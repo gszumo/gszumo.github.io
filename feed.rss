@@ -2,9 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Wed, 09 Aug 2023 17:44:08 -0400</lastBuildDate>
-<pubDate>Wed, 09 Aug 2023 17:44:08 -0400</pubDate>
+<lastBuildDate>Thu, 10 Aug 2023 17:34:46 -0400</lastBuildDate>
+<pubDate>Thu, 10 Aug 2023 17:34:46 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Git: Committing to a Different Branch
+</title><description><![CDATA[
+<p>Let’s imaging that you’ve made some changes to files in your work
+directory and then realized that you aren’t in the correct branch. Now
+you want to get the changes you’ve made to the right branch but no
+change the current branch. What do you do?</p>
+<p>There is no <em>git</em> command to do this but you can use the
+<em>git stash</em> command to fix this.</p>
+<p>This involves:</p>
+<ol type="1">
+<li>Using the <em>git stash</em> command to temporarily store our
+changes elsewhere,</li>
+<li>Checkout the correct branch, and</li>
+<li>“Unstash” the changes to the correct branch.</li>
+</ol>
+<p>Let’s say that we’ve made some changes in our repository’s
+new-release branch but they should have been made in the new-feature
+branch.</p>
+<blockquote>
+<p><code>git stash</code><br/>
+<code>git checkout new-feature</code><br/>
+<code>git stash pop</code><br/></p>
+</blockquote>
+<p>We can now perform a commit, and update this branch.</p>
+<blockquote>
+<p><code>git commit -a -m "Updated functions in new-feature branch."</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/git-committing-to-a-different-branch12884.html</link>
+<guid>http://www.szumowski.org/./git-committing-to-a-different-branch12884.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Thu, 10 Aug 2023 17:34:40 -0400</pubDate></item>
 <item><title>
 Printing from Virtualbox
 </title><description><![CDATA[
@@ -682,45 +716,4 @@ above file:</p>
 <guid>http://www.szumowski.org/./locking-down-ssh-user-access947.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 01 Aug 2023 17:56:03 -0400</pubDate></item>
-<item><title>
-Make a File Immutable
-</title><description><![CDATA[
-<p>You can use the <em>chattr</em> command (as <em>root</em>) to make a
-file “unalterable” so that even the root user cannot modify or delete it
-without using the <em>chattr</em> command to revert the change. This is
-done by using <em>chattr</em>’s <code>+i</code> and <code>-i</code>
-flags.</p>
-<p><em>chattr</em> changes a file’s attributes on a Linux file
-system.</p>
-<p>Set the flag as root:</p>
-<blockquote>
-<p><code># chattr +i xrdp-notes.txt</code><br/>
-<code># lsattr xrdp-notes.txt</code><br/>
-<code>----i---------e------- xrdp-notes.txt</code><br/></p>
-</blockquote>
-<p>A normal user can’t delete it:</p>
-<blockquote>
-<p><code>$ rm xrdp-notes.txt</code><br/>
-<code>rm: cannot remove 'xrdp-notes.txt': Operation not permitted</code><br/></p>
-</blockquote>
-<p>Even root cannot delete it without changing the file attribute
-back:</p>
-<blockquote>
-<p><code># rm xrdp-notes.txt</code><br/>
-<code>rm: cannot remove 'xrdp-notes.txt': Operation not permitted</code><br/></p>
-</blockquote>
-<p>Once the flag is unset it can be deleted:</p>
-<blockquote>
-<p><code># chattr -i xrdp-notes.txt</code><br/>
-<code># lsattr xrdp-notes.txt</code><br/>
-<code>--------------e------- xrdp-notes.txt</code><br/>
-<code># exit</code><br/> <code>$ rm xrdp-notes.txt</code><br/>
-<code>$</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_chattr.html'>chattr</a>, <a href='tag_lsattr.html'>lsattr</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/make-a-file-immutable19051.html</link>
-<guid>http://www.szumowski.org/./make-a-file-immutable19051.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Mon, 31 Jul 2023 20:54:48 -0400</pubDate></item>
 </channel></rss>
