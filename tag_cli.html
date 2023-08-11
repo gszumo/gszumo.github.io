@@ -14,6 +14,41 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="git-working-with-git-for-the-first-time.html">
+Git: Working with Git for the First Time
+</a></h3>
+<!-- bashblog_timestamp: #202308111804.10# -->
+<div class="subtitle">August 11, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Here’s the first step every user should start with after downloading
+and installing git but <strong>BEFORE</strong> doing anything else: Set
+up your <em>global</em> environment variables! If you don’t do this git
+will abort your commit and give you an annoying message like this
+one:</p>
+<blockquote>
+<p><code>$ git commit file.txt</code><br/>
+<code>Author identity unknown</code><br/> <code></code><br/>
+<code>*** Please tell me who you are.</code><br/> <code></code><br/>
+<code>Run</code><br/> <code></code><br/>
+<code>git config --global user.email "you@example.com"</code><br/>
+<code>git config --global user.name "Your Name"</code><br/>
+<code></code><br/>
+<code>to set your account's default identity.</code><br/>
+<code>Omit --global to set the identity only in this repository.</code><br/>
+<code></code><br/>
+<code>fatal: empty ident name (for &lt;user@localhost&gt;) not allowed</code><br/></p>
+</blockquote>
+<p>You only should have to do the <code>git config --global...</code>
+commands one time. If you want to use a different user ID and email
+address in each repository then don’t include the <code>--global</code>
+parameter and it will only update your current repository leaving your
+global setting alone. If you’re contributing to different repositories
+using different email addresses or IDs then you definitely want to get
+into this habit.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="git-committing-to-a-different-branch12884.html">
 Git: Committing to a Different Branch
 </a></h3>

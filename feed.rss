@@ -2,9 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Thu, 10 Aug 2023 17:34:46 -0400</lastBuildDate>
-<pubDate>Thu, 10 Aug 2023 17:34:46 -0400</pubDate>
+<lastBuildDate>Fri, 11 Aug 2023 18:04:18 -0400</lastBuildDate>
+<pubDate>Fri, 11 Aug 2023 18:04:18 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Git: Working with Git for the First Time
+</title><description><![CDATA[
+<p>Here’s the first step every user should start with after downloading
+and installing git but <strong>BEFORE</strong> doing anything else: Set
+up your <em>global</em> environment variables! If you don’t do this git
+will abort your commit and give you an annoying message like this
+one:</p>
+<blockquote>
+<p><code>$ git commit file.txt</code><br/>
+<code>Author identity unknown</code><br/> <code></code><br/>
+<code>*** Please tell me who you are.</code><br/> <code></code><br/>
+<code>Run</code><br/> <code></code><br/>
+<code>git config --global user.email "you@example.com"</code><br/>
+<code>git config --global user.name "Your Name"</code><br/>
+<code></code><br/>
+<code>to set your account's default identity.</code><br/>
+<code>Omit --global to set the identity only in this repository.</code><br/>
+<code></code><br/>
+<code>fatal: empty ident name (for &lt;user@localhost&gt;) not allowed</code><br/></p>
+</blockquote>
+<p>You only should have to do the <code>git config --global...</code>
+commands one time. If you want to use a different user ID and email
+address in each repository then don’t include the <code>--global</code>
+parameter and it will only update your current repository leaving your
+global setting alone. If you’re contributing to different repositories
+using different email addresses or IDs then you definitely want to get
+into this habit.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/git-working-with-git-for-the-first-time.html</link>
+<guid>http://www.szumowski.org/./git-working-with-git-for-the-first-time.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Fri, 11 Aug 2023 18:04:10 -0400</pubDate></item>
 <item><title>
 Git: Committing to a Different Branch
 </title><description><![CDATA[
@@ -680,40 +714,4 @@ into different sections as listed here:</p>
 <guid>http://www.szumowski.org/./how-to-get-information-on-linux25688.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 02 Aug 2023 17:12:52 -0400</pubDate></item>
-<item><title>
-Locking Down SSH User Access
-</title><description><![CDATA[
-<p>To secure your system, you shouldn’t allow root to login remotely.
-Instead, if an admin needs to use the <em>root</em> account they should
-login using their own account and then <code>su -</code> or
-<code>sudo</code> to the <em>root</em> account as needed.</p>
-<p>Edit the <code>/etc/ssh/sshd_config</code> file and change the
-following lines:</p>
-<blockquote>
-<p><code>PermitRootLogin no</code><br/>
-<code>PermitEmptyPasswords no</code><br/></p>
-</blockquote>
-<p>Some of these properties may be commented out in the file, so all
-you’d need to do is remove the <em>#</em> sign.</p>
-<p>Once these changes are made you should then restart ssh. On my system
-this is done by:</p>
-<blockquote>
-<p><code># /etc/rc.d/rc.sshd restart</code><br/></p>
-</blockquote>
-<p>After the restart your changes will be in affect. However, root can
-still login “from the local terminal”.</p>
-<p>You can go a step further and restrict only specific users access to
-login via ssh. For example, if you wanted only <em>user1</em> and
-<em>user2</em> the ability to login with ssh you can add a line to the
-above file:</p>
-<blockquote>
-<p><code>AllowUsers user1 user2</code><br/></p>
-</blockquote>
-<p>Everyone except these two users will be denied access via ssh.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssh.html'>ssh</a>, <a href='tag_ssh-config.html'>ssh-config</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/locking-down-ssh-user-access947.html</link>
-<guid>http://www.szumowski.org/./locking-down-ssh-user-access947.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 01 Aug 2023 17:56:03 -0400</pubDate></item>
 </channel></rss>
