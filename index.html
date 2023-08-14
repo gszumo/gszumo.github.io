@@ -14,6 +14,57 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="string-processing-with-bash16696.html">
+String Processing with Bash
+</a></h3>
+<!-- bashblog_timestamp: #202308132101.43# -->
+<div class="subtitle">August 13, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>There are various tools built into <em>bash</em> that enable you to
+manipulate a variable or string which come in handy when writing shell
+scripts. Here are a few notable ones:</p>
+<p><strong>Find the length of a string</strong></p>
+<blockquote>
+<p><code>${#string}</code><br/></p>
+</blockquote>
+<p><strong>Get a Substring from a String</strong></p>
+<blockquote>
+<p><code>${string:pos} or ${string:pos:len}</code><br/></p>
+</blockquote>
+<p><strong>Removing Substrings from a String</strong></p>
+<blockquote>
+<p><code>${string#substr}</code><br/> <code>${string%substr}</code><br/>
+<code>${string##substr}</code><br/>
+<code>${string%%substr}</code><br/></p>
+</blockquote>
+<p><strong>Some examples</strong></p>
+<p>Here’s a few examples of how you can process a variable that points
+to an absolute path of a file and shows how to extract certain parts of
+said file’s path:</p>
+<blockquote>
+<p><code>var=/home/user/code/blogstuff/index.html.j2</code><br/>
+<code>echo ${var}         # =&gt; /home/user/code/blogstuff/index.html.j2</code><br/>
+<code>echo ${var#*.}      # =&gt; html.j2</code><br/>
+<code>echo ${var##*.}     # =&gt; j2</code><br/>
+<code>echo ${var%/*.*}    # =&gt; /home/user/code/blogstuff</code><br/></p>
+</blockquote>
+<p><strong>Replace a Substring of a String</strong></p>
+<blockquote>
+<p><code>${string/pattern/substr}  # =&gt; Replaces the 1st match found</code><br/>
+<code>${string//pattern/substr} # =&gt; Replaces all of the matches found</code><br/></p>
+</blockquote>
+<p><strong>Replace the Beginning or End of a String</strong></p>
+<blockquote>
+<p><code>${string/#pattern/substr}</code><br/>
+<code>${string/%pattern/substr}</code><br/>
+<code>file=${var##/*/}          # =&gt; index.html.j2</code><br/>
+<code>echo ${file/#index/fubar} # =&gt; fubar.html.j2</code><br/>
+<code>echo ${file/%j2/fubar}    # =&gt; index.html.fubar</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_shell-scripting.html'>shell-scripting</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="convert-a-git-repo-to-a-bare-repo.html">
 Convert a Git Repo to a Bare Repo
 </a></h3>
@@ -525,40 +576,6 @@ adding shell scripts into one or more of the following directories:</p>
 <p>You can find out more information on the <em>crontab</em>
 manpage.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_crontab.html'>crontab</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="ansible-cheatsheet19575.html">
-Ansible Cheatsheet
-</a></h3>
-<!-- bashblog_timestamp: #202308052016.47# -->
-<div class="subtitle">August 05, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Ping all hosts:</p>
-<blockquote>
-<p><code>$ ansible all -i hosts -m ping</code><br/></p>
-</blockquote>
-<p>Ping a specific host:</p>
-<blockquote>
-<p><code>$ ansible raspberry-pi  -m ping</code><br/></p>
-</blockquote>
-<p>Check uptime on all hosts:</p>
-<blockquote>
-<p><code>$ ansible -m shell -a 'uptime' all</code><br/></p>
-</blockquote>
-<p>Check uname on all hosts:</p>
-<blockquote>
-<p><code>$ ansible -m shell -a 'uname -a' all</code><br/></p>
-</blockquote>
-<p>Run playbook on more than one host:</p>
-<blockquote>
-<p><code>$ ansible-playbook playbook1.yml  -l 'host1.com,host2com'</code><br/></p>
-</blockquote>
-<p>Enable Debug and Increase Verbosity in Ansible</p>
-<blockquote>
-<p><code>$ ANSIBLE_DEBUG=true ANSIBLE_VERBOSITY=4 ansible-playbook playbook.yml</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ansible.html'>ansible</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

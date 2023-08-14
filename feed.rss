@@ -2,9 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 12 Aug 2023 15:04:29 -0400</lastBuildDate>
-<pubDate>Sat, 12 Aug 2023 15:04:29 -0400</pubDate>
+<lastBuildDate>Sun, 13 Aug 2023 21:01:51 -0400</lastBuildDate>
+<pubDate>Sun, 13 Aug 2023 21:01:51 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+String Processing with Bash
+</title><description><![CDATA[
+<p>There are various tools built into <em>bash</em> that enable you to
+manipulate a variable or string which come in handy when writing shell
+scripts. Here are a few notable ones:</p>
+<p><strong>Find the length of a string</strong></p>
+<blockquote>
+<p><code>${#string}</code><br/></p>
+</blockquote>
+<p><strong>Get a Substring from a String</strong></p>
+<blockquote>
+<p><code>${string:pos} or ${string:pos:len}</code><br/></p>
+</blockquote>
+<p><strong>Removing Substrings from a String</strong></p>
+<blockquote>
+<p><code>${string#substr}</code><br/> <code>${string%substr}</code><br/>
+<code>${string##substr}</code><br/>
+<code>${string%%substr}</code><br/></p>
+</blockquote>
+<p><strong>Some examples</strong></p>
+<p>Here’s a few examples of how you can process a variable that points
+to an absolute path of a file and shows how to extract certain parts of
+said file’s path:</p>
+<blockquote>
+<p><code>var=/home/user/code/blogstuff/index.html.j2</code><br/>
+<code>echo ${var}         # =&gt; /home/user/code/blogstuff/index.html.j2</code><br/>
+<code>echo ${var#*.}      # =&gt; html.j2</code><br/>
+<code>echo ${var##*.}     # =&gt; j2</code><br/>
+<code>echo ${var%/*.*}    # =&gt; /home/user/code/blogstuff</code><br/></p>
+</blockquote>
+<p><strong>Replace a Substring of a String</strong></p>
+<blockquote>
+<p><code>${string/pattern/substr}  # =&gt; Replaces the 1st match found</code><br/>
+<code>${string//pattern/substr} # =&gt; Replaces all of the matches found</code><br/></p>
+</blockquote>
+<p><strong>Replace the Beginning or End of a String</strong></p>
+<blockquote>
+<p><code>${string/#pattern/substr}</code><br/>
+<code>${string/%pattern/substr}</code><br/>
+<code>file=${var##/*/}          # =&gt; index.html.j2</code><br/>
+<code>echo ${file/#index/fubar} # =&gt; fubar.html.j2</code><br/>
+<code>echo ${file/%j2/fubar}    # =&gt; index.html.fubar</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_shell-scripting.html'>shell-scripting</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/string-processing-with-bash16696.html</link>
+<guid>http://www.szumowski.org/./string-processing-with-bash16696.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 13 Aug 2023 21:01:43 -0400</pubDate></item>
 <item><title>
 Convert a Git Repo to a Bare Repo
 </title><description><![CDATA[
@@ -568,105 +618,4 @@ to do this as <em>root</em>.</p>
 <guid>http://www.szumowski.org/./mounting-an-iso-image-as-a-file-system14927.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Fri, 04 Aug 2023 17:03:46 -0400</pubDate></item>
-<item><title>
-Using sSMTP on Slackware 15.0
-</title><description><![CDATA[
-<p><strong>How to Install and Use ssmtp to Send Emails from the Linux
-Terminal</strong></p>
-<p>ssmtp is a simple utility that can be used to send emails from a
-Linux system to a specified email address. It is just an MTA (Mail
-Transfer Agent); it does not receive mail, expand aliases, or manage a
-queue. Instead, it forwards automated emails to an external email
-address. This can be useful for forwarding system alerts or other
-automated emails from your system to an external email address.</p>
-<p>According to the SlackBuild comments:</p>
-<p>sSMTP, replaces sendmail on workstations that should send their mail
-via the departmental mailhub from which they pick up their mail (via
-pop, imap, rsmtp, pop_fetch, NFS… or the like). This program accepts
-mail and sends it to the mailhub, optionally replacing the domain in the
-From: line with a different one.</p>
-<p>Normally, when using ssmtp, you want to remove the OS’s MTA
-package(s), sendmail and/or postfix. In this case, ssmtp will be
-symlinked to /usr/sbin/sendmail, and software that sends mail shouldn’t
-have to be modified. If you keep sendmail/postfix installed, there’s no
-conflict, but any software that sends mail will have to be configured or
-modified to use /usr/sbin/ssmtp.</p>
-<p>NOTE: After installing, you’ll want to edit “/etc/ssmtp/ssmtp.conf”.
-There’s a man page for it (man ssmtp.conf).</p>
-<p>In this post, we’ll show you how to install and use ssmtp to send an
-email from the command-line interface.</p>
-<p><strong>Step 1: Install ssmtp</strong></p>
-<p>By default, the ssmtp package is not included in the default install
-of Slackware but you can install it by running the following command if
-you use sbotools:</p>
-<blockquote>
-<p><code># sboinstall ssmtp</code><br/></p>
-</blockquote>
-<p><strong>Step 2: Configure ssmtp</strong></p>
-<p>Next, you’ll need to define your Gmail or other SMTP servers in the
-ssmtp configuration file. You can do this by editing the
-<code>/etc/ssmtp/ssmtp.conf</code> file:</p>
-<blockquote>
-<p><code>vim /etc/ssmtp/ssmtp.conf</code><br/></p>
-</blockquote>
-<p>Add the following lines:</p>
-<blockquote>
-<p><code>UseSTARTTLS=YES</code><br/>
-<code>root=user@your-isp.com</code><br/>
-<code>mailhub=smtp-mail.your-isp.com:587</code><br/>
-<code>rewriteDomain=192.168.1.12</code><br/>
-<code>hostname=192.168.1.12</code><br/>
-<code>FromLineOverride=YES</code><br/>
-<code>AuthUser=user@your-isp.com</code><br/>
-<code>AuthPass=your-email-password</code><br/>
-<code>AuthMethod=LOGIN</code><br/></p>
-</blockquote>
-<p>Save and close the file when you’re finished. ssmtp is now configured
-to use your SMTP server address to send an email.</p>
-<p>Also modify the revaliases file in the same directory. A reverse
-alias gives the From: address placed on a user’s outgoing messages and
-(optionally) the mailhub these messages will be sent through.
-Example:</p>
-<blockquote>
-<p><code>root:jdoe@isp.com:mail.isp.com</code><br/></p>
-</blockquote>
-<p>Messages root sends will be identified as from jdoe@isp.com and sent
-through mail.isp.com.</p>
-<blockquote>
-<p><code>$ cat /etc/ssmtp/revaliases</code><br/>
-<code># sSMTP aliases</code><br/> <code>#</code><br/>
-<code># Format:    local_account:outgoing_address:mailhub</code><br/>
-<code>#</code><br/>
-<code># Example: root:your_login@your.domain:mailhub.your.domain[:port]</code><br/>
-<code># where [:port] is an optional port number that defaults to 25.</code><br/>
-<code>user:user@your-isp.com:smtp.your-isp.com:587</code><br/></p>
-</blockquote>
-<p><strong>Step 3: Send an Email with ssmtp</strong></p>
-<p>First, create a text file and write some content:</p>
-<blockquote>
-<p><code>vim file.txt</code><br/></p>
-</blockquote>
-<p>Add the following lines:</p>
-<blockquote>
-<p><code>Subject: This is Subject Line</code><br/> <code></code><br/>
-<code>Email content line 1</code><br/>
-<code>Email content line 2</code><br/></p>
-</blockquote>
-<p>Save and close the file, then send an email with attachment
-<code>file.txt</code> to the external address
-<code>user@your-isp.com</code>:</p>
-<blockquote>
-<p><code>ssmtp -v user@your-isp.com &lt; file.txt</code><br/></p>
-</blockquote>
-<p>If everything is fine, you should see output indicating that the
-email was sent successfully.</p>
-<p>And that’s it! You’ve successfully installed and used ssmtp to send
-an email from the Linux terminal. This can be a useful tool for sending
-automated emails from your system to an external email address.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssmtp.html'>ssmtp</a>, <a href='tag_email.html'>email</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/using-ssmtp-on-slackware-150.html</link>
-<guid>http://www.szumowski.org/./using-ssmtp-on-slackware-150.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Thu, 03 Aug 2023 18:36:09 -0400</pubDate></item>
 </channel></rss>
