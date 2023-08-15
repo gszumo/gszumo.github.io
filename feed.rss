@@ -2,9 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sun, 13 Aug 2023 21:01:51 -0400</lastBuildDate>
-<pubDate>Sun, 13 Aug 2023 21:01:51 -0400</pubDate>
+<lastBuildDate>Mon, 14 Aug 2023 21:19:32 -0400</lastBuildDate>
+<pubDate>Mon, 14 Aug 2023 21:19:32 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Processing a List of Files from an Input File
+</title><description><![CDATA[
+<p>Suppose we have a list of files stored in a text file and we want to
+perform an operation on each of them within a bash script. How would we
+go about doing that? Well, there are several options, here are a
+few.</p>
+<blockquote>
+<p><code>$ cat input-files.txt</code><br/> <code>file-1.txt</code><br/>
+<code>file-2.txt</code><br/> <code>file-3.txt</code><br/>
+<code>file-4.txt</code><br/> <code>file-5.txt</code><br/>
+<code>file-6.txt</code><br/> <code>file-7.txt</code><br/>
+<code>file-8.txt</code><br/> <code>file-9.txt</code><br/></p>
+</blockquote>
+<p>Now, if we want to operate on each file in this list we can do
+something like this:</p>
+<blockquote>
+<p><code>while IFS= read -r filename</code><br/> <code>do</code><br/>
+<code>echo "Do something on ${filename} here..."</code><br/>
+<code>done &lt; "input-files.txt"</code><br/></p>
+</blockquote>
+<p>or alternatively,</p>
+<blockquote>
+<p><code>input="input-files.txt"</code><br/>
+<code>while IFS= read -r filename</code><br/> <code>do</code><br/>
+<code>printf '%s\n' "${filename}"</code><br/>
+<code>done &lt; "${input}"</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_shell-scripting.html'>shell-scripting</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/processing-a-list-of-files-from-an-input-file7025.html</link>
+<guid>http://www.szumowski.org/./processing-a-list-of-files-from-an-input-file7025.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 14 Aug 2023 21:07:27 -0400</pubDate></item>
 <item><title>
 String Processing with Bash
 </title><description><![CDATA[
@@ -593,29 +627,4 @@ Ansible Cheatsheet
 <guid>http://www.szumowski.org/./ansible-cheatsheet19575.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sat, 05 Aug 2023 20:16:47 -0400</pubDate></item>
-<item><title>
-Mounting an ISO Image as a File System
-</title><description><![CDATA[
-<p>If you need to get one or more files from an ISO image and don’t have
-a CD/DVD drive you can mount the ISO image to a directory and navigate
-to the file(s) you need using a terminal or file explorer. You’ll have
-to do this as <em>root</em>.</p>
-<blockquote>
-<p><code># mkdir /mnt/iso</code><br/>
-<code># mount -o loop -t iso9660 /home/user/Downloads/Custom-Build/custom.iso /mnt/iso</code><br/>
-<code>mount: /mnt/iso: WARNING: source write-protected, mounted read-only.</code><br/>
-<code># cd /mnt/iso/</code><br/> <code># ls</code><br/>
-<code>DateBuilt  System/  boot/  boot.catalog  efi.img  initrd  linux  mach_kernel  slint.txt</code><br/>
-<code>#</code><br/></p>
-</blockquote>
-<p>When you’re done just unmount the location:</p>
-<blockquote>
-<p><code># umount /mnt/iso/</code><br/> <code>#</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_mount.html'>mount</a>, <a href='tag_iso.html'>iso</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/mounting-an-iso-image-as-a-file-system14927.html</link>
-<guid>http://www.szumowski.org/./mounting-an-iso-image-as-a-file-system14927.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Fri, 04 Aug 2023 17:03:46 -0400</pubDate></item>
 </channel></rss>
