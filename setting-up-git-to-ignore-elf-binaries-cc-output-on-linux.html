@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; Posts tagged "gcc"</title>
+<title>Setting Up Git to Ignore ELF Binaries (C/C++ Output on Linux)</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -14,6 +14,7 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<!-- entry begin -->
 <h3><a class="ablack" href="setting-up-git-to-ignore-elf-binaries-cc-output-on-linux.html">
 Setting Up Git to Ignore ELF Binaries (C/C++ Output on Linux)
 </a></h3>
@@ -66,36 +67,7 @@ list of <em>unignored</em> files just to cover those times when you’re
 not using a <code>Makefile</code>. YMMV.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_gcc.html'>gcc</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
-<h3><a class="ablack" href="gcc-cant-find-stdioh-in-alpine-linux.html">
-GCC can’t find stdio.h in Alpine Linux
-</a></h3>
-<!-- bashblog_timestamp: #202306291801.37# -->
-<div class="subtitle">June 29, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>A while ago, I installed the <a
-href="https://github.com/ish-app/ish">iSH</a> app on my iPad which made
-it possible for me to develop Python and C code as well as use it as an
-SSH client. However, I ran into an issue when trying to compile C code
-because the compiler couldn’t resolve <code>stdio.h</code>. The
-following excerpt from <a
-href="http://stackoverflow.com/questions/42366739/ddg#42366740">StackOverflow</a>
-resolves the issue:</p>
-<p>Install <code>libc-dev</code> in addition to <code>GCC</code>, or
-just install <code>build-base</code> for everything
-(<code>alpine-sdk</code> is probably an overkill). To install run the
-following command:</p>
-<blockquote>
-<p><code># apk add libc-dev</code><br/></p>
-</blockquote>
-<p>You need to install it separately because in Alpine Linux, the
-package GCC doesn’t depend on <code>libc-dev</code> for good reason: You
-can use <code>gcc</code> to compile things without <code>libc</code>,
-for example hypervisors firmware etc.</p>
-<p>Tags: <a href='tag_gcc.html'>gcc</a>, <a href='tag_alpine-linux.html'>alpine-linux</a>, <a href='tag_ipad.html'>ipad</a>, <a href='tag_ish.html'>ish</a>, <a href='tag_motd.html'>motd</a></p>
-
-<!-- text end -->
+<!-- entry end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
 NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>

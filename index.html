@@ -14,6 +14,58 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="setting-up-git-to-ignore-elf-binaries-cc-output-on-linux.html">
+Setting Up Git to Ignore ELF Binaries (C/C++ Output on Linux)
+</a></h3>
+<!-- bashblog_timestamp: #202308161701.04# -->
+<div class="subtitle">August 16, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>The starting point for this experiment was from <a
+href="https://stackoverflow.com/questions/5711120/gitignore-binary-files-that-have-no-extension">here</a></p>
+<p><strong>An Example using C Program Source</strong></p>
+<p>Let’s say we have a pre-existing directory of some C source code
+files:</p>
+<blockquote>
+<p><code>$ ls</code><br/>
+<code>Makefile  print  print.c  print.h  print.o</code><br/></p>
+</blockquote>
+<p>And we initialize a new git repository in that directory:</p>
+<blockquote>
+<p><code>$ git init</code><br/>
+<code>Initialized empty Git repository in /home/user/tmp/printer/.git/</code><br/>
+<code></code><br/> <code>$ cat .gitignore</code><br/>
+<code># Ignore all</code><br/> <code>*</code><br/> <code></code><br/>
+<code># Unignore all with extensions</code><br/> <code>!*.*</code><br/>
+<code></code><br/> <code># Unignore all dirs</code><br/>
+<code>!*/</code><br/> <code></code><br/>
+<code># Unignore make files</code><br/> <code>!Makefile</code><br/>
+<code></code><br/> <code># Ignore .o files</code><br/>
+<code>*.o</code><br/> <code></code><br/>
+<code># Ignore</code>bin<code>dir</code><br/> <code>bin/</code><br/>
+<code># or</code><br/> <code>*/bin/*</code><br/></p>
+</blockquote>
+<p>Let’s see how we did:</p>
+<blockquote>
+<p><code>$ git status</code><br/> <code>On branch master</code><br/>
+<code></code><br/> <code>No commits yet</code><br/> <code></code><br/>
+<code>Untracked files:</code><br/>
+<code>(use "git add &lt;file&gt;..." to include in what will be committed)</code><br/>
+<code>.gitignore</code><br/> <code>Makefile</code><br/>
+<code>print.c</code><br/> <code>print.h</code><br/> <code></code><br/>
+<code>nothing added to commit but untracked files present (use "git add" to track)</code><br/></p>
+</blockquote>
+<p>So the <code>print</code> and the <code>print.o</code> files are not
+showing up, which was our initial goal.</p>
+<p>You may have to <em>tweak</em> the settings in the above
+<code>.gitignore</code> file to your own situation, but as you can see
+it is possible to setup <em>git</em> to ignore the ELF binaries output
+by <em>gcc</em>. I would probably also add <code>a.out</code> to the
+list of <em>unignored</em> files just to cover those times when you’re
+not using a <code>Makefile</code>. YMMV.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_gcc.html'>gcc</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="processing-a-list-of-files-from-an-input-file7025.html">
 Processing a List of Files from an Input File
 </a></h3>
@@ -446,113 +498,6 @@ succeeds in installing all of the packages then you’re ready to start
 using your software.</p>
 <p>Each of the command line tools has it’s own manpage. Have fun!</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_sbotools.html'>sbotools</a>, <a href='tag_slackbuilds.html'>slackbuilds</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="sorting-stuff-in-the-vim-buffer26213.html">
-Sorting Stuff in the VIM Buffer
-</a></h3>
-<!-- bashblog_timestamp: #202308071640.42# -->
-<div class="subtitle">August 07, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Suppose I have a file that I am editing in <em>vim</em> with the
-following contents:</p>
-<blockquote>
-<p><code>$ cat file.txt</code><br/> <code>Red 4</code><br/>
-<code>Blue 3</code><br/> <code>Green 1</code><br/>
-<code>Orange 7</code><br/> <code>Black 8</code><br/>
-<code>Yellow 6</code><br/> <code>Purple 2</code><br/>
-<code>White 5</code><br/></p>
-</blockquote>
-<p>If I want to sort this data in <em>vim</em>, the first thing to do is
-to format it into columns using the <em>column</em> command:</p>
-<blockquote>
-<p><code>:%!column -t</code><br/></p>
-</blockquote>
-<p>Which will put the data in the following format:</p>
-<blockquote>
-<table>
-<tbody>
-<tr class="odd">
-<td>Red</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Blue</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>Green</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>Orange</td>
-<td>7</td>
-</tr>
-<tr class="odd">
-<td>Black</td>
-<td>8</td>
-</tr>
-<tr class="even">
-<td>Yellow</td>
-<td>6</td>
-</tr>
-<tr class="odd">
-<td>Purple</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>White</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<p>Then we can sort on the 2nd column using the <em>sort</em>
-command:</p>
-<blockquote>
-<p><code>:%!sort -k2nr</code><br/></p>
-</blockquote>
-<p>Which will update the buffer like this:</p>
-<blockquote>
-<table>
-<tbody>
-<tr class="odd">
-<td>Black</td>
-<td>8</td>
-</tr>
-<tr class="even">
-<td>Orange</td>
-<td>7</td>
-</tr>
-<tr class="odd">
-<td>Yellow</td>
-<td>6</td>
-</tr>
-<tr class="even">
-<td>White</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>Red</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Blue</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>Purple</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>Green</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_sort.html'>sort</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
