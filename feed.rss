@@ -2,9 +2,77 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Wed, 16 Aug 2023 17:01:10 -0400</lastBuildDate>
-<pubDate>Wed, 16 Aug 2023 17:01:10 -0400</pubDate>
+<lastBuildDate>Thu, 17 Aug 2023 17:28:30 -0400</lastBuildDate>
+<pubDate>Thu, 17 Aug 2023 17:28:30 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Git Aliases
+</title><description><![CDATA[
+<p>Once you start developing some experience with using <em>git</em> on
+the command line, you will sometimes find yourself typing some long
+commands over and over again. You can create <em>aliases</em> in
+<em>git</em> that are very similar to the <em>bash alias</em> shortcuts
+you use in the shell.</p>
+<p>Steps to do this are highlighted in chapter 2.7 of the <a
+href="https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases">Git
+Book</a> authored by Scott Chacon and Ben Straub and published by
+Apress.</p>
+<p>One of the commands that I use a lot is:</p>
+<blockquote>
+<p><code>$ git log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local</code><br/></p>
+</blockquote>
+<p>which provides a nice colorized listing of the project’s activity and
+looks something like this:</p>
+<blockquote>
+<p><code>*   2f6cc07 (HEAD -&gt; automation, origin/master, origin/HEAD, master) Updated merge for README.md</code><br/>
+<code>|\</code><br/> <code>| * 84e20c2 Initial commit</code><br/>
+<code>* 8dc456f Completed migration for github site.</code><br/>
+<code>* bf67601 fixed head before sed</code><br/>
+<code>*   89780c3 Merge pull request #124 from thalios1973/feat/pandoc-test-fix</code><br/>
+<code>|\</code><br/>
+<code>| * c9a297c Added additional check that will allow the use of pandoc without the --strict flag or 'hsmarkdown' hack.</code><br/>
+<code>* |   025cf79 Merge pull request #125 from thalios1973/feat/body-end-file</code><br/>
+<code>|\ \</code><br/> <code>| |/</code><br/> <code>|/|</code><br/>
+<code>| * 272b1b6 Added ability to include custom code just before the &lt;/body&gt; tag. body_end_file global config variable added.</code><br/>
+<code>|/</code><br/> <code>* 9f66ad0 README formatting</code><br/>
+<code>* 500253e Support for static, not managed by bashblog html files. Close #92</code><br/>
+<code>* 3c73ef6 Deleted the now defunct Twitter JSON API for share count. Fix #117</code><br/>
+<code>* b5a4590 bump version to 2.8</code><br/>
+<code>* 5c8e0e5 Revert changes in #116</code><br/>
+<code>*   5fc037f Merge branch 'master' of github.com:cfenollosa/bashblog</code><br/>
+<code>|\</code><br/>
+<code>| * c6a9bef Revert tag management from #116</code><br/>
+<code>| * 6222672 Better error message for $EDITOR. Close #112</code><br/>
+<code>| * 36d79b5 support Markdown.pl in bashblog folder. Close #113</code><br/>
+<code>| *   7154c07 Merge pull request #116 from McDutchie/master</code><br/>
+<code>| |\</code><br/>
+<code>| | * f50a17c tags_in_post(): bugfix for non-GNU 'sed'</code><br/>
+<code>| | * 2a29b22 Fix renaming using 'bb.sh edit -n'. Suppress 'which' errmsg.</code><br/>
+<code>| | *   62a26bb Merge remote-tracking branch 'upstream/master' Resolve minor editing 2.6-to-2.7 editing conflict in bb.sh</code><br/>
+<code>| | |\</code><br/>
+<code>| | * | 54cc0c8 More code refactoring. Limit word splitting and disable globbing by default.</code><br/>
+<code>| | * |   d1a84d6 Merge remote-tracking branch 'upstream/master'</code><br/>
+<code>| | |\ \</code><br/>
+<code>| | * | | a674ec5 rebuild_tags(): use array for more robust file handling</code><br/>
+<code>| * | | | 2157b92 Slavic language support, thanks to Tomasz Jadowski</code><br/>
+<code>| | |_|/</code><br/> <code>| |/| |</code><br/></p>
+</blockquote>
+<p>but nicer than this website can depict (for now).</p>
+<p>Rather than typing this long command every time, I just create an
+alias:</p>
+<blockquote>
+<p><code>$ git config --global alias.lola 'log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local'</code><br/></p>
+</blockquote>
+<p>Then all I need to type from now on is:</p>
+<blockquote>
+<p><code>$ git lola</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_aliases.html'>aliases</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/git-aliases20780.html</link>
+<guid>http://www.szumowski.org/./git-aliases20780.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Thu, 17 Aug 2023 17:28:22 -0400</pubDate></item>
 <item><title>
 Setting Up Git to Ignore ELF Binaries (C/C++ Output on Linux)
 </title><description><![CDATA[
@@ -588,61 +656,4 @@ command:</p>
 <guid>http://www.szumowski.org/./sorting-stuff-in-the-vim-buffer26213.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Mon, 07 Aug 2023 16:40:42 -0400</pubDate></item>
-<item><title>
-Using crontab
-</title><description><![CDATA[
-<p>Crontab is a utility found on Linux and UNIX that allows you to
-schedule repetitive tasks on your system, like backups, updates,
-etc.</p>
-<p>The crontab command manages a table containing specially formatted
-lines of text which is processed periodically by the system. Each line
-consists of a “schedule” followed by one or more commands to be
-processed at the scheduled time.</p>
-<p>If you want to use the vim, emacs or nano editor for editing cron
-jobs, then, set the following in your environment and in your
-<code>~/.bash_profile</code> file:</p>
-<blockquote>
-<p><code>EDITOR=vim</code><br/></p>
-</blockquote>
-<p>Then, to edit the default cron job, as <em>root</em> enter this:</p>
-<blockquote>
-<p><code># crontab -e</code><br/></p>
-</blockquote>
-<p>If this is the first time you are editing the crontab, you may want
-to put in the following header as a reminder or a template of the
-format:</p>
-<blockquote>
-<p><code>#MINUTE(0-59) HOUR(0-23) DAYOFMONTH(1-31) MONTHOFYEAR(1-12) DAYOFWEEK(0-6)</code><br/>
-<code>#Note that 0=Sun and 7=Sun</code><br/>
-<code>#14,15 10 * * 0   /usr/bin/somecommmand  &gt;/dev/null 2&gt;&amp;1</code><br/></p>
-</blockquote>
-<p>The sample “commented out command” will run at 10:14 and 10:15 every
-Sunday. There will be no <em>mail</em> sent to the user because of the
-<code>&gt;/dev/null 2&gt;&amp;1</code> entry.</p>
-<p>To list all cron jobs enter:</p>
-<blockquote>
-<p><code># crontab -l</code><br/></p>
-</blockquote>
-<p>If you’re logged in as <em>root</em> you can view or edit the crontab
-entries of any of the users:</p>
-<blockquote>
-<p><code># crontab -l -u &lt;username&gt;</code><br/>
-<code># crontab -e -u &lt;username&gt;</code><br/></p>
-</blockquote>
-<p>You can also run jobs on an hourly, daily, weekly or monthly basis by
-adding shell scripts into one or more of the following directories:</p>
-<ul>
-<li>/etc/cron.hourly/</li>
-<li>/etc/cron.daily/</li>
-<li>/etc/cron.weekly/</li>
-<li>/etc/cron.monthly/</li>
-</ul>
-<p>You can find out more information on the <em>crontab</em>
-manpage.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_crontab.html'>crontab</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/using-crontab25619.html</link>
-<guid>http://www.szumowski.org/./using-crontab25619.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sun, 06 Aug 2023 14:26:41 -0400</pubDate></item>
 </channel></rss>
