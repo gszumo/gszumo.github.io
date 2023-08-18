@@ -2,9 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Thu, 17 Aug 2023 17:28:30 -0400</lastBuildDate>
-<pubDate>Thu, 17 Aug 2023 17:28:30 -0400</pubDate>
+<lastBuildDate>Fri, 18 Aug 2023 17:04:09 -0400</lastBuildDate>
+<pubDate>Fri, 18 Aug 2023 17:04:09 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Using the Find Command to Search for Files
+</title><description><![CDATA[
+<p>One of the most useful and flexible GNU utilities is the
+<em>find</em> command. Understanding how to use this command is very
+important to make you Linux life more efficient.</p>
+<p>The general syntax of the find command is:</p>
+<blockquote>
+<p><code>find [-H] [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [expression]</code><br/></p>
+</blockquote>
+<p>That looks like a lot, but most of the time you may only need 2
+things:</p>
+<blockquote>
+<p><code>find [path] [expression]</code><br/></p>
+</blockquote>
+<p>where the <em>path</em> is a starting point or the top of a directory
+tree to be searched, and <em>expression</em> is a property and value
+pair of what you’re trying to find. This may be a file name, last access
+time, last modification time, size, and/or ownership.</p>
+<p>For example, if you’re looking for the file stdlib.h, use the
+following command:</p>
+<blockquote>
+<p><code>find / -name stdlib.h</code><br/></p>
+</blockquote>
+<p>If you run this as a <em>normal</em> user, using <em>find</em> from
+the <em>root</em> directory will often result in a lot of error messages
+being output to the terminal because the <em>normal</em> user doesn’t
+have access to view some of the directories in the search. Therefore you
+may want to pipe the <em>stderr</em> output to <code>/dev/null</code> to
+avoid seeing those messages. You can do that like this:</p>
+<blockquote>
+<p><code>find / -name stdlib.h 2&gt;/dev/null</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_find.html'>find</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/using-the-find-command-to-search-for-files28509.html</link>
+<guid>http://www.szumowski.org/./using-the-find-command-to-search-for-files28509.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Fri, 18 Aug 2023 17:04:01 -0400</pubDate></item>
 <item><title>
 Git Aliases
 </title><description><![CDATA[
@@ -550,110 +589,4 @@ using your software.</p>
 <guid>http://www.szumowski.org/./installing-and-using-sbotools-in-slackware-150.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 08 Aug 2023 20:59:51 -0400</pubDate></item>
-<item><title>
-Sorting Stuff in the VIM Buffer
-</title><description><![CDATA[
-<p>Suppose I have a file that I am editing in <em>vim</em> with the
-following contents:</p>
-<blockquote>
-<p><code>$ cat file.txt</code><br/> <code>Red 4</code><br/>
-<code>Blue 3</code><br/> <code>Green 1</code><br/>
-<code>Orange 7</code><br/> <code>Black 8</code><br/>
-<code>Yellow 6</code><br/> <code>Purple 2</code><br/>
-<code>White 5</code><br/></p>
-</blockquote>
-<p>If I want to sort this data in <em>vim</em>, the first thing to do is
-to format it into columns using the <em>column</em> command:</p>
-<blockquote>
-<p><code>:%!column -t</code><br/></p>
-</blockquote>
-<p>Which will put the data in the following format:</p>
-<blockquote>
-<table>
-<tbody>
-<tr class="odd">
-<td>Red</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Blue</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>Green</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>Orange</td>
-<td>7</td>
-</tr>
-<tr class="odd">
-<td>Black</td>
-<td>8</td>
-</tr>
-<tr class="even">
-<td>Yellow</td>
-<td>6</td>
-</tr>
-<tr class="odd">
-<td>Purple</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>White</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<p>Then we can sort on the 2nd column using the <em>sort</em>
-command:</p>
-<blockquote>
-<p><code>:%!sort -k2nr</code><br/></p>
-</blockquote>
-<p>Which will update the buffer like this:</p>
-<blockquote>
-<table>
-<tbody>
-<tr class="odd">
-<td>Black</td>
-<td>8</td>
-</tr>
-<tr class="even">
-<td>Orange</td>
-<td>7</td>
-</tr>
-<tr class="odd">
-<td>Yellow</td>
-<td>6</td>
-</tr>
-<tr class="even">
-<td>White</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>Red</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Blue</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>Purple</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>Green</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_sort.html'>sort</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/sorting-stuff-in-the-vim-buffer26213.html</link>
-<guid>http://www.szumowski.org/./sorting-stuff-in-the-vim-buffer26213.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Mon, 07 Aug 2023 16:40:42 -0400</pubDate></item>
 </channel></rss>

@@ -14,6 +14,46 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="using-the-find-command-to-search-for-files28509.html">
+Using the Find Command to Search for Files
+</a></h3>
+<!-- bashblog_timestamp: #202308181704.01# -->
+<div class="subtitle">August 18, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>One of the most useful and flexible GNU utilities is the
+<em>find</em> command. Understanding how to use this command is very
+important to make you Linux life more efficient.</p>
+<p>The general syntax of the find command is:</p>
+<blockquote>
+<p><code>find [-H] [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [expression]</code><br/></p>
+</blockquote>
+<p>That looks like a lot, but most of the time you may only need 2
+things:</p>
+<blockquote>
+<p><code>find [path] [expression]</code><br/></p>
+</blockquote>
+<p>where the <em>path</em> is a starting point or the top of a directory
+tree to be searched, and <em>expression</em> is a property and value
+pair of what you’re trying to find. This may be a file name, last access
+time, last modification time, size, and/or ownership.</p>
+<p>For example, if you’re looking for the file stdlib.h, use the
+following command:</p>
+<blockquote>
+<p><code>find / -name stdlib.h</code><br/></p>
+</blockquote>
+<p>If you run this as a <em>normal</em> user, using <em>find</em> from
+the <em>root</em> directory will often result in a lot of error messages
+being output to the terminal because the <em>normal</em> user doesn’t
+have access to view some of the directories in the search. Therefore you
+may want to pipe the <em>stderr</em> output to <code>/dev/null</code> to
+avoid seeing those messages. You can do that like this:</p>
+<blockquote>
+<p><code>find / -name stdlib.h 2&gt;/dev/null</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_find.html'>find</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="git-aliases20780.html">
 Git Aliases
 </a></h3>
@@ -333,47 +373,6 @@ branch.</p>
 <p><code>git commit -a -m "Updated functions in new-feature branch."</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="printing-from-virtualbox30746.html">
-Printing from Virtualbox
-</a></h3>
-<!-- bashblog_timestamp: #202308091742.45# -->
-<div class="subtitle">August 09, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>If you want to set up your system so that you can access your Linux
-host’s printer from a Windows VirtualBox client then:</p>
-<p><strong>On Your Linux Host</strong></p>
-<ol type="1">
-<li>Install your printer driver. Get your printer working on your host
-first.</li>
-<li>Install <em>CUPS</em> if it is not already installed.</li>
-<li>Add your printer to <em>CUPS</em> at
-<code>http://localhost:631/admin</code>.</li>
-<li>Set your virtual machine’s Network to <em>Bridged Adapter
-(eth0)</em> in Settings and connect the cable as necessary (Advanced
-menu).<br />
-</li>
-<li>Startup VirtualBox.<br />
-</li>
-<li>In a terminal, enter <code>ifconfig</code> to list your current
-network settings and copy down your host’s (eth0) address or you can
-optionally access this address using Network Manager.</li>
-</ol>
-<p><strong>On You Windows Client</strong></p>
-<ol type="1">
-<li>Add a new Network printer in “<em>Printers and Faxes</em>” from the
-<em>Control Panel</em></li>
-<li>Enter the URL address of your host’s printer, i.e.,
-<code>http://192.168.0.2:631/printers/Your_printer's_name</code>. You
-need the <code>:631</code> after your host’s address as this is the port
-that <em>CUPS</em> listens to. The <em>Your_printer’s_name</em> is the
-name of the printer you added to <em>CUPS</em>.</li>
-</ol>
-<p>If you can’t establish a connection then check your firewall
-settings.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_virtualbox.html'>virtualbox</a>, <a href='tag_printing.html'>printing</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
