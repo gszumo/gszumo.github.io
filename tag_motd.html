@@ -14,6 +14,24 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="finding-the-ssl-directory-on-a-server32368.html">
+Finding the SSL Directory on a Server
+</a></h3>
+<!-- bashblog_timestamp: #202308211917.05# -->
+<div class="subtitle">August 21, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>I’ve had situations where I was configuring a secure connection to an
+application and needed to know where the SSL certificates are stored on
+the server. You can easily find out this information using the
+<code>openssl</code> and <code>grep</code> commands:</p>
+<blockquote>
+<p><code>$ openssl version -a | grep OPENSSLDIR</code><br/>
+<code>OPENSSLDIR: "/etc/pki/tls"</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssl.html'>ssl</a>, <a href='tag_openssl.html'>openssl</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="processing-the-results-of-the-find-command10607.html">
 Processing The Results of The Find Command
 </a></h3>
