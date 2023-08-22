@@ -14,6 +14,38 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="encrypting-files-using-openssl23222.html">
+Encrypting Files using OpenSSL
+</a></h3>
+<!-- bashblog_timestamp: #202308221918.26# -->
+<div class="subtitle">August 22, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Let’s say we have a file that contains sensitive information and we
+want to encyrpt it. You can encrypt a file very easily using the
+<code>openssl</code> command:</p>
+<blockquote>
+<p><code>$ cat secret.txt</code><br/>
+<code>This file contains some very secret stuff</code><br/>
+<code>$ openssl enc -e -aes-256-cbc -pbkdf2 -a -salt -in secret.txt -out secret.enc</code><br/>
+<code>enter aes-256-cbc encryption password: &lt;enter-a-password&gt;</code><br/>
+<code>Verifying - enter aes-256-cbc encryption password:  &lt;enter-a-password&gt;</code><br/>
+<code>$ cat secret.enc</code><br/>
+<code>U2FsdGVkX19Rnz48WjLeljd19wvNOhQy+zzYwxCANezCTkqpGMl9zs4HdwdUzZjl</code><br/>
+<code>VQkUsCJ7b0rUpRi83UlcwA==</code><br/></p>
+</blockquote>
+<p>Now we decrypt it (output to a different file). Make sure you enter
+the same password that you input above:</p>
+<blockquote>
+<p><code>$ openssl enc -d -aes-256-cbc -pbkdf2 -a -salt -in secret.enc -out unencrypted-secret.txt</code><br/>
+<code>enter aes-256-cbc decryption password:  &lt;enter-a-password&gt;</code><br/>
+<code>$ cat unencrypted-secret.txt</code><br/>
+<code>This file contains some very secret stuff</code><br/>
+<code>$</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_openssl.html'>openssl</a>, <a href='tag_encryption.html'>encryption</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="finding-the-ssl-directory-on-a-server32368.html">
 Finding the SSL Directory on a Server
 </a></h3>

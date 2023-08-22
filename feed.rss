@@ -2,9 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Mon, 21 Aug 2023 19:17:12 -0400</lastBuildDate>
-<pubDate>Mon, 21 Aug 2023 19:17:12 -0400</pubDate>
+<lastBuildDate>Tue, 22 Aug 2023 19:21:26 -0400</lastBuildDate>
+<pubDate>Tue, 22 Aug 2023 19:21:26 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Encrypting Files using OpenSSL
+</title><description><![CDATA[
+<p>Let’s say we have a file that contains sensitive information and we
+want to encyrpt it. You can encrypt a file very easily using the
+<code>openssl</code> command:</p>
+<blockquote>
+<p><code>$ cat secret.txt</code><br/>
+<code>This file contains some very secret stuff</code><br/>
+<code>$ openssl enc -e -aes-256-cbc -pbkdf2 -a -salt -in secret.txt -out secret.enc</code><br/>
+<code>enter aes-256-cbc encryption password: &lt;enter-a-password&gt;</code><br/>
+<code>Verifying - enter aes-256-cbc encryption password:  &lt;enter-a-password&gt;</code><br/>
+<code>$ cat secret.enc</code><br/>
+<code>U2FsdGVkX19Rnz48WjLeljd19wvNOhQy+zzYwxCANezCTkqpGMl9zs4HdwdUzZjl</code><br/>
+<code>VQkUsCJ7b0rUpRi83UlcwA==</code><br/></p>
+</blockquote>
+<p>Now we decrypt it (output to a different file). Make sure you enter
+the same password that you input above:</p>
+<blockquote>
+<p><code>$ openssl enc -d -aes-256-cbc -pbkdf2 -a -salt -in secret.enc -out unencrypted-secret.txt</code><br/>
+<code>enter aes-256-cbc decryption password:  &lt;enter-a-password&gt;</code><br/>
+<code>$ cat unencrypted-secret.txt</code><br/>
+<code>This file contains some very secret stuff</code><br/>
+<code>$</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_openssl.html'>openssl</a>, <a href='tag_encryption.html'>encryption</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/encrypting-files-using-openssl23222.html</link>
+<guid>http://www.szumowski.org/./encrypting-files-using-openssl23222.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Tue, 22 Aug 2023 19:18:26 -0400</pubDate></item>
 <item><title>
 Finding the SSL Directory on a Server
 </title><description><![CDATA[
@@ -376,38 +407,4 @@ into this habit.</p>
 <guid>http://www.szumowski.org/./git-working-with-git-for-the-first-time.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Fri, 11 Aug 2023 18:04:10 -0400</pubDate></item>
-<item><title>
-Git: Committing to a Different Branch
-</title><description><![CDATA[
-<p>Let’s imaging that you’ve made some changes to files in your work
-directory and then realized that you aren’t in the correct branch. Now
-you want to get the changes you’ve made to the right branch but no
-change the current branch. What do you do?</p>
-<p>There is no <em>git</em> command to do this but you can use the
-<em>git stash</em> command to fix this.</p>
-<p>This involves:</p>
-<ol type="1">
-<li>Using the <em>git stash</em> command to temporarily store our
-changes elsewhere,</li>
-<li>Checkout the correct branch, and</li>
-<li>“Unstash” the changes to the correct branch.</li>
-</ol>
-<p>Let’s say that we’ve made some changes in our repository’s
-new-release branch but they should have been made in the new-feature
-branch.</p>
-<blockquote>
-<p><code>git stash</code><br/>
-<code>git checkout new-feature</code><br/>
-<code>git stash pop</code><br/></p>
-</blockquote>
-<p>We can now perform a commit, and update this branch.</p>
-<blockquote>
-<p><code>git commit -a -m "Updated functions in new-feature branch."</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/git-committing-to-a-different-branch12884.html</link>
-<guid>http://www.szumowski.org/./git-committing-to-a-different-branch12884.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Thu, 10 Aug 2023 17:34:40 -0400</pubDate></item>
 </channel></rss>

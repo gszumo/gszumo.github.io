@@ -14,6 +14,38 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="encrypting-files-using-openssl23222.html">
+Encrypting Files using OpenSSL
+</a></h3>
+<!-- bashblog_timestamp: #202308221918.26# -->
+<div class="subtitle">August 22, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Let’s say we have a file that contains sensitive information and we
+want to encyrpt it. You can encrypt a file very easily using the
+<code>openssl</code> command:</p>
+<blockquote>
+<p><code>$ cat secret.txt</code><br/>
+<code>This file contains some very secret stuff</code><br/>
+<code>$ openssl enc -e -aes-256-cbc -pbkdf2 -a -salt -in secret.txt -out secret.enc</code><br/>
+<code>enter aes-256-cbc encryption password: &lt;enter-a-password&gt;</code><br/>
+<code>Verifying - enter aes-256-cbc encryption password:  &lt;enter-a-password&gt;</code><br/>
+<code>$ cat secret.enc</code><br/>
+<code>U2FsdGVkX19Rnz48WjLeljd19wvNOhQy+zzYwxCANezCTkqpGMl9zs4HdwdUzZjl</code><br/>
+<code>VQkUsCJ7b0rUpRi83UlcwA==</code><br/></p>
+</blockquote>
+<p>Now we decrypt it (output to a different file). Make sure you enter
+the same password that you input above:</p>
+<blockquote>
+<p><code>$ openssl enc -d -aes-256-cbc -pbkdf2 -a -salt -in secret.enc -out unencrypted-secret.txt</code><br/>
+<code>enter aes-256-cbc decryption password:  &lt;enter-a-password&gt;</code><br/>
+<code>$ cat unencrypted-secret.txt</code><br/>
+<code>This file contains some very secret stuff</code><br/>
+<code>$</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_openssl.html'>openssl</a>, <a href='tag_encryption.html'>encryption</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="finding-the-ssl-directory-on-a-server32368.html">
 Finding the SSL Directory on a Server
 </a></h3>
@@ -315,49 +347,6 @@ said file’s path:</p>
 <code>echo ${file/%j2/fubar}    # =&gt; index.html.fubar</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_shell-scripting.html'>shell-scripting</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="convert-a-git-repo-to-a-bare-repo.html">
-Convert a Git Repo to a Bare Repo
-</a></h3>
-<!-- bashblog_timestamp: #202308121453.22# -->
-<div class="subtitle">August 12, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>If you have a git repository that you haven’t cloned from a remote
-location, i.e., one that was created locally, it is easy to convert it
-to a <em>bare</em> repository. This process describes how to:</p>
-<ol type="1">
-<li>Take a “normal” git repository</li>
-<li>Move the .git directory to another location</li>
-<li>Convert it to a <em>bare</em> repository</li>
-</ol>
-<p>Suppose you have a git repository called <em>repo</em>. To convert it
-to a <em>bare</em> repository, execute the following commands:</p>
-<blockquote>
-<p><code>cd repo</code><br/>
-<code>mv .git ../repo.git # renaming just for clarity</code><br/>
-<code>cd ..</code><br/> <code>rm -fr repo</code><br/>
-<code>cd repo.git</code><br/>
-<code>git config --bool core.bare true</code><br/></p>
-</blockquote>
-<p>Now you can clone it like a “normal” repository:</p>
-<blockquote>
-<p><code>$ cd ..</code><br/>
-<code>$ git clone repo.git myrepo</code><br/>
-<code>$ cd myrepo/</code><br/> <code>$ ls</code><br/>
-<code>file-1.txt  file-2.txt  file-3.txt  file-4.txt  file-5.txt</code><br/>
-<code>$ git status</code><br/> <code>On branch master</code><br/>
-<code>Your branch is up to date with 'origin/master'.</code><br/>
-<code></code><br/>
-<code>nothing to commit, working tree clean</code><br/>
-<code>$</code><br/></p>
-</blockquote>
-<p>Please note that repositories from a <em>remote</em> location do not
-have all of their git branch contents and history stored locally, so
-doing this to a repository cloned from a remote will result in a
-repository that will be missing data.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
