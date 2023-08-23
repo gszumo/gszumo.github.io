@@ -2,9 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 22 Aug 2023 19:21:26 -0400</lastBuildDate>
-<pubDate>Tue, 22 Aug 2023 19:21:26 -0400</pubDate>
+<lastBuildDate>Wed, 23 Aug 2023 18:02:06 -0400</lastBuildDate>
+<pubDate>Wed, 23 Aug 2023 18:02:06 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Logging to the System Logger in Bash
+</title><description><![CDATA[
+<p>If you are writing a shell script and want any messages to appear in
+the system logger you can just use the <code>logger</code> command to do
+this.</p>
+<p>Here is an example on my Slackware system:</p>
+<blockquote>
+<p><code>$ logger -t TEST "This is a test message"</code><br/>
+<code>$ cat /var/log/messages</code><br/>
+<code>cat: /var/log/messages: Permission denied</code><br/>
+<code>$ su -</code><br/> <code>Password:</code><br/>
+<code># cat /var/log/messages</code><br/>
+<code>Aug 23 17:44:47 slackbook TEST: This is a test message</code><br/></p>
+</blockquote>
+<p>You can also log to <em>systemd</em> by providing a parameter to
+<em>logger</em>:</p>
+<blockquote>
+<p><code>logger --journald &lt;&lt;end</code><br/>
+<code>MESSAGE_ID=67feb6ffbaf24c5cbec13c008dd72309</code><br/>
+<code>MESSAGE=The dogs bark, but the caravan goes on.</code><br/>
+<code>DOGS=bark</code><br/> <code>CARAVAN=goes on</code><br/>
+<code>end</code><br/></p>
+</blockquote>
+<p>or you can optionally provide a file whose contents will be
+logged:</p>
+<blockquote>
+<p><code>logger --journald=entry.txt</code><br/></p>
+</blockquote>
+<p>See the <em>logger</em> manpage for additional information.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_logging.html'>logging</a>, <a href='tag_systemd.html'>systemd</a>, <a href='tag_logger.html'>logger</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/logging-to-the-system-logger-in-bash17599.html</link>
+<guid>http://www.szumowski.org/./logging-to-the-system-logger-in-bash17599.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Wed, 23 Aug 2023 18:01:59 -0400</pubDate></item>
 <item><title>
 Encrypting Files using OpenSSL
 </title><description><![CDATA[
@@ -373,38 +409,4 @@ repository that will be missing data.</p>
 <guid>http://www.szumowski.org/./convert-a-git-repo-to-a-bare-repo.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sat, 12 Aug 2023 14:53:22 -0400</pubDate></item>
-<item><title>
-Git: Working with Git for the First Time
-</title><description><![CDATA[
-<p>Here’s the first step every user should start with after downloading
-and installing git but <strong>BEFORE</strong> doing anything else: Set
-up your <em>global</em> environment variables! If you don’t do this git
-will abort your commit and give you an annoying message like this
-one:</p>
-<blockquote>
-<p><code>$ git commit file.txt</code><br/>
-<code>Author identity unknown</code><br/> <code></code><br/>
-<code>*** Please tell me who you are.</code><br/> <code></code><br/>
-<code>Run</code><br/> <code></code><br/>
-<code>git config --global user.email "you@example.com"</code><br/>
-<code>git config --global user.name "Your Name"</code><br/>
-<code></code><br/>
-<code>to set your account's default identity.</code><br/>
-<code>Omit --global to set the identity only in this repository.</code><br/>
-<code></code><br/>
-<code>fatal: empty ident name (for &lt;user@localhost&gt;) not allowed</code><br/></p>
-</blockquote>
-<p>You only should have to do the <code>git config --global...</code>
-commands one time. If you want to use a different user ID and email
-address in each repository then don’t include the <code>--global</code>
-parameter and it will only update your current repository leaving your
-global setting alone. If you’re contributing to different repositories
-using different email addresses or IDs then you definitely want to get
-into this habit.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/git-working-with-git-for-the-first-time.html</link>
-<guid>http://www.szumowski.org/./git-working-with-git-for-the-first-time.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Fri, 11 Aug 2023 18:04:10 -0400</pubDate></item>
 </channel></rss>
