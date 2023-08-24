@@ -14,6 +14,38 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="use-the-zdump-command-to-check-daylight-savings-time-settings.html">
+Use the zdump Command to Check Daylight Savings Time Settings
+</a></h3>
+<!-- bashblog_timestamp: #202308241824.59# -->
+<div class="subtitle">August 24, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you are one of us <em>lucky</em> folks who live in timezones that
+observe <em>Daylight Savings Time</em>, you can use the
+<code>zdump</code> timezone dumper command to view your server’s
+settings for same. This command prints the current time in each timezone
+provided on the command line.</p>
+<p>You can use <code>grep</code> to reduce the output to just the lines
+that reference the current year:</p>
+<blockquote>
+<p><code>$ zdump -v EST5EDT |grep '2023'</code><br/>
+<code>EST5EDT  Sun Mar 12 06:59:59 2023 UT = Sun Mar 12 01:59:59 2023 EST isdst=0 gmtoff=-18000</code><br/>
+<code>EST5EDT  Sun Mar 12 07:00:00 2023 UT = Sun Mar 12 03:00:00 2023 EDT isdst=1 gmtoff=-14400</code><br/>
+<code>EST5EDT  Sun Nov  5 05:59:59 2023 UT = Sun Nov  5 01:59:59 2023 EDT isdst=1 gmtoff=-14400</code><br/>
+<code>EST5EDT  Sun Nov  5 06:00:00 2023 UT = Sun Nov  5 01:00:00 2023 EST isdst=0 gmtoff=-18000</code><br/></p>
+</blockquote>
+<p>You can also run the same command by location:</p>
+<blockquote>
+<p><code>$ zdump -v /usr/share/zoneinfo/America/New_York|grep '2023'</code><br/>
+<code>/usr/share/zoneinfo/America/New_York  Sun Mar 12 06:59:59 2023 UT = Sun Mar 12 01:59:59 2023 EST isdst=0 gmtoff=-18000</code><br/>
+<code>/usr/share/zoneinfo/America/New_York  Sun Mar 12 07:00:00 2023 UT = Sun Mar 12 03:00:00 2023 EDT isdst=1 gmtoff=-14400</code><br/>
+<code>/usr/share/zoneinfo/America/New_York  Sun Nov  5 05:59:59 2023 UT = Sun Nov  5 01:59:59 2023 EDT isdst=1 gmtoff=-14400</code><br/>
+<code>/usr/share/zoneinfo/America/New_York  Sun Nov  5 06:00:00 2023 UT = Sun Nov  5 01:00:00 2023 EST isdst=0 gmtoff=-18000</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_zdump.html'>zdump</a>, <a href='tag_timezones.html'>timezones</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="logging-to-the-system-logger-in-bash17599.html">
 Logging to the System Logger in Bash
 </a></h3>
@@ -298,41 +330,6 @@ by <em>gcc</em>. I would probably also add <code>a.out</code> to the
 list of <em>unignored</em> files just to cover those times when you’re
 not using a <code>Makefile</code>. YMMV.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_gcc.html'>gcc</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="processing-a-list-of-files-from-an-input-file7025.html">
-Processing a List of Files from an Input File
-</a></h3>
-<!-- bashblog_timestamp: #202308142107.27# -->
-<div class="subtitle">August 14, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Suppose we have a list of files stored in a text file and we want to
-perform an operation on each of them within a bash script. How would we
-go about doing that? Well, there are several options, here are a
-few.</p>
-<blockquote>
-<p><code>$ cat input-files.txt</code><br/> <code>file-1.txt</code><br/>
-<code>file-2.txt</code><br/> <code>file-3.txt</code><br/>
-<code>file-4.txt</code><br/> <code>file-5.txt</code><br/>
-<code>file-6.txt</code><br/> <code>file-7.txt</code><br/>
-<code>file-8.txt</code><br/> <code>file-9.txt</code><br/></p>
-</blockquote>
-<p>Now, if we want to operate on each file in this list we can do
-something like this:</p>
-<blockquote>
-<p><code>while IFS= read -r filename</code><br/> <code>do</code><br/>
-<code>echo "Do something on ${filename} here..."</code><br/>
-<code>done &lt; "input-files.txt"</code><br/></p>
-</blockquote>
-<p>or alternatively,</p>
-<blockquote>
-<p><code>input="input-files.txt"</code><br/>
-<code>while IFS= read -r filename</code><br/> <code>do</code><br/>
-<code>printf '%s\n' "${filename}"</code><br/>
-<code>done &lt; "${input}"</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_shell-scripting.html'>shell-scripting</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

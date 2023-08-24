@@ -14,6 +14,38 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="use-the-zdump-command-to-check-daylight-savings-time-settings.html">
+Use the zdump Command to Check Daylight Savings Time Settings
+</a></h3>
+<!-- bashblog_timestamp: #202308241824.59# -->
+<div class="subtitle">August 24, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you are one of us <em>lucky</em> folks who live in timezones that
+observe <em>Daylight Savings Time</em>, you can use the
+<code>zdump</code> timezone dumper command to view your server’s
+settings for same. This command prints the current time in each timezone
+provided on the command line.</p>
+<p>You can use <code>grep</code> to reduce the output to just the lines
+that reference the current year:</p>
+<blockquote>
+<p><code>$ zdump -v EST5EDT |grep '2023'</code><br/>
+<code>EST5EDT  Sun Mar 12 06:59:59 2023 UT = Sun Mar 12 01:59:59 2023 EST isdst=0 gmtoff=-18000</code><br/>
+<code>EST5EDT  Sun Mar 12 07:00:00 2023 UT = Sun Mar 12 03:00:00 2023 EDT isdst=1 gmtoff=-14400</code><br/>
+<code>EST5EDT  Sun Nov  5 05:59:59 2023 UT = Sun Nov  5 01:59:59 2023 EDT isdst=1 gmtoff=-14400</code><br/>
+<code>EST5EDT  Sun Nov  5 06:00:00 2023 UT = Sun Nov  5 01:00:00 2023 EST isdst=0 gmtoff=-18000</code><br/></p>
+</blockquote>
+<p>You can also run the same command by location:</p>
+<blockquote>
+<p><code>$ zdump -v /usr/share/zoneinfo/America/New_York|grep '2023'</code><br/>
+<code>/usr/share/zoneinfo/America/New_York  Sun Mar 12 06:59:59 2023 UT = Sun Mar 12 01:59:59 2023 EST isdst=0 gmtoff=-18000</code><br/>
+<code>/usr/share/zoneinfo/America/New_York  Sun Mar 12 07:00:00 2023 UT = Sun Mar 12 03:00:00 2023 EDT isdst=1 gmtoff=-14400</code><br/>
+<code>/usr/share/zoneinfo/America/New_York  Sun Nov  5 05:59:59 2023 UT = Sun Nov  5 01:59:59 2023 EDT isdst=1 gmtoff=-14400</code><br/>
+<code>/usr/share/zoneinfo/America/New_York  Sun Nov  5 06:00:00 2023 UT = Sun Nov  5 01:00:00 2023 EST isdst=0 gmtoff=-18000</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_zdump.html'>zdump</a>, <a href='tag_timezones.html'>timezones</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="logging-to-the-system-logger-in-bash17599.html">
 Logging to the System Logger in Bash
 </a></h3>
