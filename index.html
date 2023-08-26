@@ -14,6 +14,81 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="netstat6800.html">
+Netstat
+</a></h3>
+<!-- bashblog_timestamp: #202308261635.30# -->
+<div class="subtitle">August 26, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>My most frequently used <code>netstat</code> command with parameters
+for checking port (active internet) connections is:</p>
+<blockquote>
+<p><code>$ netstat -tulpn</code><br/></p>
+</blockquote>
+<p>You can also pipe the output to <code>grep</code> to filter for
+specific ports or addresses.</p>
+<p>Here is a brief listing of some of the many options:</p>
+<blockquote>
+<p><code>$ netstat [options]</code><br/></p>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Option</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">-a</td>
+<td>Display the state of all sockets, not just the active.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-c</td>
+<td>Continuously display information, updating every second.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">-i</td>
+<td>Include network device statistics.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-n</td>
+<td>Display all network addresses as numbers.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">-o</td>
+<td>Display additional information.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-r</td>
+<td>Display routing tables.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">-t</td>
+<td>Display only the TCP sockets.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-u</td>
+<td>Display only the UDP sockets.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">-v</td>
+<td>Print the netstat version number and exit.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-w</td>
+<td>List only the raw sockets.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">-x</td>
+<td>Display only the Unix sockets.</td>
+</tr>
+</tbody>
+</table>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_networking.html'>networking</a>, <a href='tag_netstat.html'>netstat</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="extracting-client-certificates237.html">
 Extracting Client Certificates
 </a></h3>
@@ -305,75 +380,6 @@ avoid seeing those messages. You can do that like this:</p>
 <p><code>find / -name stdlib.h 2&gt;/dev/null</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_find.html'>find</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="git-aliases20780.html">
-Git Aliases
-</a></h3>
-<!-- bashblog_timestamp: #202308171728.22# -->
-<div class="subtitle">August 17, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Once you start developing some experience with using <em>git</em> on
-the command line, you will sometimes find yourself typing some long
-commands over and over again. You can create <em>aliases</em> in
-<em>git</em> that are very similar to the <em>bash alias</em> shortcuts
-you use in the shell.</p>
-<p>Steps to do this are highlighted in chapter 2.7 of the <a
-href="https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases">Git
-Book</a> authored by Scott Chacon and Ben Straub and published by
-Apress.</p>
-<p>One of the commands that I use a lot is:</p>
-<blockquote>
-<p><code>$ git log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local</code><br/></p>
-</blockquote>
-<p>which provides a nice colorized listing of the project’s activity and
-looks something like this:</p>
-<blockquote>
-<p><code>*   2f6cc07 (HEAD -&gt; automation, origin/master, origin/HEAD, master) Updated merge for README.md</code><br/>
-<code>|\</code><br/> <code>| * 84e20c2 Initial commit</code><br/>
-<code>* 8dc456f Completed migration for github site.</code><br/>
-<code>* bf67601 fixed head before sed</code><br/>
-<code>*   89780c3 Merge pull request #124 from thalios1973/feat/pandoc-test-fix</code><br/>
-<code>|\</code><br/>
-<code>| * c9a297c Added additional check that will allow the use of pandoc without the --strict flag or 'hsmarkdown' hack.</code><br/>
-<code>* |   025cf79 Merge pull request #125 from thalios1973/feat/body-end-file</code><br/>
-<code>|\ \</code><br/> <code>| |/</code><br/> <code>|/|</code><br/>
-<code>| * 272b1b6 Added ability to include custom code just before the &lt;/body&gt; tag. body_end_file global config variable added.</code><br/>
-<code>|/</code><br/> <code>* 9f66ad0 README formatting</code><br/>
-<code>* 500253e Support for static, not managed by bashblog html files. Close #92</code><br/>
-<code>* 3c73ef6 Deleted the now defunct Twitter JSON API for share count. Fix #117</code><br/>
-<code>* b5a4590 bump version to 2.8</code><br/>
-<code>* 5c8e0e5 Revert changes in #116</code><br/>
-<code>*   5fc037f Merge branch 'master' of github.com:cfenollosa/bashblog</code><br/>
-<code>|\</code><br/>
-<code>| * c6a9bef Revert tag management from #116</code><br/>
-<code>| * 6222672 Better error message for $EDITOR. Close #112</code><br/>
-<code>| * 36d79b5 support Markdown.pl in bashblog folder. Close #113</code><br/>
-<code>| *   7154c07 Merge pull request #116 from McDutchie/master</code><br/>
-<code>| |\</code><br/>
-<code>| | * f50a17c tags_in_post(): bugfix for non-GNU 'sed'</code><br/>
-<code>| | * 2a29b22 Fix renaming using 'bb.sh edit -n'. Suppress 'which' errmsg.</code><br/>
-<code>| | *   62a26bb Merge remote-tracking branch 'upstream/master' Resolve minor editing 2.6-to-2.7 editing conflict in bb.sh</code><br/>
-<code>| | |\</code><br/>
-<code>| | * | 54cc0c8 More code refactoring. Limit word splitting and disable globbing by default.</code><br/>
-<code>| | * |   d1a84d6 Merge remote-tracking branch 'upstream/master'</code><br/>
-<code>| | |\ \</code><br/>
-<code>| | * | | a674ec5 rebuild_tags(): use array for more robust file handling</code><br/>
-<code>| * | | | 2157b92 Slavic language support, thanks to Tomasz Jadowski</code><br/>
-<code>| | |_|/</code><br/> <code>| |/| |</code><br/></p>
-</blockquote>
-<p>but nicer than this website can depict (for now).</p>
-<p>Rather than typing this long command every time, I just create an
-alias:</p>
-<blockquote>
-<p><code>$ git config --global alias.lola 'log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local'</code><br/></p>
-</blockquote>
-<p>Then all I need to type from now on is:</p>
-<blockquote>
-<p><code>$ git lola</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_aliases.html'>aliases</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

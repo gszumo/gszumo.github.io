@@ -2,9 +2,83 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Fri, 25 Aug 2023 17:20:08 -0400</lastBuildDate>
-<pubDate>Fri, 25 Aug 2023 17:20:08 -0400</pubDate>
+<lastBuildDate>Sat, 26 Aug 2023 16:35:37 -0400</lastBuildDate>
+<pubDate>Sat, 26 Aug 2023 16:35:37 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Netstat
+</title><description><![CDATA[
+<p>My most frequently used <code>netstat</code> command with parameters
+for checking port (active internet) connections is:</p>
+<blockquote>
+<p><code>$ netstat -tulpn</code><br/></p>
+</blockquote>
+<p>You can also pipe the output to <code>grep</code> to filter for
+specific ports or addresses.</p>
+<p>Here is a brief listing of some of the many options:</p>
+<blockquote>
+<p><code>$ netstat [options]</code><br/></p>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Option</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">-a</td>
+<td>Display the state of all sockets, not just the active.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-c</td>
+<td>Continuously display information, updating every second.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">-i</td>
+<td>Include network device statistics.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-n</td>
+<td>Display all network addresses as numbers.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">-o</td>
+<td>Display additional information.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-r</td>
+<td>Display routing tables.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">-t</td>
+<td>Display only the TCP sockets.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-u</td>
+<td>Display only the UDP sockets.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">-v</td>
+<td>Print the netstat version number and exit.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">-w</td>
+<td>List only the raw sockets.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">-x</td>
+<td>Display only the Unix sockets.</td>
+</tr>
+</tbody>
+</table>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_networking.html'>networking</a>, <a href='tag_netstat.html'>netstat</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/netstat6800.html</link>
+<guid>http://www.szumowski.org/./netstat6800.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sat, 26 Aug 2023 16:35:30 -0400</pubDate></item>
 <item><title>
 Extracting Client Certificates
 </title><description><![CDATA[
@@ -409,38 +483,4 @@ not using a <code>Makefile</code>. YMMV.</p>
 <guid>http://www.szumowski.org/./setting-up-git-to-ignore-elf-binaries-cc-output-on-linux.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 16 Aug 2023 17:01:04 -0400</pubDate></item>
-<item><title>
-Processing a List of Files from an Input File
-</title><description><![CDATA[
-<p>Suppose we have a list of files stored in a text file and we want to
-perform an operation on each of them within a bash script. How would we
-go about doing that? Well, there are several options, here are a
-few.</p>
-<blockquote>
-<p><code>$ cat input-files.txt</code><br/> <code>file-1.txt</code><br/>
-<code>file-2.txt</code><br/> <code>file-3.txt</code><br/>
-<code>file-4.txt</code><br/> <code>file-5.txt</code><br/>
-<code>file-6.txt</code><br/> <code>file-7.txt</code><br/>
-<code>file-8.txt</code><br/> <code>file-9.txt</code><br/></p>
-</blockquote>
-<p>Now, if we want to operate on each file in this list we can do
-something like this:</p>
-<blockquote>
-<p><code>while IFS= read -r filename</code><br/> <code>do</code><br/>
-<code>echo "Do something on ${filename} here..."</code><br/>
-<code>done &lt; "input-files.txt"</code><br/></p>
-</blockquote>
-<p>or alternatively,</p>
-<blockquote>
-<p><code>input="input-files.txt"</code><br/>
-<code>while IFS= read -r filename</code><br/> <code>do</code><br/>
-<code>printf '%s\n' "${filename}"</code><br/>
-<code>done &lt; "${input}"</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_shell-scripting.html'>shell-scripting</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/processing-a-list-of-files-from-an-input-file7025.html</link>
-<guid>http://www.szumowski.org/./processing-a-list-of-files-from-an-input-file7025.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Mon, 14 Aug 2023 21:07:27 -0400</pubDate></item>
 </channel></rss>
