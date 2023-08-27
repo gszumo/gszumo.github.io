@@ -2,9 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 26 Aug 2023 16:35:37 -0400</lastBuildDate>
-<pubDate>Sat, 26 Aug 2023 16:35:37 -0400</pubDate>
+<lastBuildDate>Sun, 27 Aug 2023 12:52:23 -0400</lastBuildDate>
+<pubDate>Sun, 27 Aug 2023 12:52:23 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+How to Change the UID or GID for a User or Group
+</title><description><![CDATA[
+<p>Let’s assume we have a user, Jane Doe, with the username of jdoe and
+the <em>UID</em> of 1001 who we need to move to another <em>UID</em>
+(for some reason or another).</p>
+<p>First, change the <em>UID</em> of the user:</p>
+<blockquote>
+<p><code># usermod -u 3001 jdoe</code><br/></p>
+</blockquote>
+<p>Next, use search and change all file’s ownership owned by this
+user:</p>
+<blockquote>
+<p><code># find / -user 1001 -exec chown -h jdoe {} \;</code><br/></p>
+</blockquote>
+<p>What if we need to change the <em>GID</em> of a group? Basically the
+same process can be used. Let’s say we want to change the admins group’s
+<em>GID</em> from 2001 to 4001.</p>
+<p>First, change the <em>GID</em>:</p>
+<blockquote>
+<p><code># groupmod -g 4001 admins</code><br/></p>
+</blockquote>
+<p>Now, use search and change all file’s ownership owned by this
+group:</p>
+<blockquote>
+<p><code># find / -group 2001 -exec chgrp -h admins {} \;</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_sysadmin.html'>sysadmin</a>, <a href='tag_uid.html'>uid</a>, <a href='tag_gid.html'>gid</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/how-to-change-the-uid-or-gid-for-a-user-or-group.html</link>
+<guid>http://www.szumowski.org/./how-to-change-the-uid-or-gid-for-a-user-or-group.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 27 Aug 2023 12:52:05 -0400</pubDate></item>
 <item><title>
 Netstat
 </title><description><![CDATA[
@@ -432,55 +465,4 @@ alias:</p>
 <guid>http://www.szumowski.org/./git-aliases20780.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Thu, 17 Aug 2023 17:28:22 -0400</pubDate></item>
-<item><title>
-Setting Up Git to Ignore ELF Binaries (C/C++ Output on Linux)
-</title><description><![CDATA[
-<p>The starting point for this experiment was from <a
-href="https://stackoverflow.com/questions/5711120/gitignore-binary-files-that-have-no-extension">here</a></p>
-<p><strong>An Example using C Program Source</strong></p>
-<p>Let’s say we have a pre-existing directory of some C source code
-files:</p>
-<blockquote>
-<p><code>$ ls</code><br/>
-<code>Makefile  print  print.c  print.h  print.o</code><br/></p>
-</blockquote>
-<p>And we initialize a new git repository in that directory:</p>
-<blockquote>
-<p><code>$ git init</code><br/>
-<code>Initialized empty Git repository in /home/user/tmp/printer/.git/</code><br/>
-<code></code><br/> <code>$ cat .gitignore</code><br/>
-<code># Ignore all</code><br/> <code>*</code><br/> <code></code><br/>
-<code># Unignore all with extensions</code><br/> <code>!*.*</code><br/>
-<code></code><br/> <code># Unignore all dirs</code><br/>
-<code>!*/</code><br/> <code></code><br/>
-<code># Unignore make files</code><br/> <code>!Makefile</code><br/>
-<code></code><br/> <code># Ignore .o files</code><br/>
-<code>*.o</code><br/> <code></code><br/>
-<code># Ignore</code>bin<code>dir</code><br/> <code>bin/</code><br/>
-<code># or</code><br/> <code>*/bin/*</code><br/></p>
-</blockquote>
-<p>Let’s see how we did:</p>
-<blockquote>
-<p><code>$ git status</code><br/> <code>On branch master</code><br/>
-<code></code><br/> <code>No commits yet</code><br/> <code></code><br/>
-<code>Untracked files:</code><br/>
-<code>(use "git add &lt;file&gt;..." to include in what will be committed)</code><br/>
-<code>.gitignore</code><br/> <code>Makefile</code><br/>
-<code>print.c</code><br/> <code>print.h</code><br/> <code></code><br/>
-<code>nothing added to commit but untracked files present (use "git add" to track)</code><br/></p>
-</blockquote>
-<p>So the <code>print</code> and the <code>print.o</code> files are not
-showing up, which was our initial goal.</p>
-<p>You may have to <em>tweak</em> the settings in the above
-<code>.gitignore</code> file to your own situation, but as you can see
-it is possible to setup <em>git</em> to ignore the ELF binaries output
-by <em>gcc</em>. I would probably also add <code>a.out</code> to the
-list of <em>unignored</em> files just to cover those times when you’re
-not using a <code>Makefile</code>. YMMV.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_git.html'>git</a>, <a href='tag_gcc.html'>gcc</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/setting-up-git-to-ignore-elf-binaries-cc-output-on-linux.html</link>
-<guid>http://www.szumowski.org/./setting-up-git-to-ignore-elf-binaries-cc-output-on-linux.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Wed, 16 Aug 2023 17:01:04 -0400</pubDate></item>
 </channel></rss>

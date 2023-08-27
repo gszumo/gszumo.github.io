@@ -14,6 +14,40 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="how-to-change-the-uid-or-gid-for-a-user-or-group.html">
+How to Change the UID or GID for a User or Group
+</a></h3>
+<!-- bashblog_timestamp: #202308271252.05# -->
+<div class="subtitle">August 27, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Let’s assume we have a user, Jane Doe, with the username of jdoe and
+the <em>UID</em> of 1001 who we need to move to another <em>UID</em>
+(for some reason or another).</p>
+<p>First, change the <em>UID</em> of the user:</p>
+<blockquote>
+<p><code># usermod -u 3001 jdoe</code><br/></p>
+</blockquote>
+<p>Next, use search and change all file’s ownership owned by this
+user:</p>
+<blockquote>
+<p><code># find / -user 1001 -exec chown -h jdoe {} \;</code><br/></p>
+</blockquote>
+<p>What if we need to change the <em>GID</em> of a group? Basically the
+same process can be used. Let’s say we want to change the admins group’s
+<em>GID</em> from 2001 to 4001.</p>
+<p>First, change the <em>GID</em>:</p>
+<blockquote>
+<p><code># groupmod -g 4001 admins</code><br/></p>
+</blockquote>
+<p>Now, use search and change all file’s ownership owned by this
+group:</p>
+<blockquote>
+<p><code># find / -group 2001 -exec chgrp -h admins {} \;</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_sysadmin.html'>sysadmin</a>, <a href='tag_uid.html'>uid</a>, <a href='tag_gid.html'>gid</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="netstat6800.html">
 Netstat
 </a></h3>
