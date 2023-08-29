@@ -14,6 +14,25 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="slackware-kernel-upgrade-elilo24510.html">
+Slackware Kernel Upgrade (elilo)
+</a></h3>
+<!-- bashblog_timestamp: #202308282352.37# -->
+<div class="subtitle">August 28, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you are using <code>elilo</code> with Slackware, after running the
+<code>slackpkg --upgrade-all</code> script and you see that a new kernel
+was installed, you need to run the following commands to move the latest
+kernel to its proper location in order to boot:</p>
+<blockquote>
+<p><code>geninitrd</code><br/>
+<code>cp /boot/vmlinuz-generic /boot/efi/EFI/Slackware/vmlinuz</code><br/>
+<code>cp /boot/initrd.gz /boot/efi/EFI/Slackware/initrd.gz</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="how-to-change-the-uid-or-gid-for-a-user-or-group.html">
 How to Change the UID or GID for a User or Group
 </a></h3>
@@ -337,43 +356,6 @@ the server. You can easily find out this information using the
 <code>OPENSSLDIR: "/etc/pki/tls"</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssl.html'>ssl</a>, <a href='tag_openssl.html'>openssl</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="processing-the-results-of-the-find-command10607.html">
-Processing The Results of The Find Command
-</a></h3>
-<!-- bashblog_timestamp: #202308191318.54# -->
-<div class="subtitle">August 19, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>As mentioned in the previous post, the find command searches for
-files, but it has another very useful feature in that it can also
-perform an action on the files it finds.</p>
-<p>I am a <em>vim</em> user, and let’s assume that I want to find my
-editor’s backup files in the current directory trees. These filesall end
-with a tilda (~) character. We would use this command to search for
-them:</p>
-<blockquote>
-<p><code>$ find . -name '*~'</code><br/> <code>./.buffer.un~</code><br/>
-<code>./.find_buffer.txt.un~</code><br/>
-<code>./.Tips.txt.un~</code><br/></p>
-</blockquote>
-<p>which results in a list of 3 files. All it takes to remove these
-files is to add on a little to the end of the last command:</p>
-<blockquote>
-<p><code>$ find . -name '*~' -exec rm -i '{}' \;</code><br/></p>
-</blockquote>
-<p>Now, not only will this command find all the matching files in the
-current directory tree, but it will also delete them.</p>
-<p>The <code>-exec</code> parameter tells <code>find</code> to
-<em>execute</em> the command that follows it on each result. The string
-<code>{}</code> is replaced by the current file name being processed
-everywhere it occurs in the arguments to the command. The
-<code>{}</code> string is enclosed in single quotes to protect them from
-interpretation as shell script punctuation. The <code>\;</code> sequence
-indicates the end of the <code>-exec</code> argument.</p>
-<p>See the manpage for more information.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_find.html'>find</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
