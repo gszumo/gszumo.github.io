@@ -14,6 +14,62 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="slackbuilds-where-are-they-located.html">
+SlackBuilds: Where Are They Located?
+</a></h3>
+<!-- bashblog_timestamp: #202308291918.32# -->
+<div class="subtitle">August 29, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>You should find a file in <code>/var/log/packages</code> for each
+<em>SlackBuild</em> that you have installed. You can distinguish the
+<em>SlackBuilds</em> package from standard Slackware packages by the
+substring <em>SBo</em> embedded in the filename. So you can create a
+list of all of the <em>SlackBuilds</em> installed on your machine by
+just doing an <code>ls *SBo*</code> in that directory.</p>
+<blockquote>
+<p><code>ls /var/log/packages | grep SBo</code><br/></p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p><code>ls /var/log/packages/*SBo</code><br/></p>
+</blockquote>
+<p>If you plan on reinstalling it may be a good idea to pipe that
+information out to a text file.</p>
+<blockquote>
+<p><code>ls /var/log/packages | grep SBo &gt; SBo_packages.txt</code><br/></p>
+</blockquote>
+<p>If you <code>cat</code> one of those files you will display a text
+file that lists certain information about the package, the location of
+the package and a brief description. For example, the file for
+<em>sigil</em> package starts like this:</p>
+<blockquote>
+<p><code>PACKAGE NAME:     sigil-0.9.12-x86_64-1_SBo</code><br/>
+<code>COMPRESSED PACKAGE SIZE:     7.7M</code><br/>
+<code>UNCOMPRESSED PACKAGE SIZE:     25M</code><br/>
+<code>PACKAGE LOCATION: /tmp/sigil-0.9.12-x86_64-1_SBo.tgz</code><br/>
+<code>PACKAGE DESCRIPTION:</code><br/>
+<code>sigil: sigil (Multi-platform WYSIWYG ebook editor)</code><br/>
+<code>sigil:</code><br/>
+<code>sigil: Sigil is a multi-platform WYSIWYG ebook editor. It is designed to</code><br/>
+<code>sigil: edit books in ePub format.</code><br/>
+<code>sigil:</code><br/>
+<code>sigil: Homepage: https://sigil-ebook.com/</code><br/>
+<code>sigil:</code><br/></p>
+</blockquote>
+<p>It then goes on and displays a <em>file list</em> of all of the files
+contained by the package and where they were installed.</p>
+<p>Armed with the above information, you can the <code>cd</code> to the
+<code>/tmp</code> directory and find the package itself:</p>
+<blockquote>
+<p><code>$ cd /tmp</code><br/>
+<code>$ ls -l sigil-0.9.12-x86_64-1_SBo.tgz</code><br/>
+<code>-rw-r--r-- 1 root root 8070041 May 29 16:24 sigil-0.9.12-x86_64-1_SBo.tgz</code><br/>
+<code>$</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_slackbuilds.html'>slackbuilds</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="slackware-kernel-upgrade-elilo24510.html">
 Slackware Kernel Upgrade (elilo)
 </a></h3>

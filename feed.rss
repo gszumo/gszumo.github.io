@@ -2,9 +2,64 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Mon, 28 Aug 2023 23:52:45 -0400</lastBuildDate>
-<pubDate>Mon, 28 Aug 2023 23:52:45 -0400</pubDate>
+<lastBuildDate>Tue, 29 Aug 2023 19:20:12 -0400</lastBuildDate>
+<pubDate>Tue, 29 Aug 2023 19:20:12 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+SlackBuilds: Where Are They Located?
+</title><description><![CDATA[
+<p>You should find a file in <code>/var/log/packages</code> for each
+<em>SlackBuild</em> that you have installed. You can distinguish the
+<em>SlackBuilds</em> package from standard Slackware packages by the
+substring <em>SBo</em> embedded in the filename. So you can create a
+list of all of the <em>SlackBuilds</em> installed on your machine by
+just doing an <code>ls *SBo*</code> in that directory.</p>
+<blockquote>
+<p><code>ls /var/log/packages | grep SBo</code><br/></p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p><code>ls /var/log/packages/*SBo</code><br/></p>
+</blockquote>
+<p>If you plan on reinstalling it may be a good idea to pipe that
+information out to a text file.</p>
+<blockquote>
+<p><code>ls /var/log/packages | grep SBo &gt; SBo_packages.txt</code><br/></p>
+</blockquote>
+<p>If you <code>cat</code> one of those files you will display a text
+file that lists certain information about the package, the location of
+the package and a brief description. For example, the file for
+<em>sigil</em> package starts like this:</p>
+<blockquote>
+<p><code>PACKAGE NAME:     sigil-0.9.12-x86_64-1_SBo</code><br/>
+<code>COMPRESSED PACKAGE SIZE:     7.7M</code><br/>
+<code>UNCOMPRESSED PACKAGE SIZE:     25M</code><br/>
+<code>PACKAGE LOCATION: /tmp/sigil-0.9.12-x86_64-1_SBo.tgz</code><br/>
+<code>PACKAGE DESCRIPTION:</code><br/>
+<code>sigil: sigil (Multi-platform WYSIWYG ebook editor)</code><br/>
+<code>sigil:</code><br/>
+<code>sigil: Sigil is a multi-platform WYSIWYG ebook editor. It is designed to</code><br/>
+<code>sigil: edit books in ePub format.</code><br/>
+<code>sigil:</code><br/>
+<code>sigil: Homepage: https://sigil-ebook.com/</code><br/>
+<code>sigil:</code><br/></p>
+</blockquote>
+<p>It then goes on and displays a <em>file list</em> of all of the files
+contained by the package and where they were installed.</p>
+<p>Armed with the above information, you can the <code>cd</code> to the
+<code>/tmp</code> directory and find the package itself:</p>
+<blockquote>
+<p><code>$ cd /tmp</code><br/>
+<code>$ ls -l sigil-0.9.12-x86_64-1_SBo.tgz</code><br/>
+<code>-rw-r--r-- 1 root root 8070041 May 29 16:24 sigil-0.9.12-x86_64-1_SBo.tgz</code><br/>
+<code>$</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_slackbuilds.html'>slackbuilds</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/slackbuilds-where-are-they-located.html</link>
+<guid>http://www.szumowski.org/./slackbuilds-where-are-they-located.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Tue, 29 Aug 2023 19:18:32 -0400</pubDate></item>
 <item><title>
 Slackware Kernel Upgrade (elilo)
 </title><description><![CDATA[
@@ -376,43 +431,4 @@ indicates the end of the <code>-exec</code> argument.</p>
 <guid>http://www.szumowski.org/./processing-the-results-of-the-find-command10607.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sat, 19 Aug 2023 13:18:54 -0400</pubDate></item>
-<item><title>
-Using the Find Command to Search for Files
-</title><description><![CDATA[
-<p>One of the most useful and flexible GNU utilities is the
-<em>find</em> command. Understanding how to use this command is very
-important to make you Linux life more efficient.</p>
-<p>The general syntax of the find command is:</p>
-<blockquote>
-<p><code>find [-H] [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [expression]</code><br/></p>
-</blockquote>
-<p>That looks like a lot, but most of the time you may only need 2
-things:</p>
-<blockquote>
-<p><code>find [path] [expression]</code><br/></p>
-</blockquote>
-<p>where the <em>path</em> is a starting point or the top of a directory
-tree to be searched, and <em>expression</em> is a property and value
-pair of what you’re trying to find. This may be a file name, last access
-time, last modification time, size, and/or ownership.</p>
-<p>For example, if you’re looking for the file stdlib.h, use the
-following command:</p>
-<blockquote>
-<p><code>find / -name stdlib.h</code><br/></p>
-</blockquote>
-<p>If you run this as a <em>normal</em> user, using <em>find</em> from
-the <em>root</em> directory will often result in a lot of error messages
-being output to the terminal because the <em>normal</em> user doesn’t
-have access to view some of the directories in the search. Therefore you
-may want to pipe the <em>stderr</em> output to <code>/dev/null</code> to
-avoid seeing those messages. You can do that like this:</p>
-<blockquote>
-<p><code>find / -name stdlib.h 2&gt;/dev/null</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_find.html'>find</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/using-the-find-command-to-search-for-files28509.html</link>
-<guid>http://www.szumowski.org/./using-the-find-command-to-search-for-files28509.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Fri, 18 Aug 2023 17:04:01 -0400</pubDate></item>
 </channel></rss>
