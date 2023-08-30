@@ -2,9 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 29 Aug 2023 19:20:12 -0400</lastBuildDate>
-<pubDate>Tue, 29 Aug 2023 19:20:12 -0400</pubDate>
+<lastBuildDate>Wed, 30 Aug 2023 19:51:28 -0400</lastBuildDate>
+<pubDate>Wed, 30 Aug 2023 19:51:28 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Install Joplin on Slackware 15.0
+</title><description><![CDATA[
+<p>On a recent episode of <a
+href="https://hackerpublicradio.org/eps/hpr3929/index.html">Hacker
+Public Radio</a>, the host, <a
+href="https://hackerpublicradio.org/correspondents/0403.html">Lee</a>
+listed several note-taking apps that he had tried to use. One of them
+was <a href="https://joplinapp.org/">Joplin</a> which I have been using
+for several years now. I feel that it is probably one of the best
+note-taking apps available that:</p>
+<ul>
+<li>Supports Markdown</li>
+<li>Is cross-platform</li>
+<li>Supports vim keyboard mappings (I can’t live without this)</li>
+<li>Integrates with multiple cloud storage environments.</li>
+</ul>
+<p>I use it on a daily basis for almost all of my notes but it also
+supports checklists on my iPhone, iPad, Windoze laptop, and all of my
+Slackware devices (desktop and laptops). Give it a try!</p>
+<p>As of yet, it is not available as a SlackBuild, but you can install
+it on Slackware quite easily using the CLI with:</p>
+<blockquote>
+<p><code>$ wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash</code><br/></p>
+</blockquote>
+<p>Have fun!</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_joplin.html'>joplin</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_note-apps.html'>note-apps</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/install-joplin-on-slackware-150.html</link>
+<guid>http://www.szumowski.org/./install-joplin-on-slackware-150.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Wed, 30 Aug 2023 19:51:21 -0400</pubDate></item>
 <item><title>
 SlackBuilds: Where Are They Located?
 </title><description><![CDATA[
@@ -395,40 +427,4 @@ the server. You can easily find out this information using the
 <guid>http://www.szumowski.org/./finding-the-ssl-directory-on-a-server32368.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Mon, 21 Aug 2023 19:17:05 -0400</pubDate></item>
-<item><title>
-Processing The Results of The Find Command
-</title><description><![CDATA[
-<p>As mentioned in the previous post, the find command searches for
-files, but it has another very useful feature in that it can also
-perform an action on the files it finds.</p>
-<p>I am a <em>vim</em> user, and let’s assume that I want to find my
-editor’s backup files in the current directory trees. These filesall end
-with a tilda (~) character. We would use this command to search for
-them:</p>
-<blockquote>
-<p><code>$ find . -name '*~'</code><br/> <code>./.buffer.un~</code><br/>
-<code>./.find_buffer.txt.un~</code><br/>
-<code>./.Tips.txt.un~</code><br/></p>
-</blockquote>
-<p>which results in a list of 3 files. All it takes to remove these
-files is to add on a little to the end of the last command:</p>
-<blockquote>
-<p><code>$ find . -name '*~' -exec rm -i '{}' \;</code><br/></p>
-</blockquote>
-<p>Now, not only will this command find all the matching files in the
-current directory tree, but it will also delete them.</p>
-<p>The <code>-exec</code> parameter tells <code>find</code> to
-<em>execute</em> the command that follows it on each result. The string
-<code>{}</code> is replaced by the current file name being processed
-everywhere it occurs in the arguments to the command. The
-<code>{}</code> string is enclosed in single quotes to protect them from
-interpretation as shell script punctuation. The <code>\;</code> sequence
-indicates the end of the <code>-exec</code> argument.</p>
-<p>See the manpage for more information.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_find.html'>find</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/processing-the-results-of-the-find-command10607.html</link>
-<guid>http://www.szumowski.org/./processing-the-results-of-the-find-command10607.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sat, 19 Aug 2023 13:18:54 -0400</pubDate></item>
 </channel></rss>
