@@ -2,9 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Wed, 30 Aug 2023 19:51:28 -0400</lastBuildDate>
-<pubDate>Wed, 30 Aug 2023 19:51:28 -0400</pubDate>
+<lastBuildDate>Thu, 31 Aug 2023 17:18:54 -0400</lastBuildDate>
+<pubDate>Thu, 31 Aug 2023 17:18:54 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Mounting a Remote Drive using FUSE
+</title><description><![CDATA[
+<p>If you have <em>FUSE</em> (Filessystem in Userspace) installed, you
+can use <em>SSH</em> to mount a remote drive locally. This is very
+simple to do and you don’t need to be <em>root</em>. You just need
+<em>SSH</em> access to the remote system. Just create a directory to
+mount the system and use the <code>sshfs</code> command to connect the
+remote to it.</p>
+<p>Here I will mount my home directory on my remote server named
+<em>slacker</em> locally to a directory on my laptop’s home
+directory:</p>
+<pre><code>$ cd ~
+$ mkdir slacker
+$ sshfs user@192.168.1.99:/home/user/ slacker
+$ cd slacker/
+$ ls
+Backups       KVM       Public       bin       iso           public_html
+Calibre\ Library  Music     PycharmProjects  cv_debug.log  logs          tmp
+Desktop       OneDrive  README.txt       file.txt      lynis-report.dat
+Documents     Pictures  Templates        fortune.txt   lynis.log
+Downloads     Podcasts  Videos       go        pCloudDrive</code></pre>
+<p>The above is a listing of my home directory on the remote.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_fuse.html'>fuse</a>, <a href='tag_sshfs.html'>sshfs</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/mounting-a-remote-drive-using-fuse15177.html</link>
+<guid>http://www.szumowski.org/./mounting-a-remote-drive-using-fuse15177.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Thu, 31 Aug 2023 17:18:46 -0400</pubDate></item>
 <item><title>
 Install Joplin on Slackware 15.0
 </title><description><![CDATA[
@@ -410,21 +439,4 @@ the same password that you input above:</p>
 <guid>http://www.szumowski.org/./encrypting-files-using-openssl23222.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 22 Aug 2023 19:18:26 -0400</pubDate></item>
-<item><title>
-Finding the SSL Directory on a Server
-</title><description><![CDATA[
-<p>I’ve had situations where I was configuring a secure connection to an
-application and needed to know where the SSL certificates are stored on
-the server. You can easily find out this information using the
-<code>openssl</code> and <code>grep</code> commands:</p>
-<blockquote>
-<p><code>$ openssl version -a | grep OPENSSLDIR</code><br/>
-<code>OPENSSLDIR: "/etc/pki/tls"</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ssl.html'>ssl</a>, <a href='tag_openssl.html'>openssl</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/finding-the-ssl-directory-on-a-server32368.html</link>
-<guid>http://www.szumowski.org/./finding-the-ssl-directory-on-a-server32368.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Mon, 21 Aug 2023 19:17:05 -0400</pubDate></item>
 </channel></rss>

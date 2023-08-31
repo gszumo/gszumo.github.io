@@ -14,6 +14,36 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="mounting-a-remote-drive-using-fuse15177.html">
+Mounting a Remote Drive using FUSE
+</a></h3>
+<!-- bashblog_timestamp: #202308311718.46# -->
+<div class="subtitle">August 31, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you have <em>FUSE</em> (Filessystem in Userspace) installed, you
+can use <em>SSH</em> to mount a remote drive locally. This is very
+simple to do and you don’t need to be <em>root</em>. You just need
+<em>SSH</em> access to the remote system. Just create a directory to
+mount the system and use the <code>sshfs</code> command to connect the
+remote to it.</p>
+<p>Here I will mount my home directory on my remote server named
+<em>slacker</em> locally to a directory on my laptop’s home
+directory:</p>
+<pre><code>$ cd ~
+$ mkdir slacker
+$ sshfs user@192.168.1.99:/home/user/ slacker
+$ cd slacker/
+$ ls
+Backups       KVM       Public       bin       iso           public_html
+Calibre\ Library  Music     PycharmProjects  cv_debug.log  logs          tmp
+Desktop       OneDrive  README.txt       file.txt      lynis-report.dat
+Documents     Pictures  Templates        fortune.txt   lynis.log
+Downloads     Podcasts  Videos       go        pCloudDrive</code></pre>
+<p>The above is a listing of my home directory on the remote.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_fuse.html'>fuse</a>, <a href='tag_sshfs.html'>sshfs</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="install-joplin-on-slackware-150.html">
 Install Joplin on Slackware 15.0
 </a></h3>
@@ -358,43 +388,6 @@ that reference the current year:</p>
 <code>/usr/share/zoneinfo/America/New_York  Sun Nov  5 06:00:00 2023 UT = Sun Nov  5 01:00:00 2023 EST isdst=0 gmtoff=-18000</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_zdump.html'>zdump</a>, <a href='tag_timezones.html'>timezones</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="logging-to-the-system-logger-in-bash17599.html">
-Logging to the System Logger in Bash
-</a></h3>
-<!-- bashblog_timestamp: #202308231801.59# -->
-<div class="subtitle">August 23, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>If you are writing a shell script and want any messages to appear in
-the system logger you can just use the <code>logger</code> command to do
-this.</p>
-<p>Here is an example on my Slackware system:</p>
-<blockquote>
-<p><code>$ logger -t TEST "This is a test message"</code><br/>
-<code>$ cat /var/log/messages</code><br/>
-<code>cat: /var/log/messages: Permission denied</code><br/>
-<code>$ su -</code><br/> <code>Password:</code><br/>
-<code># cat /var/log/messages</code><br/>
-<code>Aug 23 17:44:47 slackbook TEST: This is a test message</code><br/></p>
-</blockquote>
-<p>You can also log to <em>systemd</em> by providing a parameter to
-<em>logger</em>:</p>
-<blockquote>
-<p><code>logger --journald &lt;&lt;end</code><br/>
-<code>MESSAGE_ID=67feb6ffbaf24c5cbec13c008dd72309</code><br/>
-<code>MESSAGE=The dogs bark, but the caravan goes on.</code><br/>
-<code>DOGS=bark</code><br/> <code>CARAVAN=goes on</code><br/>
-<code>end</code><br/></p>
-</blockquote>
-<p>or you can optionally provide a file whose contents will be
-logged:</p>
-<blockquote>
-<p><code>logger --journald=entry.txt</code><br/></p>
-</blockquote>
-<p>See the <em>logger</em> manpage for additional information.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_logging.html'>logging</a>, <a href='tag_systemd.html'>systemd</a>, <a href='tag_logger.html'>logger</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
