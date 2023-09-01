@@ -14,6 +14,30 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="linkers20614.html">
+Linkers
+</a></h3>
+<!-- bashblog_timestamp: #202309011823.34# -->
+<div class="subtitle">September 01, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If you’re a developer who is interested in “how the sausage is made”
+then you might want to check out Ian Lance Taylor’s <a
+href="https://www.airs.com/blog/feed">blog</a> which contains a series
+of articles discussed on Klaatu’s GNU World Order <a
+href="https://gnuworldorder.info/audiophile/gnuWorldOrder_400.ogg">Episode
+400</a> about the <a
+href="https://www.airs.com/blog/archives/date/2007/08">linker</a></p>
+<p>Here are the links to the articles:</p>
+<p><a href="https://www.airs.com/blog/archives/38">Linkers part 1</a> <a
+href="https://www.airs.com/blog/archives/39">Linkers part 2</a> <a
+href="https://www.airs.com/blog/archives/40">Linkers part 3</a> <a
+href="https://www.airs.com/blog/archives/41">Linkers part 4</a> <a
+href="https://www.airs.com/blog/archives/42">Linkers part 5</a> <a
+href="https://www.airs.com/blog/archives/43">Linkers part 6</a></p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_linkers.html'>linkers</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_compiling.html'>compiling</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="mounting-a-remote-drive-using-fuse15177.html">
 Mounting a Remote Drive using FUSE
 </a></h3>
@@ -356,38 +380,6 @@ the following output:</p>
 <code>-----END CERTIFICATE-----</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_certificates.html'>certificates</a>, <a href='tag_openssl.html'>openssl</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="use-the-zdump-command-to-check-daylight-savings-time-settings.html">
-Use the zdump Command to Check Daylight Savings Time Settings
-</a></h3>
-<!-- bashblog_timestamp: #202308241824.59# -->
-<div class="subtitle">August 24, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>If you are one of us <em>lucky</em> folks who live in timezones that
-observe <em>Daylight Savings Time</em>, you can use the
-<code>zdump</code> timezone dumper command to view your server’s
-settings for same. This command prints the current time in each timezone
-provided on the command line.</p>
-<p>You can use <code>grep</code> to reduce the output to just the lines
-that reference the current year:</p>
-<blockquote>
-<p><code>$ zdump -v EST5EDT |grep '2023'</code><br/>
-<code>EST5EDT  Sun Mar 12 06:59:59 2023 UT = Sun Mar 12 01:59:59 2023 EST isdst=0 gmtoff=-18000</code><br/>
-<code>EST5EDT  Sun Mar 12 07:00:00 2023 UT = Sun Mar 12 03:00:00 2023 EDT isdst=1 gmtoff=-14400</code><br/>
-<code>EST5EDT  Sun Nov  5 05:59:59 2023 UT = Sun Nov  5 01:59:59 2023 EDT isdst=1 gmtoff=-14400</code><br/>
-<code>EST5EDT  Sun Nov  5 06:00:00 2023 UT = Sun Nov  5 01:00:00 2023 EST isdst=0 gmtoff=-18000</code><br/></p>
-</blockquote>
-<p>You can also run the same command by location:</p>
-<blockquote>
-<p><code>$ zdump -v /usr/share/zoneinfo/America/New_York|grep '2023'</code><br/>
-<code>/usr/share/zoneinfo/America/New_York  Sun Mar 12 06:59:59 2023 UT = Sun Mar 12 01:59:59 2023 EST isdst=0 gmtoff=-18000</code><br/>
-<code>/usr/share/zoneinfo/America/New_York  Sun Mar 12 07:00:00 2023 UT = Sun Mar 12 03:00:00 2023 EDT isdst=1 gmtoff=-14400</code><br/>
-<code>/usr/share/zoneinfo/America/New_York  Sun Nov  5 05:59:59 2023 UT = Sun Nov  5 01:59:59 2023 EDT isdst=1 gmtoff=-14400</code><br/>
-<code>/usr/share/zoneinfo/America/New_York  Sun Nov  5 06:00:00 2023 UT = Sun Nov  5 01:00:00 2023 EST isdst=0 gmtoff=-18000</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_zdump.html'>zdump</a>, <a href='tag_timezones.html'>timezones</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
