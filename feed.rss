@@ -2,9 +2,77 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Fri, 01 Sep 2023 18:23:42 -0400</lastBuildDate>
-<pubDate>Fri, 01 Sep 2023 18:23:42 -0400</pubDate>
+<lastBuildDate>Sat, 02 Sep 2023 18:36:54 -0400</lastBuildDate>
+<pubDate>Sat, 02 Sep 2023 18:36:54 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Vim Keyboard Shortcuts
+</title><description><![CDATA[
+<ol type="1">
+<li><code>gg</code> Move to the first line of the file</li>
+<li><code>G</code> Move to the last line</li>
+<li><code>gg=G</code> Reindent the whole file</li>
+<li><code>gv</code> Reselect the last visual selection</li>
+<li><code>&lt;</code> Jump to beginning of last visual selection</li>
+<li><code>&gt;</code> Jump to end of last visual selection</li>
+<li><code>^</code> Move to first non-blank character of the line</li>
+<li><code>g_</code> Move the last non-blank character of the line (but
+you remove trailing whitespace, right)</li>
+<li><code>g_lD</code> Delete all the trailing whitespace on the
+line</li>
+<li><code>ea</code> Append to the end of the current word</li>
+<li><code>gf</code> Jump to the file name under the cursor</li>
+<li><code>xp</code> Swap character forward</li>
+<li><code>Xp</code> Swap character backward</li>
+<li><code>yyp</code> Duplicate the current line</li>
+<li><code>yapP</code> Duplicate the current paragraph</li>
+<li><code>dat</code> Delete around an HTML tag, including the tag</li>
+<li><code>dit</code> Delete inside an HTML tag, excluding the tag</li>
+<li><code>w</code> Move one word to the right</li>
+<li><code>b</code> Move one word to the left</li>
+<li><code>dd</code> Delete the current line</li>
+<li><code>zc</code> Close current fold</li>
+<li><code>zo</code> Open current fold</li>
+<li><code>za</code> Toggle current fold</li>
+<li><code>zi</code> Toggle folding entirely</li>
+<li><code>&lt;&lt;</code> Outdent current line</li>
+<li><code>&gt;&gt;</code> Indent current line</li>
+<li><code>z=</code> Show spelling corrections</li>
+<li><code>zg</code> Add to spelling dictionary</li>
+<li><code>zw</code> Remove from spelling dictionary</li>
+<li><code>~</code> Toggle case of current character</li>
+<li><code>gUw</code> Uppercase until end of word (u for lower, ~ to
+toggle)</li>
+<li><code>gUiw</code> Uppercase entire word (u for lower, ~ to
+toggle)</li>
+<li><code>gUU</code> Uppercase entire line</li>
+<li><code>gu$</code> Lowercase until the end of the line</li>
+<li><code>da"</code> Delete the next double-quoted string</li>
+<li><code>+</code> Move to the first non-whitespace character of the
+next line</li>
+<li><code>S</code> Delete current line and go into insert mode</li>
+<li><code>I</code> insert at the beginning of the line</li>
+<li><code>ci"</code> Change what’s inside the next double-quoted
+string</li>
+<li><code>ca{</code> Change inside the curly braces (try [, (,
+etc.)</li>
+<li><code>vaw</code> Visually select word</li>
+<li><code>dap</code> Delete the whole paragraph</li>
+<li><code>r</code> Replace a character</li>
+<li><code>[</code> Jump to beginning of last yanked text</li>
+<li><code>]</code> Jump to end of last yanked text</li>
+<li><code>g;</code> Jump to the last change you made</li>
+<li><code>g,</code> Jump back forward through the change list</li>
+<li><code>&amp;</code> Repeat last substitution on current line</li>
+<li><code>g&amp;</code> Repeat last substitution on all lines</li>
+<li><code>ZZ</code> Save the current file and quit Vim</li>
+</ol>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_cheatsheet.html'>cheatsheet</a>, <a href='tag_shortcuts.html'>shortcuts</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/vim-keyboard-shortcuts7928.html</link>
+<guid>http://www.szumowski.org/./vim-keyboard-shortcuts7928.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sat, 02 Sep 2023 18:36:46 -0400</pubDate></item>
 <item><title>
 Linkers
 </title><description><![CDATA[
@@ -395,40 +463,4 @@ that reference the current year:</p>
 <guid>http://www.szumowski.org/./use-the-zdump-command-to-check-daylight-savings-time-settings.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Thu, 24 Aug 2023 18:24:59 -0400</pubDate></item>
-<item><title>
-Logging to the System Logger in Bash
-</title><description><![CDATA[
-<p>If you are writing a shell script and want any messages to appear in
-the system logger you can just use the <code>logger</code> command to do
-this.</p>
-<p>Here is an example on my Slackware system:</p>
-<blockquote>
-<p><code>$ logger -t TEST "This is a test message"</code><br/>
-<code>$ cat /var/log/messages</code><br/>
-<code>cat: /var/log/messages: Permission denied</code><br/>
-<code>$ su -</code><br/> <code>Password:</code><br/>
-<code># cat /var/log/messages</code><br/>
-<code>Aug 23 17:44:47 slackbook TEST: This is a test message</code><br/></p>
-</blockquote>
-<p>You can also log to <em>systemd</em> by providing a parameter to
-<em>logger</em>:</p>
-<blockquote>
-<p><code>logger --journald &lt;&lt;end</code><br/>
-<code>MESSAGE_ID=67feb6ffbaf24c5cbec13c008dd72309</code><br/>
-<code>MESSAGE=The dogs bark, but the caravan goes on.</code><br/>
-<code>DOGS=bark</code><br/> <code>CARAVAN=goes on</code><br/>
-<code>end</code><br/></p>
-</blockquote>
-<p>or you can optionally provide a file whose contents will be
-logged:</p>
-<blockquote>
-<p><code>logger --journald=entry.txt</code><br/></p>
-</blockquote>
-<p>See the <em>logger</em> manpage for additional information.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_logging.html'>logging</a>, <a href='tag_systemd.html'>systemd</a>, <a href='tag_logger.html'>logger</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/logging-to-the-system-logger-in-bash17599.html</link>
-<guid>http://www.szumowski.org/./logging-to-the-system-logger-in-bash17599.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Wed, 23 Aug 2023 18:01:59 -0400</pubDate></item>
 </channel></rss>
