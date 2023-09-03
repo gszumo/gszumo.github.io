@@ -14,6 +14,68 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="install-epson-et-3850-printer-driver-on-slackware-150.html">
+Install Epson ET-3850 Printer Driver on Slackware 15.0
+</a></h3>
+<!-- bashblog_timestamp: #202309031120.00# -->
+<div class="subtitle">September 03, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>I recently bought an <em>Epson ET-3850</em> printer from
+<em>Costco</em> to replace my <em>HP OfficeJet</em> which was about 10
+years old and the family was starting to have issues with establishing a
+wi-fi connection to it on their Windoze laptops. It took quite a while
+to setup. The <em>Epson</em> seems to be doing the job. Time will tell,
+however I discovered that setting it up for <em>Slackware</em> would
+also take a bit of effort. Drivers are only available on the
+<em>Epson</em> website in <em>RPM</em> or <em>DEB</em> format so I had
+to create a <em>Slackware</em> package to install it. Here’s how I went
+about doing that.</p>
+<ol type="1">
+<li>First, download the <em>RPM</em> package from the <a
+href="https://epson.com/Support/wa00821">Epson Support website</a>.</li>
+<li>Convert the <em>RPM</em> to a <em>Slackware</em> <code>.txz</code>
+package using the <code>rpm2txz</code> utility with the following
+options:</li>
+</ol>
+<ul>
+<li><code>-c</code>: to make sure the file permissions are set
+correctly</li>
+<li><code>-S</code>: to extract the install scripts from the
+<em>RPM</em> (be careful with this)</li>
+<li><code>-n</code>: name the package using standard <em>Slackware</em>
+format</li>
+<li><code>-d</code>: make a <em>slack-desc</em> from the <em>RPM</em>’s
+metadata</li>
+</ul>
+<blockquote>
+<p><code># rpm2txz -c -S -n -d epson-inkjet-printer-escpr2-1.2.4-1.x86_64.rpm</code><br/></p>
+</blockquote>
+<ol start="3" type="1">
+<li>Now review the script. Make any changes, if necessary (I didn’t need
+to), and update the converted package:</li>
+</ol>
+<blockquote>
+<p><code># mkdir temp &amp;&amp; cd temp</code><br/>
+<code># explodepkg ../epson-inkjet-printer-escpr2-1.2.4-x86_64-1.txz</code><br/>
+<code># makepkg -l y -c y ../epson-inkjet-printer-escpr2-1.2.4-x86_64-1.txz</code><br/></p>
+</blockquote>
+<ol start="4" type="1">
+<li>Once that is done you can install it:</li>
+</ol>
+<blockquote>
+<p><code># cd ..</code><br/>
+<code># installpkg epson-inkjet-printer-escpr2-1.2.4-x86_64-1.txz</code><br/></p>
+</blockquote>
+<p>The printer did not show up as available to install in the
+“<em>System Settings</em>” app so go to the local <em>CUPS</em> webpage
+at <a href="http://localhost:631">http://localhost:631</a> and do the
+setup from there. Print a few test pages. It seems to be working fine on
+my <em>Slackware</em> laptop. You can move the package to your other
+<em>Slackware</em> machines and install there too.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_printers.html'>printers</a>, <a href='tag_epson.html'>epson</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="vim-keyboard-shortcuts7928.html">
 Vim Keyboard Shortcuts
 </a></h3>
@@ -278,81 +340,6 @@ group:</p>
 <p><code># find / -group 2001 -exec chgrp -h admins {} \;</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_sysadmin.html'>sysadmin</a>, <a href='tag_uid.html'>uid</a>, <a href='tag_gid.html'>gid</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="netstat6800.html">
-Netstat
-</a></h3>
-<!-- bashblog_timestamp: #202308261635.30# -->
-<div class="subtitle">August 26, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>My most frequently used <code>netstat</code> command with parameters
-for checking port (active internet) connections is:</p>
-<blockquote>
-<p><code>$ netstat -tulpn</code><br/></p>
-</blockquote>
-<p>You can also pipe the output to <code>grep</code> to filter for
-specific ports or addresses.</p>
-<p>Here is a brief listing of some of the many options:</p>
-<blockquote>
-<p><code>$ netstat [options]</code><br/></p>
-</blockquote>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Option</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">-a</td>
-<td>Display the state of all sockets, not just the active.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">-c</td>
-<td>Continuously display information, updating every second.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">-i</td>
-<td>Include network device statistics.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">-n</td>
-<td>Display all network addresses as numbers.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">-o</td>
-<td>Display additional information.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">-r</td>
-<td>Display routing tables.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">-t</td>
-<td>Display only the TCP sockets.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">-u</td>
-<td>Display only the UDP sockets.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">-v</td>
-<td>Print the netstat version number and exit.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">-w</td>
-<td>List only the raw sockets.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">-x</td>
-<td>Display only the Unix sockets.</td>
-</tr>
-</tbody>
-</table>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_networking.html'>networking</a>, <a href='tag_netstat.html'>netstat</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

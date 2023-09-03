@@ -2,9 +2,70 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 02 Sep 2023 18:36:54 -0400</lastBuildDate>
-<pubDate>Sat, 02 Sep 2023 18:36:54 -0400</pubDate>
+<lastBuildDate>Sun, 03 Sep 2023 11:22:52 -0400</lastBuildDate>
+<pubDate>Sun, 03 Sep 2023 11:22:52 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Install Epson ET-3850 Printer Driver on Slackware 15.0
+</title><description><![CDATA[
+<p>I recently bought an <em>Epson ET-3850</em> printer from
+<em>Costco</em> to replace my <em>HP OfficeJet</em> which was about 10
+years old and the family was starting to have issues with establishing a
+wi-fi connection to it on their Windoze laptops. It took quite a while
+to setup. The <em>Epson</em> seems to be doing the job. Time will tell,
+however I discovered that setting it up for <em>Slackware</em> would
+also take a bit of effort. Drivers are only available on the
+<em>Epson</em> website in <em>RPM</em> or <em>DEB</em> format so I had
+to create a <em>Slackware</em> package to install it. Here’s how I went
+about doing that.</p>
+<ol type="1">
+<li>First, download the <em>RPM</em> package from the <a
+href="https://epson.com/Support/wa00821">Epson Support website</a>.</li>
+<li>Convert the <em>RPM</em> to a <em>Slackware</em> <code>.txz</code>
+package using the <code>rpm2txz</code> utility with the following
+options:</li>
+</ol>
+<ul>
+<li><code>-c</code>: to make sure the file permissions are set
+correctly</li>
+<li><code>-S</code>: to extract the install scripts from the
+<em>RPM</em> (be careful with this)</li>
+<li><code>-n</code>: name the package using standard <em>Slackware</em>
+format</li>
+<li><code>-d</code>: make a <em>slack-desc</em> from the <em>RPM</em>’s
+metadata</li>
+</ul>
+<blockquote>
+<p><code># rpm2txz -c -S -n -d epson-inkjet-printer-escpr2-1.2.4-1.x86_64.rpm</code><br/></p>
+</blockquote>
+<ol start="3" type="1">
+<li>Now review the script. Make any changes, if necessary (I didn’t need
+to), and update the converted package:</li>
+</ol>
+<blockquote>
+<p><code># mkdir temp &amp;&amp; cd temp</code><br/>
+<code># explodepkg ../epson-inkjet-printer-escpr2-1.2.4-x86_64-1.txz</code><br/>
+<code># makepkg -l y -c y ../epson-inkjet-printer-escpr2-1.2.4-x86_64-1.txz</code><br/></p>
+</blockquote>
+<ol start="4" type="1">
+<li>Once that is done you can install it:</li>
+</ol>
+<blockquote>
+<p><code># cd ..</code><br/>
+<code># installpkg epson-inkjet-printer-escpr2-1.2.4-x86_64-1.txz</code><br/></p>
+</blockquote>
+<p>The printer did not show up as available to install in the
+“<em>System Settings</em>” app so go to the local <em>CUPS</em> webpage
+at <a href="http://localhost:631">http://localhost:631</a> and do the
+setup from there. Print a few test pages. It seems to be working fine on
+my <em>Slackware</em> laptop. You can move the package to your other
+<em>Slackware</em> machines and install there too.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_printers.html'>printers</a>, <a href='tag_epson.html'>epson</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/install-epson-et-3850-printer-driver-on-slackware-150.html</link>
+<guid>http://www.szumowski.org/./install-epson-et-3850-printer-driver-on-slackware-150.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 03 Sep 2023 11:20:00 -0400</pubDate></item>
 <item><title>
 Vim Keyboard Shortcuts
 </title><description><![CDATA[
@@ -432,35 +493,4 @@ the following output:</p>
 <guid>http://www.szumowski.org/./extracting-client-certificates237.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Fri, 25 Aug 2023 17:20:00 -0400</pubDate></item>
-<item><title>
-Use the zdump Command to Check Daylight Savings Time Settings
-</title><description><![CDATA[
-<p>If you are one of us <em>lucky</em> folks who live in timezones that
-observe <em>Daylight Savings Time</em>, you can use the
-<code>zdump</code> timezone dumper command to view your server’s
-settings for same. This command prints the current time in each timezone
-provided on the command line.</p>
-<p>You can use <code>grep</code> to reduce the output to just the lines
-that reference the current year:</p>
-<blockquote>
-<p><code>$ zdump -v EST5EDT |grep '2023'</code><br/>
-<code>EST5EDT  Sun Mar 12 06:59:59 2023 UT = Sun Mar 12 01:59:59 2023 EST isdst=0 gmtoff=-18000</code><br/>
-<code>EST5EDT  Sun Mar 12 07:00:00 2023 UT = Sun Mar 12 03:00:00 2023 EDT isdst=1 gmtoff=-14400</code><br/>
-<code>EST5EDT  Sun Nov  5 05:59:59 2023 UT = Sun Nov  5 01:59:59 2023 EDT isdst=1 gmtoff=-14400</code><br/>
-<code>EST5EDT  Sun Nov  5 06:00:00 2023 UT = Sun Nov  5 01:00:00 2023 EST isdst=0 gmtoff=-18000</code><br/></p>
-</blockquote>
-<p>You can also run the same command by location:</p>
-<blockquote>
-<p><code>$ zdump -v /usr/share/zoneinfo/America/New_York|grep '2023'</code><br/>
-<code>/usr/share/zoneinfo/America/New_York  Sun Mar 12 06:59:59 2023 UT = Sun Mar 12 01:59:59 2023 EST isdst=0 gmtoff=-18000</code><br/>
-<code>/usr/share/zoneinfo/America/New_York  Sun Mar 12 07:00:00 2023 UT = Sun Mar 12 03:00:00 2023 EDT isdst=1 gmtoff=-14400</code><br/>
-<code>/usr/share/zoneinfo/America/New_York  Sun Nov  5 05:59:59 2023 UT = Sun Nov  5 01:59:59 2023 EDT isdst=1 gmtoff=-14400</code><br/>
-<code>/usr/share/zoneinfo/America/New_York  Sun Nov  5 06:00:00 2023 UT = Sun Nov  5 01:00:00 2023 EST isdst=0 gmtoff=-18000</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_zdump.html'>zdump</a>, <a href='tag_timezones.html'>timezones</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/use-the-zdump-command-to-check-daylight-savings-time-settings.html</link>
-<guid>http://www.szumowski.org/./use-the-zdump-command-to-check-daylight-savings-time-settings.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Thu, 24 Aug 2023 18:24:59 -0400</pubDate></item>
 </channel></rss>
