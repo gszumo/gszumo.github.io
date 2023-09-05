@@ -14,6 +14,36 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="install-spotify-using-flatpak-using-command-line.html">
+Install Spotify using Flatpak using Command Line
+</a></h3>
+<!-- bashblog_timestamp: #202309051633.17# -->
+<div class="subtitle">September 05, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>If <em>Flatpak</em> is not installed, then install it:</p>
+<blockquote>
+<p><code>$ sudo dnf install -y flatpak   # Fedora</code><br/>
+<code>$ sudo apt install flatpak      # Ubuntu-based</code><br/>
+<code>$ sudo zypper install flatpak   # SUSE</code><br/>
+<code>$ sudo pacman -S flatpak        # Arch-based</code><br/></p>
+</blockquote>
+<p>Since <em>flathub.org</em> is the most popular flatpak repository we
+will use the command line to enable it:</p>
+<blockquote>
+<p><code>$ flatpak remote-add --if-not-exists flathub \</code><br/>
+<code>https://flathub.org/repo/flathub.flatpakrepo</code><br/></p>
+</blockquote>
+<p>Go to the <a
+href="https://flathub.org/apps/details/com.spotify.Client">Spotify page
+on Flathub</a> and choose “Install”, or run the installation from the
+command line:</p>
+<blockquote>
+<p><code>$ sudo flatpak install flathub com.spotify.Client</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_flatpak.html'>flatpak</a>, <a href='tag_spotify.html'>spotify</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="how-to-reveal-dot-files-in-finder29256.html">
 How to reveal dot files in finder?
 </a></h3>
