@@ -2,9 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 05 Sep 2023 16:35:30 -0400</lastBuildDate>
-<pubDate>Tue, 05 Sep 2023 16:35:30 -0400</pubDate>
+<lastBuildDate>Wed, 06 Sep 2023 17:10:43 -0400</lastBuildDate>
+<pubDate>Wed, 06 Sep 2023 17:10:43 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+How to Clean Up the Fedora Root Folder
+</title><description><![CDATA[
+<p>OK, so you’re running <em>Fedora</em> and you’re getting warnings
+that you’re running out of disk space on the <em>root</em> folder. What
+are your options?</p>
+<p>The first thing to consider is <em>resizing</em> the root partition
+size. For that you can find instructions <a
+href="https://gist.github.com/181192/cf7eb42a25538ccdb8d0bb7dd57cf236">here</a></p>
+<p>If that is not an option, then the next thing you probably should do
+is find out which folders/directories are causing the issue. You can use
+the <code>du</code> command and some piping to figure this out:</p>
+<p><strong>Search the largest folders</strong></p>
+<blockquote>
+<p><code>$ sudo du --exclude="/home" -x -h -a / | sort -r -h | head -30</code><br/></p>
+</blockquote>
+<p><strong>Common cleanable folders</strong></p>
+<p>Sometimes the issue is found in the docker cache:</p>
+<blockquote>
+<p><code>$ docker system prune -a</code><br/></p>
+</blockquote>
+<p>or previous kernel versions:</p>
+<blockquote>
+<p><code>$ sudo dnf remove $(dnf repoquery --installonly --latest-limit=-2 -q)</code><br/></p>
+</blockquote>
+<p><strong>Journal logs</strong></p>
+<blockquote>
+<p><code>$ sudo journalctl --vacuum-size=100M</code><br/></p>
+</blockquote>
+<p><strong>Caches</strong></p>
+<p>The dnf package cache can be cleaned up too:</p>
+<blockquote>
+<p><code>$ sudo dnf clean packages</code><br/></p>
+</blockquote>
+<p>You can also try cleaning up the Fedora version cache:</p>
+<blockquote>
+<p><code>$ sudo dnf system-upgrade clean</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_fedora.html'>fedora</a>, <a href='tag_disk-space.html'>disk-space</a>, <a href='tag_clean.html'>clean</a>, <a href='tag_resize.html'>resize</a>, <a href='tag_sysadmin.html'>sysadmin</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/how-to-clean-up-the-fedora-root-folder.html</link>
+<guid>http://www.szumowski.org/./how-to-clean-up-the-fedora-root-folder.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Wed, 06 Sep 2023 17:05:55 -0400</pubDate></item>
 <item><title>
 Install Spotify using Flatpak using Command Line
 </title><description><![CDATA[
@@ -340,37 +384,4 @@ kernel to its proper location in order to boot:</p>
 <guid>http://www.szumowski.org/./slackware-kernel-upgrade-elilo24510.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Mon, 28 Aug 2023 23:52:37 -0400</pubDate></item>
-<item><title>
-How to Change the UID or GID for a User or Group
-</title><description><![CDATA[
-<p>Let’s assume we have a user, Jane Doe, with the username of jdoe and
-the <em>UID</em> of 1001 who we need to move to another <em>UID</em>
-(for some reason or another).</p>
-<p>First, change the <em>UID</em> of the user:</p>
-<blockquote>
-<p><code># usermod -u 3001 jdoe</code><br/></p>
-</blockquote>
-<p>Next, use search and change all file’s ownership owned by this
-user:</p>
-<blockquote>
-<p><code># find / -user 1001 -exec chown -h jdoe {} \;</code><br/></p>
-</blockquote>
-<p>What if we need to change the <em>GID</em> of a group? Basically the
-same process can be used. Let’s say we want to change the admins group’s
-<em>GID</em> from 2001 to 4001.</p>
-<p>First, change the <em>GID</em>:</p>
-<blockquote>
-<p><code># groupmod -g 4001 admins</code><br/></p>
-</blockquote>
-<p>Now, use search and change all file’s ownership owned by this
-group:</p>
-<blockquote>
-<p><code># find / -group 2001 -exec chgrp -h admins {} \;</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_sysadmin.html'>sysadmin</a>, <a href='tag_uid.html'>uid</a>, <a href='tag_gid.html'>gid</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/how-to-change-the-uid-or-gid-for-a-user-or-group.html</link>
-<guid>http://www.szumowski.org/./how-to-change-the-uid-or-gid-for-a-user-or-group.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sun, 27 Aug 2023 12:52:05 -0400</pubDate></item>
 </channel></rss>

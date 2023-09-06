@@ -14,6 +14,51 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="how-to-clean-up-the-fedora-root-folder.html">
+How to Clean Up the Fedora Root Folder
+</a></h3>
+<!-- bashblog_timestamp: #202309061705.55# -->
+<div class="subtitle">September 06, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>OK, so you’re running <em>Fedora</em> and you’re getting warnings
+that you’re running out of disk space on the <em>root</em> folder. What
+are your options?</p>
+<p>The first thing to consider is <em>resizing</em> the root partition
+size. For that you can find instructions <a
+href="https://gist.github.com/181192/cf7eb42a25538ccdb8d0bb7dd57cf236">here</a></p>
+<p>If that is not an option, then the next thing you probably should do
+is find out which folders/directories are causing the issue. You can use
+the <code>du</code> command and some piping to figure this out:</p>
+<p><strong>Search the largest folders</strong></p>
+<blockquote>
+<p><code>$ sudo du --exclude="/home" -x -h -a / | sort -r -h | head -30</code><br/></p>
+</blockquote>
+<p><strong>Common cleanable folders</strong></p>
+<p>Sometimes the issue is found in the docker cache:</p>
+<blockquote>
+<p><code>$ docker system prune -a</code><br/></p>
+</blockquote>
+<p>or previous kernel versions:</p>
+<blockquote>
+<p><code>$ sudo dnf remove $(dnf repoquery --installonly --latest-limit=-2 -q)</code><br/></p>
+</blockquote>
+<p><strong>Journal logs</strong></p>
+<blockquote>
+<p><code>$ sudo journalctl --vacuum-size=100M</code><br/></p>
+</blockquote>
+<p><strong>Caches</strong></p>
+<p>The dnf package cache can be cleaned up too:</p>
+<blockquote>
+<p><code>$ sudo dnf clean packages</code><br/></p>
+</blockquote>
+<p>You can also try cleaning up the Fedora version cache:</p>
+<blockquote>
+<p><code>$ sudo dnf system-upgrade clean</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_fedora.html'>fedora</a>, <a href='tag_disk-space.html'>disk-space</a>, <a href='tag_clean.html'>clean</a>, <a href='tag_resize.html'>resize</a>, <a href='tag_sysadmin.html'>sysadmin</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="install-spotify-using-flatpak-using-command-line.html">
 Install Spotify using Flatpak using Command Line
 </a></h3>
@@ -282,62 +327,6 @@ it on Slackware quite easily using the CLI with:</p>
 </blockquote>
 <p>Have fun!</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_joplin.html'>joplin</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_note-apps.html'>note-apps</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="slackbuilds-where-are-they-located.html">
-SlackBuilds: Where Are They Located?
-</a></h3>
-<!-- bashblog_timestamp: #202308291918.32# -->
-<div class="subtitle">August 29, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>You should find a file in <code>/var/log/packages</code> for each
-<em>SlackBuild</em> that you have installed. You can distinguish the
-<em>SlackBuilds</em> package from standard Slackware packages by the
-substring <em>SBo</em> embedded in the filename. So you can create a
-list of all of the <em>SlackBuilds</em> installed on your machine by
-just doing an <code>ls *SBo*</code> in that directory.</p>
-<blockquote>
-<p><code>ls /var/log/packages | grep SBo</code><br/></p>
-</blockquote>
-<p>or</p>
-<blockquote>
-<p><code>ls /var/log/packages/*SBo</code><br/></p>
-</blockquote>
-<p>If you plan on reinstalling it may be a good idea to pipe that
-information out to a text file.</p>
-<blockquote>
-<p><code>ls /var/log/packages | grep SBo &gt; SBo_packages.txt</code><br/></p>
-</blockquote>
-<p>If you <code>cat</code> one of those files you will display a text
-file that lists certain information about the package, the location of
-the package and a brief description. For example, the file for
-<em>sigil</em> package starts like this:</p>
-<blockquote>
-<p><code>PACKAGE NAME:     sigil-0.9.12-x86_64-1_SBo</code><br/>
-<code>COMPRESSED PACKAGE SIZE:     7.7M</code><br/>
-<code>UNCOMPRESSED PACKAGE SIZE:     25M</code><br/>
-<code>PACKAGE LOCATION: /tmp/sigil-0.9.12-x86_64-1_SBo.tgz</code><br/>
-<code>PACKAGE DESCRIPTION:</code><br/>
-<code>sigil: sigil (Multi-platform WYSIWYG ebook editor)</code><br/>
-<code>sigil:</code><br/>
-<code>sigil: Sigil is a multi-platform WYSIWYG ebook editor. It is designed to</code><br/>
-<code>sigil: edit books in ePub format.</code><br/>
-<code>sigil:</code><br/>
-<code>sigil: Homepage: https://sigil-ebook.com/</code><br/>
-<code>sigil:</code><br/></p>
-</blockquote>
-<p>It then goes on and displays a <em>file list</em> of all of the files
-contained by the package and where they were installed.</p>
-<p>Armed with the above information, you can the <code>cd</code> to the
-<code>/tmp</code> directory and find the package itself:</p>
-<blockquote>
-<p><code>$ cd /tmp</code><br/>
-<code>$ ls -l sigil-0.9.12-x86_64-1_SBo.tgz</code><br/>
-<code>-rw-r--r-- 1 root root 8070041 May 29 16:24 sigil-0.9.12-x86_64-1_SBo.tgz</code><br/>
-<code>$</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_slackbuilds.html'>slackbuilds</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

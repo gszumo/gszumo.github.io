@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; Posts tagged "sysadmin"</title>
+<title>Gregg's MOTD &mdash; Posts tagged "clean"</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -58,60 +58,6 @@ the <code>du</code> command and some piping to figure this out:</p>
 <p><code>$ sudo dnf system-upgrade clean</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_fedora.html'>fedora</a>, <a href='tag_disk-space.html'>disk-space</a>, <a href='tag_clean.html'>clean</a>, <a href='tag_resize.html'>resize</a>, <a href='tag_sysadmin.html'>sysadmin</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="how-to-change-the-uid-or-gid-for-a-user-or-group.html">
-How to Change the UID or GID for a User or Group
-</a></h3>
-<!-- bashblog_timestamp: #202308271252.05# -->
-<div class="subtitle">August 27, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Let’s assume we have a user, Jane Doe, with the username of jdoe and
-the <em>UID</em> of 1001 who we need to move to another <em>UID</em>
-(for some reason or another).</p>
-<p>First, change the <em>UID</em> of the user:</p>
-<blockquote>
-<p><code># usermod -u 3001 jdoe</code><br/></p>
-</blockquote>
-<p>Next, use search and change all file’s ownership owned by this
-user:</p>
-<blockquote>
-<p><code># find / -user 1001 -exec chown -h jdoe {} \;</code><br/></p>
-</blockquote>
-<p>What if we need to change the <em>GID</em> of a group? Basically the
-same process can be used. Let’s say we want to change the admins group’s
-<em>GID</em> from 2001 to 4001.</p>
-<p>First, change the <em>GID</em>:</p>
-<blockquote>
-<p><code># groupmod -g 4001 admins</code><br/></p>
-</blockquote>
-<p>Now, use search and change all file’s ownership owned by this
-group:</p>
-<blockquote>
-<p><code># find / -group 2001 -exec chgrp -h admins {} \;</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_sysadmin.html'>sysadmin</a>, <a href='tag_uid.html'>uid</a>, <a href='tag_gid.html'>gid</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="how-to-enable-the-administrator-account-in-windows19625.html">
-How to Enable the Administrator Account in Windows
-</a></h3>
-<!-- bashblog_timestamp: #202305181608.36# -->
-<div class="subtitle">May 18, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-
-<p>To activate the Administrator account on Windows, open the Command Prompt as Administrator from the Start Menu, or you can right-click on the "Start" menu and select the "Powershell" menu item, then enter:</p>
-
-<p><code>
-net user administrator /active: yes
-</code></p>
-
-<p>into the window. You should disable the account again when you're done.</p>
-
-<p>Tags: <a href='tag_windows.html'>windows</a>, <a href='tag_sysadmin.html'>sysadmin</a>, <a href='tag_motd.html'>motd</a></p>
-
 <!-- text end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
