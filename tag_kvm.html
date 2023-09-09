@@ -14,6 +14,45 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="kvm-importing-an-ova-appliance56.html">
+KVM: Importing an OVA appliance
+</a></h3>
+<!-- bashblog_timestamp: #202309091134.16# -->
+<div class="subtitle">September 09, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>You may or may not be aware if it, but an <em>OVA</em> file is just a
+tar archive containing an <code>.ovf</code> and a <code>.vmdk</code>
+files, respectively the VM configuration and disk.</p>
+<blockquote>
+<p><code>$ ls *.ova</code><br/> <code>HTAOE.ova</code><br/>
+<code>$ tar tf HTAOE.ova</code><br/> <code>HTAOE.ovf</code><br/>
+<code>HTAOE-disk001.vmdk</code><br/> <code>HTAOE.mf</code><br/></p>
+</blockquote>
+<p>So, you can simply extract the files:</p>
+<blockquote>
+<p><code>$ tar xvf HTAOE.ova</code><br/></p>
+</blockquote>
+<p>And convert to a format appropriate for QEMU/KVM:</p>
+<p><strong>List the available formats</strong></p>
+<blockquote>
+<p><code>$ qemu-img -h | tail -n4</code><br/>
+<code>Supported formats: blkdebug blklogwrites blkverify bochs cloop compress copy-before-write copy-on-read dmg file ftp ftps host_cdrom host_device http https luks nbd null-aio null-co nvme parallels preallocate qcow qcow2 qed quorum raw replication ssh throttle vdi vhdx vmdk vpc vvfat</code><br/>
+<code></code><br/>
+<code>See &lt;https://qemu.org/contribute/report-a-bug&gt; for how to report bugs.</code><br/>
+<code>More information on the QEMU project at &lt;https://qemu.org&gt;.</code><br/></p>
+</blockquote>
+<p><strong>Do the actual conversion (I chose qcow2 here)</strong></p>
+<blockquote>
+<p><code>$ qemu-img convert -O qcow2 HTAOE.vmdk HTAOE.qcow2</code><br/></p>
+</blockquote>
+<p>Have a look at the <code>.ovf</code> too, for information on expected
+machine configuration, resources (eg. memory and cpu), etc.</p>
+<p>After the conversion, simply create a new <em>VM</em> and make it use
+the newly created disk as the primary disk.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_ova.html'>ova</a>, <a href='tag_virtualization.html'>virtualization</a>, <a href='tag_qemu.html'>qemu</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="how-to-find-the-ip-addresses-of-virtual-machines-from-the-command.html">
 Find the IP Addresses of KVM Virtual Machines (Command Line)
 </a></h3>

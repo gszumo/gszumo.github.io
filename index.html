@@ -14,6 +14,45 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="kvm-importing-an-ova-appliance56.html">
+KVM: Importing an OVA appliance
+</a></h3>
+<!-- bashblog_timestamp: #202309091134.16# -->
+<div class="subtitle">September 09, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>You may or may not be aware if it, but an <em>OVA</em> file is just a
+tar archive containing an <code>.ovf</code> and a <code>.vmdk</code>
+files, respectively the VM configuration and disk.</p>
+<blockquote>
+<p><code>$ ls *.ova</code><br/> <code>HTAOE.ova</code><br/>
+<code>$ tar tf HTAOE.ova</code><br/> <code>HTAOE.ovf</code><br/>
+<code>HTAOE-disk001.vmdk</code><br/> <code>HTAOE.mf</code><br/></p>
+</blockquote>
+<p>So, you can simply extract the files:</p>
+<blockquote>
+<p><code>$ tar xvf HTAOE.ova</code><br/></p>
+</blockquote>
+<p>And convert to a format appropriate for QEMU/KVM:</p>
+<p><strong>List the available formats</strong></p>
+<blockquote>
+<p><code>$ qemu-img -h | tail -n4</code><br/>
+<code>Supported formats: blkdebug blklogwrites blkverify bochs cloop compress copy-before-write copy-on-read dmg file ftp ftps host_cdrom host_device http https luks nbd null-aio null-co nvme parallels preallocate qcow qcow2 qed quorum raw replication ssh throttle vdi vhdx vmdk vpc vvfat</code><br/>
+<code></code><br/>
+<code>See &lt;https://qemu.org/contribute/report-a-bug&gt; for how to report bugs.</code><br/>
+<code>More information on the QEMU project at &lt;https://qemu.org&gt;.</code><br/></p>
+</blockquote>
+<p><strong>Do the actual conversion (I chose qcow2 here)</strong></p>
+<blockquote>
+<p><code>$ qemu-img convert -O qcow2 HTAOE.vmdk HTAOE.qcow2</code><br/></p>
+</blockquote>
+<p>Have a look at the <code>.ovf</code> too, for information on expected
+machine configuration, resources (eg. memory and cpu), etc.</p>
+<p>After the conversion, simply create a new <em>VM</em> and make it use
+the newly created disk as the primary disk.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_ova.html'>ova</a>, <a href='tag_virtualization.html'>virtualization</a>, <a href='tag_qemu.html'>qemu</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="compiling-32-bit-cc-programs-on-64-bit.html">
 Compiling 32-bit C/C++ Programs on 64-bit
 </a></h3>
@@ -294,36 +333,6 @@ href="https://www.airs.com/blog/archives/41">Linkers part 4</a> <a
 href="https://www.airs.com/blog/archives/42">Linkers part 5</a> <a
 href="https://www.airs.com/blog/archives/43">Linkers part 6</a></p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_linkers.html'>linkers</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_compiling.html'>compiling</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="mounting-a-remote-drive-using-fuse15177.html">
-Mounting a Remote Drive using FUSE
-</a></h3>
-<!-- bashblog_timestamp: #202308311718.46# -->
-<div class="subtitle">August 31, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>If you have <em>FUSE</em> (Filessystem in Userspace) installed, you
-can use <em>SSH</em> to mount a remote drive locally. This is very
-simple to do and you don’t need to be <em>root</em>. You just need
-<em>SSH</em> access to the remote system. Just create a directory to
-mount the system and use the <code>sshfs</code> command to connect the
-remote to it.</p>
-<p>Here I will mount my home directory on my remote server named
-<em>slacker</em> locally to a directory on my laptop’s home
-directory:</p>
-<pre><code>$ cd ~
-$ mkdir slacker
-$ sshfs user@192.168.1.99:/home/user/ slacker
-$ cd slacker/
-$ ls
-Backups       KVM       Public       bin       iso           public_html
-Calibre\ Library  Music     PycharmProjects  cv_debug.log  logs          tmp
-Desktop       OneDrive  README.txt       file.txt      lynis-report.dat
-Documents     Pictures  Templates        fortune.txt   lynis.log
-Downloads     Podcasts  Videos       go        pCloudDrive</code></pre>
-<p>The above is a listing of my home directory on the remote.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_fuse.html'>fuse</a>, <a href='tag_sshfs.html'>sshfs</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

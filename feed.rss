@@ -2,9 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Fri, 08 Sep 2023 21:06:18 -0400</lastBuildDate>
-<pubDate>Fri, 08 Sep 2023 21:06:18 -0400</pubDate>
+<lastBuildDate>Sat, 09 Sep 2023 11:34:24 -0400</lastBuildDate>
+<pubDate>Sat, 09 Sep 2023 11:34:24 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+KVM: Importing an OVA appliance
+</title><description><![CDATA[
+<p>You may or may not be aware if it, but an <em>OVA</em> file is just a
+tar archive containing an <code>.ovf</code> and a <code>.vmdk</code>
+files, respectively the VM configuration and disk.</p>
+<blockquote>
+<p><code>$ ls *.ova</code><br/> <code>HTAOE.ova</code><br/>
+<code>$ tar tf HTAOE.ova</code><br/> <code>HTAOE.ovf</code><br/>
+<code>HTAOE-disk001.vmdk</code><br/> <code>HTAOE.mf</code><br/></p>
+</blockquote>
+<p>So, you can simply extract the files:</p>
+<blockquote>
+<p><code>$ tar xvf HTAOE.ova</code><br/></p>
+</blockquote>
+<p>And convert to a format appropriate for QEMU/KVM:</p>
+<p><strong>List the available formats</strong></p>
+<blockquote>
+<p><code>$ qemu-img -h | tail -n4</code><br/>
+<code>Supported formats: blkdebug blklogwrites blkverify bochs cloop compress copy-before-write copy-on-read dmg file ftp ftps host_cdrom host_device http https luks nbd null-aio null-co nvme parallels preallocate qcow qcow2 qed quorum raw replication ssh throttle vdi vhdx vmdk vpc vvfat</code><br/>
+<code></code><br/>
+<code>See &lt;https://qemu.org/contribute/report-a-bug&gt; for how to report bugs.</code><br/>
+<code>More information on the QEMU project at &lt;https://qemu.org&gt;.</code><br/></p>
+</blockquote>
+<p><strong>Do the actual conversion (I chose qcow2 here)</strong></p>
+<blockquote>
+<p><code>$ qemu-img convert -O qcow2 HTAOE.vmdk HTAOE.qcow2</code><br/></p>
+</blockquote>
+<p>Have a look at the <code>.ovf</code> too, for information on expected
+machine configuration, resources (eg. memory and cpu), etc.</p>
+<p>After the conversion, simply create a new <em>VM</em> and make it use
+the newly created disk as the primary disk.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_ova.html'>ova</a>, <a href='tag_virtualization.html'>virtualization</a>, <a href='tag_qemu.html'>qemu</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/kvm-importing-an-ova-appliance56.html</link>
+<guid>http://www.szumowski.org/./kvm-importing-an-ova-appliance56.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sat, 09 Sep 2023 11:34:16 -0400</pubDate></item>
 <item><title>
 Compiling 32-bit C/C++ Programs on 64-bit
 </title><description><![CDATA[
@@ -340,59 +378,4 @@ it on Slackware quite easily using the CLI with:</p>
 <guid>http://www.szumowski.org/./install-joplin-on-slackware-150.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 30 Aug 2023 19:51:21 -0400</pubDate></item>
-<item><title>
-SlackBuilds: Where Are They Located?
-</title><description><![CDATA[
-<p>You should find a file in <code>/var/log/packages</code> for each
-<em>SlackBuild</em> that you have installed. You can distinguish the
-<em>SlackBuilds</em> package from standard Slackware packages by the
-substring <em>SBo</em> embedded in the filename. So you can create a
-list of all of the <em>SlackBuilds</em> installed on your machine by
-just doing an <code>ls *SBo*</code> in that directory.</p>
-<blockquote>
-<p><code>ls /var/log/packages | grep SBo</code><br/></p>
-</blockquote>
-<p>or</p>
-<blockquote>
-<p><code>ls /var/log/packages/*SBo</code><br/></p>
-</blockquote>
-<p>If you plan on reinstalling it may be a good idea to pipe that
-information out to a text file.</p>
-<blockquote>
-<p><code>ls /var/log/packages | grep SBo &gt; SBo_packages.txt</code><br/></p>
-</blockquote>
-<p>If you <code>cat</code> one of those files you will display a text
-file that lists certain information about the package, the location of
-the package and a brief description. For example, the file for
-<em>sigil</em> package starts like this:</p>
-<blockquote>
-<p><code>PACKAGE NAME:     sigil-0.9.12-x86_64-1_SBo</code><br/>
-<code>COMPRESSED PACKAGE SIZE:     7.7M</code><br/>
-<code>UNCOMPRESSED PACKAGE SIZE:     25M</code><br/>
-<code>PACKAGE LOCATION: /tmp/sigil-0.9.12-x86_64-1_SBo.tgz</code><br/>
-<code>PACKAGE DESCRIPTION:</code><br/>
-<code>sigil: sigil (Multi-platform WYSIWYG ebook editor)</code><br/>
-<code>sigil:</code><br/>
-<code>sigil: Sigil is a multi-platform WYSIWYG ebook editor. It is designed to</code><br/>
-<code>sigil: edit books in ePub format.</code><br/>
-<code>sigil:</code><br/>
-<code>sigil: Homepage: https://sigil-ebook.com/</code><br/>
-<code>sigil:</code><br/></p>
-</blockquote>
-<p>It then goes on and displays a <em>file list</em> of all of the files
-contained by the package and where they were installed.</p>
-<p>Armed with the above information, you can the <code>cd</code> to the
-<code>/tmp</code> directory and find the package itself:</p>
-<blockquote>
-<p><code>$ cd /tmp</code><br/>
-<code>$ ls -l sigil-0.9.12-x86_64-1_SBo.tgz</code><br/>
-<code>-rw-r--r-- 1 root root 8070041 May 29 16:24 sigil-0.9.12-x86_64-1_SBo.tgz</code><br/>
-<code>$</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_slackbuilds.html'>slackbuilds</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/slackbuilds-where-are-they-located.html</link>
-<guid>http://www.szumowski.org/./slackbuilds-where-are-they-located.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 29 Aug 2023 19:18:32 -0400</pubDate></item>
 </channel></rss>
