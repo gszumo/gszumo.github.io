@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; Posts tagged "virsh"</title>
+<title>Gregg's MOTD &mdash; Posts tagged "virt-manager"</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -36,52 +36,6 @@ or as the <code>root</code> user.</li>
 <li>Change the path to point to your new directory.</li>
 </ol>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_virt-manager.html'>virt-manager</a>, <a href='tag_virsh.html'>virsh</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="how-to-find-the-ip-addresses-of-virtual-machines-from-the-command.html">
-Find the IP Addresses of KVM Virtual Machines (Command Line)
-</a></h3>
-<!-- bashblog_timestamp: #202307221540.26# -->
-<div class="subtitle">July 22, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>To find details about the virtual network you can use these
-commands:</p>
-<blockquote>
-<p><code>root@slacker:~# virsh net-list</code><br/>
-<code>Name      State    Autostart   Persistent</code><br/>
-<code>--------------------------------------------</code><br/>
-<code>default   active   yes         yes</code><br/> <code></code><br/>
-<code>root@slacker:~# virsh net-info default</code><br/>
-<code>Name:           default</code><br/>
-<code>UUID:           14a90f27-9a85-42ca-b434-6ce6c142690c</code><br/>
-<code>Active:         yes</code><br/>
-<code>Persistent:     yes</code><br/>
-<code>Autostart:      yes</code><br/>
-<code>Bridge:         virbr0</code><br/> <code></code><br/>
-<code>root@slacker:~# virsh net-dhcp-leases default</code><br/>
-<code>Expiry Time           MAC address         Protocol   IP address           Hostname      Client ID or DUID</code><br/>
-<code>------------------------------------------------------------------------------------------------------------</code><br/>
-<code>2023-07-22 16:18:45   52:54:00:dd:7b:62   ipv4       192.168.122.216/24   centos7-bbk   -</code><br/>
-<code></code><br/></p>
-</blockquote>
-<p>You will find the IP address and hostname listed in the last
-command’s output.</p>
-<p>Optionally, to find the network interfaces’s addresses for a running
-domain called <em>centos7-bbk</em>:</p>
-<blockquote>
-<p><code>root@slacker:~# virsh list</code><br/>
-<code>Id   Name          State</code><br/>
-<code>-----------------------------</code><br/>
-<code>3    centos7-bbk   running</code><br/> <code></code><br/>
-<code>root@slacker:~# virsh domifaddr centos7-bbk</code><br/>
-<code>Name       MAC address          Protocol     Address</code><br/>
-<code>-------------------------------------------------------------------------------</code><br/>
-<code>vnet2      52:54:00:dd:7b:62    ipv4         192.168.122.216/24</code><br/>
-<code></code><br/> <code>root@slacker:~#</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_virsh.html'>virsh</a>, <a href='tag_networking.html'>networking</a>, <a href='tag_motd.html'>motd</a></p>
-
 <!-- text end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>

@@ -2,9 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 09 Sep 2023 11:34:24 -0400</lastBuildDate>
-<pubDate>Sat, 09 Sep 2023 11:34:24 -0400</pubDate>
+<lastBuildDate>Sun, 10 Sep 2023 19:04:09 -0400</lastBuildDate>
+<pubDate>Sun, 10 Sep 2023 19:04:09 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Virt-Manager Pool Running Out of Space
+</title><description><![CDATA[
+<p>Once upon a time, I had an issue with virt-manager’s pool space
+running low. I was creating too many VMs using the default
+configuration. This needed to be resolved because images are being
+created in /var/lib/libvirt/images which was part of my
+<code>root</code> partition, which was also low. Since I am the only
+user on this machine, I decided to change this to default to my home
+directory:</p>
+<ol type="1">
+<li>Create <code>~/libvirt/images</code></li>
+<li>Run <code>$ sudo virsh pool-edit default</code> as a privileged user
+or as the <code>root</code> user.</li>
+<li>Change the path to point to your new directory.</li>
+</ol>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_virt-manager.html'>virt-manager</a>, <a href='tag_virsh.html'>virsh</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/virt-manager-pool-running-out-of-space17838.html</link>
+<guid>http://www.szumowski.org/./virt-manager-pool-running-out-of-space17838.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 10 Sep 2023 19:04:00 -0400</pubDate></item>
 <item><title>
 KVM: Importing an OVA appliance
 </title><description><![CDATA[
@@ -346,36 +368,4 @@ Downloads     Podcasts  Videos       go        pCloudDrive</code></pre>
 <guid>http://www.szumowski.org/./mounting-a-remote-drive-using-fuse15177.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Thu, 31 Aug 2023 17:18:46 -0400</pubDate></item>
-<item><title>
-Install Joplin on Slackware 15.0
-</title><description><![CDATA[
-<p>On a recent episode of <a
-href="https://hackerpublicradio.org/eps/hpr3929/index.html">Hacker
-Public Radio</a>, the host, <a
-href="https://hackerpublicradio.org/correspondents/0403.html">Lee</a>
-listed several note-taking apps that he had tried to use. One of them
-was <a href="https://joplinapp.org/">Joplin</a> which I have been using
-for several years now. I feel that it is probably one of the best
-note-taking apps available that:</p>
-<ul>
-<li>Supports Markdown</li>
-<li>Is cross-platform</li>
-<li>Supports vim keyboard mappings (I can’t live without this)</li>
-<li>Integrates with multiple cloud storage environments.</li>
-</ul>
-<p>I use it on a daily basis for almost all of my notes but it also
-supports checklists on my iPhone, iPad, Windoze laptop, and all of my
-Slackware devices (desktop and laptops). Give it a try!</p>
-<p>As of yet, it is not available as a SlackBuild, but you can install
-it on Slackware quite easily using the CLI with:</p>
-<blockquote>
-<p><code>$ wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash</code><br/></p>
-</blockquote>
-<p>Have fun!</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_joplin.html'>joplin</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_note-apps.html'>note-apps</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/install-joplin-on-slackware-150.html</link>
-<guid>http://www.szumowski.org/./install-joplin-on-slackware-150.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Wed, 30 Aug 2023 19:51:21 -0400</pubDate></item>
 </channel></rss>

@@ -14,6 +14,29 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="virt-manager-pool-running-out-of-space17838.html">
+Virt-Manager Pool Running Out of Space
+</a></h3>
+<!-- bashblog_timestamp: #202309101904.00# -->
+<div class="subtitle">September 10, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Once upon a time, I had an issue with virt-manager’s pool space
+running low. I was creating too many VMs using the default
+configuration. This needed to be resolved because images are being
+created in /var/lib/libvirt/images which was part of my
+<code>root</code> partition, which was also low. Since I am the only
+user on this machine, I decided to change this to default to my home
+directory:</p>
+<ol type="1">
+<li>Create <code>~/libvirt/images</code></li>
+<li>Run <code>$ sudo virsh pool-edit default</code> as a privileged user
+or as the <code>root</code> user.</li>
+<li>Change the path to point to your new directory.</li>
+</ol>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_virt-manager.html'>virt-manager</a>, <a href='tag_virsh.html'>virsh</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="kvm-importing-an-ova-appliance56.html">
 KVM: Importing an OVA appliance
 </a></h3>
