@@ -14,6 +14,30 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="finding-duplicate-files-in-a-directory-tree.html">
+Finding Duplicate Files in a Directory Tree
+</a></h3>
+<!-- bashblog_timestamp: #202309111700.57# -->
+<div class="subtitle">September 11, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Sometimes I need to find all of the duplicate files in a directory
+tree. I have this issue all of the time when I move my music collection.
+Here is a nifty script to sort these things out:</p>
+<blockquote>
+<p><code>#!/bin/bash</code><br/>
+<code>find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 -D --all-repeated=separate</code><br/></p>
+</blockquote>
+<p>If you pipe the output of the above into a text file, for example,
+<code>duplicates.txt</code>, you can then create a script from that:</p>
+<blockquote>
+<p><code>awk '{$1="";printf("rm \"%s\"\n",$0);}' ~/duplicates.txt &gt;~/duplicates.sh</code><br/></p>
+</blockquote>
+<p>Then edit the file and <strong>remove the lines for the files you
+want to keep</strong>, make the script executable and run it. Done.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_duplicates.html'>duplicates</a>, <a href='tag_find.html'>find</a>, <a href='tag_awk.html'>awk</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="virt-manager-pool-running-out-of-space17838.html">
 Virt-Manager Pool Running Out of Space
 </a></h3>
@@ -263,75 +287,6 @@ setup from there. Print a few test pages. It seems to be working fine on
 my <em>Slackware</em> laptop. You can move the package to your other
 <em>Slackware</em> machines and install there too.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_printers.html'>printers</a>, <a href='tag_epson.html'>epson</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="vim-keyboard-shortcuts7928.html">
-Vim Keyboard Shortcuts
-</a></h3>
-<!-- bashblog_timestamp: #202309021836.46# -->
-<div class="subtitle">September 02, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<ol type="1">
-<li><code>gg</code> Move to the first line of the file</li>
-<li><code>G</code> Move to the last line</li>
-<li><code>gg=G</code> Reindent the whole file</li>
-<li><code>gv</code> Reselect the last visual selection</li>
-<li><code>&lt;</code> Jump to beginning of last visual selection</li>
-<li><code>&gt;</code> Jump to end of last visual selection</li>
-<li><code>^</code> Move to first non-blank character of the line</li>
-<li><code>g_</code> Move the last non-blank character of the line (but
-you remove trailing whitespace, right)</li>
-<li><code>g_lD</code> Delete all the trailing whitespace on the
-line</li>
-<li><code>ea</code> Append to the end of the current word</li>
-<li><code>gf</code> Jump to the file name under the cursor</li>
-<li><code>xp</code> Swap character forward</li>
-<li><code>Xp</code> Swap character backward</li>
-<li><code>yyp</code> Duplicate the current line</li>
-<li><code>yapP</code> Duplicate the current paragraph</li>
-<li><code>dat</code> Delete around an HTML tag, including the tag</li>
-<li><code>dit</code> Delete inside an HTML tag, excluding the tag</li>
-<li><code>w</code> Move one word to the right</li>
-<li><code>b</code> Move one word to the left</li>
-<li><code>dd</code> Delete the current line</li>
-<li><code>zc</code> Close current fold</li>
-<li><code>zo</code> Open current fold</li>
-<li><code>za</code> Toggle current fold</li>
-<li><code>zi</code> Toggle folding entirely</li>
-<li><code>&lt;&lt;</code> Outdent current line</li>
-<li><code>&gt;&gt;</code> Indent current line</li>
-<li><code>z=</code> Show spelling corrections</li>
-<li><code>zg</code> Add to spelling dictionary</li>
-<li><code>zw</code> Remove from spelling dictionary</li>
-<li><code>~</code> Toggle case of current character</li>
-<li><code>gUw</code> Uppercase until end of word (u for lower, ~ to
-toggle)</li>
-<li><code>gUiw</code> Uppercase entire word (u for lower, ~ to
-toggle)</li>
-<li><code>gUU</code> Uppercase entire line</li>
-<li><code>gu$</code> Lowercase until the end of the line</li>
-<li><code>da"</code> Delete the next double-quoted string</li>
-<li><code>+</code> Move to the first non-whitespace character of the
-next line</li>
-<li><code>S</code> Delete current line and go into insert mode</li>
-<li><code>I</code> insert at the beginning of the line</li>
-<li><code>ci"</code> Change what’s inside the next double-quoted
-string</li>
-<li><code>ca{</code> Change inside the curly braces (try [, (,
-etc.)</li>
-<li><code>vaw</code> Visually select word</li>
-<li><code>dap</code> Delete the whole paragraph</li>
-<li><code>r</code> Replace a character</li>
-<li><code>[</code> Jump to beginning of last yanked text</li>
-<li><code>]</code> Jump to end of last yanked text</li>
-<li><code>g;</code> Jump to the last change you made</li>
-<li><code>g,</code> Jump back forward through the change list</li>
-<li><code>&amp;</code> Repeat last substitution on current line</li>
-<li><code>g&amp;</code> Repeat last substitution on all lines</li>
-<li><code>ZZ</code> Save the current file and quit Vim</li>
-</ol>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_cheatsheet.html'>cheatsheet</a>, <a href='tag_shortcuts.html'>shortcuts</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

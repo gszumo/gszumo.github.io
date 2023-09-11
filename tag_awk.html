@@ -14,6 +14,30 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="finding-duplicate-files-in-a-directory-tree.html">
+Finding Duplicate Files in a Directory Tree
+</a></h3>
+<!-- bashblog_timestamp: #202309111700.57# -->
+<div class="subtitle">September 11, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Sometimes I need to find all of the duplicate files in a directory
+tree. I have this issue all of the time when I move my music collection.
+Here is a nifty script to sort these things out:</p>
+<blockquote>
+<p><code>#!/bin/bash</code><br/>
+<code>find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 -D --all-repeated=separate</code><br/></p>
+</blockquote>
+<p>If you pipe the output of the above into a text file, for example,
+<code>duplicates.txt</code>, you can then create a script from that:</p>
+<blockquote>
+<p><code>awk '{$1="";printf("rm \"%s\"\n",$0);}' ~/duplicates.txt &gt;~/duplicates.sh</code><br/></p>
+</blockquote>
+<p>Then edit the file and <strong>remove the lines for the files you
+want to keep</strong>, make the script executable and run it. Done.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_duplicates.html'>duplicates</a>, <a href='tag_find.html'>find</a>, <a href='tag_awk.html'>awk</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="printing-numbers-using-thousand-separators.html">
 Printing Numbers using Thousand Separators
 </a></h3>
