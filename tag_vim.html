@@ -14,6 +14,33 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="vim-underlining-a-line32649.html">
+Vim: Underlining a Line
+</a></h3>
+<!-- bashblog_timestamp: #202309121720.17# -->
+<div class="subtitle">September 12, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Of course, Vim is <em>just</em> a text editor but you can
+<em>underline</em> a line using a set of keystrokes that copies the
+string to be underlined to the next line and then replaces the string
+with hyphens using this set of Vim commands: <code>YpVr-</code></p>
+<p>So if you have a line:</p>
+<blockquote>
+<p><code>This Is My Page Title</code><br/></p>
+</blockquote>
+<p>just position the cursor at the start of that line and enter the
+abovementioned commands and it will turn it into:</p>
+<blockquote>
+<p><code>This Is My Page Title</code><br/>
+<code>---------------------</code><br/></p>
+</blockquote>
+<p>This would save you a few keystrokes if you use Vim for creating a
+lot of text documentation and use hyphens a lot in your section
+headers.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="vim-keyboard-shortcuts7928.html">
 Vim Keyboard Shortcuts
 </a></h3>

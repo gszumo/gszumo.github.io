@@ -2,9 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Mon, 11 Sep 2023 17:01:05 -0400</lastBuildDate>
-<pubDate>Mon, 11 Sep 2023 17:01:05 -0400</pubDate>
+<lastBuildDate>Tue, 12 Sep 2023 17:20:26 -0400</lastBuildDate>
+<pubDate>Tue, 12 Sep 2023 17:20:26 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Vim: Underlining a Line
+</title><description><![CDATA[
+<p>Of course, Vim is <em>just</em> a text editor but you can
+<em>underline</em> a line using a set of keystrokes that copies the
+string to be underlined to the next line and then replaces the string
+with hyphens using this set of Vim commands: <code>YpVr-</code></p>
+<p>So if you have a line:</p>
+<blockquote>
+<p><code>This Is My Page Title</code><br/></p>
+</blockquote>
+<p>just position the cursor at the start of that line and enter the
+abovementioned commands and it will turn it into:</p>
+<blockquote>
+<p><code>This Is My Page Title</code><br/>
+<code>---------------------</code><br/></p>
+</blockquote>
+<p>This would save you a few keystrokes if you use Vim for creating a
+lot of text documentation and use hyphens a lot in your section
+headers.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/vim-underlining-a-line32649.html</link>
+<guid>http://www.szumowski.org/./vim-underlining-a-line32649.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Tue, 12 Sep 2023 17:20:17 -0400</pubDate></item>
 <item><title>
 Finding Duplicate Files in a Directory Tree
 </title><description><![CDATA[
@@ -339,27 +365,4 @@ etc.)</li>
 <guid>http://www.szumowski.org/./vim-keyboard-shortcuts7928.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sat, 02 Sep 2023 18:36:46 -0400</pubDate></item>
-<item><title>
-Linkers
-</title><description><![CDATA[
-<p>If you’re a developer who is interested in “how the sausage is made”
-then you might want to check out Ian Lance Taylor’s <a
-href="https://www.airs.com/blog/feed">blog</a> which contains a series
-of articles discussed on Klaatu’s GNU World Order <a
-href="https://gnuworldorder.info/audiophile/gnuWorldOrder_400.ogg">Episode
-400</a> about the <a
-href="https://www.airs.com/blog/archives/date/2007/08">linker</a></p>
-<p>Here are the links to the articles:</p>
-<p><a href="https://www.airs.com/blog/archives/38">Linkers part 1</a> <a
-href="https://www.airs.com/blog/archives/39">Linkers part 2</a> <a
-href="https://www.airs.com/blog/archives/40">Linkers part 3</a> <a
-href="https://www.airs.com/blog/archives/41">Linkers part 4</a> <a
-href="https://www.airs.com/blog/archives/42">Linkers part 5</a> <a
-href="https://www.airs.com/blog/archives/43">Linkers part 6</a></p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_linkers.html'>linkers</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_compiling.html'>compiling</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/linkers20614.html</link>
-<guid>http://www.szumowski.org/./linkers20614.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Fri, 01 Sep 2023 18:23:34 -0400</pubDate></item>
 </channel></rss>
