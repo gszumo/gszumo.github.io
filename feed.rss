@@ -2,9 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 12 Sep 2023 17:20:26 -0400</lastBuildDate>
-<pubDate>Tue, 12 Sep 2023 17:20:26 -0400</pubDate>
+<lastBuildDate>Wed, 13 Sep 2023 19:03:32 -0400</lastBuildDate>
+<pubDate>Wed, 13 Sep 2023 19:03:32 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Find Your External IP Address
+</title><description><![CDATA[
+<p>It’s easy to find your internal IP address my using tools like
+ifconfig or ip a but to find your external IP address (the one that
+connects you to the outside world) you must use other means. Here are 3
+simple commands that you can use to do just that:</p>
+<blockquote>
+<p><code>$ curl ifcfg.me</code><br/> <code>72.76.yyy.xxx</code><br/>
+<code></code><br/> <code>$ curl icanhazip.com</code><br/>
+<code>72.76.yyy.xxx</code><br/> <code></code><br/>
+<code>$ nslookup myip.opendns.com. resolver1.opendns.com</code><br/>
+<code>Server:      resolver1.opendns.com</code><br/>
+<code>Address: 208.67.222.222#53</code><br/> <code></code><br/>
+<code>Non-authoritative answer:</code><br/>
+<code>Name:    myip.opendns.com</code><br/>
+<code>Address: 72.76.yyy.xxx</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_network.html'>network</a>, <a href='tag_curl.html'>curl</a>, <a href='tag_nslookup.html'>nslookup</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/find-your-external-ip-address16428.html</link>
+<guid>http://www.szumowski.org/./find-your-external-ip-address16428.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Wed, 13 Sep 2023 19:01:42 -0400</pubDate></item>
 <item><title>
 Vim: Underlining a Line
 </title><description><![CDATA[
@@ -297,72 +321,4 @@ my <em>Slackware</em> laptop. You can move the package to your other
 <guid>http://www.szumowski.org/./install-epson-et-3850-printer-driver-on-slackware-150.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sun, 03 Sep 2023 11:20:00 -0400</pubDate></item>
-<item><title>
-Vim Keyboard Shortcuts
-</title><description><![CDATA[
-<ol type="1">
-<li><code>gg</code> Move to the first line of the file</li>
-<li><code>G</code> Move to the last line</li>
-<li><code>gg=G</code> Reindent the whole file</li>
-<li><code>gv</code> Reselect the last visual selection</li>
-<li><code>&lt;</code> Jump to beginning of last visual selection</li>
-<li><code>&gt;</code> Jump to end of last visual selection</li>
-<li><code>^</code> Move to first non-blank character of the line</li>
-<li><code>g_</code> Move the last non-blank character of the line (but
-you remove trailing whitespace, right)</li>
-<li><code>g_lD</code> Delete all the trailing whitespace on the
-line</li>
-<li><code>ea</code> Append to the end of the current word</li>
-<li><code>gf</code> Jump to the file name under the cursor</li>
-<li><code>xp</code> Swap character forward</li>
-<li><code>Xp</code> Swap character backward</li>
-<li><code>yyp</code> Duplicate the current line</li>
-<li><code>yapP</code> Duplicate the current paragraph</li>
-<li><code>dat</code> Delete around an HTML tag, including the tag</li>
-<li><code>dit</code> Delete inside an HTML tag, excluding the tag</li>
-<li><code>w</code> Move one word to the right</li>
-<li><code>b</code> Move one word to the left</li>
-<li><code>dd</code> Delete the current line</li>
-<li><code>zc</code> Close current fold</li>
-<li><code>zo</code> Open current fold</li>
-<li><code>za</code> Toggle current fold</li>
-<li><code>zi</code> Toggle folding entirely</li>
-<li><code>&lt;&lt;</code> Outdent current line</li>
-<li><code>&gt;&gt;</code> Indent current line</li>
-<li><code>z=</code> Show spelling corrections</li>
-<li><code>zg</code> Add to spelling dictionary</li>
-<li><code>zw</code> Remove from spelling dictionary</li>
-<li><code>~</code> Toggle case of current character</li>
-<li><code>gUw</code> Uppercase until end of word (u for lower, ~ to
-toggle)</li>
-<li><code>gUiw</code> Uppercase entire word (u for lower, ~ to
-toggle)</li>
-<li><code>gUU</code> Uppercase entire line</li>
-<li><code>gu$</code> Lowercase until the end of the line</li>
-<li><code>da"</code> Delete the next double-quoted string</li>
-<li><code>+</code> Move to the first non-whitespace character of the
-next line</li>
-<li><code>S</code> Delete current line and go into insert mode</li>
-<li><code>I</code> insert at the beginning of the line</li>
-<li><code>ci"</code> Change what’s inside the next double-quoted
-string</li>
-<li><code>ca{</code> Change inside the curly braces (try [, (,
-etc.)</li>
-<li><code>vaw</code> Visually select word</li>
-<li><code>dap</code> Delete the whole paragraph</li>
-<li><code>r</code> Replace a character</li>
-<li><code>[</code> Jump to beginning of last yanked text</li>
-<li><code>]</code> Jump to end of last yanked text</li>
-<li><code>g;</code> Jump to the last change you made</li>
-<li><code>g,</code> Jump back forward through the change list</li>
-<li><code>&amp;</code> Repeat last substitution on current line</li>
-<li><code>g&amp;</code> Repeat last substitution on all lines</li>
-<li><code>ZZ</code> Save the current file and quit Vim</li>
-</ol>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_cheatsheet.html'>cheatsheet</a>, <a href='tag_shortcuts.html'>shortcuts</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/vim-keyboard-shortcuts7928.html</link>
-<guid>http://www.szumowski.org/./vim-keyboard-shortcuts7928.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sat, 02 Sep 2023 18:36:46 -0400</pubDate></item>
 </channel></rss>
