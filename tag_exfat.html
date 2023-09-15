@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="main.css" type="text/css" />
+<link rel="stylesheet" href="blog.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
+<title>Gregg's MOTD &mdash; Posts tagged "exfat"</title>
+</head><body>
+<div id="divbodyholder">
+<div class="headerholder"><div class="header">
+<div id="title">
+<h1 class="nomargin"><a class="ablack" href="http://www.szumowski.org/index.html">Gregg's MOTD</a></h1>
+<div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
+</div></div></div>
+<div id="divbody"><div class="content">
+<h3><a class="ablack" href="format-disk-using-exfat-on-command-line32603.html">
+Format Disk using exFat on Command Line
+</a></h3>
+<!-- bashblog_timestamp: #202309142037.01# -->
+<div class="subtitle">September 14, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>You may not always be working on a Linux system using a GUI, like a
+server or a system with very low resources. Sometimes you may need to
+format a disk to exFat using the Command Line. It’s not really that
+difficult.</p>
+<p>The first thing you need to do is to know which device is to be
+formatted so before you connect the disk or USB make sure you run the
+<code>lsblk</code> command before and after doing so. This way you will
+be certain not to format the wrong disk by mistake and cause a data
+loss.</p>
+<p>Run <code>lsblk</code> before inserting the disk:</p>
+<pre><code># lsblk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda      8:0    0 232.9G  0 disk 
+├─sda1   8:1    0   630M  0 part /boot/efi
+├─sda2   8:2    0 216.3G  0 part /
+└─sda3   8:3    0  15.9G  0 part [SWAP]
+sdb      8:16   0   1.4T  0 disk 
+├─sdb1   8:17   0   630M  0 part 
+├─sdb2   8:18   0 244.1G  0 part /mnt/lfs
+├─sdb3   8:19   0   1.1T  0 part /home
+└─sdb4   8:20   0  15.6G  0 part 
+sdc      8:32   1     0B  0 disk 
+sr0     11:0    1  1024M  0 rom  </code></pre>
+<p>Then insert the disk and run <code>lsblk</code> again:</p>
+<pre><code># lsblk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda      8:0    0 232.9G  0 disk 
+├─sda1   8:1    0   630M  0 part /boot/efi
+├─sda2   8:2    0 216.3G  0 part /
+└─sda3   8:3    0  15.9G  0 part [SWAP]
+sdb      8:16   0   1.4T  0 disk 
+├─sdb1   8:17   0   630M  0 part 
+├─sdb2   8:18   0 244.1G  0 part /mnt/lfs
+├─sdb3   8:19   0   1.1T  0 part /home
+└─sdb4   8:20   0  15.6G  0 part 
+sdc      8:32   1     0B  0 disk 
+sdd      8:48   1 979.8M  0 disk  &lt;--+
+├─sdd1   8:49   1    50M  0 part  &lt;--|--New device
+└─sdd2   8:50   1 928.8M  0 part  &lt;--+
+sr0     11:0    1  1024M  0 rom  </code></pre>
+<p>Compare the output and you’ll see that in this case, the device
+inserted was <code>/dev/sdd</code>.</p>
+<p>Armed with that information, we can now begin our task. Start by
+invoking <code>parted</code> with the <code>-a optimal</code> option to
+specify the <em>optimal</em> alignment type:</p>
+<pre><code>root@slacker:~# parted -a optimal /dev/sdd
+GNU Parted 3.4
+Using /dev/sdd
+Welcome to GNU Parted! Type &#39;help&#39; to view a list of commands.</code></pre>
+<p>Next, set the partition table to <em>gpt</em>:</p>
+<pre><code>(parted) mktable gpt                                                      
+Warning: The existing disk label on /dev/sdd will be destroyed and all data on
+this disk will be lost. Do you want to continue?
+Yes/No? Yes</code></pre>
+<p>Now, create a new partition table of exFAT type:</p>
+<pre><code>(parted) mkpart exFAT 0% -1                                               </code></pre>
+<p>Set the flag for the first partition to <em>msftdata</em>:</p>
+<pre><code>(parted) set 1 msftdata on
+(parted) align-check opt 1
+1 aligned
+(parted) quit                                                             
+Information: You may need to update /etc/fstab.</code></pre>
+<p>Now you should be done. Let’s print out the partition to make sure
+everything is OK:</p>
+<pre><code># parted /dev/sdd print
+Model: SanDisk U3 Cruzer Micro (scsi)
+Disk /dev/sdd: 1027MB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags: 
+
+Number  Start   End     Size    File system  Name   Flags
+ 1      1049kB  1027MB  1026MB  fat32        exFAT  msftdata</code></pre>
+<p>Now we can format it:</p>
+<pre><code># mkfs.exfat -n exFAT /dev/sdd1
+exfatprogs version : 1.1.3
+Creating exFAT filesystem(/dev/sdd1, cluster size=32768)
+
+Writing volume boot record: done
+Writing backup volume boot record: done
+Fat table creation: done
+Allocation bitmap creation: done
+Upcase table creation: done
+Writing root directory entry: done
+Synchronizing...
+
+exFAT format complete!
+# </code></pre>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_exfat.html'>exfat</a>, <a href='tag_parted.html'>parted</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+</div>
+<div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
+NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>
+Generated with <a href="https://github.com/cfenollosa/bashblog">bashblog</a>, a single bash script to easily create blogs like this one</div>
+</div></div>
+</body></html>
