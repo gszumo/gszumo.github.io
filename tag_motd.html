@@ -14,6 +14,74 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="vim-how-to-copy-amp-paste.html">
+Vim: How to Copy &amp; Paste
+</a></h3>
+<!-- bashblog_timestamp: #202309152024.45# -->
+<div class="subtitle">September 15, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Most <em>Vim</em> tutorials and cheatsheets out there will cover how
+to copy and paste. Pasting is the <em>easy</em> part. Let’s talk about
+copying!</p>
+<p><strong>Copying</strong></p>
+<p>To copy the current line (line in which the cursor is placed), simply
+press double lower <code>y</code> (<code>yy</code>) or single upper case
+<code>y</code> (<code>Y</code>).</p>
+<p><code>yy</code> or <code>Y</code>: copies/yanks the current line,
+including the newline character at the end of the line.</p>
+<p>To copy a specific number of lines under the cursor (beginning from
+the current location of the cursor) simply precede the command with the
+number of lines that you wish to copy, i.e., <code>Nyy</code> (where N
+is the number of lines).</p>
+<p>You can also use the following operation to copy two lines:</p>
+<blockquote>
+<p><code>:.,+yank</code><br/></p>
+</blockquote>
+<p>where the dot (.) refers to the current line and plus sign (+) means
+plus one line below the cursor.</p>
+<p>So, in order to use this syntax to copy 3 lines, use <code>3yy</code>
+or <code>:.,+2yank</code> will work.</p>
+<p>You can also copy a specific number of lines <em>above</em> the
+cursor From the current cursor location use <code>yN-1k</code>, where
+<code>N-1</code> is the number of lines you want to copy. So, to copy
+two lines from the current position of the cursor, press (in normal
+mode, or escape mode), <code>y2-1k</code>, or <code>y1k</code>.</p>
+<p>To copy 5 lines above the current cursor position:</p>
+<blockquote>
+<p><code>y4k</code><br/></p>
+</blockquote>
+<p>You can also use other operations. for example, to copy only the
+fifth line just above the cursor:</p>
+<p><strong>Copying &amp; Pasting</strong></p>
+<blockquote>
+<p><code>:-4yank</code><br/></p>
+</blockquote>
+<p>You can can copy lines and paste them right above the cursor in one
+shot using the operation <code>:Nt-</code>, where <code>N</code> is the
+line number you want to copy.</p>
+<p>You can can copy specific line number and paste right below the
+cursor directly using the operation <code>:Nt.</code>, where
+<code>N</code> is the line number you want to copy.</p>
+<p>For example, to copy line two and paste just above the current cursor
+position;</p>
+<blockquote>
+<p><code>:2t-</code><br/></p>
+</blockquote>
+<p>To copy line two and paste just below the current cursor
+position;</p>
+<blockquote>
+<p><code>:2t.</code><br/></p>
+</blockquote>
+<p>The above commands also work with a range of lines rather than a
+single line, such as <code>:4,7t.</code> will yank lines 4-7 and paste
+them below the cursor.</p>
+<p><strong>Pasting</strong></p>
+<p><code>p</code> or <code>P</code>: pastes one or more lines, basically
+whatever is in the buffer, under or above the cursor respectively.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="format-disk-using-exfat-on-command-line32603.html">
 Format Disk using exFat on Command Line
 </a></h3>
