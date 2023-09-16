@@ -14,6 +14,38 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="log-file-maintenance-and-cleanup.html">
+Log File Maintenance and Cleanup
+</a></h3>
+<!-- bashblog_timestamp: #202309161920.08# -->
+<div class="subtitle">September 16, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Log files sometimes take up a lot of disk space. Some applications
+have internal processes that run periodically to manage them and some do
+not. Often, this becomes a problems after a while as the logs consume
+all of your partition space.</p>
+<p>You can manage these files yourself with a simple script running in a
+<em>cronjob</em> (or systemd timers if you’re so inclined) if they have
+a common naming convention and you have the proper access.</p>
+<p>Let’s say you have an application called <em>myapp</em> that keeps
+it’s logs in a directory called <code>/opt/myapp/logs</code> and those
+files all end with a <code>.log</code> file extension.</p>
+<blockquote>
+<p><code>cat &gt;logmanage.sh &lt;&lt;"EOF"</code><br/>
+<code>#!/bin/sh</code><br/> <code>LOGDIR="/opt/myapp/logs"</code><br/>
+<code># Compress all of the files older than a day</code><br/>
+<code>find ${LOGDIR} -name '*.log' -mtime +0 -exec compress {} \;</code><br/>
+<code># Purge all of the logs older than a week</code><br/>
+<code>find ${LOGDIR} -name '*.Z' -mtime +7 -exec rm -f {} \;</code><br/>
+<code>EOF</code><br/></p>
+</blockquote>
+<p>These two commands will compress those files that are more than older
+than a day and remove the compressed files after a week.</p>
+<p>Add a crontab entry to run this everyday and you’re all set.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_sysadmin.html'>sysadmin</a>, <a href='tag_logs.html'>logs</a>, <a href='tag_find.html'>find</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="vim-how-to-copy-amp-paste.html">
 Vim: How to Copy &amp; Paste
 </a></h3>
@@ -317,36 +349,6 @@ machine configuration, resources (eg. memory and cpu), etc.</p>
 <p>After the conversion, simply create a new <em>VM</em> and make it use
 the newly created disk as the primary disk.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_ova.html'>ova</a>, <a href='tag_virtualization.html'>virtualization</a>, <a href='tag_qemu.html'>qemu</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="compiling-32-bit-cc-programs-on-64-bit.html">
-Compiling 32-bit C/C++ Programs on 64-bit
-</a></h3>
-<!-- bashblog_timestamp: #202309082106.10# -->
-<div class="subtitle">September 08, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>By default, <em>gcc</em> will compile your c/c++ program to 64-bit
-instructions. In order to compile to 32-bit you need to add a
-<code>-m32</code> flag to the command line. For example, to compile a
-file called <em>hello-world.c</em> using a Linux terminal, you would do
-something like this:</p>
-<blockquote>
-<p><code>$ gcc -m32 hello-world.c -o hello-world</code><br/></p>
-</blockquote>
-<p>If you get the following error:</p>
-<blockquote>
-<p><code>fatal error: bits/predefs.h: No such file or directory</code><br/></p>
-</blockquote>
-<p>it means that the <em>multilib</em> standard library is missing.
-Therefore, you must install <em>gcc-multlib</em>. The name is different
-based upon the distribution and the compiler. For Debian/Ubuntu-based
-distros it would be:</p>
-<blockquote>
-<p><code>$ sudo apt-get install gcc-multilib # For C</code><br/>
-<code>$ sudo apt-get install g++-multilib # For C++</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_c.html'>c</a>, <a href='tag_cpp.html'>cpp</a>, <a href='tag_multilib.html'>multilib</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
