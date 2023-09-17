@@ -2,9 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sat, 16 Sep 2023 19:20:16 -0400</lastBuildDate>
-<pubDate>Sat, 16 Sep 2023 19:20:16 -0400</pubDate>
+<lastBuildDate>Sun, 17 Sep 2023 11:16:52 -0400</lastBuildDate>
+<pubDate>Sun, 17 Sep 2023 11:16:52 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Vim: More Copying Tips
+</title><description><![CDATA[
+<p>Blocks of lines can be copied in <em>Vim</em> using <em>ranges</em>,
+i.e., two numbers separated by a comma indicating the start and end of
+the block of lines.</p>
+<p><strong>Some Examples</strong></p>
+<p>To copy line 20-25, use:</p>
+<blockquote>
+<p><code>:20,25yank</code><br/></p>
+</blockquote>
+<p>To copy five lines just above the cursor:</p>
+<blockquote>
+<p><code>:-4,.yank</code><br/></p>
+</blockquote>
+<p>where the period (.) indicates the current line.</p>
+<p>To copy five lines just below the cursor:</p>
+<blockquote>
+<p><code>:.,+4yank</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_copy.html'>copy</a>, <a href='tag_ranges.html'>ranges</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/vim-more-copying-tips32632.html</link>
+<guid>http://www.szumowski.org/./vim-more-copying-tips32632.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sun, 17 Sep 2023 11:15:09 -0400</pubDate></item>
 <item><title>
 Log File Maintenance and Cleanup
 </title><description><![CDATA[
@@ -362,48 +388,4 @@ distros it would be:</p>
 <guid>http://www.szumowski.org/./compiling-32-bit-cc-programs-on-64-bit.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Fri, 08 Sep 2023 21:06:10 -0400</pubDate></item>
-<item><title>
-How to Clean Up the Fedora Root Folder
-</title><description><![CDATA[
-<p>OK, so you’re running <em>Fedora</em> and you’re getting warnings
-that you’re running out of disk space on the <em>root</em> folder. What
-are your options?</p>
-<p>The first thing to consider is <em>resizing</em> the root partition
-size. For that you can find instructions <a
-href="https://gist.github.com/181192/cf7eb42a25538ccdb8d0bb7dd57cf236">here</a></p>
-<p>If that is not an option, then the next thing you probably should do
-is find out which folders/directories are causing the issue. You can use
-the <code>du</code> command and some piping to figure this out:</p>
-<p><strong>Search the largest folders</strong></p>
-<blockquote>
-<p><code>$ sudo du --exclude="/home" -x -h -a / | sort -r -h | head -30</code><br/></p>
-</blockquote>
-<p><strong>Common cleanable folders</strong></p>
-<p>Sometimes the issue is found in the docker cache:</p>
-<blockquote>
-<p><code>$ docker system prune -a</code><br/></p>
-</blockquote>
-<p>or previous kernel versions:</p>
-<blockquote>
-<p><code>$ sudo dnf remove $(dnf repoquery --installonly --latest-limit=-2 -q)</code><br/></p>
-</blockquote>
-<p><strong>Journal logs</strong></p>
-<blockquote>
-<p><code>$ sudo journalctl --vacuum-size=100M</code><br/></p>
-</blockquote>
-<p><strong>Caches</strong></p>
-<p>The dnf package cache can be cleaned up too:</p>
-<blockquote>
-<p><code>$ sudo dnf clean packages</code><br/></p>
-</blockquote>
-<p>You can also try cleaning up the Fedora version cache:</p>
-<blockquote>
-<p><code>$ sudo dnf system-upgrade clean</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_fedora.html'>fedora</a>, <a href='tag_disk-space.html'>disk-space</a>, <a href='tag_clean.html'>clean</a>, <a href='tag_resize.html'>resize</a>, <a href='tag_sysadmin.html'>sysadmin</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/how-to-clean-up-the-fedora-root-folder.html</link>
-<guid>http://www.szumowski.org/./how-to-clean-up-the-fedora-root-folder.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Wed, 06 Sep 2023 17:05:55 -0400</pubDate></item>
 </channel></rss>

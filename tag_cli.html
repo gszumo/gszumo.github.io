@@ -14,6 +14,33 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="vim-more-copying-tips32632.html">
+Vim: More Copying Tips
+</a></h3>
+<!-- bashblog_timestamp: #202309171115.09# -->
+<div class="subtitle">September 17, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Blocks of lines can be copied in <em>Vim</em> using <em>ranges</em>,
+i.e., two numbers separated by a comma indicating the start and end of
+the block of lines.</p>
+<p><strong>Some Examples</strong></p>
+<p>To copy line 20-25, use:</p>
+<blockquote>
+<p><code>:20,25yank</code><br/></p>
+</blockquote>
+<p>To copy five lines just above the cursor:</p>
+<blockquote>
+<p><code>:-4,.yank</code><br/></p>
+</blockquote>
+<p>where the period (.) indicates the current line.</p>
+<p>To copy five lines just below the cursor:</p>
+<blockquote>
+<p><code>:.,+4yank</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_copy.html'>copy</a>, <a href='tag_ranges.html'>ranges</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="log-file-maintenance-and-cleanup.html">
 Log File Maintenance and Cleanup
 </a></h3>
