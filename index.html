@@ -14,6 +14,40 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="ip-address-blocks26740.html">
+IP Address Blocks
+</a></h3>
+<!-- bashblog_timestamp: #202309181704.44# -->
+<div class="subtitle">September 18, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>There are 4 classes of IPv4 networks:</p>
+<p>A <em>Class A network</em> can have 16,777,214 computers on it. It
+has an IP address that starts with a number in the range 0 to 126. 127
+is reserved for the local loopback. (Only 127.0.0.1 is ever used
+although this may change in the future).</p>
+<p>A <em>Class B</em> network can have 65,534 computers on it. It has an
+IP address that starts in the range of 128 to 191.</p>
+<p>A <em>Class C</em> network can have 254 computers on it. This network
+is often used for many home networks and most company networks. It has
+an IP address that starts with a number from 192 to 223.</p>
+<p><em>Class D</em> (224–239) is used for multicast and Class E
+(240–254) is reserved.</p>
+<p>Within the above classes are sets of private network addresses:</p>
+<ul>
+<li>Any address that starts with 10</li>
+<li>Any address that starts 172 and where the second number is
+16–31.</li>
+<li>Any address that starts with 192.168</li>
+</ul>
+<p>Routers will generally discard any traffic to private network
+addresses. So,in order to talk to other devices, your router does
+something called Network Address Translation or NATtin. You can read
+more about Network Address Translation and how it works <a
+href="https://www.cisco.com/c/en/us/products/routers/network-address-translation.html">here</a>.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_networks.html'>networks</a>, <a href='tag_ip-address.html'>ip-address</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="vim-more-copying-tips32632.html">
 Vim: More Copying Tips
 </a></h3>
@@ -314,29 +348,6 @@ Here is a nifty script to sort these things out:</p>
 <p>Then edit the file and <strong>remove the lines for the files you
 want to keep</strong>, make the script executable and run it. Done.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_duplicates.html'>duplicates</a>, <a href='tag_find.html'>find</a>, <a href='tag_awk.html'>awk</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="virt-manager-pool-running-out-of-space17838.html">
-Virt-Manager Pool Running Out of Space
-</a></h3>
-<!-- bashblog_timestamp: #202309101904.00# -->
-<div class="subtitle">September 10, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Once upon a time, I had an issue with virt-manager’s pool space
-running low. I was creating too many VMs using the default
-configuration. This needed to be resolved because images are being
-created in /var/lib/libvirt/images which was part of my
-<code>root</code> partition, which was also low. Since I am the only
-user on this machine, I decided to change this to default to my home
-directory:</p>
-<ol type="1">
-<li>Create <code>~/libvirt/images</code></li>
-<li>Run <code>$ sudo virsh pool-edit default</code> as a privileged user
-or as the <code>root</code> user.</li>
-<li>Change the path to point to your new directory.</li>
-</ol>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_virt-manager.html'>virt-manager</a>, <a href='tag_virsh.html'>virsh</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

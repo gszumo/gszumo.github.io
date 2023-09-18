@@ -2,9 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Sun, 17 Sep 2023 11:16:52 -0400</lastBuildDate>
-<pubDate>Sun, 17 Sep 2023 11:16:52 -0400</pubDate>
+<lastBuildDate>Mon, 18 Sep 2023 17:04:52 -0400</lastBuildDate>
+<pubDate>Mon, 18 Sep 2023 17:04:52 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+IP Address Blocks
+</title><description><![CDATA[
+<p>There are 4 classes of IPv4 networks:</p>
+<p>A <em>Class A network</em> can have 16,777,214 computers on it. It
+has an IP address that starts with a number in the range 0 to 126. 127
+is reserved for the local loopback. (Only 127.0.0.1 is ever used
+although this may change in the future).</p>
+<p>A <em>Class B</em> network can have 65,534 computers on it. It has an
+IP address that starts in the range of 128 to 191.</p>
+<p>A <em>Class C</em> network can have 254 computers on it. This network
+is often used for many home networks and most company networks. It has
+an IP address that starts with a number from 192 to 223.</p>
+<p><em>Class D</em> (224–239) is used for multicast and Class E
+(240–254) is reserved.</p>
+<p>Within the above classes are sets of private network addresses:</p>
+<ul>
+<li>Any address that starts with 10</li>
+<li>Any address that starts 172 and where the second number is
+16–31.</li>
+<li>Any address that starts with 192.168</li>
+</ul>
+<p>Routers will generally discard any traffic to private network
+addresses. So,in order to talk to other devices, your router does
+something called Network Address Translation or NATtin. You can read
+more about Network Address Translation and how it works <a
+href="https://www.cisco.com/c/en/us/products/routers/network-address-translation.html">here</a>.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_networks.html'>networks</a>, <a href='tag_ip-address.html'>ip-address</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/ip-address-blocks26740.html</link>
+<guid>http://www.szumowski.org/./ip-address-blocks26740.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Mon, 18 Sep 2023 17:04:44 -0400</pubDate></item>
 <item><title>
 Vim: More Copying Tips
 </title><description><![CDATA[
@@ -359,33 +392,4 @@ the newly created disk as the primary disk.</p>
 <guid>http://www.szumowski.org/./kvm-importing-an-ova-appliance56.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Sat, 09 Sep 2023 11:34:16 -0400</pubDate></item>
-<item><title>
-Compiling 32-bit C/C++ Programs on 64-bit
-</title><description><![CDATA[
-<p>By default, <em>gcc</em> will compile your c/c++ program to 64-bit
-instructions. In order to compile to 32-bit you need to add a
-<code>-m32</code> flag to the command line. For example, to compile a
-file called <em>hello-world.c</em> using a Linux terminal, you would do
-something like this:</p>
-<blockquote>
-<p><code>$ gcc -m32 hello-world.c -o hello-world</code><br/></p>
-</blockquote>
-<p>If you get the following error:</p>
-<blockquote>
-<p><code>fatal error: bits/predefs.h: No such file or directory</code><br/></p>
-</blockquote>
-<p>it means that the <em>multilib</em> standard library is missing.
-Therefore, you must install <em>gcc-multlib</em>. The name is different
-based upon the distribution and the compiler. For Debian/Ubuntu-based
-distros it would be:</p>
-<blockquote>
-<p><code>$ sudo apt-get install gcc-multilib # For C</code><br/>
-<code>$ sudo apt-get install g++-multilib # For C++</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_programming.html'>programming</a>, <a href='tag_c.html'>c</a>, <a href='tag_cpp.html'>cpp</a>, <a href='tag_multilib.html'>multilib</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/compiling-32-bit-cc-programs-on-64-bit.html</link>
-<guid>http://www.szumowski.org/./compiling-32-bit-cc-programs-on-64-bit.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Fri, 08 Sep 2023 21:06:10 -0400</pubDate></item>
 </channel></rss>
