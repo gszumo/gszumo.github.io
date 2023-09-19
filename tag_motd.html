@@ -14,6 +14,46 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="swapping-the-cmd-and-control-keys-on-a-macbook-running-linux.html">
+Swapping the CMD and Control Keys on a Macbook Running Linux
+</a></h3>
+<!-- bashblog_timestamp: #202309191642.02# -->
+<div class="subtitle">September 19, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>I find it annoying not having a CTRL key available for both hands so
+I tend to swap the Command and CTRL key settings on my 2012
+“Slackbook”.</p>
+<ol type="1">
+<li>Launch a terminal</li>
+<li>Edit the X11 Keyboard Extension</li>
+</ol>
+<blockquote>
+<p><code># vim /usr/share/X11/xkb/symbols/pc</code><br/></p>
+</blockquote>
+<ol start="3" type="1">
+<li>Make the following changes. Ensure your file looks like this:</li>
+</ol>
+<blockquote>
+<p><code>key &lt;LCTL&gt; {    [ Super_L       ]   };</code><br/>
+<code>key &lt;LWIN&gt; {    [ Control_L     ]   };</code><br/>
+<code>...</code><br/>
+<code>key &lt;RCTL&gt; {    [ Super_R       ]   };</code><br/>
+<code>key &lt;RWIN&gt; {    [ Control_R     ]   };</code><br/></p>
+</blockquote>
+<ol start="4" type="1">
+<li>Clear xkb’s cache</li>
+</ol>
+<blockquote>
+<p><code># rm -rf /var/lib/xkb/*</code><br/></p>
+</blockquote>
+<ol start="5" type="1">
+<li>If the keys are not swapped after Step 4, restart your session or
+your computer.</li>
+</ol>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_xkb.html'>xkb</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="ip-address-blocks26740.html">
 IP Address Blocks
 </a></h3>
