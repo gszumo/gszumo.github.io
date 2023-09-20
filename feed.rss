@@ -2,9 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 19 Sep 2023 16:42:11 -0400</lastBuildDate>
-<pubDate>Tue, 19 Sep 2023 16:42:11 -0400</pubDate>
+<lastBuildDate>Wed, 20 Sep 2023 17:11:49 -0400</lastBuildDate>
+<pubDate>Wed, 20 Sep 2023 17:11:49 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Remove Parentheses from File Names
+</title><description><![CDATA[
+<p>This script will rename Windows backup files by removing the ’
+(date)’ from the filename. It will remove the parentheses and everything
+between them from the file name, so that a file with the name
+<code>file-1 (2023-09-10).txt</code> will be renamed to
+<code>file-1.txt</code>. Note that since the data between the
+parentheses will be removed, the resulting file name must be unique for
+this script to prevent data from being overwritten. Other than that it
+should work for any fileset that meets the beforementioned
+constraints.</p>
+<p>First, let’s create some sample files:</p>
+<blockquote>
+<p><code>$ for i in {0..9}; do touch "file-${i} (number-${i}).txt"; done</code><br/>
+<code>$ ls</code><br/>
+<code>file-0\ (number-0).txt  file-4\ (number-4).txt  file-8\ (number-8).txt</code><br/>
+<code>file-1\ (number-1).txt  file-5\ (number-5).txt  file-9\ (number-9).txt</code><br/>
+<code>file-2\ (number-2).txt  file-6\ (number-6).txt</code><br/>
+<code>file-3\ (number-3).txt  file-7\ (number-7).txt</code><br/></p>
+</blockquote>
+<p>Now, we’ll execute the script on the sample files:</p>
+<blockquote>
+<p><code>$ for f in *; do n=$(echo $f | sed "s/[ (][^)]*[)]//g");mv "${f}" "${n}"; done</code><br/></p>
+</blockquote>
+<p>If we look at the directory listing now we see that the file names
+are updated:</p>
+<blockquote>
+<p><code>$ ls</code><br/>
+<code>file-0.txt  file-2.txt  file-4.txt  file-6.txt  file-8.txt</code><br/>
+<code>file-1.txt  file-3.txt  file-5.txt  file-7.txt  file-9.txt</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_rename.html'>rename</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/remove-parentheses-from-file-names.html</link>
+<guid>http://www.szumowski.org/./remove-parentheses-from-file-names.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Wed, 20 Sep 2023 17:11:38 -0400</pubDate></item>
 <item><title>
 Swapping the CMD and Control Keys on a Macbook Running Linux
 </title><description><![CDATA[
@@ -371,26 +409,4 @@ want to keep</strong>, make the script executable and run it. Done.</p>
 <guid>http://www.szumowski.org/./finding-duplicate-files-in-a-directory-tree.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Mon, 11 Sep 2023 17:00:57 -0400</pubDate></item>
-<item><title>
-Virt-Manager Pool Running Out of Space
-</title><description><![CDATA[
-<p>Once upon a time, I had an issue with virt-manager’s pool space
-running low. I was creating too many VMs using the default
-configuration. This needed to be resolved because images are being
-created in /var/lib/libvirt/images which was part of my
-<code>root</code> partition, which was also low. Since I am the only
-user on this machine, I decided to change this to default to my home
-directory:</p>
-<ol type="1">
-<li>Create <code>~/libvirt/images</code></li>
-<li>Run <code>$ sudo virsh pool-edit default</code> as a privileged user
-or as the <code>root</code> user.</li>
-<li>Change the path to point to your new directory.</li>
-</ol>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_virt-manager.html'>virt-manager</a>, <a href='tag_virsh.html'>virsh</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/virt-manager-pool-running-out-of-space17838.html</link>
-<guid>http://www.szumowski.org/./virt-manager-pool-running-out-of-space17838.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sun, 10 Sep 2023 19:04:00 -0400</pubDate></item>
 </channel></rss>

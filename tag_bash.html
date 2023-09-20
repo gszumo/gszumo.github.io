@@ -14,6 +14,45 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="remove-parentheses-from-file-names.html">
+Remove Parentheses from File Names
+</a></h3>
+<!-- bashblog_timestamp: #202309201711.38# -->
+<div class="subtitle">September 20, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>This script will rename Windows backup files by removing the ’
+(date)’ from the filename. It will remove the parentheses and everything
+between them from the file name, so that a file with the name
+<code>file-1 (2023-09-10).txt</code> will be renamed to
+<code>file-1.txt</code>. Note that since the data between the
+parentheses will be removed, the resulting file name must be unique for
+this script to prevent data from being overwritten. Other than that it
+should work for any fileset that meets the beforementioned
+constraints.</p>
+<p>First, let’s create some sample files:</p>
+<blockquote>
+<p><code>$ for i in {0..9}; do touch "file-${i} (number-${i}).txt"; done</code><br/>
+<code>$ ls</code><br/>
+<code>file-0\ (number-0).txt  file-4\ (number-4).txt  file-8\ (number-8).txt</code><br/>
+<code>file-1\ (number-1).txt  file-5\ (number-5).txt  file-9\ (number-9).txt</code><br/>
+<code>file-2\ (number-2).txt  file-6\ (number-6).txt</code><br/>
+<code>file-3\ (number-3).txt  file-7\ (number-7).txt</code><br/></p>
+</blockquote>
+<p>Now, we’ll execute the script on the sample files:</p>
+<blockquote>
+<p><code>$ for f in *; do n=$(echo $f | sed "s/[ (][^)]*[)]//g");mv "${f}" "${n}"; done</code><br/></p>
+</blockquote>
+<p>If we look at the directory listing now we see that the file names
+are updated:</p>
+<blockquote>
+<p><code>$ ls</code><br/>
+<code>file-0.txt  file-2.txt  file-4.txt  file-6.txt  file-8.txt</code><br/>
+<code>file-1.txt  file-3.txt  file-5.txt  file-7.txt  file-9.txt</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_rename.html'>rename</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="processing-a-list-of-files-from-an-input-file7025.html">
 Processing a List of Files from an Input File
 </a></h3>
