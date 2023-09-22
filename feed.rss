@@ -2,9 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Thu, 21 Sep 2023 21:06:36 -0400</lastBuildDate>
-<pubDate>Thu, 21 Sep 2023 21:06:36 -0400</pubDate>
+<lastBuildDate>Fri, 22 Sep 2023 19:17:37 -0400</lastBuildDate>
+<pubDate>Fri, 22 Sep 2023 19:17:37 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Copying a Directory Tree Recursively Using tar
+</title><description><![CDATA[
+<p>You can use <code>tar</code> to copy a directory tree to another
+directory in <em>one shot</em> along with preserving ownership,
+permissions and timestamps. This also avoids making an intermediary
+<em>tarfile</em> which may cause problems if the size of the file copy
+is large and the storage resources are low. Just <code>cd</code> to the
+top of the directory that you want to copy and begin.</p>
+<p>Let’s assume that you want to copy the contents of the
+<em>source</em> directory to a <em>target</em> directory:</p>
+<blockquote>
+<p><code>$ cd /path/to/source</code><br/>
+<code>$ tar cf - * | (cd /target; tar xfp - )</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_tar.html'>tar</a>, <a href='tag_copying.html'>copying</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/copying-a-directory-tree-recursively-using-tar.html</link>
+<guid>http://www.szumowski.org/./copying-a-directory-tree-recursively-using-tar.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Fri, 22 Sep 2023 19:17:28 -0400</pubDate></item>
 <item><title>
 Removing Blank Spaces from a Group of File Names
 </title><description><![CDATA[
@@ -393,30 +414,4 @@ simple commands that you can use to do just that:</p>
 <guid>http://www.szumowski.org/./find-your-external-ip-address16428.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Wed, 13 Sep 2023 19:01:42 -0400</pubDate></item>
-<item><title>
-Vim: Underlining a Line
-</title><description><![CDATA[
-<p>Of course, Vim is <em>just</em> a text editor but you can
-<em>underline</em> a line using a set of keystrokes that copies the
-string to be underlined to the next line and then replaces the string
-with hyphens using this set of Vim commands: <code>YpVr-</code></p>
-<p>So if you have a line:</p>
-<blockquote>
-<p><code>This Is My Page Title</code><br/></p>
-</blockquote>
-<p>just position the cursor at the start of that line and enter the
-abovementioned commands and it will turn it into:</p>
-<blockquote>
-<p><code>This Is My Page Title</code><br/>
-<code>---------------------</code><br/></p>
-</blockquote>
-<p>This would save you a few keystrokes if you use Vim for creating a
-lot of text documentation and use hyphens a lot in your section
-headers.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/vim-underlining-a-line32649.html</link>
-<guid>http://www.szumowski.org/./vim-underlining-a-line32649.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Tue, 12 Sep 2023 17:20:17 -0400</pubDate></item>
 </channel></rss>
