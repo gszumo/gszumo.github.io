@@ -14,6 +14,40 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="removing-blank-spaces-from-a-group-of-file-names.html">
+Removing Blank Spaces from a Group of File Names
+</a></h3>
+<!-- bashblog_timestamp: #202309212104.36# -->
+<div class="subtitle">September 21, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>This set of commands iterate over each file in the current directory
+and will replace any blank spaces in a filename with an underscore
+(<code>_</code>).</p>
+<p>First, we’ll create a set of sample files:</p>
+<blockquote>
+<p><code>$ for i in {0..9}; do touch "file-${i} (number-${i}).txt"; done</code><br/>
+<code>$ ls</code><br/>
+<code>file-0\ (number-0).txt  file-4\ (number-4).txt  file-8\ (number-8).txt</code><br/>
+<code>file-1\ (number-1).txt  file-5\ (number-5).txt  file-9\ (number-9).txt</code><br/>
+<code>file-2\ (number-2).txt  file-6\ (number-6).txt</code><br/>
+<code>file-3\ (number-3).txt  file-7\ (number-7).txt</code><br/></p>
+</blockquote>
+<p>Now, we’ll execute the set of commands:</p>
+<blockquote>
+<p><code>$ for f in *\ *; do mv "$f" "${f// /_}"; done</code><br/></p>
+</blockquote>
+<p>And now you can see that the blanks have been replaced.</p>
+<blockquote>
+<p><code>$ ls</code><br/>
+<code>file-0_(number-0).txt  file-4_(number-4).txt  file-8_(number-8).txt</code><br/>
+<code>file-1_(number-1).txt  file-5_(number-5).txt  file-9_(number-9).txt</code><br/>
+<code>file-2_(number-2).txt  file-6_(number-6).txt</code><br/>
+<code>file-3_(number-3).txt  file-7_(number-7).txt</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_rename.html'>rename</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="remove-parentheses-from-file-names.html">
 Remove Parentheses from File Names
 </a></h3>
@@ -351,31 +385,6 @@ Synchronizing...
 exFAT format complete!
 # </code></pre>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_exfat.html'>exfat</a>, <a href='tag_parted.html'>parted</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="find-your-external-ip-address16428.html">
-Find Your External IP Address
-</a></h3>
-<!-- bashblog_timestamp: #202309131901.42# -->
-<div class="subtitle">September 13, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>It’s easy to find your internal IP address my using tools like
-ifconfig or ip a but to find your external IP address (the one that
-connects you to the outside world) you must use other means. Here are 3
-simple commands that you can use to do just that:</p>
-<blockquote>
-<p><code>$ curl ifcfg.me</code><br/> <code>72.76.yyy.xxx</code><br/>
-<code></code><br/> <code>$ curl icanhazip.com</code><br/>
-<code>72.76.yyy.xxx</code><br/> <code></code><br/>
-<code>$ nslookup myip.opendns.com. resolver1.opendns.com</code><br/>
-<code>Server:      resolver1.opendns.com</code><br/>
-<code>Address: 208.67.222.222#53</code><br/> <code></code><br/>
-<code>Non-authoritative answer:</code><br/>
-<code>Name:    myip.opendns.com</code><br/>
-<code>Address: 72.76.yyy.xxx</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_network.html'>network</a>, <a href='tag_curl.html'>curl</a>, <a href='tag_nslookup.html'>nslookup</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

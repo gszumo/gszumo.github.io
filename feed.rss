@@ -2,9 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Wed, 20 Sep 2023 17:11:49 -0400</lastBuildDate>
-<pubDate>Wed, 20 Sep 2023 17:11:49 -0400</pubDate>
+<lastBuildDate>Thu, 21 Sep 2023 21:06:36 -0400</lastBuildDate>
+<pubDate>Thu, 21 Sep 2023 21:06:36 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Removing Blank Spaces from a Group of File Names
+</title><description><![CDATA[
+<p>This set of commands iterate over each file in the current directory
+and will replace any blank spaces in a filename with an underscore
+(<code>_</code>).</p>
+<p>First, we’ll create a set of sample files:</p>
+<blockquote>
+<p><code>$ for i in {0..9}; do touch "file-${i} (number-${i}).txt"; done</code><br/>
+<code>$ ls</code><br/>
+<code>file-0\ (number-0).txt  file-4\ (number-4).txt  file-8\ (number-8).txt</code><br/>
+<code>file-1\ (number-1).txt  file-5\ (number-5).txt  file-9\ (number-9).txt</code><br/>
+<code>file-2\ (number-2).txt  file-6\ (number-6).txt</code><br/>
+<code>file-3\ (number-3).txt  file-7\ (number-7).txt</code><br/></p>
+</blockquote>
+<p>Now, we’ll execute the set of commands:</p>
+<blockquote>
+<p><code>$ for f in *\ *; do mv "$f" "${f// /_}"; done</code><br/></p>
+</blockquote>
+<p>And now you can see that the blanks have been replaced.</p>
+<blockquote>
+<p><code>$ ls</code><br/>
+<code>file-0_(number-0).txt  file-4_(number-4).txt  file-8_(number-8).txt</code><br/>
+<code>file-1_(number-1).txt  file-5_(number-5).txt  file-9_(number-9).txt</code><br/>
+<code>file-2_(number-2).txt  file-6_(number-6).txt</code><br/>
+<code>file-3_(number-3).txt  file-7_(number-7).txt</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_bash.html'>bash</a>, <a href='tag_rename.html'>rename</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/removing-blank-spaces-from-a-group-of-file-names.html</link>
+<guid>http://www.szumowski.org/./removing-blank-spaces-from-a-group-of-file-names.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Thu, 21 Sep 2023 21:04:36 -0400</pubDate></item>
 <item><title>
 Remove Parentheses from File Names
 </title><description><![CDATA[
@@ -386,27 +419,4 @@ headers.</p>
 <guid>http://www.szumowski.org/./vim-underlining-a-line32649.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Tue, 12 Sep 2023 17:20:17 -0400</pubDate></item>
-<item><title>
-Finding Duplicate Files in a Directory Tree
-</title><description><![CDATA[
-<p>Sometimes I need to find all of the duplicate files in a directory
-tree. I have this issue all of the time when I move my music collection.
-Here is a nifty script to sort these things out:</p>
-<blockquote>
-<p><code>#!/bin/bash</code><br/>
-<code>find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 -D --all-repeated=separate</code><br/></p>
-</blockquote>
-<p>If you pipe the output of the above into a text file, for example,
-<code>duplicates.txt</code>, you can then create a script from that:</p>
-<blockquote>
-<p><code>awk '{$1="";printf("rm \"%s\"\n",$0);}' ~/duplicates.txt &gt;~/duplicates.sh</code><br/></p>
-</blockquote>
-<p>Then edit the file and <strong>remove the lines for the files you
-want to keep</strong>, make the script executable and run it. Done.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_duplicates.html'>duplicates</a>, <a href='tag_find.html'>find</a>, <a href='tag_awk.html'>awk</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/finding-duplicate-files-in-a-directory-tree.html</link>
-<guid>http://www.szumowski.org/./finding-duplicate-files-in-a-directory-tree.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Mon, 11 Sep 2023 17:00:57 -0400</pubDate></item>
 </channel></rss>
