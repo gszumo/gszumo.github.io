@@ -2,9 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Fri, 22 Sep 2023 19:17:37 -0400</lastBuildDate>
-<pubDate>Fri, 22 Sep 2023 19:17:37 -0400</pubDate>
+<lastBuildDate>Sat, 23 Sep 2023 16:04:52 -0400</lastBuildDate>
+<pubDate>Sat, 23 Sep 2023 16:04:52 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Install sbopkg on Slackware
+</title><description><![CDATA[
+<p><em>Sbopkg</em> is a command‐line and dialog‐based tool to interact
+with the SlackBuilds.org repository, a collection of third‐party
+SlackBuild scripts to build Slackware packages.</p>
+<p>Here are the steps for installing the latest version of
+<em>sbopkg</em> with Slackware.</p>
+<ol type="1">
+<li><p>Download the latest Slackware package from
+<code>https://www.sbopkg.org/downloads.php</code> using whatever method
+you find most convenient. At the time of this writing the latest version
+is
+<code>https://github.com/sbopkg/sbopkg/releases/download/0.38.2/sbopkg-0.38.2-noarch-1_wsr.tgz</code>.
+I will use that version in the commands below. If the version has
+changed, you would use the new filename in the commands. You can also
+use <code>wget &lt;packagename&gt;</code> to download it
+directly.</p></li>
+<li><p>Open your favorite terminal and <code>su</code> to root.</p></li>
+<li><p>Change to the directory where you downloaded the
+package.</p></li>
+<li><p>Run the command
+<code>installpkg sbopkg-0.38.2-noarch-1_wsr.tgz</code></p></li>
+</ol>
+<p>If all goes well, <em>sbopkg</em> will now be installed.</p>
+<p>To run <em>sbopkg</em>, open your favorite terminal,
+<code>su -</code> to root, and type <code>sbopkg</code>.</p>
+<p>As usual, see the <code>man</code> or <code>info</code> page for more
+information.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_sbopkg.html'>sbopkg</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/install-sbopkg-on-slackware2055.html</link>
+<guid>http://www.szumowski.org/./install-sbopkg-on-slackware2055.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Sat, 23 Sep 2023 15:59:18 -0400</pubDate></item>
 <item><title>
 Copying a Directory Tree Recursively Using tar
 </title><description><![CDATA[
@@ -390,28 +425,4 @@ exFAT format complete!
 <guid>http://www.szumowski.org/./format-disk-using-exfat-on-command-line32603.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Thu, 14 Sep 2023 20:37:01 -0400</pubDate></item>
-<item><title>
-Find Your External IP Address
-</title><description><![CDATA[
-<p>It’s easy to find your internal IP address my using tools like
-ifconfig or ip a but to find your external IP address (the one that
-connects you to the outside world) you must use other means. Here are 3
-simple commands that you can use to do just that:</p>
-<blockquote>
-<p><code>$ curl ifcfg.me</code><br/> <code>72.76.yyy.xxx</code><br/>
-<code></code><br/> <code>$ curl icanhazip.com</code><br/>
-<code>72.76.yyy.xxx</code><br/> <code></code><br/>
-<code>$ nslookup myip.opendns.com. resolver1.opendns.com</code><br/>
-<code>Server:      resolver1.opendns.com</code><br/>
-<code>Address: 208.67.222.222#53</code><br/> <code></code><br/>
-<code>Non-authoritative answer:</code><br/>
-<code>Name:    myip.opendns.com</code><br/>
-<code>Address: 72.76.yyy.xxx</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_network.html'>network</a>, <a href='tag_curl.html'>curl</a>, <a href='tag_nslookup.html'>nslookup</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/find-your-external-ip-address16428.html</link>
-<guid>http://www.szumowski.org/./find-your-external-ip-address16428.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Wed, 13 Sep 2023 19:01:42 -0400</pubDate></item>
 </channel></rss>

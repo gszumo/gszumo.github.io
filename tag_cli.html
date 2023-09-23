@@ -14,6 +14,42 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="install-sbopkg-on-slackware2055.html">
+Install sbopkg on Slackware
+</a></h3>
+<!-- bashblog_timestamp: #202309231559.18# -->
+<div class="subtitle">September 23, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p><em>Sbopkg</em> is a command‐line and dialog‐based tool to interact
+with the SlackBuilds.org repository, a collection of third‐party
+SlackBuild scripts to build Slackware packages.</p>
+<p>Here are the steps for installing the latest version of
+<em>sbopkg</em> with Slackware.</p>
+<ol type="1">
+<li><p>Download the latest Slackware package from
+<code>https://www.sbopkg.org/downloads.php</code> using whatever method
+you find most convenient. At the time of this writing the latest version
+is
+<code>https://github.com/sbopkg/sbopkg/releases/download/0.38.2/sbopkg-0.38.2-noarch-1_wsr.tgz</code>.
+I will use that version in the commands below. If the version has
+changed, you would use the new filename in the commands. You can also
+use <code>wget &lt;packagename&gt;</code> to download it
+directly.</p></li>
+<li><p>Open your favorite terminal and <code>su</code> to root.</p></li>
+<li><p>Change to the directory where you downloaded the
+package.</p></li>
+<li><p>Run the command
+<code>installpkg sbopkg-0.38.2-noarch-1_wsr.tgz</code></p></li>
+</ol>
+<p>If all goes well, <em>sbopkg</em> will now be installed.</p>
+<p>To run <em>sbopkg</em>, open your favorite terminal,
+<code>su -</code> to root, and type <code>sbopkg</code>.</p>
+<p>As usual, see the <code>man</code> or <code>info</code> page for more
+information.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_slackware.html'>slackware</a>, <a href='tag_sbopkg.html'>sbopkg</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="copying-a-directory-tree-recursively-using-tar.html">
 Copying a Directory Tree Recursively Using tar
 </a></h3>
