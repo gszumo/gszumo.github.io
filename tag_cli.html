@@ -14,6 +14,52 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="kvm-configure-libvirt-network6956.html">
+KVM: Configure libvirt Network
+</a></h3>
+<!-- bashblog_timestamp: #202309241414.19# -->
+<div class="subtitle">September 24, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>You can update the network configuration for your KVM installation
+using the command line using the <code>virsh</code> command.</p>
+<p>To list all of the available network enter the following command. The
+<code>--all</code> will is used to include the inactive networks:</p>
+<blockquote>
+<p><code># virsh net-list --all</code><br/>
+<code>Name                 State      Autostart</code><br/>
+<code>-----------------------------------------</code><br/>
+<code>default              active     yes</code><br/>
+<code>NattedNetwork        active     yes</code><br/></p>
+</blockquote>
+<p>Then, edit the network you wish to update:</p>
+<blockquote>
+<p><code># EDITOR="vi" virsh net-edit NattedNetwork</code><br/></p>
+</blockquote>
+<p>Add host configuration(s) or whatever changes you wish to make to XML
+file:</p>
+<blockquote>
+<p><code>&lt;network&gt;</code><br/>
+<code>&lt;name&gt;NattedNetwork&lt;/name&gt;</code><br/>
+<code>&lt;uuid&gt;8483028d-667b-47e7-9a8e-f269783a8246&lt;/uuid&gt;</code><br/>
+<code>&lt;forward mode='nat'/&gt;</code><br/>
+<code>&lt;bridge name='virbr0' stp='on' delay='0'/&gt;</code><br/>
+<code>&lt;mac address='52:54:00:ad:b9:ed'/&gt;</code><br/>
+<code>&lt;ip address='192.168.122.1' netmask='255.255.255.0'&gt;</code><br/>
+<code>&lt;dhcp&gt;</code><br/>
+<code>&lt;range start='192.168.122.2' end='192.168.122.254'/&gt;</code><br/>
+<code>&lt;/dhcp&gt;</code><br/> <code>&lt;/ip&gt;</code><br/>
+<code>&lt;/network&gt;</code><br/></p>
+</blockquote>
+<p>Once you’re done, restart the network for the changes to take
+effect:</p>
+<blockquote>
+<p><code># virsh net-destroy  NattedNetwork</code><br/>
+<code># virsh net-start NattedNetwork</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_libvirt.html'>libvirt</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_network.html'>network</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="install-sbopkg-on-slackware2055.html">
 Install sbopkg on Slackware
 </a></h3>

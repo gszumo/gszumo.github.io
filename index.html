@@ -14,6 +14,52 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="kvm-configure-libvirt-network6956.html">
+KVM: Configure libvirt Network
+</a></h3>
+<!-- bashblog_timestamp: #202309241414.19# -->
+<div class="subtitle">September 24, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>You can update the network configuration for your KVM installation
+using the command line using the <code>virsh</code> command.</p>
+<p>To list all of the available network enter the following command. The
+<code>--all</code> will is used to include the inactive networks:</p>
+<blockquote>
+<p><code># virsh net-list --all</code><br/>
+<code>Name                 State      Autostart</code><br/>
+<code>-----------------------------------------</code><br/>
+<code>default              active     yes</code><br/>
+<code>NattedNetwork        active     yes</code><br/></p>
+</blockquote>
+<p>Then, edit the network you wish to update:</p>
+<blockquote>
+<p><code># EDITOR="vi" virsh net-edit NattedNetwork</code><br/></p>
+</blockquote>
+<p>Add host configuration(s) or whatever changes you wish to make to XML
+file:</p>
+<blockquote>
+<p><code>&lt;network&gt;</code><br/>
+<code>&lt;name&gt;NattedNetwork&lt;/name&gt;</code><br/>
+<code>&lt;uuid&gt;8483028d-667b-47e7-9a8e-f269783a8246&lt;/uuid&gt;</code><br/>
+<code>&lt;forward mode='nat'/&gt;</code><br/>
+<code>&lt;bridge name='virbr0' stp='on' delay='0'/&gt;</code><br/>
+<code>&lt;mac address='52:54:00:ad:b9:ed'/&gt;</code><br/>
+<code>&lt;ip address='192.168.122.1' netmask='255.255.255.0'&gt;</code><br/>
+<code>&lt;dhcp&gt;</code><br/>
+<code>&lt;range start='192.168.122.2' end='192.168.122.254'/&gt;</code><br/>
+<code>&lt;/dhcp&gt;</code><br/> <code>&lt;/ip&gt;</code><br/>
+<code>&lt;/network&gt;</code><br/></p>
+</blockquote>
+<p>Once you’re done, restart the network for the changes to take
+effect:</p>
+<blockquote>
+<p><code># virsh net-destroy  NattedNetwork</code><br/>
+<code># virsh net-start NattedNetwork</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_libvirt.html'>libvirt</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_network.html'>network</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="install-sbopkg-on-slackware2055.html">
 Install sbopkg on Slackware
 </a></h3>
@@ -245,38 +291,6 @@ the block of lines.</p>
 <p><code>:.,+4yank</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_copy.html'>copy</a>, <a href='tag_ranges.html'>ranges</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="log-file-maintenance-and-cleanup.html">
-Log File Maintenance and Cleanup
-</a></h3>
-<!-- bashblog_timestamp: #202309161920.08# -->
-<div class="subtitle">September 16, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Log files sometimes take up a lot of disk space. Some applications
-have internal processes that run periodically to manage them and some do
-not. Often, this becomes a problems after a while as the logs consume
-all of your partition space.</p>
-<p>You can manage these files yourself with a simple script running in a
-<em>cronjob</em> (or systemd timers if you’re so inclined) if they have
-a common naming convention and you have the proper access.</p>
-<p>Let’s say you have an application called <em>myapp</em> that keeps
-it’s logs in a directory called <code>/opt/myapp/logs</code> and those
-files all end with a <code>.log</code> file extension.</p>
-<blockquote>
-<p><code>cat &gt;logmanage.sh &lt;&lt;"EOF"</code><br/>
-<code>#!/bin/sh</code><br/> <code>LOGDIR="/opt/myapp/logs"</code><br/>
-<code># Compress all of the files older than a day</code><br/>
-<code>find ${LOGDIR} -name '*.log' -mtime +0 -exec compress {} \;</code><br/>
-<code># Purge all of the logs older than a week</code><br/>
-<code>find ${LOGDIR} -name '*.Z' -mtime +7 -exec rm -f {} \;</code><br/>
-<code>EOF</code><br/></p>
-</blockquote>
-<p>These two commands will compress those files that are more than older
-than a day and remove the compressed files after a week.</p>
-<p>Add a crontab entry to run this everyday and you’re all set.</p>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_sysadmin.html'>sysadmin</a>, <a href='tag_logs.html'>logs</a>, <a href='tag_find.html'>find</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>

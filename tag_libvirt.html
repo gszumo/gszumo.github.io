@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; Posts tagged "network"</title>
+<title>Gregg's MOTD &mdash; Posts tagged "libvirt"</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -59,31 +59,6 @@ effect:</p>
 <code># virsh net-start NattedNetwork</code><br/></p>
 </blockquote>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_libvirt.html'>libvirt</a>, <a href='tag_kvm.html'>kvm</a>, <a href='tag_network.html'>network</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="find-your-external-ip-address16428.html">
-Find Your External IP Address
-</a></h3>
-<!-- bashblog_timestamp: #202309131901.42# -->
-<div class="subtitle">September 13, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>It’s easy to find your internal IP address my using tools like
-ifconfig or ip a but to find your external IP address (the one that
-connects you to the outside world) you must use other means. Here are 3
-simple commands that you can use to do just that:</p>
-<blockquote>
-<p><code>$ curl ifcfg.me</code><br/> <code>72.76.yyy.xxx</code><br/>
-<code></code><br/> <code>$ curl icanhazip.com</code><br/>
-<code>72.76.yyy.xxx</code><br/> <code></code><br/>
-<code>$ nslookup myip.opendns.com. resolver1.opendns.com</code><br/>
-<code>Server:      resolver1.opendns.com</code><br/>
-<code>Address: 208.67.222.222#53</code><br/> <code></code><br/>
-<code>Non-authoritative answer:</code><br/>
-<code>Name:    myip.opendns.com</code><br/>
-<code>Address: 72.76.yyy.xxx</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_network.html'>network</a>, <a href='tag_curl.html'>curl</a>, <a href='tag_nslookup.html'>nslookup</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
