@@ -14,6 +14,38 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="list-all-macs-on-the-local-network.html">
+List All MACs on the Local Network
+</a></h3>
+<!-- bashblog_timestamp: #202309251741.45# -->
+<div class="subtitle">September 25, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Per the <em>manpage</em>:</p>
+<blockquote>
+<p>The <code>arp</code> tool manipulates or displays the kernel’s IPv4
+network neighbor cache. It can add entries to the table, delete one or
+display the current content. ARP stands for Address Resolution Protocol,
+which is used to find the media access control address of a network
+neighbor for a given IPv4 Address.</p>
+</blockquote>
+<p>You can use the <code>arp</code> command to list all of the devices
+on the local network. It is often useful to find the identities of
+<em>hidden</em> devices on your network. For example, if you just
+plugged a Raspberry Pi into your local network and need to find its IP
+address in order to connect to it via SSH.</p>
+<blockquote>
+<p><code># arp -i eth0 -a</code><br/>
+<code>? (192.168.1.90) at 42:b9:72:xx:xx:x0 [ether] on eth0</code><br/>
+<code>? (192.168.1.70) at 54:04:a6:xx:xx:xd [ether] on eth0</code><br/>
+<code>Fios_Quantum_Gateway.fios-router.home (192.168.1.1) at 20:c0:47:xx:xx:x1 [ether] on eth0</code><br/>
+<code>? (192.168.1.99) at 34:64:a9:xx:xx:xd [ether] on eth0</code><br/>
+<code>? (192.168.1.60) at dc:a6:32:xx:xx:x3 [ether] on eth0</code><br/></p>
+</blockquote>
+<p>(I’ve masked some of the fields above)</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_arp.html'>arp</a>, <a href='tag_networking.html'>networking</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="kvm-configure-libvirt-network6956.html">
 KVM: Configure libvirt Network
 </a></h3>
@@ -264,33 +296,6 @@ something called Network Address Translation or NATtin. You can read
 more about Network Address Translation and how it works <a
 href="https://www.cisco.com/c/en/us/products/routers/network-address-translation.html">here</a>.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_networks.html'>networks</a>, <a href='tag_ip-address.html'>ip-address</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-<h3><a class="ablack" href="vim-more-copying-tips32632.html">
-Vim: More Copying Tips
-</a></h3>
-<!-- bashblog_timestamp: #202309171115.09# -->
-<div class="subtitle">September 17, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Blocks of lines can be copied in <em>Vim</em> using <em>ranges</em>,
-i.e., two numbers separated by a comma indicating the start and end of
-the block of lines.</p>
-<p><strong>Some Examples</strong></p>
-<p>To copy line 20-25, use:</p>
-<blockquote>
-<p><code>:20,25yank</code><br/></p>
-</blockquote>
-<p>To copy five lines just above the cursor:</p>
-<blockquote>
-<p><code>:-4,.yank</code><br/></p>
-</blockquote>
-<p>where the period (.) indicates the current line.</p>
-<p>To copy five lines just below the cursor:</p>
-<blockquote>
-<p><code>:.,+4yank</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_copy.html'>copy</a>, <a href='tag_ranges.html'>ranges</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
 <div id="all_posts"><a href="all_posts.html">View more posts</a> &mdash; <a href="all_tags.html">All tags</a> &mdash; <a href="feed.rss">Subscribe</a></div>
 </div>
