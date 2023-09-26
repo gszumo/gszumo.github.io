@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="main.css" type="text/css" />
 <link rel="stylesheet" href="blog.css" type="text/css" />
 <link rel="alternate" type="application/rss+xml" title="Subscribe to this page..." href="feed.rss" />
-<title>Gregg's MOTD &mdash; Posts tagged "ansible"</title>
+<title>Updating My Home Lab using Ansible</title>
 </head><body>
 <div id="divbodyholder">
 <div class="headerholder"><div class="header">
@@ -14,6 +14,7 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<!-- entry begin -->
 <h3><a class="ablack" href="updating-my-home-lab-using-ansible.html">
 Updating My Home Lab using Ansible
 </a></h3>
@@ -61,40 +62,7 @@ now). I’m thinking about doing some major revisions to my Pi
 configuration anyway. Stay tuned for more on that subject.</p>
 <p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ansible.html'>ansible</a>, <a href='tag_motd.html'>motd</a></p>
 <!-- text end -->
-<h3><a class="ablack" href="ansible-cheatsheet19575.html">
-Ansible Cheatsheet
-</a></h3>
-<!-- bashblog_timestamp: #202308052016.47# -->
-<div class="subtitle">August 05, 2023 &mdash; 
-Gregg Szumowski
-</div>
-<!-- text begin -->
-<p>Ping all hosts:</p>
-<blockquote>
-<p><code>$ ansible all -i hosts -m ping</code><br/></p>
-</blockquote>
-<p>Ping a specific host:</p>
-<blockquote>
-<p><code>$ ansible raspberry-pi  -m ping</code><br/></p>
-</blockquote>
-<p>Check uptime on all hosts:</p>
-<blockquote>
-<p><code>$ ansible -m shell -a 'uptime' all</code><br/></p>
-</blockquote>
-<p>Check uname on all hosts:</p>
-<blockquote>
-<p><code>$ ansible -m shell -a 'uname -a' all</code><br/></p>
-</blockquote>
-<p>Run playbook on more than one host:</p>
-<blockquote>
-<p><code>$ ansible-playbook playbook1.yml  -l 'host1.com,host2com'</code><br/></p>
-</blockquote>
-<p>Enable Debug and Increase Verbosity in Ansible</p>
-<blockquote>
-<p><code>$ ANSIBLE_DEBUG=true ANSIBLE_VERBOSITY=4 ansible-playbook playbook.yml</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_ansible.html'>ansible</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
+<!-- entry end -->
 </div>
 <div id="footer">CC by-nc-nd <a href="http://twitter.com/gszumo">Gregg Szumowski</a> &mdash; <a href="mailto:gszumo[at]gmail[dot]com">gszumo[at]gmail[dot]com</a> &mdash; <a rel="me" href="https://mastodon.sdf.org/@gszumo">Mastodon</a><br/>
 NOTE: All tips provided are USE AT YOUR OWN RISK. It is suggested that you read and test each tip in a non-volitile environment before placing into production.<br/>
