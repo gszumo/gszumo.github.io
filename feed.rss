@@ -2,9 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
 <channel><title>Gregg's MOTD</title><link>http://www.szumowski.org/index.html</link>
 <description>Tips & Tricks that I've Encountered Over the Years...</description><language>en</language>
-<lastBuildDate>Tue, 26 Sep 2023 18:26:55 -0400</lastBuildDate>
-<pubDate>Tue, 26 Sep 2023 18:26:55 -0400</pubDate>
+<lastBuildDate>Wed, 27 Sep 2023 17:14:54 -0400</lastBuildDate>
+<pubDate>Wed, 27 Sep 2023 17:14:54 -0400</pubDate>
 <atom:link href="http://www.szumowski.org/feed.rss" rel="self" type="application/rss+xml" />
+<item><title>
+Extract a Single File from a Tarball
+</title><description><![CDATA[
+<p>Suppose I have a tarball (.tar.gz file) which is large and I only
+want to extract a specific file from it. If I know the name of the file
+all I have to do is pass the file’s relative path that it is stored
+under to the command line.</p>
+<p>Here is an example of the error you will get if you pass the
+incorrect file specification:</p>
+<pre><code>$ tar zxvf dirtree-tarball.tar.gz file-7-30003.txt
+tar: file-7-30003.txt: Not found in archive</code></pre>
+<p>Since I don’t have the full path, I can just search for it:</p>
+<pre><code>$ tar tf dirtree-tarball.tar.gz | grep &#39;file-7-30003.txt&#39;
+./dir_2/file-7-30003.txt</code></pre>
+<p>Now I can pass the full path and extract the file:</p>
+<pre><code>$ tar zxvf dirtree-tarball.tar.gz ./dir_2/file-7-30003.txt
+./dir_2/file-7-30003.txt
+$ ls
+dir_2  dirtree-tarball.tar.gz
+$ tree
+.
+├── dir_2
+│   └── file-7-30003.txt
+└── dirtree-tarball.tar.gz
+
+1 directory, 2 files</code></pre>
+<p>Note that it extracts it to the same directory tree but it will only
+extract the file(s) specified on the command line.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_tar.html'>tar</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
+]]></description><link>http://www.szumowski.org/extract-a-single-file-from-a-tarball.html</link>
+<guid>http://www.szumowski.org/./extract-a-single-file-from-a-tarball.html</guid>
+<dc:creator>Gregg Szumowski</dc:creator>
+<pubDate>Wed, 27 Sep 2023 17:14:45 -0400</pubDate></item>
 <item><title>
 Updating My Home Lab using Ansible
 </title><description><![CDATA[
@@ -326,30 +360,4 @@ href="https://www.cisco.com/c/en/us/products/routers/network-address-translation
 <guid>http://www.szumowski.org/./ip-address-blocks26740.html</guid>
 <dc:creator>Gregg Szumowski</dc:creator>
 <pubDate>Mon, 18 Sep 2023 17:04:44 -0400</pubDate></item>
-<item><title>
-Vim: More Copying Tips
-</title><description><![CDATA[
-<p>Blocks of lines can be copied in <em>Vim</em> using <em>ranges</em>,
-i.e., two numbers separated by a comma indicating the start and end of
-the block of lines.</p>
-<p><strong>Some Examples</strong></p>
-<p>To copy line 20-25, use:</p>
-<blockquote>
-<p><code>:20,25yank</code><br/></p>
-</blockquote>
-<p>To copy five lines just above the cursor:</p>
-<blockquote>
-<p><code>:-4,.yank</code><br/></p>
-</blockquote>
-<p>where the period (.) indicates the current line.</p>
-<p>To copy five lines just below the cursor:</p>
-<blockquote>
-<p><code>:.,+4yank</code><br/></p>
-</blockquote>
-<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_vim.html'>vim</a>, <a href='tag_copy.html'>copy</a>, <a href='tag_ranges.html'>ranges</a>, <a href='tag_motd.html'>motd</a></p>
-<!-- text end -->
-]]></description><link>http://www.szumowski.org/vim-more-copying-tips32632.html</link>
-<guid>http://www.szumowski.org/./vim-more-copying-tips32632.html</guid>
-<dc:creator>Gregg Szumowski</dc:creator>
-<pubDate>Sun, 17 Sep 2023 11:15:09 -0400</pubDate></item>
 </channel></rss>

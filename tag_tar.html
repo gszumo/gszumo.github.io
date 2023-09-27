@@ -14,6 +14,41 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="extract-a-single-file-from-a-tarball.html">
+Extract a Single File from a Tarball
+</a></h3>
+<!-- bashblog_timestamp: #202309271714.45# -->
+<div class="subtitle">September 27, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>Suppose I have a tarball (.tar.gz file) which is large and I only
+want to extract a specific file from it. If I know the name of the file
+all I have to do is pass the file’s relative path that it is stored
+under to the command line.</p>
+<p>Here is an example of the error you will get if you pass the
+incorrect file specification:</p>
+<pre><code>$ tar zxvf dirtree-tarball.tar.gz file-7-30003.txt
+tar: file-7-30003.txt: Not found in archive</code></pre>
+<p>Since I don’t have the full path, I can just search for it:</p>
+<pre><code>$ tar tf dirtree-tarball.tar.gz | grep &#39;file-7-30003.txt&#39;
+./dir_2/file-7-30003.txt</code></pre>
+<p>Now I can pass the full path and extract the file:</p>
+<pre><code>$ tar zxvf dirtree-tarball.tar.gz ./dir_2/file-7-30003.txt
+./dir_2/file-7-30003.txt
+$ ls
+dir_2  dirtree-tarball.tar.gz
+$ tree
+.
+├── dir_2
+│   └── file-7-30003.txt
+└── dirtree-tarball.tar.gz
+
+1 directory, 2 files</code></pre>
+<p>Note that it extracts it to the same directory tree but it will only
+extract the file(s) specified on the command line.</p>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_tar.html'>tar</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="copying-a-directory-tree-recursively-using-tar.html">
 Copying a Directory Tree Recursively Using tar
 </a></h3>
