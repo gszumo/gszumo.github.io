@@ -14,6 +14,82 @@
 <div id="description">Tips & Tricks that I've Encountered Over the Years...</div>
 </div></div></div>
 <div id="divbody"><div class="content">
+<h3><a class="ablack" href="kubernetes-cheatsheet26628.html">
+Kubernetes Cheatsheet
+</a></h3>
+<!-- bashblog_timestamp: #202309282037.50# -->
+<div class="subtitle">September 28, 2023 &mdash; 
+Gregg Szumowski
+</div>
+<!-- text begin -->
+<p>The <code>get</code> parameter is a powerful way of discovering your
+kubenetes resources. You can use it to query: * namespace * pod * node *
+deployment * service * replicasets</p>
+<blockquote>
+<p><code>$ kubectl get nodes</code><br/>
+<code>$ kubectl get ns # ns is an abreviation for namespace</code><br/>
+<code>$ kubectl get pods -n kube-system</code><br/></p>
+</blockquote>
+<p>The <code>create</code> command can do just that for:</p>
+<ul>
+<li>service</li>
+<li>cronjob</li>
+<li>deployment</li>
+<li>job</li>
+<li>namespace (or ns)</li>
+</ul>
+<blockquote>
+<p><code>$ kubectl create ns hello-world</code><br/>
+<code>$ kubectl create cronjob my-cronjob --image=alpine  --schedule="*/15 * * * *" -- echo "hi there"</code><br/></p>
+</blockquote>
+<p>You can also use <code>cj</code> as an abreviation for
+<code>cronjob</code></p>
+<blockquote>
+<p><code>$ kubectl create cj my-cronjob --image=alpine  --schedule="*/15 * * * *" -- echo "hi there"</code><br/></p>
+</blockquote>
+<p>The <code>edit</code> parameter allows you to update resources:</p>
+<blockquote>
+<p><code>$ kubectr edit my-cronjob</code><br/></p>
+</blockquote>
+<p>The <code>delete</code> parameter allows you to remove resources:</p>
+<blockquote>
+<p><code>$ kubectl delete cronjob my-cronjob</code><br/></p>
+</blockquote>
+<p>The <code>apply</code> parameter allows you to apply configurations
+from files</p>
+<blockquote>
+<p><code>$ kubectl apply -f jenkins.yaml</code><br/></p>
+</blockquote>
+<p>The <code>describe</code> parameter provides details of your
+resources which could be:</p>
+<ul>
+<li>nodes</li>
+<li>pods</li>
+<li>services</li>
+<li>deployments</li>
+<li>replicasets</li>
+<li>cronjobs</li>
+</ul>
+<blockquote>
+<p><code>$ kubectl describe cronjob my-cronjob</code><br/></p>
+</blockquote>
+<p>The <code>logs</code> parameter displays the contents of the
+resource’s log:</p>
+<blockquote>
+<p><code>$ kubectl logs my-resource -n charts</code><br/></p>
+</blockquote>
+<p>The <code>exec</code> parameter allows you to <em>exec</em> into a
+container:</p>
+<blockquote>
+<p><code>$ kubectl exec -it my-resource -n charts -- /bin/bash</code><br/></p>
+</blockquote>
+<p>The <code>cp</code> parameter lets you copy files and directories to
+and from containers:</p>
+<blockquote>
+<p><code>$ kubectl cp file1.txt my-resource:file1.txt</code><br/></p>
+</blockquote>
+<p>Tags: <a href='tag_cli.html'>cli</a>, <a href='tag_kubernetes.html'>kubernetes</a>, <a href='tag_cheatsheet.html'>cheatsheet</a>, <a href='tag_motd.html'>motd</a></p>
+<!-- text end -->
 <h3><a class="ablack" href="extract-a-single-file-from-a-tarball.html">
 Extract a Single File from a Tarball
 </a></h3>
