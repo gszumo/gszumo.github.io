@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Systemd on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/systemd/</link>
+    <description>Recent content in Systemd on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 23 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/systemd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Logging to the System Logger in Bash</title>
+      <link>http://localhost:1313/posts/logging-to-the-system-logger-in-bash17599/</link>
+      <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/logging-to-the-system-logger-in-bash17599/</guid>
+      <description>&lt;p&gt;If you are writing a shell script and want any messages to appear in the system logger you can just use the &lt;code&gt;logger&lt;/code&gt; command to do this.&lt;/p&gt;&#xA;&lt;p&gt;Here is an example on my Slackware system:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ logger -t TEST &amp;quot;This is a test message&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ cat /var/log/messages&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;cat: /var/log/messages: Permission denied&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ su -&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Password: &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# cat /var/log/messages&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Aug 23 17:44:47 slackbook TEST: This is a test message&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

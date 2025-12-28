@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Grep on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/grep/</link>
+    <description>Recent content in Grep on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/grep/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deleting Blank Lines Using Grep</title>
+      <link>http://localhost:1313/posts/deleting-blank-lines-using-grep16496/</link>
+      <pubDate>Tue, 20 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/deleting-blank-lines-using-grep16496/</guid>
+      <description>&lt;p&gt;If you have a file (or a stream) that has blank lines you want to remove, you can use this command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ grep -v &amp;quot;^ *$&amp;quot; file-with-blanks.txt &amp;gt; output-file.txt&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;where &lt;code&gt;file-with-blanks.txt&lt;/code&gt; is the input file and has blank lines and &lt;code&gt;output-file.txt&lt;/code&gt; will&#xA;be the output file without the blank lines.&lt;/p&gt;&#xA;&lt;p&gt;You have to keep the &lt;code&gt;space&lt;/code&gt; between the &lt;code&gt;^&lt;/code&gt; and the &lt;code&gt;*$&lt;/code&gt; otherwise blank lines which include&#xA;spaces will not be removed.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

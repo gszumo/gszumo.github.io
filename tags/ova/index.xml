@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ova on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/ova/</link>
+    <description>Recent content in Ova on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ova/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>KVM: Importing an OVA appliance</title>
+      <link>http://localhost:1313/posts/kvm-importing-an-ova-appliance56/</link>
+      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kvm-importing-an-ova-appliance56/</guid>
+      <description>&lt;p&gt;You may or may not be aware if it, but an &lt;em&gt;OVA&lt;/em&gt; file is just a tar archive containing an &lt;code&gt;.ovf&lt;/code&gt; and a &lt;code&gt;.vmdk&lt;/code&gt; files, respectively the VM configuration and disk.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ls *.ova&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;HTAOE.ova&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ tar tf HTAOE.ova &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;HTAOE.ovf&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;HTAOE-disk001.vmdk&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;HTAOE.mf&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;So, you can simply extract the files:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

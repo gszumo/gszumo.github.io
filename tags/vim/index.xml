@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vim on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/vim/</link>
+    <description>Recent content in Vim on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim: More Copying Tips</title>
+      <link>http://localhost:1313/posts/vim-more-copying-tips32632/</link>
+      <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vim-more-copying-tips32632/</guid>
+      <description>&lt;p&gt;Blocks of lines can be copied in &lt;em&gt;Vim&lt;/em&gt; using &lt;em&gt;ranges&lt;/em&gt;, i.e., two numbers separated by a comma indicating the start and end of the block of lines.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Some Examples&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;To copy line 20-25, use:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;:20,25yank&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;To copy five lines just above the cursor:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;:-4,.yank&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;where the period (.) indicates the current line.&lt;/p&gt;&#xA;&lt;p&gt;To copy five lines just below the cursor:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;:.,+4yank&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vim: How to Copy &amp; Paste</title>
+      <link>http://localhost:1313/posts/vim-how-to-copy-amp-paste/</link>
+      <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vim-how-to-copy-amp-paste/</guid>
+      <description>&lt;p&gt;Most &lt;em&gt;Vim&lt;/em&gt; tutorials and cheatsheets out there will cover how to copy and paste. Pasting is the &lt;em&gt;easy&lt;/em&gt; part. Let&amp;rsquo;s talk about copying!&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Copying&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;To copy the current line (line in which the cursor is placed), simply press double lower &lt;code&gt;y&lt;/code&gt; (&lt;code&gt;yy&lt;/code&gt;) or single upper case &lt;code&gt;y&lt;/code&gt; (&lt;code&gt;Y&lt;/code&gt;).&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;yy&lt;/code&gt; or &lt;code&gt;Y&lt;/code&gt;: copies/yanks the current line, including the newline character at the end of the line.&lt;/p&gt;&#xA;&lt;p&gt;To copy a specific number of lines under the cursor (beginning from the current location of the cursor) simply precede the command with the number of lines that you wish to copy, i.e., &lt;code&gt;Nyy&lt;/code&gt; (where N is the number of lines).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vim: Underlining a Line</title>
+      <link>http://localhost:1313/posts/vim-underlining-a-line32649/</link>
+      <pubDate>Tue, 12 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vim-underlining-a-line32649/</guid>
+      <description>&lt;p&gt;Of course, Vim is &lt;em&gt;just&lt;/em&gt; a text editor but you can &lt;em&gt;underline&lt;/em&gt; a line using a set of keystrokes that copies the string to be underlined to the next line and then replaces the string with hyphens using this set of Vim commands:&#xA;&lt;code&gt;YpVr-&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;So if you have a line:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;This Is My Page Title&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;just position the cursor at the start of that line and enter the abovementioned commands and it will turn it into:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vim Keyboard Shortcuts</title>
+      <link>http://localhost:1313/posts/vim-keyboard-shortcuts7928/</link>
+      <pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vim-keyboard-shortcuts7928/</guid>
+      <description>&lt;ol&gt;&#xA;&lt;li&gt;&lt;code&gt;gg&lt;/code&gt; Move to the first line of the file&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;G&lt;/code&gt; Move to the last line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;gg=G&lt;/code&gt; Reindent the whole file&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;gv&lt;/code&gt; Reselect the last visual selection&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;lt;&lt;/code&gt; Jump to beginning of last visual selection&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;gt;&lt;/code&gt; Jump to end of last visual selection&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;^&lt;/code&gt; Move to first non-blank character of the line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;g_&lt;/code&gt; Move the last non-blank character of the line (but you remove trailing whitespace, right)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;g_lD&lt;/code&gt; Delete all the trailing whitespace on the line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;ea&lt;/code&gt; Append to the end of the current word&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;gf&lt;/code&gt; Jump to the file name under the cursor&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;xp&lt;/code&gt; Swap character forward&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Xp&lt;/code&gt; Swap character backward&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;yyp&lt;/code&gt; Duplicate the current line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;yapP&lt;/code&gt; Duplicate the current paragraph&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;dat&lt;/code&gt; Delete around an HTML tag, including the tag&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;dit&lt;/code&gt; Delete inside an HTML tag, excluding the tag&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;w&lt;/code&gt; Move one word to the right&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;b&lt;/code&gt; Move one word to the left&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;dd&lt;/code&gt; Delete the current line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;zc&lt;/code&gt; Close current fold&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;zo&lt;/code&gt; Open current fold&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;za&lt;/code&gt; Toggle current fold&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;zi&lt;/code&gt; Toggle folding entirely&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; Outdent current line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; Indent current line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;z=&lt;/code&gt; Show spelling corrections&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;zg&lt;/code&gt; Add to spelling dictionary&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;zw&lt;/code&gt; Remove from spelling dictionary&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;~&lt;/code&gt; Toggle case of current character&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;gUw&lt;/code&gt; Uppercase until end of word (u for lower, ~ to toggle)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;gUiw&lt;/code&gt; Uppercase entire word (u for lower, ~ to toggle)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;gUU&lt;/code&gt; Uppercase entire line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;gu$&lt;/code&gt; Lowercase until the end of the line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;da&amp;quot;&lt;/code&gt; Delete the next double-quoted string&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;+&lt;/code&gt; Move to the first non-whitespace character of the next line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;S&lt;/code&gt; Delete current line and go into insert mode&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;I&lt;/code&gt; insert at the beginning of the line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;ci&amp;quot;&lt;/code&gt; Change what’s inside the next double-quoted string&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;ca{&lt;/code&gt; Change inside the curly braces (try [, (, etc.)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;vaw&lt;/code&gt; Visually select word&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;dap&lt;/code&gt; Delete the whole paragraph&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;r&lt;/code&gt; Replace a character&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;[&lt;/code&gt; Jump to beginning of last yanked text&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;]&lt;/code&gt; Jump to end of last yanked text&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;g;&lt;/code&gt; Jump to the last change you made&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;g,&lt;/code&gt; Jump back forward through the change list&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;amp;&lt;/code&gt; Repeat last substitution on current line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;g&amp;amp;&lt;/code&gt; Repeat last substitution on all lines&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;ZZ&lt;/code&gt; Save the current file and quit Vim&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>Sorting Stuff in the VIM Buffer</title>
+      <link>http://localhost:1313/posts/sorting-stuff-in-the-vim-buffer26213/</link>
+      <pubDate>Mon, 07 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/sorting-stuff-in-the-vim-buffer26213/</guid>
+      <description>&lt;p&gt;Suppose I have a file that I am editing in &lt;em&gt;vim&lt;/em&gt; with the following contents:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ cat file.txt &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Red 4&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Blue 3&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Green 1&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Orange 7&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Black 8&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Yellow 6&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Purple 2&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;White 5&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vim Tips: Searching a File for Multiple Strings</title>
+      <link>http://localhost:1313/posts/vim-tips-searching-a-file-for-multiple-strings/</link>
+      <pubDate>Mon, 24 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vim-tips-searching-a-file-for-multiple-strings/</guid>
+      <description>&lt;p&gt;In Vim you can perform a search like this: /string1/;/string2&lt;/p&gt;&#xA;&lt;p&gt;This will will combine two searches. It tells Vim:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Search for string1, then&lt;/li&gt;&#xA;&lt;li&gt;From there search for string2 on any line that also contains string1.&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>Edit a Remote File Using Vim</title>
+      <link>http://localhost:1313/posts/edit-a-remote-file-using-vim/</link>
+      <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/edit-a-remote-file-using-vim/</guid>
+      <description>&lt;p&gt;To edit a file remotely using the vim editor, just do the following in a terminal window:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ scp://username@IP-address//path/to/file.txt&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;The user must have access to the file being edited.&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

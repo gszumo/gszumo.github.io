@@ -1,0 +1,1048 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Motd on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/motd/</link>
+    <description>Recent content in Motd on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/motd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes Cheatsheet</title>
+      <link>http://localhost:1313/posts/kubernetes-cheatsheet26628/</link>
+      <pubDate>Thu, 28 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kubernetes-cheatsheet26628/</guid>
+      <description>&lt;p&gt;The &lt;code&gt;get&lt;/code&gt; parameter is a powerful way of discovering your kubenetes resources. You can use it to query:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;namespace&lt;/li&gt;&#xA;&lt;li&gt;pod&lt;/li&gt;&#xA;&lt;li&gt;node&lt;/li&gt;&#xA;&lt;li&gt;deployment&lt;/li&gt;&#xA;&lt;li&gt;service&lt;/li&gt;&#xA;&lt;li&gt;replicasets&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ kubectl get nodes&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ kubectl get ns # ns is an abreviation for namespace&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ kubectl get pods -n kube-system&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The &lt;code&gt;create&lt;/code&gt; command can do just that for:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;service&lt;/li&gt;&#xA;&lt;li&gt;cronjob&lt;/li&gt;&#xA;&lt;li&gt;deployment&lt;/li&gt;&#xA;&lt;li&gt;job&lt;/li&gt;&#xA;&lt;li&gt;namespace (or ns)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ kubectl create ns hello-world&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ kubectl create cronjob my-cronjob --image=alpine  --schedule=&amp;quot;*/15 * * * *&amp;quot; -- echo &amp;quot;hi there&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Extract a Single File from a Tarball</title>
+      <link>http://localhost:1313/posts/extract-a-single-file-from-a-tarball/</link>
+      <pubDate>Wed, 27 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/extract-a-single-file-from-a-tarball/</guid>
+      <description>&lt;p&gt;Suppose I have a tarball (.tar.gz file) which is large and I only want to extract a specific file from it. If I know the name of the file all I have to do is pass the file&amp;rsquo;s relative path that it is stored under to the command line.&lt;/p&gt;&#xA;&lt;p&gt;Here is an example of the error you will get if you pass the incorrect file specification:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ tar zxvf dirtree-tarball.tar.gz file-7-30003.txt&#xA;tar: file-7-30003.txt: Not found in archive&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Since I don&amp;rsquo;t have the full path, I can just search for it:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Updating My Home Lab using Ansible</title>
+      <link>http://localhost:1313/posts/updating-my-home-lab-using-ansible/</link>
+      <pubDate>Tue, 26 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/updating-my-home-lab-using-ansible/</guid>
+      <description>&lt;p&gt;I have a variety of Raspberry Pis that I use for various tasks like my Tiny-Tiny RSS server, Gitea server, and Calibre server among other things. In order to keep them updated I use Ansible.&lt;/p&gt;&#xA;&lt;p&gt;My update script is fairly simple:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cat update-pis.sh &#xA;#!/bin/bash&#xA;ansible-playbook ./playbooks/apt.yml --user memyselfandi \&#xA;     --ask-pass --ask-become-pass -i ./inventory/hosts $@&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The YAML playbook is likewise very simple:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cat ./playbooks/apt.yml &#xA;- hosts: &amp;#34;*&amp;#34;&#xA;  become: yes&#xA;  tasks:&#xA;  - name: Update System Package Cache (apt)&#xA;    apt:&#xA;      update_cache: yes&#xA;      upgrade: &amp;#39;yes&amp;#39;&#xA; &#xA;  - name: Upgrade System Packages (apt)&#xA;    apt: upgrade=full&#xA;&#xA;  - name: Remove unused dependencies&#xA;    apt: autoremove=true&#xA;&#xA;  - name: Check if reboot is required&#xA;    shell: &amp;#34;[ -f /var/run/reboot-required ]&amp;#34;&#xA;    failed_when: False&#xA;    register: reboot_required&#xA;    changed_when: reboot_required.rc == 0&#xA;    notify: reboot&#xA;&#xA;  handlers:&#xA;  - name: reboot&#xA;    command: /sbin/reboot&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Although I can run this in a cronjob, I tend to run it manually (for now). I&amp;rsquo;m thinking about doing some major revisions to my Pi configuration anyway. Stay tuned for more on that subject.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>List All MACs on the Local Network</title>
+      <link>http://localhost:1313/posts/list-all-macs-on-the-local-network/</link>
+      <pubDate>Mon, 25 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/list-all-macs-on-the-local-network/</guid>
+      <description>&lt;p&gt;Per the &lt;em&gt;manpage&lt;/em&gt;:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;The &lt;code&gt;arp&lt;/code&gt; tool manipulates or displays the kernel’s IPv4 network neighbor cache. It can add entries to the table, delete one or display the current content.&#xA;ARP stands for Address Resolution Protocol, which is used to find the media access control address of a network neighbor for a given IPv4 Address.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;You can use the &lt;code&gt;arp&lt;/code&gt; command to list all of the devices on the local network. It is often useful to find the identities of &lt;em&gt;hidden&lt;/em&gt; devices on your network. For example, if you just plugged a Raspberry Pi into your local network and need to find its IP address in order to connect to it via SSH.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>KVM: Configure libvirt Network</title>
+      <link>http://localhost:1313/posts/kvm-configure-libvirt-network6956/</link>
+      <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kvm-configure-libvirt-network6956/</guid>
+      <description>&lt;p&gt;You can update the network configuration for your KVM installation using the command line using the &lt;code&gt;virsh&lt;/code&gt; command.&lt;/p&gt;&#xA;&lt;p&gt;To list all of the available network enter the following command. The &lt;code&gt;--all&lt;/code&gt; will is used to include the inactive networks:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# virsh net-list --all&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Name                 State      Autostart&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;-----------------------------------------&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;default              active     yes&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;NattedNetwork        active     yes&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install sbopkg on Slackware</title>
+      <link>http://localhost:1313/posts/install-sbopkg-on-slackware2055/</link>
+      <pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-sbopkg-on-slackware2055/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Sbopkg&lt;/em&gt; is a command‐line and dialog‐based tool to interact with the SlackBuilds.org repository, a collection of third‐party SlackBuild scripts to build Slackware packages.&lt;/p&gt;&#xA;&lt;p&gt;Here are the steps for installing the latest version of &lt;em&gt;sbopkg&lt;/em&gt; with Slackware.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Download the latest Slackware package from &lt;code&gt;https://www.sbopkg.org/downloads.php&lt;/code&gt; using whatever method you find most convenient. At the time of this writing the latest version is &lt;code&gt;https://github.com/sbopkg/sbopkg/releases/download/0.38.2/sbopkg-0.38.2-noarch-1_wsr.tgz&lt;/code&gt;. I will use that version in the commands below. If the version has changed, you would use the new filename in the commands. You can also use &lt;code&gt;wget &amp;lt;packagename&amp;gt;&lt;/code&gt; to download it directly.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Copying a Directory Tree Recursively Using tar</title>
+      <link>http://localhost:1313/posts/copying-a-directory-tree-recursively-using-tar/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/copying-a-directory-tree-recursively-using-tar/</guid>
+      <description>&lt;p&gt;You can use &lt;code&gt;tar&lt;/code&gt; to copy a directory tree to another directory in &lt;em&gt;one shot&lt;/em&gt; along with preserving ownership, permissions and timestamps. This also avoids making an intermediary &lt;em&gt;tarfile&lt;/em&gt; which may cause problems if the size of the file copy is large and the storage resources are low. Just &lt;code&gt;cd&lt;/code&gt; to the top of the directory that you want to copy and begin.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s assume that you want to copy the contents of the &lt;em&gt;source&lt;/em&gt; directory to a &lt;em&gt;target&lt;/em&gt; directory:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Removing Blank Spaces from a Group of File Names</title>
+      <link>http://localhost:1313/posts/removing-blank-spaces-from-a-group-of-file-names/</link>
+      <pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/removing-blank-spaces-from-a-group-of-file-names/</guid>
+      <description>&lt;p&gt;This set of commands iterate over each file in the current directory and will replace any blank spaces in a filename with an underscore (&lt;code&gt;_&lt;/code&gt;).&lt;/p&gt;&#xA;&lt;p&gt;First, we&amp;rsquo;ll create a set of sample files:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ for i in {0..9}; do touch &amp;quot;file-${i} (number-${i}).txt&amp;quot;; done&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ ls&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-0\ (number-0).txt  file-4\ (number-4).txt  file-8\ (number-8).txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-1\ (number-1).txt  file-5\ (number-5).txt  file-9\ (number-9).txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-2\ (number-2).txt  file-6\ (number-6).txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-3\ (number-3).txt  file-7\ (number-7).txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Remove Parentheses from File Names</title>
+      <link>http://localhost:1313/posts/remove-parentheses-from-file-names/</link>
+      <pubDate>Wed, 20 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/remove-parentheses-from-file-names/</guid>
+      <description>&lt;p&gt;This script will rename Windows backup files by removing the &amp;rsquo; (date)&amp;rsquo; from the filename. It will remove the parentheses and everything between them from the file name, so that a file with the name &lt;code&gt;file-1 (2023-09-10).txt&lt;/code&gt; will be renamed to &lt;code&gt;file-1.txt&lt;/code&gt;. Note that since the data between the parentheses will be removed, the resulting file name must be unique for this script to prevent data from being overwritten. Other than that it should work for any fileset that meets the beforementioned constraints.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Swapping the CMD and Control Keys on a Macbook Running Linux</title>
+      <link>http://localhost:1313/posts/swapping-the-cmd-and-control-keys-on-a-macbook-running-linux/</link>
+      <pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/swapping-the-cmd-and-control-keys-on-a-macbook-running-linux/</guid>
+      <description>&lt;p&gt;I find it annoying not having a CTRL key available for both hands so I tend to swap the Command and CTRL key settings on my 2012 &amp;ldquo;Slackbook&amp;rdquo;.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Launch a terminal&lt;/li&gt;&#xA;&lt;li&gt;Edit the X11 Keyboard Extension&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# vim /usr/share/X11/xkb/symbols/pc&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;Make the following changes. Ensure your file looks like this:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;key &amp;lt;LCTL&amp;gt; {    [ Super_L       ]   };&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;key &amp;lt;LWIN&amp;gt; {    [ Control_L     ]   };&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;...&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;key &amp;lt;RCTL&amp;gt; {    [ Super_R       ]   };&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;key &amp;lt;RWIN&amp;gt; {    [ Control_R     ]   };&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>IP Address Blocks</title>
+      <link>http://localhost:1313/posts/ip-address-blocks26740/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ip-address-blocks26740/</guid>
+      <description>&lt;p&gt;There are 4 classes of IPv4 networks:&lt;/p&gt;&#xA;&lt;p&gt;A &lt;em&gt;Class A network&lt;/em&gt; can have 16,777,214 computers on it. It has an IP address that starts with a number in the range 0 to 126. 127 is reserved for the local loopback. (Only 127.0.0.1 is ever used although this may change in the future).&lt;/p&gt;&#xA;&lt;p&gt;A &lt;em&gt;Class B&lt;/em&gt; network can have 65,534 computers on it. It has an IP address that starts in the range of 128 to 191.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vim: More Copying Tips</title>
+      <link>http://localhost:1313/posts/vim-more-copying-tips32632/</link>
+      <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vim-more-copying-tips32632/</guid>
+      <description>&lt;p&gt;Blocks of lines can be copied in &lt;em&gt;Vim&lt;/em&gt; using &lt;em&gt;ranges&lt;/em&gt;, i.e., two numbers separated by a comma indicating the start and end of the block of lines.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Some Examples&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;To copy line 20-25, use:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;:20,25yank&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;To copy five lines just above the cursor:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;:-4,.yank&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;where the period (.) indicates the current line.&lt;/p&gt;&#xA;&lt;p&gt;To copy five lines just below the cursor:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;:.,+4yank&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Log File Maintenance and Cleanup</title>
+      <link>http://localhost:1313/posts/log-file-maintenance-and-cleanup/</link>
+      <pubDate>Sat, 16 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/log-file-maintenance-and-cleanup/</guid>
+      <description>&lt;p&gt;Log files sometimes take up a lot of disk space. Some applications have internal processes that run periodically to manage them and some do not. Often, this becomes a problems after a while as the logs consume all of your partition space.&lt;/p&gt;&#xA;&lt;p&gt;You can manage these files yourself with a simple script running in a &lt;em&gt;cronjob&lt;/em&gt; (or systemd timers if you&amp;rsquo;re so inclined) if they have a common naming convention and you have the proper access.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vim: How to Copy &amp; Paste</title>
+      <link>http://localhost:1313/posts/vim-how-to-copy-amp-paste/</link>
+      <pubDate>Fri, 15 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vim-how-to-copy-amp-paste/</guid>
+      <description>&lt;p&gt;Most &lt;em&gt;Vim&lt;/em&gt; tutorials and cheatsheets out there will cover how to copy and paste. Pasting is the &lt;em&gt;easy&lt;/em&gt; part. Let&amp;rsquo;s talk about copying!&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Copying&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;To copy the current line (line in which the cursor is placed), simply press double lower &lt;code&gt;y&lt;/code&gt; (&lt;code&gt;yy&lt;/code&gt;) or single upper case &lt;code&gt;y&lt;/code&gt; (&lt;code&gt;Y&lt;/code&gt;).&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;yy&lt;/code&gt; or &lt;code&gt;Y&lt;/code&gt;: copies/yanks the current line, including the newline character at the end of the line.&lt;/p&gt;&#xA;&lt;p&gt;To copy a specific number of lines under the cursor (beginning from the current location of the cursor) simply precede the command with the number of lines that you wish to copy, i.e., &lt;code&gt;Nyy&lt;/code&gt; (where N is the number of lines).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Format Disk using exFat on Command Line</title>
+      <link>http://localhost:1313/posts/format-disk-using-exfat-on-command-line32603/</link>
+      <pubDate>Thu, 14 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/format-disk-using-exfat-on-command-line32603/</guid>
+      <description>&lt;p&gt;You may not always be working on a Linux system using a GUI, like a server or a system with very low resources. Sometimes you may need to format a disk to exFat using the Command Line. It&amp;rsquo;s not really that difficult.&lt;/p&gt;&#xA;&lt;p&gt;The first thing you need to do is to know which device is to be formatted so before you connect the disk or USB make sure you run the &lt;code&gt;lsblk&lt;/code&gt; command before and after doing so. This way you will be certain not to format the wrong disk by mistake and cause a data loss.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Find Your External IP Address</title>
+      <link>http://localhost:1313/posts/find-your-external-ip-address16428/</link>
+      <pubDate>Wed, 13 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/find-your-external-ip-address16428/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s easy to find your internal IP address my using tools like ifconfig or ip a but to find your external IP address (the one that connects you to the outside world) you must use other means. Here are 3 simple commands that you can use to do just that:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ curl ifcfg.me&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;72.76.yyy.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ curl icanhazip.com&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;72.76.yyy.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ nslookup myip.opendns.com. resolver1.opendns.com&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Server:&#x9;&#x9;resolver1.opendns.com&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Address:&#x9;208.67.222.222#53&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Non-authoritative answer:&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Name:&#x9;myip.opendns.com&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Address: 72.76.yyy.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vim: Underlining a Line</title>
+      <link>http://localhost:1313/posts/vim-underlining-a-line32649/</link>
+      <pubDate>Tue, 12 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vim-underlining-a-line32649/</guid>
+      <description>&lt;p&gt;Of course, Vim is &lt;em&gt;just&lt;/em&gt; a text editor but you can &lt;em&gt;underline&lt;/em&gt; a line using a set of keystrokes that copies the string to be underlined to the next line and then replaces the string with hyphens using this set of Vim commands:&#xA;&lt;code&gt;YpVr-&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;So if you have a line:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;This Is My Page Title&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;just position the cursor at the start of that line and enter the abovementioned commands and it will turn it into:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Finding Duplicate Files in a Directory Tree</title>
+      <link>http://localhost:1313/posts/finding-duplicate-files-in-a-directory-tree/</link>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/finding-duplicate-files-in-a-directory-tree/</guid>
+      <description>&lt;p&gt;Sometimes I need to find all of the duplicate files in a directory tree. I have this issue all of the time when I move my music collection. Here is a nifty script to sort these things out:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;#!/bin/bash&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;find -not -empty -type f -printf &amp;quot;%s\n&amp;quot; | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 -D --all-repeated=separate&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Virt-Manager Pool Running Out of Space</title>
+      <link>http://localhost:1313/posts/virt-manager-pool-running-out-of-space17838/</link>
+      <pubDate>Sun, 10 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/virt-manager-pool-running-out-of-space17838/</guid>
+      <description>&lt;p&gt;Once upon a time, I had an issue with virt-manager&amp;rsquo;s pool space running low. I was creating too many VMs using the default configuration. This needed to be resolved because images are being created in /var/lib/libvirt/images which was part of my &lt;code&gt;root&lt;/code&gt; partition, which was also low. Since I am the only user on this machine, I decided to change this to default to my home directory:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Create &lt;code&gt;~/libvirt/images&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Run &lt;code&gt;$ sudo virsh pool-edit default&lt;/code&gt; as a privileged user or as the &lt;code&gt;root&lt;/code&gt; user.&lt;/li&gt;&#xA;&lt;li&gt;Change the path to point to your new directory.&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>KVM: Importing an OVA appliance</title>
+      <link>http://localhost:1313/posts/kvm-importing-an-ova-appliance56/</link>
+      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kvm-importing-an-ova-appliance56/</guid>
+      <description>&lt;p&gt;You may or may not be aware if it, but an &lt;em&gt;OVA&lt;/em&gt; file is just a tar archive containing an &lt;code&gt;.ovf&lt;/code&gt; and a &lt;code&gt;.vmdk&lt;/code&gt; files, respectively the VM configuration and disk.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ls *.ova&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;HTAOE.ova&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ tar tf HTAOE.ova &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;HTAOE.ovf&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;HTAOE-disk001.vmdk&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;HTAOE.mf&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;So, you can simply extract the files:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Compiling 32-bit C/C&#43;&#43; Programs on 64-bit </title>
+      <link>http://localhost:1313/posts/compiling-32-bit-cc-programs-on-64-bit/</link>
+      <pubDate>Fri, 08 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/compiling-32-bit-cc-programs-on-64-bit/</guid>
+      <description>&lt;p&gt;By default, &lt;em&gt;gcc&lt;/em&gt; will compile your c/c++ program to 64-bit instructions.  In order to compile to 32-bit you need to add a &lt;code&gt;-m32&lt;/code&gt; flag to the command line. For example, to compile a file called &lt;em&gt;hello-world.c&lt;/em&gt; using a Linux terminal, you would do something like this:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ gcc -m32 hello-world.c -o hello-world&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;If you get the following error:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;fatal error: bits/predefs.h: No such file or directory&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to Clean Up the Fedora Root Folder</title>
+      <link>http://localhost:1313/posts/how-to-clean-up-the-fedora-root-folder/</link>
+      <pubDate>Wed, 06 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-clean-up-the-fedora-root-folder/</guid>
+      <description>&lt;p&gt;OK, so you&amp;rsquo;re running &lt;em&gt;Fedora&lt;/em&gt; and you&amp;rsquo;re getting warnings that you&amp;rsquo;re running out of disk space on the &lt;em&gt;root&lt;/em&gt; folder. What are your options?&lt;/p&gt;&#xA;&lt;p&gt;The first thing to consider is &lt;em&gt;resizing&lt;/em&gt; the root partition size. For that you can find instructions &lt;a href=&#34;https://gist.github.com/181192/cf7eb42a25538ccdb8d0bb7dd57cf236&#34;&gt;here&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;If that is not an option, then the next thing you probably should do is find out which folders/directories are causing the issue. You can use the &lt;code&gt;du&lt;/code&gt; command and some piping to figure this out:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install Spotify using Flatpak using Command Line</title>
+      <link>http://localhost:1313/posts/install-spotify-using-flatpak-using-command-line/</link>
+      <pubDate>Tue, 05 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-spotify-using-flatpak-using-command-line/</guid>
+      <description>&lt;p&gt;If &lt;em&gt;Flatpak&lt;/em&gt; is not installed, then install it:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo dnf install -y flatpak   # Fedora&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ sudo apt install flatpak      # Ubuntu-based&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ sudo zypper install flatpak   # SUSE&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ sudo pacman -S flatpak        # Arch-based&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Since &lt;em&gt;flathub.org&lt;/em&gt; is the most popular flatpak repository we will use the command line to enable it:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to reveal dot files in finder?</title>
+      <link>http://localhost:1313/posts/how-to-reveal-dot-files-in-finder29256/</link>
+      <pubDate>Mon, 04 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-reveal-dot-files-in-finder29256/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s one from my &lt;em&gt;archives&lt;/em&gt;. To reveal dot files in macOS &lt;em&gt;Finder&lt;/em&gt;, open your Terminal (/Applications/Utilities) application and then enter,&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;defaults write com.apple.finder AppleShowAllFiles YES&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Then restart Finder by holding down &lt;code&gt;Option&lt;/code&gt; and &lt;code&gt;Control&lt;/code&gt;, or right-clicking on the Finder&amp;rsquo;s icon in your Dock and choosing &amp;ldquo;Relaunch&amp;rdquo;.&lt;/p&gt;&#xA;&lt;p&gt;To revert this behavior, simply change the &lt;code&gt;YES&lt;/code&gt; to &lt;code&gt;NO&lt;/code&gt; in that defaults command.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install Epson ET-3850 Printer Driver on Slackware 15.0</title>
+      <link>http://localhost:1313/posts/install-epson-et-3850-printer-driver-on-slackware-150/</link>
+      <pubDate>Sun, 03 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-epson-et-3850-printer-driver-on-slackware-150/</guid>
+      <description>&lt;p&gt;I recently bought an &lt;em&gt;Epson ET-3850&lt;/em&gt; printer from &lt;em&gt;Costco&lt;/em&gt; to replace my &lt;em&gt;HP OfficeJet&lt;/em&gt; which was about 10 years old and the family was starting to have issues with establishing a wi-fi connection to it on their Windoze laptops. It took quite a while to setup. The &lt;em&gt;Epson&lt;/em&gt; seems to be doing the job. Time will tell, however I discovered that setting it up for &lt;em&gt;Slackware&lt;/em&gt; would also take a bit of effort. Drivers are only available on the &lt;em&gt;Epson&lt;/em&gt; website in &lt;em&gt;RPM&lt;/em&gt; or &lt;em&gt;DEB&lt;/em&gt; format so I had to create a &lt;em&gt;Slackware&lt;/em&gt; package to install it. Here&amp;rsquo;s how I went about doing that.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vim Keyboard Shortcuts</title>
+      <link>http://localhost:1313/posts/vim-keyboard-shortcuts7928/</link>
+      <pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vim-keyboard-shortcuts7928/</guid>
+      <description>&lt;ol&gt;&#xA;&lt;li&gt;&lt;code&gt;gg&lt;/code&gt; Move to the first line of the file&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;G&lt;/code&gt; Move to the last line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;gg=G&lt;/code&gt; Reindent the whole file&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;gv&lt;/code&gt; Reselect the last visual selection&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;lt;&lt;/code&gt; Jump to beginning of last visual selection&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;gt;&lt;/code&gt; Jump to end of last visual selection&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;^&lt;/code&gt; Move to first non-blank character of the line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;g_&lt;/code&gt; Move the last non-blank character of the line (but you remove trailing whitespace, right)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;g_lD&lt;/code&gt; Delete all the trailing whitespace on the line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;ea&lt;/code&gt; Append to the end of the current word&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;gf&lt;/code&gt; Jump to the file name under the cursor&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;xp&lt;/code&gt; Swap character forward&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;Xp&lt;/code&gt; Swap character backward&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;yyp&lt;/code&gt; Duplicate the current line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;yapP&lt;/code&gt; Duplicate the current paragraph&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;dat&lt;/code&gt; Delete around an HTML tag, including the tag&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;dit&lt;/code&gt; Delete inside an HTML tag, excluding the tag&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;w&lt;/code&gt; Move one word to the right&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;b&lt;/code&gt; Move one word to the left&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;dd&lt;/code&gt; Delete the current line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;zc&lt;/code&gt; Close current fold&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;zo&lt;/code&gt; Open current fold&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;za&lt;/code&gt; Toggle current fold&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;zi&lt;/code&gt; Toggle folding entirely&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; Outdent current line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; Indent current line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;z=&lt;/code&gt; Show spelling corrections&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;zg&lt;/code&gt; Add to spelling dictionary&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;zw&lt;/code&gt; Remove from spelling dictionary&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;~&lt;/code&gt; Toggle case of current character&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;gUw&lt;/code&gt; Uppercase until end of word (u for lower, ~ to toggle)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;gUiw&lt;/code&gt; Uppercase entire word (u for lower, ~ to toggle)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;gUU&lt;/code&gt; Uppercase entire line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;gu$&lt;/code&gt; Lowercase until the end of the line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;da&amp;quot;&lt;/code&gt; Delete the next double-quoted string&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;+&lt;/code&gt; Move to the first non-whitespace character of the next line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;S&lt;/code&gt; Delete current line and go into insert mode&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;I&lt;/code&gt; insert at the beginning of the line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;ci&amp;quot;&lt;/code&gt; Change what’s inside the next double-quoted string&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;ca{&lt;/code&gt; Change inside the curly braces (try [, (, etc.)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;vaw&lt;/code&gt; Visually select word&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;dap&lt;/code&gt; Delete the whole paragraph&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;r&lt;/code&gt; Replace a character&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;[&lt;/code&gt; Jump to beginning of last yanked text&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;]&lt;/code&gt; Jump to end of last yanked text&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;g;&lt;/code&gt; Jump to the last change you made&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;g,&lt;/code&gt; Jump back forward through the change list&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;&amp;amp;&lt;/code&gt; Repeat last substitution on current line&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;g&amp;amp;&lt;/code&gt; Repeat last substitution on all lines&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;ZZ&lt;/code&gt; Save the current file and quit Vim&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>Linkers</title>
+      <link>http://localhost:1313/posts/linkers20614/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/linkers20614/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re a developer who is interested in &amp;ldquo;how the sausage is made&amp;rdquo; then you might want to check out Ian Lance Taylor&amp;rsquo;s &lt;a href=&#34;https://www.airs.com/blog/feed&#34;&gt;blog&lt;/a&gt; which contains a series of articles discussed on Klaatu&amp;rsquo;s GNU World Order &lt;a href=&#34;https://gnuworldorder.info/audiophile/gnuWorldOrder_400.ogg&#34;&gt;Episode 400&lt;/a&gt; about the &lt;a href=&#34;https://www.airs.com/blog/archives/date/2007/08&#34;&gt;linker&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here are the links to the articles:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.airs.com/blog/archives/38&#34;&gt;Linkers part 1&lt;/a&gt;&#xA;&lt;a href=&#34;https://www.airs.com/blog/archives/39&#34;&gt;Linkers part 2&lt;/a&gt;&#xA;&lt;a href=&#34;https://www.airs.com/blog/archives/40&#34;&gt;Linkers part 3&lt;/a&gt;&#xA;&lt;a href=&#34;https://www.airs.com/blog/archives/41&#34;&gt;Linkers part 4&lt;/a&gt;&#xA;&lt;a href=&#34;https://www.airs.com/blog/archives/42&#34;&gt;Linkers part 5&lt;/a&gt;&#xA;&lt;a href=&#34;https://www.airs.com/blog/archives/43&#34;&gt;Linkers part 6&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mounting a Remote Drive using FUSE</title>
+      <link>http://localhost:1313/posts/mounting-a-remote-drive-using-fuse15177/</link>
+      <pubDate>Thu, 31 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/mounting-a-remote-drive-using-fuse15177/</guid>
+      <description>&lt;p&gt;If you have &lt;em&gt;FUSE&lt;/em&gt; (Filessystem in Userspace) installed, you can use &lt;em&gt;SSH&lt;/em&gt; to mount a remote drive locally. This is very simple to do and you don&amp;rsquo;t need to be &lt;em&gt;root&lt;/em&gt;. You just need &lt;em&gt;SSH&lt;/em&gt; access to the remote system. Just create a directory to mount the system and use the &lt;code&gt;sshfs&lt;/code&gt; command to connect the remote to it.&lt;/p&gt;&#xA;&lt;p&gt;Here I will mount my home directory on my remote server named &lt;em&gt;slacker&lt;/em&gt; locally to a directory on my laptop&amp;rsquo;s home directory:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install Joplin on Slackware 15.0</title>
+      <link>http://localhost:1313/posts/install-joplin-on-slackware-150/</link>
+      <pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-joplin-on-slackware-150/</guid>
+      <description>&lt;p&gt;On a recent episode of &lt;a href=&#34;https://hackerpublicradio.org/eps/hpr3929/index.html&#34;&gt;Hacker Public Radio&lt;/a&gt;, the host, &lt;a href=&#34;https://hackerpublicradio.org/correspondents/0403.html&#34;&gt;Lee&lt;/a&gt; listed several note-taking apps that he had tried to use. One of them was &lt;a href=&#34;https://joplinapp.org/&#34;&gt;Joplin&lt;/a&gt; which I have been using for several years now. I feel that it is probably one of the best note-taking apps available that:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Supports Markdown&lt;/li&gt;&#xA;&lt;li&gt;Is cross-platform&lt;/li&gt;&#xA;&lt;li&gt;Supports vim keyboard mappings (I can&amp;rsquo;t live without this)&lt;/li&gt;&#xA;&lt;li&gt;Integrates with multiple cloud storage environments.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I use it on a daily basis for almost all of my notes but it also supports checklists on my iPhone, iPad, Windoze laptop, and all of my Slackware devices (desktop and laptops). Give it a try!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SlackBuilds: Where Are They Located?</title>
+      <link>http://localhost:1313/posts/slackbuilds-where-are-they-located/</link>
+      <pubDate>Tue, 29 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/slackbuilds-where-are-they-located/</guid>
+      <description>&lt;p&gt;You should find a file in &lt;code&gt;/var/log/packages&lt;/code&gt; for each &lt;em&gt;SlackBuild&lt;/em&gt; that you have installed. You can distinguish the &lt;em&gt;SlackBuilds&lt;/em&gt; package from standard Slackware packages by the substring &lt;em&gt;SBo&lt;/em&gt; embedded in the filename. So you can create a list of all of the &lt;em&gt;SlackBuilds&lt;/em&gt; installed on your machine by just doing an &lt;code&gt;ls *SBo*&lt;/code&gt; in that directory.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;ls /var/log/packages | grep SBo&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;or&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;ls /var/log/packages/*SBo&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Slackware Kernel Upgrade (elilo)</title>
+      <link>http://localhost:1313/posts/slackware-kernel-upgrade-elilo24510/</link>
+      <pubDate>Mon, 28 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/slackware-kernel-upgrade-elilo24510/</guid>
+      <description>&lt;p&gt;If you are using &lt;code&gt;elilo&lt;/code&gt; with Slackware, after running the &lt;code&gt;slackpkg --upgrade-all&lt;/code&gt; script and you see that a new kernel was installed, you need to run the following commands to move the latest kernel to its proper location in order to boot:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;geninitrd&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;cp /boot/vmlinuz-generic /boot/efi/EFI/Slackware/vmlinuz&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;cp /boot/initrd.gz /boot/efi/EFI/Slackware/initrd.gz&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>How to Change the UID or GID for a User or Group</title>
+      <link>http://localhost:1313/posts/how-to-change-the-uid-or-gid-for-a-user-or-group/</link>
+      <pubDate>Sun, 27 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-change-the-uid-or-gid-for-a-user-or-group/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s assume we have a user, Jane Doe, with the username of jdoe and the &lt;em&gt;UID&lt;/em&gt; of 1001 who we need to move to another &lt;em&gt;UID&lt;/em&gt; (for some reason or another).&lt;/p&gt;&#xA;&lt;p&gt;First, change the &lt;em&gt;UID&lt;/em&gt; of the user:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# usermod -u 3001 jdoe &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Next, use search and change all file’s ownership owned by this user:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# find / -user 1001 -exec chown -h jdoe {} \; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Netstat</title>
+      <link>http://localhost:1313/posts/netstat6800/</link>
+      <pubDate>Sat, 26 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/netstat6800/</guid>
+      <description>&lt;p&gt;My most frequently used &lt;code&gt;netstat&lt;/code&gt; command with parameters for checking port (active internet) connections is:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ netstat -tulpn &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;You can also pipe the output to &lt;code&gt;grep&lt;/code&gt; to filter for specific ports or addresses.&lt;/p&gt;&#xA;&lt;p&gt;Here is a brief listing of some of the many options:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ netstat [options]&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th style=&#34;text-align: center&#34;&gt;Option&lt;/th&gt;&#xA;          &lt;th&gt;Action&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;-a&lt;/td&gt;&#xA;          &lt;td&gt;Display the state of all sockets, not just the active.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;-c&lt;/td&gt;&#xA;          &lt;td&gt;Continuously display information, updating every second.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;-i&lt;/td&gt;&#xA;          &lt;td&gt;Include network device statistics.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;-n&lt;/td&gt;&#xA;          &lt;td&gt;Display all network addresses as numbers.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;-o&lt;/td&gt;&#xA;          &lt;td&gt;Display additional information.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;-r&lt;/td&gt;&#xA;          &lt;td&gt;Display routing tables.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;-t&lt;/td&gt;&#xA;          &lt;td&gt;Display only the TCP sockets.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;-u&lt;/td&gt;&#xA;          &lt;td&gt;Display only the UDP sockets.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;-v&lt;/td&gt;&#xA;          &lt;td&gt;Print the netstat version number and exit.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;-w&lt;/td&gt;&#xA;          &lt;td&gt;List only the raw sockets.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;-x&lt;/td&gt;&#xA;          &lt;td&gt;Display only the Unix sockets.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;</description>
+    </item>
+    <item>
+      <title>Extracting Client Certificates</title>
+      <link>http://localhost:1313/posts/extracting-client-certificates237/</link>
+      <pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/extracting-client-certificates237/</guid>
+      <description>&lt;p&gt;You can display all of the server&amp;rsquo;s certificates using the following command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ openssl s_client -showcerts server.name:port | sed -n &#39;/-----BEGIN CERTIFICATE-----/,/-----END CERTIFICATE-----/p&#39;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This output can be piped or copy/pasted to a text file (only keep the parts between the &lt;em&gt;BEGIN&lt;/em&gt; and &lt;em&gt;END CERTIFICATE&lt;/em&gt; sections) and give it a &lt;code&gt;.crt&lt;/code&gt; file extension. You can then use it as input to whatever client app needs it.&lt;/p&gt;&#xA;&lt;p&gt;In the below example we pipe the &lt;code&gt;openssl&lt;/code&gt; output to &lt;code&gt;grep&lt;/code&gt; to remove the identifiers of the certificates. You may not get your &lt;em&gt;prompt&lt;/em&gt; back until the command times out, so you should wait a bit and after a bit you should get something similar to the following output:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Use the zdump Command to Check Daylight Savings Time Settings</title>
+      <link>http://localhost:1313/posts/use-the-zdump-command-to-check-daylight-savings-time-settings/</link>
+      <pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/use-the-zdump-command-to-check-daylight-savings-time-settings/</guid>
+      <description>&lt;p&gt;If you are one of us &lt;em&gt;lucky&lt;/em&gt; folks who live in timezones that observe &lt;em&gt;Daylight Savings Time&lt;/em&gt;, you can use the &lt;code&gt;zdump&lt;/code&gt; timezone dumper command to view your server&amp;rsquo;s settings for same. This command prints the current time in each timezone provided on the command line.&lt;/p&gt;&#xA;&lt;p&gt;You can use &lt;code&gt;grep&lt;/code&gt; to reduce the output to just the lines that reference the current year:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ zdump -v EST5EDT |grep &#39;2023&#39;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;EST5EDT  Sun Mar 12 06:59:59 2023 UT = Sun Mar 12 01:59:59 2023 EST isdst=0 gmtoff=-18000&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;EST5EDT  Sun Mar 12 07:00:00 2023 UT = Sun Mar 12 03:00:00 2023 EDT isdst=1 gmtoff=-14400&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;EST5EDT  Sun Nov  5 05:59:59 2023 UT = Sun Nov  5 01:59:59 2023 EDT isdst=1 gmtoff=-14400&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;EST5EDT  Sun Nov  5 06:00:00 2023 UT = Sun Nov  5 01:00:00 2023 EST isdst=0 gmtoff=-18000&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Logging to the System Logger in Bash</title>
+      <link>http://localhost:1313/posts/logging-to-the-system-logger-in-bash17599/</link>
+      <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/logging-to-the-system-logger-in-bash17599/</guid>
+      <description>&lt;p&gt;If you are writing a shell script and want any messages to appear in the system logger you can just use the &lt;code&gt;logger&lt;/code&gt; command to do this.&lt;/p&gt;&#xA;&lt;p&gt;Here is an example on my Slackware system:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ logger -t TEST &amp;quot;This is a test message&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ cat /var/log/messages&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;cat: /var/log/messages: Permission denied&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ su -&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Password: &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# cat /var/log/messages&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Aug 23 17:44:47 slackbook TEST: This is a test message&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Encrypting Files using OpenSSL</title>
+      <link>http://localhost:1313/posts/encrypting-files-using-openssl23222/</link>
+      <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/encrypting-files-using-openssl23222/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s say we have a file that contains sensitive information and we want to encyrpt it. You can encrypt a file very easily using the &lt;code&gt;openssl&lt;/code&gt; command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ cat secret.txt &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;This file contains some very secret stuff&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ openssl enc -e -aes-256-cbc -pbkdf2 -a -salt -in secret.txt -out secret.enc&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;enter aes-256-cbc encryption password: &amp;lt;enter-a-password&amp;gt;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt; Verifying - enter aes-256-cbc encryption password:  &amp;lt;enter-a-password&amp;gt;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ cat secret.enc &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;U2FsdGVkX19Rnz48WjLeljd19wvNOhQy+zzYwxCANezCTkqpGMl9zs4HdwdUzZjl&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;VQkUsCJ7b0rUpRi83UlcwA==&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Finding the SSL Directory on a Server</title>
+      <link>http://localhost:1313/posts/finding-the-ssl-directory-on-a-server32368/</link>
+      <pubDate>Mon, 21 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/finding-the-ssl-directory-on-a-server32368/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve had situations where I was configuring a secure connection to an application and needed to know where the SSL certificates are stored on the server. You can easily find out this information using the &lt;code&gt;openssl&lt;/code&gt; and &lt;code&gt;grep&lt;/code&gt; commands:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ openssl version -a | grep OPENSSLDIR&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;OPENSSLDIR: &amp;quot;/etc/pki/tls&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Processing The Results of The Find Command</title>
+      <link>http://localhost:1313/posts/processing-the-results-of-the-find-command10607/</link>
+      <pubDate>Sat, 19 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/processing-the-results-of-the-find-command10607/</guid>
+      <description>&lt;p&gt;As mentioned in the previous post, the find command searches for files, but it has another very useful feature in that it can also perform an action on the files it finds.&lt;/p&gt;&#xA;&lt;p&gt;I am a &lt;em&gt;vim&lt;/em&gt; user, and let&amp;rsquo;s assume that I want to find my editor&amp;rsquo;s backup files in the current directory trees. These filesall end with a  tilda (~) character. We would use this command to search for them:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using the Find Command to Search for Files</title>
+      <link>http://localhost:1313/posts/using-the-find-command-to-search-for-files28509/</link>
+      <pubDate>Fri, 18 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/using-the-find-command-to-search-for-files28509/</guid>
+      <description>&lt;p&gt;One of the most useful and flexible GNU utilities is the &lt;em&gt;find&lt;/em&gt; command. Understanding how to use this command is very important to make you Linux life more efficient.&lt;/p&gt;&#xA;&lt;p&gt;The general syntax of the find command is:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;find [-H] [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [expression]&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;That looks like a lot, but most of the time you may only need 2 things:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;find [path] [expression]&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git Aliases</title>
+      <link>http://localhost:1313/posts/git-aliases20780/</link>
+      <pubDate>Thu, 17 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-aliases20780/</guid>
+      <description>&lt;p&gt;Once you start developing some experience with using &lt;em&gt;git&lt;/em&gt; on the command line, you will sometimes find yourself typing some long commands over and over again. You can create &lt;em&gt;aliases&lt;/em&gt; in &lt;em&gt;git&lt;/em&gt; that are very similar to the &lt;em&gt;bash alias&lt;/em&gt; shortcuts you use in the shell.&lt;/p&gt;&#xA;&lt;p&gt;Steps to do this are highlighted in chapter 2.7 of the &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases&#34;&gt;Git Book&lt;/a&gt; authored by Scott Chacon and Ben Straub and published by Apress.&lt;/p&gt;&#xA;&lt;p&gt;One of the commands that I use a lot is:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting Up Git to Ignore ELF Binaries (C/C&#43;&#43; Output on Linux)</title>
+      <link>http://localhost:1313/posts/setting-up-git-to-ignore-elf-binaries-cc-output-on-linux/</link>
+      <pubDate>Wed, 16 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/setting-up-git-to-ignore-elf-binaries-cc-output-on-linux/</guid>
+      <description>&lt;p&gt;The starting point for this experiment was from &lt;a href=&#34;https://stackoverflow.com/questions/5711120/gitignore-binary-files-that-have-no-extension&#34;&gt;here&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;An Example using C Program Source&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s say we have a pre-existing directory of some C source code files:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ls&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Makefile  print  print.c  print.h  print.o&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;And we initialize a new git repository in that directory:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ git init&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Initialized empty Git repository in /home/user/tmp/printer/.git/&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ cat .gitignore&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Ignore all &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;* &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Unignore all with extensions &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;!*.* &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Unignore all dirs &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;!*/ &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Unignore make files&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;!Makefile&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Ignore .o files&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;*.o&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Ignore&lt;/code&gt;bin&lt;code&gt;dir &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;bin/ &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# or &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;*/bin/* &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Processing a List of Files from an Input File</title>
+      <link>http://localhost:1313/posts/processing-a-list-of-files-from-an-input-file7025/</link>
+      <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/processing-a-list-of-files-from-an-input-file7025/</guid>
+      <description>&lt;p&gt;Suppose we have a list of files stored in a text file and we want to perform an operation on each of them within a bash script. How would we go about doing that? Well, there are several options, here are a few.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ cat input-files.txt &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-1.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-2.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-3.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-4.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-5.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-6.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-7.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-8.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-9.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>String Processing with Bash</title>
+      <link>http://localhost:1313/posts/string-processing-with-bash16696/</link>
+      <pubDate>Sun, 13 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/string-processing-with-bash16696/</guid>
+      <description>&lt;p&gt;There are various tools built into &lt;em&gt;bash&lt;/em&gt; that enable you to manipulate a variable or string which come in handy when writing shell scripts. Here are a few notable ones:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Find the length of a string&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;${#string}&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Get a Substring from a String&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;${string:pos} or ${string:pos:len}&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Removing Substrings from a String&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;${string#substr}&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;${string%substr}&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;${string##substr}&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;${string%%substr}&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Convert a Git Repo to a Bare Repo</title>
+      <link>http://localhost:1313/posts/convert-a-git-repo-to-a-bare-repo/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/convert-a-git-repo-to-a-bare-repo/</guid>
+      <description>&lt;p&gt;If you have a git repository that you haven&amp;rsquo;t cloned from a remote location, i.e., one that was created locally, it is easy to convert it to a &lt;em&gt;bare&lt;/em&gt; repository. This process describes how to:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Take a &amp;ldquo;normal&amp;rdquo; git repository&lt;/li&gt;&#xA;&lt;li&gt;Move the .git directory to another location&lt;/li&gt;&#xA;&lt;li&gt;Convert it to a &lt;em&gt;bare&lt;/em&gt; repository&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Suppose you have a git repository called &lt;em&gt;repo&lt;/em&gt;. To convert it to a &lt;em&gt;bare&lt;/em&gt; repository, execute the following commands:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git: Working with Git for the First Time</title>
+      <link>http://localhost:1313/posts/git-working-with-git-for-the-first-time/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-working-with-git-for-the-first-time/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s the first step every user should start with after downloading and installing git but &lt;strong&gt;BEFORE&lt;/strong&gt; doing anything else: Set up your &lt;em&gt;global&lt;/em&gt; environment variables! If you don&amp;rsquo;t do this git will abort your commit and give you an annoying message like this one:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ git commit file.txt &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Author identity unknown&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;*** Please tell me who you are.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Run&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  git config --global user.email &amp;quot;you@example.com&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  git config --global user.name &amp;quot;Your Name&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;to set your account&#39;s default identity.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Omit --global to set the identity only in this repository.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;fatal: empty ident name (for &amp;lt;user@localhost&amp;gt;) not allowed&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git: Committing to a Different Branch</title>
+      <link>http://localhost:1313/posts/git-committing-to-a-different-branch12884/</link>
+      <pubDate>Thu, 10 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-committing-to-a-different-branch12884/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s imaging that you&amp;rsquo;ve made some changes to files in your work directory and then realized that you aren&amp;rsquo;t in the correct branch. Now you want to get the changes you&amp;rsquo;ve made to the right branch but no change the current branch. What do you do?&lt;/p&gt;&#xA;&lt;p&gt;There is no &lt;em&gt;git&lt;/em&gt; command to do this but you can use the &lt;em&gt;git stash&lt;/em&gt; command to fix this.&lt;/p&gt;&#xA;&lt;p&gt;This involves:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Using the &lt;em&gt;git stash&lt;/em&gt; command to temporarily store our changes elsewhere,&lt;/li&gt;&#xA;&lt;li&gt;Checkout the correct branch, and&lt;/li&gt;&#xA;&lt;li&gt;&amp;ldquo;Unstash&amp;rdquo; the changes to the correct branch.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s say that we&amp;rsquo;ve made some changes in our repository&amp;rsquo;s new-release branch but they should have been made in the new-feature branch.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Printing from Virtualbox</title>
+      <link>http://localhost:1313/posts/printing-from-virtualbox30746/</link>
+      <pubDate>Wed, 09 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/printing-from-virtualbox30746/</guid>
+      <description>&lt;p&gt;If you want to set up your system so that you can access your Linux host&amp;rsquo;s printer from a Windows VirtualBox client then:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;On Your Linux Host&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Install your printer driver. Get your printer working on your host first.&lt;/li&gt;&#xA;&lt;li&gt;Install &lt;em&gt;CUPS&lt;/em&gt; if it is not already installed.&lt;/li&gt;&#xA;&lt;li&gt;Add your printer to &lt;em&gt;CUPS&lt;/em&gt; at &lt;code&gt;http://localhost:631/admin&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Set your virtual machine&amp;rsquo;s Network to &lt;em&gt;Bridged Adapter (eth0)&lt;/em&gt; in Settings and connect the cable as necessary (Advanced menu).&lt;/li&gt;&#xA;&lt;li&gt;Startup VirtualBox.&lt;/li&gt;&#xA;&lt;li&gt;In a terminal, enter &lt;code&gt;ifconfig&lt;/code&gt; to list your current network settings and copy down your host&amp;rsquo;s (eth0) address or you can optionally access this address using Network Manager.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;strong&gt;On You Windows Client&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Installing and Using sbotools in Slackware 15.0</title>
+      <link>http://localhost:1313/posts/installing-and-using-sbotools-in-slackware-150/</link>
+      <pubDate>Tue, 08 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/installing-and-using-sbotools-in-slackware-150/</guid>
+      <description>&lt;p&gt;Slackware was the first Linux distribution that I ever used but I was always curious and did a lot of distro-hopping from Slackware, Caldera, Turbo Linux, Mandrake, Red Hat, Ubuntu, multiple Ubuntu derivatives, then Fedora for quite a while until I finally settled on…(drum roll please)…Slackware! Yeah, I’ve come full circle.&lt;/p&gt;&#xA;&lt;p&gt;One of the reasons why I was doing so much hopping around is that I was never really happy with something about the distribution that I was currently using. Maybe it was the default colors (Ubuntu, come on with all of that orange stuff), choice of default software, difficulty with setting it up. Whatever. With Slackware it was always the (lack of) a decent package management system. That is until I found “sbotools”.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sorting Stuff in the VIM Buffer</title>
+      <link>http://localhost:1313/posts/sorting-stuff-in-the-vim-buffer26213/</link>
+      <pubDate>Mon, 07 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/sorting-stuff-in-the-vim-buffer26213/</guid>
+      <description>&lt;p&gt;Suppose I have a file that I am editing in &lt;em&gt;vim&lt;/em&gt; with the following contents:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ cat file.txt &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Red 4&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Blue 3&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Green 1&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Orange 7&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Black 8&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Yellow 6&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Purple 2&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;White 5&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using crontab</title>
+      <link>http://localhost:1313/posts/using-crontab25619/</link>
+      <pubDate>Sun, 06 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/using-crontab25619/</guid>
+      <description>&lt;p&gt;Crontab is a utility found on Linux and UNIX that allows you to schedule repetitive tasks on your system, like backups, updates, etc.&lt;/p&gt;&#xA;&lt;p&gt;The crontab command manages a table containing specially formatted lines of text which is processed periodically by the system. Each line consists of a &amp;ldquo;schedule&amp;rdquo; followed by one or more commands to be processed at the scheduled time.&lt;/p&gt;&#xA;&lt;p&gt;If you want to use the vim, emacs or nano editor for editing cron jobs, then, set the following in your environment and in your &lt;code&gt;~/.bash_profile&lt;/code&gt; file:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ansible Cheatsheet</title>
+      <link>http://localhost:1313/posts/ansible-cheatsheet19575/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ansible-cheatsheet19575/</guid>
+      <description>&lt;p&gt;Ping all hosts:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ansible all -i hosts -m ping&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Ping a specific host:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ansible raspberry-pi  -m ping&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Check uptime on all hosts:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ansible -m shell -a &#39;uptime&#39; all&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Check uname on all hosts:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ansible -m shell -a &#39;uname -a&#39; all&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Run playbook on more than one host:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ansible-playbook playbook1.yml  -l &#39;host1.com,host2com&#39;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mounting an ISO Image as a File System</title>
+      <link>http://localhost:1313/posts/mounting-an-iso-image-as-a-file-system14927/</link>
+      <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/mounting-an-iso-image-as-a-file-system14927/</guid>
+      <description>&lt;p&gt;If you need to get one or more files from an ISO image and don&amp;rsquo;t have a CD/DVD drive you can mount the ISO image to a directory and navigate to the file(s) you need using a terminal or file explorer. You&amp;rsquo;ll have to do this as &lt;em&gt;root&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# mkdir /mnt/iso&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# mount -o loop -t iso9660 /home/user/Downloads/Custom-Build/custom.iso /mnt/iso&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;mount: /mnt/iso: WARNING: source write-protected, mounted read-only.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# cd /mnt/iso/&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# ls&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;DateBuilt  System/  boot/  boot.catalog  efi.img  initrd  linux  mach_kernel  slint.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using sSMTP on Slackware 15.0</title>
+      <link>http://localhost:1313/posts/using-ssmtp-on-slackware-150/</link>
+      <pubDate>Thu, 03 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/using-ssmtp-on-slackware-150/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;How to Install and Use ssmtp to Send Emails from the Linux Terminal&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;ssmtp is a simple utility that can be used to send emails from a Linux system to a specified email address. It is just an MTA (Mail Transfer Agent); it does not receive mail, expand aliases, or manage a queue. Instead, it forwards automated emails to an external email address. This can be useful for forwarding system alerts or other automated emails from your system to an external email address.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How To Get Information on Linux</title>
+      <link>http://localhost:1313/posts/how-to-get-information-on-linux25688/</link>
+      <pubDate>Wed, 02 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-get-information-on-linux25688/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;manpages&lt;/em&gt; are historically &lt;strong&gt;the place to go&lt;/strong&gt; for any information about the software and utilities installed on a Linux machine. I believe that the &lt;em&gt;info&lt;/em&gt; page seems to be the best place for &lt;em&gt;newbies&lt;/em&gt; to go because it is so much easier to navigate, and, like &lt;em&gt;manpages&lt;/em&gt;, it is a still a great place to get information about your system.&lt;/p&gt;&#xA;&lt;p&gt;Suppose you want to get information about &lt;em&gt;socket&lt;/em&gt;. You would type:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Locking Down SSH User Access</title>
+      <link>http://localhost:1313/posts/locking-down-ssh-user-access947/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/locking-down-ssh-user-access947/</guid>
+      <description>&lt;p&gt;To secure your system, you shouldn&amp;rsquo;t allow root to login remotely.  Instead, if an admin needs to use the &lt;em&gt;root&lt;/em&gt; account they should login using their own account and then &lt;code&gt;su -&lt;/code&gt; or &lt;code&gt;sudo&lt;/code&gt; to the &lt;em&gt;root&lt;/em&gt; account as needed.&lt;/p&gt;&#xA;&lt;p&gt;Edit the &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt; file and change the following lines:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;PermitRootLogin no&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;PermitEmptyPasswords no&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Some of these properties may be commented out in the file, so all you&amp;rsquo;d need to do is remove the &lt;em&gt;#&lt;/em&gt; sign.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Make a File Immutable</title>
+      <link>http://localhost:1313/posts/make-a-file-immutable19051/</link>
+      <pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/make-a-file-immutable19051/</guid>
+      <description>&lt;p&gt;You can use the &lt;em&gt;chattr&lt;/em&gt; command (as &lt;em&gt;root&lt;/em&gt;) to make a file &amp;ldquo;unalterable&amp;rdquo; so that even the root user cannot modify or delete it without using the &lt;em&gt;chattr&lt;/em&gt; command to revert the change.  This is done by using &lt;em&gt;chattr&lt;/em&gt;&amp;rsquo;s &lt;code&gt;+i&lt;/code&gt; and &lt;code&gt;-i&lt;/code&gt; flags.&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;chattr&lt;/em&gt; changes a file&amp;rsquo;s attributes on a Linux file system.&lt;/p&gt;&#xA;&lt;p&gt;Set the flag as root:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# chattr +i xrdp-notes.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# lsattr xrdp-notes.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;----i---------e------- xrdp-notes.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Set Mac Hostname</title>
+      <link>http://localhost:1313/posts/set-mac-hostname15613/</link>
+      <pubDate>Sun, 30 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/set-mac-hostname15613/</guid>
+      <description>&lt;p&gt;To set the host name of your Mac (in my case macbook-pro) in the command prompt, type the following command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo scutil --set HostName &amp;quot;macbook-pro&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ sudo scutil --set LocalHostName &amp;quot;macbook-pro&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Reset Mac Launchpad</title>
+      <link>http://localhost:1313/posts/reset-mac-launchpad/</link>
+      <pubDate>Sat, 29 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/reset-mac-launchpad/</guid>
+      <description>&lt;p&gt;To reset the Mac LaunchPad to default enter the following:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;rm ~/Library/Application\ Support/Dock/*.db ; killall Dock&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This will however put all of the Apple apps on the first page and all of your remaining apps will be sorted alphabetically on the remaining pages.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Creating a Docker Registry</title>
+      <link>http://localhost:1313/posts/creating-a-docker-registry8450/</link>
+      <pubDate>Fri, 28 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/creating-a-docker-registry8450/</guid>
+      <description>&lt;p&gt;Creating a docker registry is rather straightforward, but you may need to do some &lt;em&gt;tweaking&lt;/em&gt; of your docker installation in order to get it working as indicated below.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s assume that you already have docker up and running on your machine.&lt;/p&gt;&#xA;&lt;p&gt;We are going to set up a Docker registry on our local server. This server will not have a secure connection and will only be used internally, so we will need to allow this access by creating a file in &lt;code&gt;/etc/docker&lt;/code&gt; called &lt;em&gt;daemon.json&lt;/em&gt; to designate this:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using rsync to Sync Two Directories</title>
+      <link>http://localhost:1313/posts/using-rsync-to-sync-two-directories17585/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/using-rsync-to-sync-two-directories17585/</guid>
+      <description>&lt;p&gt;You can sync two directories using &lt;em&gt;rsync&lt;/em&gt; tool. The following command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ rsync -a -v --delete sending_directory target_directory;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;will copy &lt;em&gt;sending_directory&lt;/em&gt; to &lt;em&gt;target_directory&lt;/em&gt; creating a directory structure of &lt;em&gt;sending_directory/target_directory&lt;/em&gt;. The &lt;code&gt;--delete&lt;/code&gt; flag will ensure that any files that were previously in &lt;em&gt;sending_directory/target_directory&lt;/em&gt; that are not in &lt;em&gt;sending_directory&lt;/em&gt; will be deleted so that the contents of the two directories are the same.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Move Files Older Than So Many Days with Find</title>
+      <link>http://localhost:1313/posts/move-files-older-than-so-many-days-with-find/</link>
+      <pubDate>Wed, 26 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/move-files-older-than-so-many-days-with-find/</guid>
+      <description>&lt;p&gt;You may want to clean up a directory that has files older than a certain number of days, for example, 30 days. You can do this with the &lt;em&gt;find&lt;/em&gt; command:&lt;/p&gt;&#xA;&lt;p&gt;To move files older than 30 days in current folder to the &lt;em&gt;old&lt;/em&gt; folder:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ find . -mtime +30 -exec mv {} old/ \;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Build, Tag, and Push a Docker Image with One Command</title>
+      <link>http://localhost:1313/posts/build-tag-and-push-a-docker-image-with-one-command/</link>
+      <pubDate>Tue, 25 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/build-tag-and-push-a-docker-image-with-one-command/</guid>
+      <description>&lt;p&gt;You can build, tag, and push a docker image to a remote all in one command with the &amp;ndash;quiet parameter on docker build, which only outputs the SHA256 hash (annoyingly prefixed with SHA256:, but nothing a little cutting can’t fix).&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ docker tag $(docker build . -q | cut -c 8-999) myregid/imagename:1.0.1 &amp;amp;&amp;amp; docker push myregid/imagename &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Vim Tips: Searching a File for Multiple Strings</title>
+      <link>http://localhost:1313/posts/vim-tips-searching-a-file-for-multiple-strings/</link>
+      <pubDate>Mon, 24 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/vim-tips-searching-a-file-for-multiple-strings/</guid>
+      <description>&lt;p&gt;In Vim you can perform a search like this: /string1/;/string2&lt;/p&gt;&#xA;&lt;p&gt;This will will combine two searches. It tells Vim:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Search for string1, then&lt;/li&gt;&#xA;&lt;li&gt;From there search for string2 on any line that also contains string1.&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>Using RClone to Mount Your OneDrive Folder in Linux</title>
+      <link>http://localhost:1313/posts/using-rclone-to-mount-your-onedrive-folder-in-linux4329/</link>
+      <pubDate>Sun, 23 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/using-rclone-to-mount-your-onedrive-folder-in-linux4329/</guid>
+      <description>&lt;p&gt;If you have a Microsoft Office 365 account you know that it comes with 1TB of storage. You can use &lt;em&gt;RClone&lt;/em&gt; to mount your &lt;em&gt;OneDrive&lt;/em&gt; locally on your Linux machine so that you can read and write documents stored there.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Install &lt;em&gt;rclone&lt;/em&gt; from whatever package repository that your Linux operating system uses.&lt;/li&gt;&#xA;&lt;li&gt;Follow the instructions &lt;a href=&#34;https://rclone.org/onedrive/&#34;&gt;here&lt;/a&gt; to configure your &lt;em&gt;OneDrive&lt;/em&gt; environment.&#xA;The instructions are rather straightforward and a couple pieces of extra advice follows:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;In the first section, type &lt;code&gt;n&lt;/code&gt; for a &lt;em&gt;new&lt;/em&gt; installation and give your mountpoint a name:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Find the IP Addresses of KVM Virtual Machines (Command Line)</title>
+      <link>http://localhost:1313/posts/how-to-find-the-ip-addresses-of-virtual-machines-from-the-command/</link>
+      <pubDate>Sat, 22 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-find-the-ip-addresses-of-virtual-machines-from-the-command/</guid>
+      <description>&lt;p&gt;To find details about the virtual network you can use these commands:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;root@slacker:~# virsh net-list&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt; Name      State    Autostart   Persistent&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;--------------------------------------------&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt; default   active   yes         yes&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;root@slacker:~# virsh net-info default&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Name:           default&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;UUID:           14a90f27-9a85-42ca-b434-6ce6c142690c&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Active:         yes&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Persistent:     yes&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Autostart:      yes&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Bridge:         virbr0&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;root@slacker:~# virsh net-dhcp-leases default&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt; Expiry Time           MAC address         Protocol   IP address           Hostname      Client ID or DUID&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;------------------------------------------------------------------------------------------------------------&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt; 2023-07-22 16:18:45   52:54:00:dd:7b:62   ipv4       192.168.122.216/24   centos7-bbk   -&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SSH Escape Sequences</title>
+      <link>http://localhost:1313/posts/ssh-escape-sequences24826/</link>
+      <pubDate>Fri, 21 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ssh-escape-sequences24826/</guid>
+      <description>&lt;p&gt;Have you ever had an SSH connection timeout on you and you&amp;rsquo;re left with what looks like a locked session. Repeatedly hitting the &lt;em&gt;Enter&lt;/em&gt; key does nothing. It seems that there is nothing that you can do except close the console terminal session&amp;hellip;or is there something else?&lt;/p&gt;&#xA;&lt;p&gt;Many people are not aware that SSH has its own set of keyboard shortcuts. The solution to the above problem is to terminate the connection using the first of these shortcuts.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>View lshw Output as a HTML Page</title>
+      <link>http://localhost:1313/posts/view-lshw-output-as-a-html-page/</link>
+      <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/view-lshw-output-as-a-html-page/</guid>
+      <description>&lt;p&gt;You can use the &lt;em&gt;lshw&lt;/em&gt; command to output your hardware configuration to an &lt;em&gt;html&lt;/em&gt; file by passing the &lt;em&gt;-html&lt;/em&gt; parameter to it:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo lshw -html &amp;gt;hardware.html&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>List TCP Connections Sorted By Host and Most Connections</title>
+      <link>http://localhost:1313/posts/list-tcp-connections-sorted-by-host-and-most-connections/</link>
+      <pubDate>Wed, 19 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/list-tcp-connections-sorted-by-host-and-most-connections/</guid>
+      <description>&lt;p&gt;Assuming your system still has &lt;em&gt;netstat&lt;/em&gt; installed (Slackware 15.0 does :^), you can summarize the TCP connections on you host using the following command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ netstat -ntu|awk &#39;{print $5}&#39;|cut -d: -f1 -s|sort|uniq -c|sort -nk1 -r&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      3 52.50.230.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      3 104.18.27.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      3 104.18.26.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      2 205.166.94.xx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      2 192.168.1.xx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      2 142.251.40.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      2 104.18.13.xx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 74.120.9.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 66.255.245.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 54.154.65.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 52.96.182.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 45.56.116.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 45.33.73.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 34.117.65.xx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 20.190.135.xx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 192.168.122.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 192.168.1.xx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 172.253.63.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 162.159.61.x&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 162.125.21.x&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 142.251.40.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 142.251.32.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 142.251.16.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;      1 127.0.0.x&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Test If a Port is Open with Bash</title>
+      <link>http://localhost:1313/posts/test-if-a-port-is-open-with-bash/</link>
+      <pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/test-if-a-port-is-open-with-bash/</guid>
+      <description>&lt;p&gt;If netcat isn&amp;rsquo;t available on your machine and you don&amp;rsquo;t have the priviledge to install it you can use this trick to test if a port is open or not. It will throw a connection refused message if a port is closed.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ : &amp;lt;/dev/tcp/127.0.0.1/80&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;And you can use it in a script like this:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;(: &amp;lt;/dev/tcp/127.0.0.1/80) &amp;amp;&amp;gt;/dev/null &amp;amp;&amp;amp; echo &amp;quot;OPEN&amp;quot; || echo &amp;quot;CLOSED&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Recover Your Wi-Fi Password from Windows CLI</title>
+      <link>http://localhost:1313/posts/recover-your-wi-fi-password-from-windows-cli/</link>
+      <pubDate>Mon, 17 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/recover-your-wi-fi-password-from-windows-cli/</guid>
+      <description>&lt;p&gt;In case you misplaced your wi-fi password you can recover it very easily using 2 commands on Windoze:&lt;/p&gt;&#xA;&lt;p&gt;Open the Terminal or PowerShell&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;PS C:\Users\user&amp;gt; netsh wlan show profile&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The output will be similar to this. You need to obtain the &lt;em&gt;User Profile&lt;/em&gt; of the connection that you&amp;rsquo;re interested in:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;Profiles on interface Wi-Fi:&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Group policy profiles (read only)&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;---------------------------------&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;    &amp;lt;None&amp;gt;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;User profiles&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;-------------&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;    All User Profile     : ROUTER21&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;    All User Profile     : 4YWD8-5G&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;    All User Profile     : 4YWD8&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Prefix The Output of Any Command with a Timestamp</title>
+      <link>http://localhost:1313/posts/prefix-the-output-of-any-command-with-a-timestamp/</link>
+      <pubDate>Sun, 16 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/prefix-the-output-of-any-command-with-a-timestamp/</guid>
+      <description>&lt;p&gt;You can prefix the output of every line with a timestamp by piping the command to the following &lt;em&gt;sed&lt;/em&gt; command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt; $ command | sed &amp;quot;s/^/\[&lt;/code&gt;date +&amp;quot;%Y%m%d%H%M%S&amp;quot;&lt;code&gt;]/&amp;quot; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Create a QEMU/KVM Virtual Machine from the Command Line</title>
+      <link>http://localhost:1313/posts/create-a-qemukvm-virtual-machine-from-the-command-line/</link>
+      <pubDate>Sat, 15 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/create-a-qemukvm-virtual-machine-from-the-command-line/</guid>
+      <description>&lt;p&gt;You can use a combination of command line tools to create and configure a virtual machine. Here we will use few tools from the &lt;em&gt;QEMU&lt;/em&gt; and &lt;em&gt;libvirt&lt;/em&gt; packages to do this.&lt;/p&gt;&#xA;&lt;p&gt;Use QEMU to create a 15GB QCOW disk image:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ qemu-img create -f qcow2 /home/user/KVM/CentOS-Stream-9.qcow2 15G&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Formatting &#39;/home/user/KVM/CentOS-Stream-9.qcow2&#39;, fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=16106127360 lazy_refcounts=off refcount_bits=16&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Start the installation:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo virt-install --name=CentOS-Stream-9 --vcpus=1 --memory=1024 --location=/home/user/Downloads/CentOS-Stream-9-20230704.1-x86_64-boot.iso --os-variant=centos8 --network bridge:virbr0 --disk path=/home/user/KVM/CentOS-Stream-9.qcow2 --disk size=15&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Password: &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;WARNING  Requested memory 1024 MiB is less than the recommended 1536 MiB for OS centos8&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Starting install...&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Retrieving &#39;vmlinuz&#39;                                               |    0 B  00:00:00 ... &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Retrieving &#39;initrd.img&#39;                                            |    0 B  00:00:00 ... &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Allocating &#39;CentOS-Stream-9.qcow2&#39;                                 | 2.5 MB  00:00:03 ... &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;WARNING  Overriding memory to 3072 MiB needed for centos8 network install.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Creating domain...                                                 |    0 B  00:00:00     &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Running graphical console command: virt-viewer --connect qemu:///system --wait CentOS-Stream-9&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using passwordgen On Slackware</title>
+      <link>http://localhost:1313/posts/using-passwordgen-on-slackware8846/</link>
+      <pubDate>Fri, 14 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/using-passwordgen-on-slackware8846/</guid>
+      <description>&lt;p&gt;The well known &lt;a href=&#34;https://ss64.com&#34;&gt;ss64.com&lt;/a&gt; site has a lot of useful tips and tricks for *&lt;em&gt;nix&lt;/em&gt; users and they also have a script that you can download which will create and maintain passwords for you.&lt;/p&gt;&#xA;&lt;p&gt;If you go to their &lt;a href=&#34;https://ss64.com/pass/command-line.html&#34;&gt;command line&lt;/a&gt; section you can use the link to their GitHub site and download it for yourself. However, when I followed their installation instructions I ran into difficulty because the script has a dependency on &lt;code&gt;pbcopy&lt;/code&gt; or &lt;code&gt;gclip&lt;/code&gt; (which wasn&amp;rsquo;t documented) and since I run Slackware 15.0 the copy to clipboard feature failed.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Rename Files That Start With a Special Character</title>
+      <link>http://localhost:1313/posts/rename-files-that-start-with-a-special-character22468/</link>
+      <pubDate>Thu, 13 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rename-files-that-start-with-a-special-character22468/</guid>
+      <description>&lt;p&gt;Suppose you find that you have a file with a &lt;em&gt;special&lt;/em&gt; character and you want to delete it:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ls&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;-badfile.txt              PrintHood                   reg57.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Favorites                 Recent                      scripts&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ rm -badfile.txt &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;rm: invalid option -- &#39;b&#39;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Try &#39;rm ./-badfile.txt&#39; to remove the file &#39;-badfile.txt&#39;.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Try &#39;rm --help&#39; for more information.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ ls *.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;ls: invalid option -- &#39;e&#39;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Try &#39;ls --help&#39; for more information.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>scp&#39;ing Files using a Text File List</title>
+      <link>http://localhost:1313/posts/scping-files-using-a-text-file-list/</link>
+      <pubDate>Wed, 12 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scping-files-using-a-text-file-list/</guid>
+      <description>&lt;p&gt;If you have a collection of files that you want to transfer to a remote server and they are a subset of files in the current directory or scattered among different directories you can create a list of files and then pipe the list to &lt;code&gt;scp&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ cat filelist.txt | xargs -i scp {} user@remote:~/backup/&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>How to recursively find the latest modified file in a directory</title>
+      <link>http://localhost:1313/posts/how-to-recursively-find-the-latest-modified-file-in-a-directory/</link>
+      <pubDate>Tue, 11 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-recursively-find-the-latest-modified-file-in-a-directory/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;find . -type f -printf &#39;%T@ %p\n&#39; | sort -n | tail -1 | cut -f2- -d&amp;quot; &amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Bind to a Remote Port Using SSH</title>
+      <link>http://localhost:1313/posts/bind-to-a-remote-port-using-ssh22839/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bind-to-a-remote-port-using-ssh22839/</guid>
+      <description>&lt;p&gt;If you are trying to access the web page of an application running on a remote machine and you find that you are blocked, you can bind to it using SSH with similar parameters to this:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ssh pi@raspberrypi.local -L 8384:127.0.0.1:8384 -N&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Where:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;pi@raspberrypi.local&lt;/code&gt; is the remote server,&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;8384&lt;/code&gt; is the port number on the remote that you wish to connect with,&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;127.0.0.1:8384&lt;/code&gt; is the local machine and the port that you want to redirect to, and&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;-N&lt;/code&gt; is a flag telling &lt;code&gt;ssh&lt;/code&gt; not to execute a remote command.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Using Tar with a Text Input File</title>
+      <link>http://localhost:1313/posts/using-tar-with-a-text-input-file23818/</link>
+      <pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/using-tar-with-a-text-input-file23818/</guid>
+      <description>&lt;p&gt;If you have a lot of files in a directory and you only need to &lt;code&gt;tar&lt;/code&gt; a subset of them you can create a list of the files you want in a text file and pass it to the &lt;code&gt;tar&lt;/code&gt; command like this:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ tar -cvf tarball.tar -T filelist.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;or&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ tar cvf tarball.tar $(cat filelist.txt)&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Command Line Redirection</title>
+      <link>http://localhost:1313/posts/command-line-redirection28985/</link>
+      <pubDate>Sat, 08 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/command-line-redirection28985/</guid>
+      <description>&lt;p&gt;Redirection is very significant in shell scripting. It provides you a means to save the output of a command to a file or multiple files (one for &lt;code&gt;stdout&lt;/code&gt; and one for &lt;code&gt;stderr&lt;/code&gt;).&lt;/p&gt;&#xA;&lt;p&gt;Below is a table of simple redirections that are the most useful in shell scripting. Here we are using the following naming conventions:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;stdout&lt;/code&gt; &amp;ndash; The output of the script/command&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;stderr&lt;/code&gt; &amp;ndash; The errors generated by the script/command&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;outfile&lt;/code&gt; &amp;ndash; A target filename where you wish to store the output&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;errfile&lt;/code&gt; &amp;ndash; A target filename where you wish to store the errors&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;Command&lt;/th&gt;&#xA;          &lt;th&gt;Description/Purpose&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;command 2&amp;gt;errfile&lt;/td&gt;&#xA;          &lt;td&gt;Redirect stderr to errfile&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;command &amp;gt;outfile 2&amp;gt;errfile&lt;/td&gt;&#xA;          &lt;td&gt;Redirect stderr to file named errfile and stdout to file named outfile&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;command &amp;amp;&amp;gt; outfile&lt;/td&gt;&#xA;          &lt;td&gt;Redirect stderr and stdout to outfile&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;command 2&amp;gt;&amp;amp;-&lt;/td&gt;&#xA;          &lt;td&gt;Just suppress error messages. No file created. No error message displayed on screen&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;command 2&amp;gt;&amp;amp;1&lt;/td&gt;&#xA;          &lt;td&gt;Redirect error messages to standard output. Useful in shell script when you need to forcefully display error messages on screen&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Backup Files with Specific File Extension</title>
+      <link>http://localhost:1313/posts/backup-files-with-specific-file-extension29561/</link>
+      <pubDate>Fri, 07 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/backup-files-with-specific-file-extension29561/</guid>
+      <description>&lt;p&gt;Here is how you can use &lt;code&gt;rsync&lt;/code&gt; to backup only the &lt;em&gt;.ogg&lt;/em&gt; files in the &lt;em&gt;Music&lt;/em&gt; directory to the &lt;em&gt;OGG&lt;/em&gt; directory:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ rsync -a --prune-empty-dirs --include=&#39;*/&#39; --include=&#39;*.ogg&#39; --exclude=&#39;*&#39; Music/ OGG/ &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Some sed Tips</title>
+      <link>http://localhost:1313/posts/some-sed-tips27116/</link>
+      <pubDate>Thu, 06 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/some-sed-tips27116/</guid>
+      <description>&lt;p&gt;Put an * between the number 5 and 6&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ echo &#39;12345678901234567890&#39;| sed  -e &#39;s/^.\{5\}/&amp;amp;*/&#39; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;12345*678901234567890 &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Put a comma between each number&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ echo &amp;quot;1234567890&amp;quot; |sed  -e &#39;s/./&amp;amp;,/g&#39; -e &#39;s/,$//&#39; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;1,2,3,4,5,6,7,8,9,0 &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Put comma after every 2, if not even then last number exist by itself&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ echo &amp;quot;1234567890&amp;quot; |sed  -e &#39;s/../&amp;amp;,/g&#39; -e &#39;s/,$//&#39; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;12,34,56,78,90 &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Slackware Current: Minimal Installation</title>
+      <link>http://localhost:1313/posts/slackware-current-minimal-installation26343/</link>
+      <pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/slackware-current-minimal-installation26343/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been looking for a way to install a minimal version of Slackware (current) in a VM and the smallest that I&amp;rsquo;ve safely come up with so far is this:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Package group A&lt;/li&gt;&#xA;&lt;li&gt;Package group AP&lt;/li&gt;&#xA;&lt;li&gt;Package group D&lt;/li&gt;&#xA;&lt;li&gt;Package group F&lt;/li&gt;&#xA;&lt;li&gt;Package group K&lt;/li&gt;&#xA;&lt;li&gt;Package group L&lt;/li&gt;&#xA;&lt;li&gt;Package group N&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I will try to get it smaller but I need this startup environment for another &lt;em&gt;experiment&lt;/em&gt; so I&amp;rsquo;ll settle for this. Yes, it is still a wopping 12GB. Geez&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Red Hat Subscription Service</title>
+      <link>http://localhost:1313/posts/red-hat-subscription-service27393/</link>
+      <pubDate>Tue, 04 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/red-hat-subscription-service27393/</guid>
+      <description>&lt;p&gt;Once you have installed RHEL 9, register your RHEL subscription by running the following command on the terminal. The username and password are the login details to your Red Hat account.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo subscription-manager register --username=username --password=password &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;To confirm that the system is registered to Red Hat Subscription Management (RHSM), run the command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo subscription-manager list --installed   &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Then refresh and subscribe:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Speed Up DNF Package Manager</title>
+      <link>http://localhost:1313/posts/speed-up-dnf-package-manager7346/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/speed-up-dnf-package-manager7346/</guid>
+      <description>&lt;p&gt;You can increase the download speed for installing packages using DNF by updating the maximum number of simultaneous package downloads.&lt;/p&gt;&#xA;&lt;p&gt;Start by editing the &lt;code&gt;/etc/dnf/dnf.conf&lt;/code&gt; file:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo nano /etc/dnf/dnf.conf &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Add the following line to enable DNF parallel downloads:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;max_parallel_downloads=10 &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Another option is to select the fastest mirror from the Fedora public mirrors by adding the following line:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;fastestmirror=True &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Creating a Python requirements.txt File</title>
+      <link>http://localhost:1313/posts/creating-a-python-requirementstxt-file/</link>
+      <pubDate>Sun, 02 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/creating-a-python-requirementstxt-file/</guid>
+      <description>&lt;p&gt;This can be done quickly by typing:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ pip freeze &amp;gt;requirements.txt &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;at the command line.&lt;/p&gt;&#xA;&lt;p&gt;To install packages using a &lt;code&gt;requirements&lt;/code&gt; file just use &lt;code&gt;pip&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ pip install -r requirements.txt &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;To check if the packages in your &lt;code&gt;requirements.txt&lt;/code&gt; file are up-to-date use:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ pip list --outdated &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;and to update those packages:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ pip install -U &amp;lt;packagename&amp;gt; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Python: Initializing a New Project using venv</title>
+      <link>http://localhost:1313/posts/python-initializing-a-new-project-using-venv/</link>
+      <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/python-initializing-a-new-project-using-venv/</guid>
+      <description>&lt;p&gt;Start out by creating a new directory or cloning a repository (which creates a directory) and &lt;em&gt;cd&lt;/em&gt; into it:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ git clone https://gitlab.com/username/proj-name&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ cd proj-name/&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Initialize the virtual environment:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ python3 -m venv venv&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ source venv/bin/activate&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Install whatever dependencies you need:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ pip install package1 package2&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Then develop and/or run your program:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Printing Numbers using Thousand Separators</title>
+      <link>http://localhost:1313/posts/printing-numbers-using-thousand-separators/</link>
+      <pubDate>Fri, 30 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/printing-numbers-using-thousand-separators/</guid>
+      <description>&lt;p&gt;You can use a pipe to &lt;code&gt;awk&lt;/code&gt; to output numbers with thousands separators (commas). For Example, here&amp;rsquo;s how you can total the 5th column of the &lt;code&gt;ls -l&lt;/code&gt; command and print it with thousands separators:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ls -l | awk &#39;{total = total + $5}END{print total}&#39; | LC_ALL=en_US.UTF-8 awk &#39;{printf(&amp;quot;%&#39;&amp;quot;&#39;&amp;quot;&#39;d\n&amp;quot;, $0) }&#39; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;21,387 &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This can be adapted to other commands as necessary.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GCC can&#39;t find stdio.h in Alpine Linux</title>
+      <link>http://localhost:1313/posts/gcc-cant-find-stdioh-in-alpine-linux/</link>
+      <pubDate>Thu, 29 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gcc-cant-find-stdioh-in-alpine-linux/</guid>
+      <description>&lt;p&gt;A while ago, I installed the &lt;a href=&#34;https://github.com/ish-app/ish&#34;&gt;iSH&lt;/a&gt; app on my iPad which made it possible for me to develop Python and C code as well as use it as an SSH client. However, I ran into an issue when trying to compile C code because the compiler couldn&amp;rsquo;t resolve &lt;code&gt;stdio.h&lt;/code&gt;. The following excerpt from &lt;a href=&#34;http://stackoverflow.com/questions/42366739/ddg#42366740&#34;&gt;StackOverflow&lt;/a&gt; resolves the issue:&lt;/p&gt;&#xA;&lt;p&gt;Install &lt;code&gt;libc-dev&lt;/code&gt; in addition to &lt;code&gt;GCC&lt;/code&gt;, or just install &lt;code&gt;build-base&lt;/code&gt; for everything (&lt;code&gt;alpine-sdk&lt;/code&gt; is probably an overkill). To install run the following command:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu: Disable cloud-init on Startup</title>
+      <link>http://localhost:1313/posts/ubuntu-disable-cloud-init-on-startup9393/</link>
+      <pubDate>Wed, 28 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ubuntu-disable-cloud-init-on-startup9393/</guid>
+      <description>&lt;p&gt;In systems that use &lt;code&gt;systemd&lt;/code&gt; and have a current (17.0+) version of &lt;code&gt;cloud-init&lt;/code&gt;, upstream documentation describes the process for disabling &lt;code&gt;cloud-init&lt;/code&gt; with either of the following:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;* touch /etc/cloud/cloud-init.disabled&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;or,&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;* add cloud-init=disabled to the kernel command line.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Red Hat Subscripion Manager - Registering</title>
+      <link>http://localhost:1313/posts/red-hat-subscripion-manager---registering/</link>
+      <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/red-hat-subscripion-manager---registering/</guid>
+      <description>&lt;p&gt;Registering your RHEL instance with Red Hat is straightforward assuming that you already have an account:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# subscription-manager register --username &amp;lt;your-rh-user&amp;gt; --password &amp;lt;password&amp;gt; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;List the available repos or just go with a default:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# subscription-manager list --available &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# subscription-manager attach --auto &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Then you can do your update:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# yum update &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RHEL QCOW Image Password</title>
+      <link>http://localhost:1313/posts/rhel-qcow-image-password23397/</link>
+      <pubDate>Mon, 26 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rhel-qcow-image-password23397/</guid>
+      <description>&lt;p&gt;Did you know that although you can install RHEL from an &lt;code&gt;ISO&lt;/code&gt;, you can also download a &lt;code&gt;QCOW2&lt;/code&gt; image from Red Hat. However, when you try to start it up under &lt;code&gt;virt-manager&lt;/code&gt; you&amp;rsquo;ll see that it boots to a &lt;code&gt;root&lt;/code&gt; prompt and you don&amp;rsquo;t know what the password is. This can be fixed by running the following from the host&amp;rsquo;s terminal:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# virt-customize -a &amp;lt;qcow2-image-file-name&amp;gt; --root-password password:&amp;lt;password&amp;gt; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Find System Hogs and Child Processes</title>
+      <link>http://localhost:1313/posts/find-system-hogs-and-child-processes30247/</link>
+      <pubDate>Sun, 25 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/find-system-hogs-and-child-processes30247/</guid>
+      <description>&lt;p&gt;There are a lot of tools out there that can help you to do this that are both GUI or command line-based but sometimes you&amp;rsquo;re on a production server that may have limited tools and sometimes the simplest tools are best in cases like this.&lt;/p&gt;&#xA;&lt;p&gt;List the processes that are not owned by you that are using a lot of CPU:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ps aux --sort=-%cpu | grep -m 8 -v&lt;/code&gt;whoami&lt;code&gt; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to List Installed Packages in Fedora, RHEL, CentOS</title>
+      <link>http://localhost:1313/posts/how-to-list-installed-packages-in-fedora-rhel-centos/</link>
+      <pubDate>Sat, 24 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-list-installed-packages-in-fedora-rhel-centos/</guid>
+      <description>&lt;p&gt;Listing installed packages with YUM:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo yum list installed&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;To display details about a package:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ yum info nginx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;You can cat all installed packages to a file, copy the file to another machine and duplicate the system:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo yum list installed &amp;gt; installed-packages.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ sudo yum -y install $(cat installed-packages.txt)&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;List installed packages with RPM:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git: Deleting Multiple Commits</title>
+      <link>http://localhost:1313/posts/git-deleting-multiple-commits24780/</link>
+      <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-deleting-multiple-commits24780/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s say that you want to delete the last 3 commits that you&amp;rsquo;ve already pushed to the remote repository. In this example, you want &lt;code&gt;566dab6&lt;/code&gt; to be the new HEAD revision.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ git log --pretty=oneline --abbrev-commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;57bc36b (HEAD -&amp;gt; master, origin/master, origin/HEAD) 3nd set of bad entries on 6th commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;dfb4bd3 2nd set of bad entries on 5th commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;0fd1e16 First set of bad entries on 4th commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;566dab6 Yet more good entries on third commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;d50370a More good entries on second commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;b5fbc6d Good entries on first commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;2cad4c7 Initial commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Solus OS: Prevent Laptop from Sleeping When Closing the Lid</title>
+      <link>http://localhost:1313/posts/solus-os-prevent-laptop-from-sleeping-when-closing-the-lid/</link>
+      <pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/solus-os-prevent-laptop-from-sleeping-when-closing-the-lid/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re using a laptop with an external monitor and you&amp;rsquo;ve recently installed Solus OS you might have noticed that the laptop goes to sleep when you close the lid and there is no way to adjust for this in the power settings. You can get around this by manually editing &lt;code&gt;/etc/systemd/logind.conf&lt;/code&gt;, then uncommenting and changing the line:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;#HandleLidSwitch=suspend&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;to&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;HandleLidSwitch=ignore&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Note: The &amp;lsquo;#&amp;rsquo; (comment) at the beginning of the line needs to be removed and the value needs to be changed from &lt;code&gt;suspend&lt;/code&gt; to &lt;code&gt;ignore&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Speed Up Firefox</title>
+      <link>http://localhost:1313/posts/speed-up-firefox24999/</link>
+      <pubDate>Wed, 21 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/speed-up-firefox24999/</guid>
+      <description>&lt;p&gt;If you are experiencing &lt;em&gt;tearing&lt;/em&gt; while using &lt;code&gt;Firefox&lt;/code&gt; you may want to see if graphics accelleration is enabled on the browser. You can try this tip to force hardware accelleration on in the browser.&lt;/p&gt;&#xA;&lt;p&gt;First, check to make sure that your Linux desktop installation supports it by running the following command and making sure that &lt;code&gt;direct rendering&lt;/code&gt; returns &lt;code&gt;Yes&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ glxinfo | grep render&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;direct rendering: Yes&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Deleting Blank Lines Using Grep</title>
+      <link>http://localhost:1313/posts/deleting-blank-lines-using-grep16496/</link>
+      <pubDate>Tue, 20 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/deleting-blank-lines-using-grep16496/</guid>
+      <description>&lt;p&gt;If you have a file (or a stream) that has blank lines you want to remove, you can use this command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ grep -v &amp;quot;^ *$&amp;quot; file-with-blanks.txt &amp;gt; output-file.txt&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;where &lt;code&gt;file-with-blanks.txt&lt;/code&gt; is the input file and has blank lines and &lt;code&gt;output-file.txt&lt;/code&gt; will&#xA;be the output file without the blank lines.&lt;/p&gt;&#xA;&lt;p&gt;You have to keep the &lt;code&gt;space&lt;/code&gt; between the &lt;code&gt;^&lt;/code&gt; and the &lt;code&gt;*$&lt;/code&gt; otherwise blank lines which include&#xA;spaces will not be removed.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Convert webm to mp4</title>
+      <link>http://localhost:1313/posts/convert-webm-to-mp429535/</link>
+      <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/convert-webm-to-mp429535/</guid>
+      <description>&lt;p&gt;You can use ffmpeg to convert webm to mp4 on the command line very easily:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ffmpeg -i file.webm -c copy file.mp4&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This will stream copy (re-mux) and avoid re-encoding.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install KDbg - A KDE gdb GUI on Slackware 15.0</title>
+      <link>http://localhost:1313/posts/install-kdbg---a-kde-gdb-gui-on-slackware-150/</link>
+      <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-kdbg---a-kde-gdb-gui-on-slackware-150/</guid>
+      <description>&lt;p&gt;What is KDbg?&lt;/p&gt;&#xA;&lt;p&gt;From the &lt;a href=&#34;https://www.kdbg.org/&#34;&gt;homepage&lt;/a&gt;:&lt;/p&gt;&#xA;&lt;p&gt;KDbg is a graphical user interface to gdb, the GNU debugger. It provides an intuitive interface for setting breakpoints, inspecting variables, and stepping through code.&lt;/p&gt;&#xA;&lt;p&gt;KDbg requires KDE, the K Desktop Environment, but you can of course debug any program.&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s how to install it on Slackware 15 but this should work on any system that has KDE:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ git clone -b maint https://github.com/j6t/kdbg.git&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ cd kdbg/&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ cmake .&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ make&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ su -c &amp;quot;make install&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Exporting your Pocket List Data</title>
+      <link>http://localhost:1313/posts/exporting-your-pocket-list-data2865/</link>
+      <pubDate>Sat, 17 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/exporting-your-pocket-list-data2865/</guid>
+      <description>&lt;p&gt;The links you save to your Pocket are stored on Pocket’s servers. In other words, they’re stored “in the cloud”.&lt;/p&gt;&#xA;&lt;p&gt;This means that your List will be available on any computer or mobile device (phone or tablet) that is connected to your Pocket account. To log in to Pocket, please visit our website or download any of our mobile apps, then log in with your Pocket username and password.&lt;/p&gt;&#xA;&lt;p&gt;Because your List is stored in the cloud, you do not need to create special backups of your saved Pocket items. However, If you wish to download your list for other uses you can use our export tool which creates a downloadable HTML file with your List and Archive.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Parsing Bitwarden CLI</title>
+      <link>http://localhost:1313/posts/parsing-bitwarden-cli4247/</link>
+      <pubDate>Thu, 15 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/parsing-bitwarden-cli4247/</guid>
+      <description>&lt;p&gt;If you use the excellent Bitwarden app for you password storage you may not be aware that they also have a command line version on Linux. It outputs data using the JSON format. You can install the &lt;code&gt;jq&lt;/code&gt; JSON parser and pipe the output of the CLI&amp;rsquo;s query to it in order to extract the username and password for a specific site in your search:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ bw list items --search accounts.google.com | jq &#39;.[] | .login.uris[].uri,.login.username,.login.password&#39;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;https://accounts.google.com&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;john.doe@gmail.com&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;** password1 **&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;https://accounts.google.com&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;jdoe@gmail.com&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;** password2 **&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Export VirtualBox VDI using CLI</title>
+      <link>http://localhost:1313/posts/export-virtualbox-vdi-using-cli1819/</link>
+      <pubDate>Wed, 14 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/export-virtualbox-vdi-using-cli1819/</guid>
+      <description>&lt;p&gt;Sometimes you may want to move a virtual machine in VirtualBox from one server to another. Once way of doing that is to export it from the command line.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Locate the virtual machine that you want to export (I&amp;rsquo;ll use the name UbuntuServer for the one to be exported and name the new one UbuntuServerNew), and then&lt;/li&gt;&#xA;&lt;li&gt;Run the export command as follows:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ vboxmanage export UbuntuServer -o UbuntuServerNew.ova&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Install mimic Text-To-Speech on Slackware 15</title>
+      <link>http://localhost:1313/posts/install-mimic-text-to-speech-on-slackware-1526910/</link>
+      <pubDate>Tue, 13 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-mimic-text-to-speech-on-slackware-1526910/</guid>
+      <description>&lt;p&gt;Per the manpage: Mimic  is  a command line tool for synthesizing speech from text. If outfile.wav is omitted mimic will output the utterance using the computer sound card.&lt;/p&gt;&#xA;&lt;p&gt;Mimic is based on &lt;a href=&#34;http://www.cmuflite.org&#34;&gt;flite&lt;/a&gt; and strives  to  extend  functionality and add more languages while keeping the application fast and light.&lt;/p&gt;&#xA;&lt;p&gt;Mandatory arguments to long options are mandatory for short options too.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$  git clone https://github.com/MycroftAI/mimic1.git&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  cd mimic1/&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  ./dependencies.sh --prefix=&amp;quot;/usr/local&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  ./autogen.sh &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  ./configure --prefix=&amp;quot;/usr/local&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  make&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  make check&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  su -c &amp;quot;make install&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install svox Package on Slackware 15.0 for Better Text-to-Speech</title>
+      <link>http://localhost:1313/posts/install-svox-package-on-slackware-150-for-better-text-to-speech/</link>
+      <pubDate>Mon, 12 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-svox-package-on-slackware-150-for-better-text-to-speech/</guid>
+      <description>&lt;p&gt;I was having issues finding a good voice synthesis for Foliate to read my books to me. I have always had issues with the sound of the &lt;code&gt;espeak&lt;/code&gt; and &lt;code&gt;espeak-ng&lt;/code&gt; voices. So I was searching for an alternative. I couldn&amp;rsquo;t find a way to build &lt;code&gt;festival&lt;/code&gt; on Slackware (yet) but while searching around found a package called &lt;code&gt;svox&lt;/code&gt; that had a SlackBuild so I thought I&amp;rsquo;d give it a try.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Rename Files Downloaded Using youtube-dl</title>
+      <link>http://localhost:1313/posts/rename-files-downloaded-using-youtube-dl10234/</link>
+      <pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rename-files-downloaded-using-youtube-dl10234/</guid>
+      <description>&lt;p&gt;If you have used &lt;code&gt;youtube-dl&lt;/code&gt; to download content from YouTube then you know that the file names can get to be rather long. In addition to the video&amp;rsquo;s title there is a dash followed by what appears to be a random sequence of characters just before the file extension. If you find this to be annoying then here is a code snippet that you can use to remove it.&lt;/p&gt;&#xA;&lt;p&gt;This will remove the last field separated by a &amp;lsquo;-&amp;rsquo; and replace it with the file extension of your choice, .mp4 is used in this example:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Unable to Burn .ISO File to DVD With K3B</title>
+      <link>http://localhost:1313/posts/unable-to-burn-iso-file-to-dvd-with-k3b/</link>
+      <pubDate>Fri, 09 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/unable-to-burn-iso-file-to-dvd-with-k3b/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re having a problem as a &amp;lsquo;regular&amp;rsquo; Slackware user burning an ISO file to a blank DVD, this may resolve your issue:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# chown root:cdrom /usr/bin/cdrecord /usr/bin/cdrdao&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# chmod 4750 /usr/bin/cdrecord /usr/bin/cdrdao&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>LXC in Slackware</title>
+      <link>http://localhost:1313/posts/lxc-in-slackware22712/</link>
+      <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/lxc-in-slackware22712/</guid>
+      <description>&lt;p&gt;Following directions from: &lt;a href=&#34;https://docs.slackware.com/howtos:misc:lxc&#34;&gt;lxc&lt;/a&gt; for Slackware 14.2. I haven&amp;rsquo;t tested on Slackware 15 yet. You will have to set this up while running as &lt;code&gt;root&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Create the file  &lt;code&gt;&#39;/etc/default/lxc-net&#39;&lt;/code&gt; and add the line &lt;code&gt;USE_LXC_BRIDGE=&amp;quot;true&amp;quot;&lt;/code&gt; to it.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Create the directory &lt;code&gt;&#39;/var/lib/misc&#39;&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Start the service: &lt;code&gt;# /usr/libexec/lxc/lxc-net start&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Create a config file:&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;# cat &amp;gt;slac-xlc.con &amp;laquo;&amp;ldquo;EOF&amp;rdquo;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; lxc.network.type = veth&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; lxc.network.flags = up&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; lxc.network.link = lxcbr0&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;EOF&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sending Email from the Command Line with mutt</title>
+      <link>http://localhost:1313/posts/sending-email-from-the-command-line-with-mutt27176/</link>
+      <pubDate>Wed, 07 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/sending-email-from-the-command-line-with-mutt27176/</guid>
+      <description>&lt;p&gt;If you prefer using &lt;code&gt;mutt&lt;/code&gt; as your command line email tool, then here are a couple of examples of using &lt;code&gt;mutt&lt;/code&gt; to send emails which can be automated quite easily to use in scripts.&lt;/p&gt;&#xA;&lt;p&gt;Sending a file attachment (-a) and an empty message body:&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;$ mutt  -s &amp;quot;System Logs&amp;quot; -a /var/log/somelog.log -- username@example.com &amp;lt; /dev/null&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Sending a message body using redirection:&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;$ mutt -s &amp;quot;Email Subject&amp;quot; username@example.com &amp;lt; email.html&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Sending a file attachment along with a message body:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sending Email from the Command Line with cURL</title>
+      <link>http://localhost:1313/posts/sending-email-from-the-command-line-with-curl/</link>
+      <pubDate>Tue, 06 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/sending-email-from-the-command-line-with-curl/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s assume that you had a RFC 5822 formatted file named &lt;code&gt;mail.txt&lt;/code&gt; as follows:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;From: Some Sender &amp;lt;some.sender@gmail.com&amp;gt;&#xA;To: Some Recipient &amp;lt;some.recipient@example.com&amp;gt;&#xA;Subject: Saying Hello&#xA;Date: Tue, 6 Jun 2023 04:15:06 -0100&#xA;Message-ID: &amp;lt;1234@local.machine.example&amp;gt;&#xA;&#xA;This is a message just to say hello.&#xA;So, &amp;#34;Hello&amp;#34;.&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can forward this to a email recipient using Google&amp;rsquo;s SMTP with the following &lt;code&gt;curl&lt;/code&gt; command provided you have a Google app password:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ curl --url &amp;#39;smtps://smtp.gmail.com:465&amp;#39; --ssl-reqd \&#xA; --mail-from &amp;#39;some.sender@gmail.com&amp;#39; \ &#xA; --mail-rcpt &amp;#39;some.recipient@example.com&amp;#39; \&#xA; --upload-file mail.txt \&#xA; --user &amp;#39;some.sender@gmail.com:your-gmail-app-password&amp;#39;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Output should be something like this:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Transfering Files Using netcat</title>
+      <link>http://localhost:1313/posts/transfering-files-using-netcat20089/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/transfering-files-using-netcat20089/</guid>
+      <description>&lt;p&gt;You can use &lt;code&gt;netcat&lt;/code&gt; to transfer a file from one machine to another machine.&#xA;On the receiving machine enter the following command:&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;$ netcat -l 12345 &amp;gt; file.txt&lt;/code&gt; or&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;$ netcat -l -p 12345 &amp;gt; file.pdf&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Then, on the sending machine use this command:&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;$ netcat $MY_IP_ADDRESS 12345 &amp;lt; file.txt&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install Openbox on Slackware</title>
+      <link>http://localhost:1313/posts/install-openbox-on-slackware31274/</link>
+      <pubDate>Sun, 04 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-openbox-on-slackware31274/</guid>
+      <description>&lt;p&gt;I have been running blackbox on my Slackware desktop and decided that I&amp;rsquo;d try a different &amp;lsquo;flavor&amp;rsquo; called openbox which are in the SBo repositories. I started by executing &lt;code&gt;sbopkg&lt;/code&gt; at the &lt;code&gt;root&lt;/code&gt; prompt and found these packages available:&lt;/p&gt;&#xA;&lt;p&gt;There is the primary &lt;code&gt;openbox&lt;/code&gt; package and there are 4 optional packages listed:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;openbox&lt;/li&gt;&#xA;&lt;li&gt;libfm-extra&lt;/li&gt;&#xA;&lt;li&gt;lxmenu-data&lt;/li&gt;&#xA;&lt;li&gt;menu-cache&lt;/li&gt;&#xA;&lt;li&gt;openbox-menu&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;And several theme packages:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;arc-openbox&lt;/li&gt;&#xA;&lt;li&gt;openbox-simple-theme&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The openbox-menu and openbox-simple-theme downloads failed but I was able to get away with using &lt;code&gt;obconf&lt;/code&gt; and &lt;code&gt;obmenu&lt;/code&gt; tools.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to Use DNF History</title>
+      <link>http://localhost:1313/posts/how-to-use-dnf-history21154/</link>
+      <pubDate>Sat, 03 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-use-dnf-history21154/</guid>
+      <description>&lt;p&gt;If you are using a Red Hat/Fedora-based distro, here are some tips on how to use the &lt;code&gt;dnf&lt;/code&gt; tool to query your install history:&lt;/p&gt;&#xA;&lt;p&gt;Retrieve a list of manually installed packages:&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;$ dnf history userinstalled&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Retrieve a list of all transactions:&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;$ dnf history list all&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;List the changes in a particular transaction:&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;$ history list &amp;lt;num&amp;gt;&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Undo/rollback a transaction:&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;$ dnf history undo &amp;lt;num&amp;gt;&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Windows Terminal Keyboard Shortcuts</title>
+      <link>http://localhost:1313/posts/windows-terminal-keyboard-shortcuts30027/</link>
+      <pubDate>Fri, 02 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/windows-terminal-keyboard-shortcuts30027/</guid>
+      <description>&lt;p&gt;I have to use Windows where I work but I use the terminal as often as possible. Microsoft&amp;rsquo;s Windows Terminal application makes that experience tolerable. You can even think that you&amp;rsquo;re using &lt;code&gt;tmux&lt;/code&gt; at times&amp;hellip;well, not really, but you get the idea.&lt;/p&gt;&#xA;&lt;p&gt;Here are some of the keyboard shortcuts that I use:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Split current terminal window&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;Alt Shift&lt;/code&gt; - split pane horizontal&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;Alt Shift&lt;/code&gt; - split pane vertical&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Jump to other console&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install Kooha on Ubuntu 21.04</title>
+      <link>http://localhost:1313/posts/install-kooha-on-ubuntu-2104/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-kooha-on-ubuntu-2104/</guid>
+      <description>&lt;p&gt;&lt;code&gt;Kooha&lt;/code&gt; is a GTK-based screen recorder for Linux for recording screens and audio from your desktop or microphone. It is very simple to use&lt;/p&gt;&#xA;&lt;p&gt;Install &lt;code&gt;flathub&lt;/code&gt; from the Ubuntu software repository:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo apt install flatpak from the repository:&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Install Koohu from the command line:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo&#xA;$ flatpak install flathub io.github.seadve.Kooha&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You should now see an icon for &lt;code&gt;Kooha&lt;/code&gt; in you GNOME applications window.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Update Slackware Broadcom Driver</title>
+      <link>http://localhost:1313/posts/update-slackware-broadcom-driver27466/</link>
+      <pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/update-slackware-broadcom-driver27466/</guid>
+      <description>&lt;p&gt;It doesn&amp;rsquo;t happen often, but whenever there&amp;rsquo;s a new kernel package for Slackware on my laptop I need to update the Broadcom driver. To do this:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Update your OS, as usual.&lt;/li&gt;&#xA;&lt;li&gt;Reboot&lt;/li&gt;&#xA;&lt;li&gt;Plug in the ethernet cable, if necessary&lt;/li&gt;&#xA;&lt;li&gt;Login as root&lt;/li&gt;&#xA;&lt;li&gt;Perform sbopkg -i broadcom-sta&lt;/li&gt;&#xA;&lt;li&gt;Done&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;You can read more about it on the Slackware wiki &lt;a href=&#34;https://www.slackwiki.com/Broadcom_Wireless&#34;&gt;here&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Installing Foliate Ebook Reader on Slackware 15</title>
+      <link>http://localhost:1313/posts/installing-foliate-ebook-reader-on-slackware-1517738/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/installing-foliate-ebook-reader-on-slackware-1517738/</guid>
+      <description>&lt;p&gt;I don&amp;rsquo;t know about you, but I love reading ebooks and I&amp;rsquo;ve used Foliate before on other distributions but can&amp;rsquo;t find it for my OS of choice, Slackware. So, here&amp;rsquo;s how to install it from source:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Download the foliate software tarball from &lt;a href=&#34;https://github.com/johnfactotum/foliate/releases&#34;&gt;here&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Install appstream-glib (which provides dependency appstream-util) using sboinstall&lt;/li&gt;&#xA;&lt;li&gt;Install webkit2gtk (which provides dependency WebKit2) using sboinstall&lt;/li&gt;&#xA;&lt;li&gt;Build foliate. Instructions are on the GitHub &lt;a href=&#34;https://github.com/johnfactotum/foliate&#34;&gt;page&lt;/a&gt; or just extract the tarball, cd into the directory and then execute the following on the command line:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;$ tar zxvf foliate-2.6.4.tar.gz &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ cd foliate-2.6.4&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ meson build &amp;ndash;prefix=/usr&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ ninja -c build&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ ninja -C build&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ su -c &amp;ldquo;ninja -C build install&amp;rdquo;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Archive Only Files In a Directory</title>
+      <link>http://localhost:1313/posts/archive-only-files-in-a-directory23013/</link>
+      <pubDate>Mon, 29 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/archive-only-files-in-a-directory23013/</guid>
+      <description>&lt;p&gt;If you want to create a tar archive of only the files of a directory and exclude any subdirectories you can use the &lt;code&gt;ls -la&lt;/code&gt; command and pipe the output to &lt;code&gt;awk&lt;/code&gt;. However you need to remove the first 8 fields from the output and leave all of the remaining parts of the line in case there are spaces in the filename. One quick and dirty way of doing that is to set each of the 8 fields to a blank and then use &lt;code&gt;sed&lt;/code&gt; to trim the leading spaces. You can optionally add quotation marks around the filename in your output too.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Edit a Remote File Using Vim</title>
+      <link>http://localhost:1313/posts/edit-a-remote-file-using-vim/</link>
+      <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/edit-a-remote-file-using-vim/</guid>
+      <description>&lt;p&gt;To edit a file remotely using the vim editor, just do the following in a terminal window:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ scp://username@IP-address//path/to/file.txt&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;The user must have access to the file being edited.&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Echo File Until a Blank Line Is Reached</title>
+      <link>http://localhost:1313/posts/echo-file-until-a-blank-line-is-reached/</link>
+      <pubDate>Sat, 27 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/echo-file-until-a-blank-line-is-reached/</guid>
+      <description>&lt;p&gt;You can use the &lt;code&gt;awk&lt;/code&gt; program to search and print lines in a file. If you wanted to print a file until the first blank line is reached you can use the  following command to do that:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;awk &amp;#39;$0 ~ /^$/ {exit;} {print $0;}&amp;#39; somefile.txt&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>Calibre Server Installation on a Raspberry Pi</title>
+      <link>http://localhost:1313/posts/calibre-server-installation-on-a-raspberry-pi/</link>
+      <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/calibre-server-installation-on-a-raspberry-pi/</guid>
+      <description>&lt;p&gt;These instructions are for installing the Calibre book management software on a Raspberry Pi 4 running Ubuntu 20.04 but should work with Raspian or other Debian-derived operating systems. This is just a briefer version of the same instructions that are posted &lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-create-a-calibre-ebook-server-on-ubuntu-20-04&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Install the calibre-bin package and its dependencies:&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;$ sudo apt update &amp;amp;&amp;amp; sudo apt install -y &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ sudo apt install calibre-bin&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gitea Server Installation on a Raspberry Pi</title>
+      <link>http://localhost:1313/posts/gitea-server-installation-on-a-raspberry-pi26652/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gitea-server-installation-on-a-raspberry-pi26652/</guid>
+      <description>&lt;p&gt;Create a &amp;lsquo;git&amp;rsquo; user:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo adduser git&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Login as the &amp;lsquo;git&amp;rsquo; user and download the gitea binary from the gitea website (choose the latest version):&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;wget -O gitea &lt;a href=&#34;https://dl.gitea.io/gitea/1.14.5/gitea-1.14.5-linux-amd64&#34;&gt;https://dl.gitea.io/gitea/1.14.5/gitea-1.14.5-linux-amd64&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;chmod +x gitea&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;p&gt;Create a service. We&amp;rsquo;re keeping it simple here so we don&amp;rsquo;t need a lot of the database-specific stuff:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bash Environment Variables</title>
+      <link>http://localhost:1313/posts/bash-environment-variables11985/</link>
+      <pubDate>Wed, 24 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bash-environment-variables11985/</guid>
+      <description>&lt;p&gt;Here are some bash environment variables that are useful to know when you&amp;rsquo;re using the command prompt:&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt; $0&lt;!-- raw HTML omitted --&gt; - name of shell or shell script &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $1, $2, $3, &amp;hellip;&lt;!-- raw HTML omitted --&gt; - positional parameters to script &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $#&lt;!-- raw HTML omitted --&gt; - count of positional parameters &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $?&lt;!-- raw HTML omitted --&gt; - exit status of most recent foreground task &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $-&lt;!-- raw HTML omitted --&gt; - current options that are set for the shell &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $$&lt;!-- raw HTML omitted --&gt; - PID of the current shell (not subshell) &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $!&lt;!-- raw HTML omitted --&gt; - the PID of the most recent background command &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $DESKTOP_SESSION&lt;!-- raw HTML omitted --&gt; - path to the current display manager &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $EDITOR&lt;!-- raw HTML omitted --&gt; - preferred text editor &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $LANG&lt;!-- raw HTML omitted --&gt; - current language &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $PATH&lt;!-- raw HTML omitted --&gt; - directory list to search for executables (programs) &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $PWD&lt;!-- raw HTML omitted --&gt; - current working directory &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $SHELL&lt;!-- raw HTML omitted --&gt; - current shell &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $USER&lt;!-- raw HTML omitted --&gt; - current username &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $HOME&lt;!-- raw HTML omitted --&gt; - current user&amp;rsquo;s home directory &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $HOSTNAME&lt;!-- raw HTML omitted --&gt; - current name of the host &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $TERM&lt;!-- raw HTML omitted --&gt; - current terminal &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bash CLI Keyboard Shortcuts</title>
+      <link>http://localhost:1313/posts/bash-cli-keyboard-shortcuts21656/</link>
+      <pubDate>Tue, 23 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bash-cli-keyboard-shortcuts21656/</guid>
+      <description>&lt;p&gt;Here are some quick keyboard shortcuts you can use at the command prompt:&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;ctrl-l&lt;!-- raw HTML omitted --&gt; &amp;ndash; clear screen&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;ctrl-r&lt;!-- raw HTML omitted --&gt; &amp;ndash; does a search in the previously given commands so that you don&amp;rsquo;t have to repeat long command.&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;ctrl-u&lt;!-- raw HTML omitted --&gt; &amp;ndash; clears the typing before the hotkey.&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;ctrl-a&lt;!-- raw HTML omitted --&gt; &amp;ndash; takes you to the begining of the command you are currently typing.&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;ctrl-e&lt;!-- raw HTML omitted --&gt; &amp;ndash; takes you to the end of the command you are currently typing in.&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;esc-b&lt;!-- raw HTML omitted --&gt; &amp;ndash; takes you back by one word while typing a command.&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;ctrl-c&lt;!-- raw HTML omitted --&gt; &amp;ndash; kills the current command or process.&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;ctrl-d&lt;!-- raw HTML omitted --&gt; &amp;ndash; kills the shell.&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;ctrl-h&lt;!-- raw HTML omitted --&gt; &amp;ndash; deletes one letter at a time from the command you are typing in.&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;ctrl-z&lt;!-- raw HTML omitted --&gt; &amp;ndash; puts the currently running process in background, the process can be brought back to run state by using fg command.&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;esc-p&lt;!-- raw HTML omitted --&gt; &amp;ndash; like ctrl-r lets you search through the previously given commands.&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;esc-.&lt;!-- raw HTML omitted --&gt; &amp;ndash; gives the last command you typed.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How To Find All of the Shell Scripts In a Directory</title>
+      <link>http://localhost:1313/posts/how-to-find-all-of-the-shell-scripts-in-a-directory/</link>
+      <pubDate>Sun, 21 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-find-all-of-the-shell-scripts-in-a-directory/</guid>
+      <description>&lt;p&gt;This is a quick and dirty way which will list all of the files that are shell scripts:&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt; for i in * &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; do &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     type=$(file ${i}|awk -F, &amp;lsquo;{print $2}&amp;rsquo;)&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     if [[ &amp;ldquo;${type}&amp;rdquo; = &amp;quot; ASCII text executable&amp;quot; ]]; then &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;         echo &amp;ldquo;${i} is a shell script&amp;rdquo;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     fi&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; done&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Diff 2 Folders Over SSH</title>
+      <link>http://localhost:1313/posts/diff-2-folders-over-ssh28479/</link>
+      <pubDate>Fri, 19 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/diff-2-folders-over-ssh28479/</guid>
+      <description>&lt;p&gt;If you need to do a &amp;lsquo;diff&amp;rsquo; on 2 folders and one of them is remote then you can accomplish that as follows:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ diff &amp;lt;(ssh username@192.168.1.60 ls -R /home/username/dir1) &amp;lt;(ls -R /home/username/dir2) &#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>How to Enable the Administrator Account in Windows</title>
+      <link>http://localhost:1313/posts/how-to-enable-the-administrator-account-in-windows19625/</link>
+      <pubDate>Thu, 18 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-enable-the-administrator-account-in-windows19625/</guid>
+      <description>&lt;p&gt;To activate the Administrator account on Windows, open the Command Prompt as Administrator from the Start Menu, or you can right-click on the &amp;ldquo;Start&amp;rdquo; menu and select the &amp;ldquo;Powershell&amp;rdquo; menu item, then enter:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;net user administrator /active: yes&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;into the window. You should disable the account again when you&amp;rsquo;re done.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Convert HTML Files to EPUB Using Pandoc</title>
+      <link>http://localhost:1313/posts/convert-html-files-to-epub-using-pandoc8802/</link>
+      <pubDate>Wed, 17 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/convert-html-files-to-epub-using-pandoc8802/</guid>
+      <description>&lt;p&gt;If you want to convert one or more HTML files to EPUB quickly using the command line you can try &lt;a href=&#34;http://johnmacfarlane.net/pandoc/&#34;&gt;pandoc&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pandoc -f html -t epub3 -o output.epub input.html&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can add metadata for epub:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pandoc -f html -t epub3 --epub-metadata=metadata.xml -o output.epub input.html&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can find other resources here:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://linuxconfig.org/how-to-convert-various-ebook-formats-for-amazon-kindle-on-linux&#34;&gt;How to convert various eBook formats for Amazon Kindle on Linux&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mastodon Automated Postings using the API</title>
+      <link>http://localhost:1313/posts/mastodon-automated-postings-using-the-api10012/</link>
+      <pubDate>Tue, 16 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/mastodon-automated-postings-using-the-api10012/</guid>
+      <description>&lt;p&gt;You can post to Mastodon using their API using &lt;code&gt;cURL&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;h4 id=&#34;create-or-find-your-access-token&#34;&gt;Create or Find Your Access Token&lt;/h4&gt;&#xA;&lt;p&gt;Once you have a Mastodon account, you need your account&amp;rsquo;s access token. The steps you need to get that:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Sign into your Mastodon account&lt;/li&gt;&#xA;&lt;li&gt;Click on In the &lt;code&gt;&amp;quot;Preferences&amp;quot;&lt;/code&gt; link.&lt;/li&gt;&#xA;&lt;li&gt;On the bottom left corner of that page, click the &lt;code&gt;&amp;quot;Development&amp;quot;&lt;/code&gt; link.&lt;/li&gt;&#xA;&lt;li&gt;On the &lt;code&gt;&amp;quot;Your Applications&amp;quot;&lt;/code&gt; page, click the blue &lt;code&gt;NEW APPLICATION&lt;/code&gt; button.&lt;/li&gt;&#xA;&lt;li&gt;Give your application a name, and decide what kind of access you want to have when you connect to your account via the Mastodon API (i&lt;code&gt;read&lt;/code&gt;, &lt;code&gt;write&lt;/code&gt;, and &lt;code&gt;follow&lt;/code&gt; are the defaults). You can always change this later.&lt;/li&gt;&#xA;&lt;li&gt;At the bottom of the page, click the blue &lt;code&gt;SUBMIT&lt;/code&gt; button.&lt;/li&gt;&#xA;&lt;li&gt;You will be directed back to the &lt;code&gt;Your applications&lt;/code&gt; page, but now you should see your application name. Click that.&lt;/li&gt;&#xA;&lt;li&gt;In your application&amp;rsquo;s page, there are three tokens. For this tutorial, you need the &lt;code&gt;Your access token&lt;/code&gt; one.&#xA;Note: if your access token is ever compromised, you can click regenerate, and your old access token will stop working, and you&amp;rsquo;ll be shown a new one.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h4 id=&#34;post-a-status-update-using-curl&#34;&gt;Post a Status Update using cURL&lt;/h4&gt;&#xA;&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    <item>
+      <title>Creating Passwordless SSH Keys</title>
+      <link>http://localhost:1313/posts/creating-passwordless-ssh-keys6962/</link>
+      <pubDate>Sun, 14 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/creating-passwordless-ssh-keys6962/</guid>
+      <description>&lt;p&gt;&lt;!-- raw HTML omitted --&gt;Create the key. Note those are two single quotes after the -N (for a blank passwd)&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $ ssh-keygen -t rsa -b 4096 -N &amp;rsquo;&amp;rsquo; &lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;Copy it to the target server&#xA;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt; $ cat .ssh/id_rsa.pub | ssh &lt;a href=&#34;mailto:username@192.168.1.123&#34;&gt;username@192.168.1.123&lt;/a&gt;  &amp;lsquo;cat &amp;raquo; .ssh/authorized_keys&amp;rsquo; &lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;Test it&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;$ ssh &lt;a href=&#34;mailto:username@192.168.1.123&#34;&gt;username@192.168.1.123&lt;/a&gt;&#xA;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SSH Directory Permissions Settings</title>
+      <link>http://localhost:1313/posts/ssh-directory-permissions-settings10237/</link>
+      <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ssh-directory-permissions-settings10237/</guid>
+      <description>&lt;p&gt;It is important to set the directory and file permissions for your ~/.ssh correctly.&lt;/p&gt;&#xA;&lt;p&gt;Typically you want the permissions to be:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;.ssh directory: 700 (drwx&amp;mdash;&amp;mdash;)&lt;/li&gt;&#xA;&lt;li&gt;public key (.pub file): 644 (-rw-r&amp;ndash;r&amp;ndash;)&lt;/li&gt;&#xA;&lt;li&gt;private key (id_rsa): 600 (-rw&amp;mdash;&amp;mdash;-)&lt;/li&gt;&#xA;&lt;li&gt;lastly your home directory should not be writeable by the group or others (at most 755 (drwxr-xr-x)).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;For example, to set this permissions do:&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $ chmod 700 ~/.ssh &lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $ chmod 600 ~/.ssh/* &lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $ chmod 644 ~/.ssh/*.pub &lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $ ls -ltr ~/.ssh/&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How To Use Github Tokens on the Command Line</title>
+      <link>http://localhost:1313/posts/how-to-use-github-tokens-on-the-command-line1357/</link>
+      <pubDate>Fri, 12 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-use-github-tokens-on-the-command-line1357/</guid>
+      <description>&lt;p&gt;GitHub’s access policy requires you to use tokens instead of username/password to update your repositories.&lt;/p&gt;&#xA;&lt;p&gt;To adapt your existing local / cloned repos to token based auth:&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;$ git remote remove origin&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;$ git remote add origin https://[TOKEN]@github.com/[USER]/[REPO]&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;$ git push&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;Clone repos using token based authentication (non public repos)&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;$ git clone https://[username]:[token]@github.com/[accountname]/[reponame]&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sending Email from the Command Line</title>
+      <link>http://localhost:1313/posts/sending-email-from-the-command-line8566/</link>
+      <pubDate>Thu, 11 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/sending-email-from-the-command-line8566/</guid>
+      <description>&lt;h4 id=&#34;mutt-examples&#34;&gt;mutt Examples&lt;!-- raw HTML omitted --&gt;&lt;/h4&gt;&#xA;&lt;p&gt;Sending just a file attachment (-a) and an empty message body:&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;$ mutt  -s &amp;ldquo;System logs&amp;rdquo; -a /opt/backup.sql &amp;ndash; &lt;a href=&#34;mailto:user@example.com&#34;&gt;user@example.com&lt;/a&gt; &amp;lt; /dev/null&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;Sending a message body using redirection:&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;$ mutt -s &amp;ldquo;Email subject&amp;rdquo; &lt;a href=&#34;mailto:test@example.com&#34;&gt;test@example.com&lt;/a&gt; &amp;lt; email.html&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;Sending a file attachment along with a message body:&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;$ echo $message | mutt -s &amp;ldquo;Subject&amp;rdquo; -a attachment.txt &amp;ndash; &lt;a href=&#34;mailto:me@myemail.com&#34;&gt;me@myemail.com&lt;/a&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to convert VirtualBox VDI to KVM qcow2</title>
+      <link>http://localhost:1313/posts/h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1/</link>
+      <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1/</guid>
+      <description>&lt;p&gt;It is easy to convert a VirtualBox VDI image to a KVM qcow2 file. You have to use the RAW file format as an intermediate.&lt;/p&gt;&#xA;&lt;p&gt;Make sure the VirtualBox machine is shutdown.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Convert the VDI to a raw disk image. &lt;!-- raw HTML omitted --&gt;&#xA;Note: VDIs are compressed and raw images are not, so you will need to leave enough disk space for entire uncompressed disk.&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;$ VBoxManage clonehd &amp;ndash;format RAW vm.vdi vm.img&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;&#xA;&lt;li&gt;Then on your KVM host:&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;$ qemu-img convert -f raw vm.img -O qcow2 vm.qcow2&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>How To Count All The Files Extension Recursively In Linux</title>
+      <link>http://localhost:1313/posts/how-to-count-all-the-files-extension-recursively-in-linux/</link>
+      <pubDate>Tue, 09 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-count-all-the-files-extension-recursively-in-linux/</guid>
+      <description>&lt;p&gt;To count all the files by file extension recursively on the command line&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $ find . -type f | sed -n &amp;rsquo;s/..*.//p&amp;rsquo; | sort | uniq -c &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     40 3g2&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      5 AVI&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     13 DS_Store&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     28 JPG&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     30 MOV&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;    133 MP4&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     64 THM&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      1 docx&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     18 jpg&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      1 json&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      4 m3u&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     89 m4a&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      2 m4r&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;    156 m4v&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     41 mkv&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;    112 mov&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     38 mp3&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;    587 mp4&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      1 nfo&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      2 osp&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     30 png&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      1 sh&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      4 srt&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      6 svg&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     10 torrent&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      6 txt&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      5 webm&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     10 zip&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Untar a Tarball to a Remote Directory</title>
+      <link>http://localhost:1313/posts/untar-a-tarball-to-a-remote-directory5321/</link>
+      <pubDate>Mon, 08 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/untar-a-tarball-to-a-remote-directory5321/</guid>
+      <description>&lt;p&gt;Sometimes you may need to copy an entire directory structure to another system using the command line. Here is a quick way to do it using the tar command:&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt; cat myfile.tgz | ssh user@host &amp;ldquo;tar xzf - -C /some/dir&amp;rdquo; &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gnome3 Menu Icons</title>
+      <link>http://localhost:1313/posts/gnome3-menu-icons11060/</link>
+      <pubDate>Sun, 07 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gnome3-menu-icons11060/</guid>
+      <description>&lt;p&gt;To add your own menu icons to a GNOME3 environment check out this link:&#xA;&lt;a href=&#34;https://developer.gnome.org/integration-guide/stable/desktop-files.html.en&#34;&gt;Desktop files: putting your application in the desktop menus&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Getting Rid of ^M Line Endings in a Text File</title>
+      <link>http://localhost:1313/posts/getting-rid-of-m-line-endings-in-a-text-file20658/</link>
+      <pubDate>Sat, 06 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/getting-rid-of-m-line-endings-in-a-text-file20658/</guid>
+      <description>&lt;p&gt;If you have a text file that has funny looking ^M characters at the end of each line, in most cases, you have to get rid of them before they can be used. This is especially the case when you&amp;rsquo;ve copied or transferred a file from a Windows-based system to a *nix-based one. If these files are shell scripts meant to run on the *nix-based system they more often than not won&amp;rsquo;t work. There are various solutions to this problem.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Removing ^M Characters From Multiple Files</title>
+      <link>http://localhost:1313/posts/removing-m-characters-from-multiple-files19102/</link>
+      <pubDate>Fri, 05 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/removing-m-characters-from-multiple-files19102/</guid>
+      <description>&lt;p&gt;In my day job I find that I frequently need to remove those pesky &amp;lsquo;^M&amp;rsquo; line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt; :%s/^M//g &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;p&gt;solves the problem, but on occasion I might be confronted with performing this process on multiple files and sometimes recursively through many subdirectories. When that happens it becomes necessary to bring out the &amp;ldquo;big guns&amp;rdquo; and do:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Get the Hash of a File on Different Operating Systems</title>
+      <link>http://localhost:1313/posts/get-the-hash-of-a-file-on-different-operating-systems17003/</link>
+      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/get-the-hash-of-a-file-on-different-operating-systems17003/</guid>
+      <description>&lt;p&gt;Sometimes you just need to hash something. Here are some command lines to do just that.&lt;/p&gt;&#xA;&lt;p&gt;Windows PowerShell:&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt; Get-FileHash C:\path\to\file.iso -Algorithm [MD5|SHA1|SHA256|SHA384|SHA512|MACTripleDES|RIPEMD160] &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;p&gt;(SHA256 is the default if the parameter is omitted)&lt;/p&gt;&#xA;&lt;p&gt;Linux:&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt; md5sum /path/to/file &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; sha1sum /path/to/file &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; sha256sum /path/to/file &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Copy Entire Directory Structure Using Tar</title>
+      <link>http://localhost:1313/posts/copy-entire-directory-structure-using-tar3546/</link>
+      <pubDate>Wed, 03 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/copy-entire-directory-structure-using-tar3546/</guid>
+      <description>&lt;p&gt;Sometimes you need to copy an entire directory structure to another location on the command line. Here is a quick way to do it using the tar command:&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt; tar cf - * | ( cd /target; tar xfp -) &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Fixing Screen Resolution on Second Monitor in Linux</title>
+      <link>http://localhost:1313/posts/fixing-screen-resolution-on-second-monitor-in-linux4621/</link>
+      <pubDate>Tue, 02 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/fixing-screen-resolution-on-second-monitor-in-linux4621/</guid>
+      <description>&lt;p&gt;I recently installed a 2nd hard drive in my Macbook Pro dedicated to Linux. When I hooked up a secondary monitor to it I found that I could not get a reasonable resolution. After some research I found that I can add a new mode to the &amp;ldquo;Display&amp;rdquo; choices by entering the following in a terminal console:&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt; xrandr &lt;!-- raw HTML omitted --&gt; # to find the device name &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; cvt 1920 1080 &lt;!-- raw HTML omitted --&gt; # to generate the mode for the xrandr program. &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; xrandr &amp;ndash;newmode &amp;ldquo;1920x1080_60.00&amp;rdquo; 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync &lt;!-- raw HTML omitted --&gt; # to add the new mode to the monitor choices. &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;xrandr &amp;ndash;addmode DP1 1920x1080_60.00 &lt;!-- raw HTML omitted --&gt; # to associate the new mode to the monitor.   &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sort Directory by File Size</title>
+      <link>http://localhost:1313/posts/sort-directory-by-file-size1118/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/sort-directory-by-file-size1118/</guid>
+      <description>&lt;p&gt;To sort files in a directory and to list them by the biggest file first:&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ du -a | sort -n -r | more&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;Alternatively you can use:&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ du -s * | sort -n -r | more&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    <item>
+      <title>Count Occurences of a Character in a String</title>
+      <link>http://localhost:1313/posts/count-occurences-of-a-character-in-a-string32529/</link>
+      <pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/count-occurences-of-a-character-in-a-string32529/</guid>
+      <description>&lt;p&gt;Sometimes I need to know how many times a specific character occurs in a string. The best tool to use for something like that is AWK. Let&amp;rsquo;s say we&amp;rsquo;re looking for the count of commas in a string:&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;string=&amp;ldquo;text,text,text,text&amp;rdquo; &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;char=&amp;quot;,&amp;quot; &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;echo &amp;ldquo;${string}&amp;rdquo; | awk -F&amp;quot;${char}&amp;quot; &amp;lsquo;{print NF-1}&amp;rsquo; &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Talkin&#39; Trash</title>
+      <link>http://localhost:1313/posts/talkin-trash19647/</link>
+      <pubDate>Sat, 29 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/talkin-trash19647/</guid>
+      <description>&lt;p&gt;Having trouble getting the &amp;ldquo;Empty Trash&amp;rdquo; working in Thunar? Remove &lt;code&gt;&amp;quot;~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar*&amp;quot;&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Uptime Statistics for Windows</title>
+      <link>http://localhost:1313/posts/uptime-statistics-for-windows/</link>
+      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/uptime-statistics-for-windows/</guid>
+      <description>&lt;p&gt;To find the uptime for a Windows machine do&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;C:&amp;gt; net statistics server &#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>Alternative to Using cp</title>
+      <link>http://localhost:1313/posts/alternative-to-using-cp/</link>
+      <pubDate>Mon, 24 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/alternative-to-using-cp/</guid>
+      <description>&lt;p&gt;To backup files from a source directory to a backup directory:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ mkdir /path/to/backup/directory&#xA;$ cd $HOME/source/directory&#xA;$ tar cf - . | (cd /path/to/backup/directory &amp;amp;&amp;amp; tar xBvf -)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Define the following alias:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;tar cvf - . | ( cd \!* ; tar xvf - )&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;or as an alias:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;alias cpbytar=&amp;#39;tar cvf - . | ( cd \!* ; tar xvf - )&amp;#39;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;(The alias definition above is for Bash)&lt;/p&gt;&#xA;&lt;p&gt;To do a recursive copy of a directory to another location, preserving the PERMISSIONS and OWNERSHIP of the files.  &amp;ldquo;cd&amp;rdquo; to the source location and invoke the following alias:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>git Tips</title>
+      <link>http://localhost:1313/posts/git-tips/</link>
+      <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-tips/</guid>
+      <description>&lt;p&gt;A useful tip to beautify your output is to use:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ git log --graph --decorate --oneline --abbrev-commit --all --date=local&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;when looking at your log entries.&#xA;Or you can add&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[alias]&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;to your ~/.gitconfig file to use &lt;code&gt;$ git lola&lt;/code&gt; as an alias.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Password-Managers on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/password-managers/</link>
+    <description>Recent content in Password-Managers on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/password-managers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using passwordgen On Slackware</title>
+      <link>http://localhost:1313/posts/using-passwordgen-on-slackware8846/</link>
+      <pubDate>Fri, 14 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/using-passwordgen-on-slackware8846/</guid>
+      <description>&lt;p&gt;The well known &lt;a href=&#34;https://ss64.com&#34;&gt;ss64.com&lt;/a&gt; site has a lot of useful tips and tricks for *&lt;em&gt;nix&lt;/em&gt; users and they also have a script that you can download which will create and maintain passwords for you.&lt;/p&gt;&#xA;&lt;p&gt;If you go to their &lt;a href=&#34;https://ss64.com/pass/command-line.html&#34;&gt;command line&lt;/a&gt; section you can use the link to their GitHub site and download it for yourself. However, when I followed their installation instructions I ran into difficulty because the script has a dependency on &lt;code&gt;pbcopy&lt;/code&gt; or &lt;code&gt;gclip&lt;/code&gt; (which wasn&amp;rsquo;t documented) and since I run Slackware 15.0 the copy to clipboard feature failed.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Parsing Bitwarden CLI</title>
+      <link>http://localhost:1313/posts/parsing-bitwarden-cli4247/</link>
+      <pubDate>Thu, 15 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/parsing-bitwarden-cli4247/</guid>
+      <description>&lt;p&gt;If you use the excellent Bitwarden app for you password storage you may not be aware that they also have a command line version on Linux. It outputs data using the JSON format. You can install the &lt;code&gt;jq&lt;/code&gt; JSON parser and pipe the output of the CLI&amp;rsquo;s query to it in order to extract the username and password for a specific site in your search:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ bw list items --search accounts.google.com | jq &#39;.[] | .login.uris[].uri,.login.username,.login.password&#39;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;https://accounts.google.com&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;john.doe@gmail.com&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;** password1 **&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;https://accounts.google.com&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;jdoe@gmail.com&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;** password2 **&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yum on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/yum/</link>
+    <description>Recent content in Yum on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/yum/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to List Installed Packages in Fedora, RHEL, CentOS</title>
+      <link>http://localhost:1313/posts/how-to-list-installed-packages-in-fedora-rhel-centos/</link>
+      <pubDate>Sat, 24 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-list-installed-packages-in-fedora-rhel-centos/</guid>
+      <description>&lt;p&gt;Listing installed packages with YUM:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo yum list installed&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;To display details about a package:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ yum info nginx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;You can cat all installed packages to a file, copy the file to another machine and duplicate the system:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo yum list installed &amp;gt; installed-packages.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ sudo yum -y install $(cat installed-packages.txt)&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;List installed packages with RPM:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scp on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/scp/</link>
+    <description>Recent content in Scp on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/scp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>scp&#39;ing Files using a Text File List</title>
+      <link>http://localhost:1313/posts/scping-files-using-a-text-file-list/</link>
+      <pubDate>Wed, 12 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/scping-files-using-a-text-file-list/</guid>
+      <description>&lt;p&gt;If you have a collection of files that you want to transfer to a remote server and they are a subset of files in the current directory or scattered among different directories you can create a list of files and then pipe the list to &lt;code&gt;scp&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ cat filelist.txt | xargs -i scp {} user@remote:~/backup/&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Edit a Remote File Using Vim</title>
+      <link>http://localhost:1313/posts/edit-a-remote-file-using-vim/</link>
+      <pubDate>Sun, 28 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/edit-a-remote-file-using-vim/</guid>
+      <description>&lt;p&gt;To edit a file remotely using the vim editor, just do the following in a terminal window:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ scp://username@IP-address//path/to/file.txt&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;The user must have access to the file being edited.&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

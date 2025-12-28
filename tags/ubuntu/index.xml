@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 28 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu: Disable cloud-init on Startup</title>
+      <link>http://localhost:1313/posts/ubuntu-disable-cloud-init-on-startup9393/</link>
+      <pubDate>Wed, 28 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ubuntu-disable-cloud-init-on-startup9393/</guid>
+      <description>&lt;p&gt;In systems that use &lt;code&gt;systemd&lt;/code&gt; and have a current (17.0+) version of &lt;code&gt;cloud-init&lt;/code&gt;, upstream documentation describes the process for disabling &lt;code&gt;cloud-init&lt;/code&gt; with either of the following:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;* touch /etc/cloud/cloud-init.disabled&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;or,&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;* add cloud-init=disabled to the kernel command line.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+  </channel>
+</rss>

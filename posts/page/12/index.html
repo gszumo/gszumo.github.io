@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Posts">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Posts">
+  <meta itemprop="datePublished" content="2023-09-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-28T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Posts">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/transfering-files-using-netcat20089/" class="link black dim">
+        Transfering Files Using netcat
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>You can use <code>netcat</code> to transfer a file from one machine to another machine.
+On the receiving machine enter the following command:</p>
+<p><code>$ netcat -l 12345 &gt; file.txt</code> or</p>
+<p><code>$ netcat -l -p 12345 &gt; file.pdf</code></p>
+<p>Then, on the sending machine use this command:</p>
+<p><code>$ netcat $MY_IP_ADDRESS 12345 &lt; file.txt</code></p>
+    </div>
+    <a href="/posts/transfering-files-using-netcat20089/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/install-openbox-on-slackware31274/" class="link black dim">
+        Install Openbox on Slackware
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>I have been running blackbox on my Slackware desktop and decided that I&rsquo;d try a different &lsquo;flavor&rsquo; called openbox which are in the SBo repositories. I started by executing <code>sbopkg</code> at the <code>root</code> prompt and found these packages available:</p>
+<p>There is the primary <code>openbox</code> package and there are 4 optional packages listed:</p>
+<ul>
+<li>openbox</li>
+<li>libfm-extra</li>
+<li>lxmenu-data</li>
+<li>menu-cache</li>
+<li>openbox-menu</li>
+</ul>
+<p>And several theme packages:</p>
+<ul>
+<li>arc-openbox</li>
+<li>openbox-simple-theme</li>
+</ul>
+<p>The openbox-menu and openbox-simple-theme downloads failed but I was able to get away with using <code>obconf</code> and <code>obmenu</code> tools.</p>
+    </div>
+    <a href="/posts/install-openbox-on-slackware31274/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/how-to-use-dnf-history21154/" class="link black dim">
+        How to Use DNF History
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you are using a Red Hat/Fedora-based distro, here are some tips on how to use the <code>dnf</code> tool to query your install history:</p>
+<p>Retrieve a list of manually installed packages:</p>
+<p><code>$ dnf history userinstalled</code></p>
+<p>Retrieve a list of all transactions:</p>
+<p><code>$ dnf history list all</code></p>
+<p>List the changes in a particular transaction:</p>
+<p><code>$ history list &lt;num&gt;</code></p>
+<p>Undo/rollback a transaction:</p>
+<p><code>$ dnf history undo &lt;num&gt;</code></p>
+    </div>
+    <a href="/posts/how-to-use-dnf-history21154/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/windows-terminal-keyboard-shortcuts30027/" class="link black dim">
+        Windows Terminal Keyboard Shortcuts
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>I have to use Windows where I work but I use the terminal as often as possible. Microsoft&rsquo;s Windows Terminal application makes that experience tolerable. You can even think that you&rsquo;re using <code>tmux</code> at times&hellip;well, not really, but you get the idea.</p>
+<p>Here are some of the keyboard shortcuts that I use:</p>
+<p><strong>Split current terminal window</strong></p>
+<p><code>Alt Shift</code> - split pane horizontal</p>
+<p><code>Alt Shift</code> - split pane vertical</p>
+<p><strong>Jump to other console</strong></p>
+    </div>
+    <a href="/posts/windows-terminal-keyboard-shortcuts30027/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/install-kooha-on-ubuntu-2104/" class="link black dim">
+        Install Kooha on Ubuntu 21.04
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><code>Kooha</code> is a GTK-based screen recorder for Linux for recording screens and audio from your desktop or microphone. It is very simple to use</p>
+<p>Install <code>flathub</code> from the Ubuntu software repository:</p>
+<pre tabindex="0"><code>$ sudo apt install flatpak from the repository:
+</code></pre><p>Install Koohu from the command line:</p>
+<pre tabindex="0"><code>$ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+$ flatpak install flathub io.github.seadve.Kooha
+</code></pre><p>You should now see an icon for <code>Kooha</code> in you GNOME applications window.</p>
+    </div>
+    <a href="/posts/install-kooha-on-ubuntu-2104/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/update-slackware-broadcom-driver27466/" class="link black dim">
+        Update Slackware Broadcom Driver
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>It doesn&rsquo;t happen often, but whenever there&rsquo;s a new kernel package for Slackware on my laptop I need to update the Broadcom driver. To do this:</p>
+<ol>
+<li>Update your OS, as usual.</li>
+<li>Reboot</li>
+<li>Plug in the ethernet cable, if necessary</li>
+<li>Login as root</li>
+<li>Perform sbopkg -i broadcom-sta</li>
+<li>Done</li>
+</ol>
+<p>You can read more about it on the Slackware wiki <a href="https://www.slackwiki.com/Broadcom_Wireless">here</a></p>
+    </div>
+    <a href="/posts/update-slackware-broadcom-driver27466/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/installing-foliate-ebook-reader-on-slackware-1517738/" class="link black dim">
+        Installing Foliate Ebook Reader on Slackware 15
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>I don&rsquo;t know about you, but I love reading ebooks and I&rsquo;ve used Foliate before on other distributions but can&rsquo;t find it for my OS of choice, Slackware. So, here&rsquo;s how to install it from source:</p>
+<ol>
+<li>Download the foliate software tarball from <a href="https://github.com/johnfactotum/foliate/releases">here</a></li>
+<li>Install appstream-glib (which provides dependency appstream-util) using sboinstall</li>
+<li>Install webkit2gtk (which provides dependency WebKit2) using sboinstall</li>
+<li>Build foliate. Instructions are on the GitHub <a href="https://github.com/johnfactotum/foliate">page</a> or just extract the tarball, cd into the directory and then execute the following on the command line:</li>
+</ol>
+<p><!-- raw HTML omitted -->$ tar zxvf foliate-2.6.4.tar.gz <!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$ cd foliate-2.6.4<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$ meson build &ndash;prefix=/usr<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$ ninja -c build<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$ ninja -C build<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$ su -c &ldquo;ninja -C build install&rdquo;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/installing-foliate-ebook-reader-on-slackware-1517738/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/archive-only-files-in-a-directory23013/" class="link black dim">
+        Archive Only Files In a Directory
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you want to create a tar archive of only the files of a directory and exclude any subdirectories you can use the <code>ls -la</code> command and pipe the output to <code>awk</code>. However you need to remove the first 8 fields from the output and leave all of the remaining parts of the line in case there are spaces in the filename. One quick and dirty way of doing that is to set each of the 8 fields to a blank and then use <code>sed</code> to trim the leading spaces. You can optionally add quotation marks around the filename in your output too.</p>
+    </div>
+    <a href="/posts/archive-only-files-in-a-directory23013/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/edit-a-remote-file-using-vim/" class="link black dim">
+        Edit a Remote File Using Vim
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>To edit a file remotely using the vim editor, just do the following in a terminal window:</p>
+<pre tabindex="0"><code>$ scp://username@IP-address//path/to/file.txt
+</code></pre><p><!-- raw HTML omitted -->The user must have access to the file being edited.<!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/edit-a-remote-file-using-vim/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/echo-file-until-a-blank-line-is-reached/" class="link black dim">
+        Echo File Until a Blank Line Is Reached
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>You can use the <code>awk</code> program to search and print lines in a file. If you wanted to print a file until the first blank line is reached you can use the  following command to do that:</p>
+<pre tabindex="0"><code>awk &#39;$0 ~ /^$/ {exit;} {print $0;}&#39; somefile.txt
+</code></pre>
+    </div>
+    <a href="/posts/echo-file-until-a-blank-line-is-reached/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/posts/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/11/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/10/" aria-label="Page 10" class="page-link" role="button">10</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/11/" aria-label="Page 11" class="page-link" role="button">11</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 12" class="page-link" role="button">12</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/13/" aria-label="Page 13" class="page-link" role="button">13</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/14/" aria-label="Page 14" class="page-link" role="button">14</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/13/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/15/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

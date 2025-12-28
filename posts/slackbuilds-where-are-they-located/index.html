@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>SlackBuilds: Where Are They Located? | Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="You should find a file in /var/log/packages for each SlackBuild that you have installed. You can distinguish the SlackBuilds package from standard Slackware packages by the substring SBo embedded in the filename. So you can create a list of all of the SlackBuilds installed on your machine by just doing an ls *SBo* in that directory.
+
+ls /var/log/packages | grep SBo
+
+or
+
+ls /var/log/packages/*SBo">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="Gregg">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/slackbuilds-where-are-they-located/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/slackbuilds-where-are-they-located/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="SlackBuilds: Where Are They Located?">
+  <meta property="og:description" content="You should find a file in /var/log/packages for each SlackBuild that you have installed. You can distinguish the SlackBuilds package from standard Slackware packages by the substring SBo embedded in the filename. So you can create a list of all of the SlackBuilds installed on your machine by just doing an ls *SBo* in that directory.
+ls /var/log/packages | grep SBo
+or
+ls /var/log/packages/*SBo">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-29T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-08-29T00:00:00+00:00">
+    <meta property="article:tag" content="Cli">
+    <meta property="article:tag" content="Slackware">
+    <meta property="article:tag" content="Slackbuilds">
+    <meta property="article:tag" content="Motd">
+
+  <meta itemprop="name" content="SlackBuilds: Where Are They Located?">
+  <meta itemprop="description" content="You should find a file in /var/log/packages for each SlackBuild that you have installed. You can distinguish the SlackBuilds package from standard Slackware packages by the substring SBo embedded in the filename. So you can create a list of all of the SlackBuilds installed on your machine by just doing an ls *SBo* in that directory.
+ls /var/log/packages | grep SBo
+or
+ls /var/log/packages/*SBo">
+  <meta itemprop="datePublished" content="2023-08-29T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-08-29T00:00:00+00:00">
+  <meta itemprop="wordCount" content="234">
+  <meta itemprop="keywords" content="Cli,Slackware,Slackbuilds,Motd">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="SlackBuilds: Where Are They Located?">
+  <meta name="twitter:description" content="You should find a file in /var/log/packages for each SlackBuild that you have installed. You can distinguish the SlackBuilds package from standard Slackware packages by the substring SBo embedded in the filename. So you can create a list of all of the SlackBuilds installed on your machine by just doing an ls *SBo* in that directory.
+ls /var/log/packages | grep SBo
+or
+ls /var/log/packages/*SBo">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">SlackBuilds: Where Are They Located?</h1>
+      
+      <p class="tracked"><strong>Gregg</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-08-29T00:00:00Z">August 29, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>You should find a file in <code>/var/log/packages</code> for each <em>SlackBuild</em> that you have installed. You can distinguish the <em>SlackBuilds</em> package from standard Slackware packages by the substring <em>SBo</em> embedded in the filename. So you can create a list of all of the <em>SlackBuilds</em> installed on your machine by just doing an <code>ls *SBo*</code> in that directory.</p>
+<blockquote>
+<p><code>ls /var/log/packages | grep SBo</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p><code>ls /var/log/packages/*SBo</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>If you plan on reinstalling it may be a good idea to pipe that information out to a text file.</p>
+<blockquote>
+<p><code>ls /var/log/packages | grep SBo &gt; SBo_packages.txt</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>If you <code>cat</code> one of those files you will display a text file that lists certain information about the package, the location of the package and a brief description. For example, the file for <em>sigil</em> package starts like this:</p>
+<blockquote>
+<p><code>PACKAGE NAME:     sigil-0.9.12-x86_64-1_SBo</code><!-- raw HTML omitted -->
+<code>COMPRESSED PACKAGE SIZE:     7.7M</code><!-- raw HTML omitted -->
+<code>UNCOMPRESSED PACKAGE SIZE:     25M</code><!-- raw HTML omitted -->
+<code>PACKAGE LOCATION: /tmp/sigil-0.9.12-x86_64-1_SBo.tgz</code><!-- raw HTML omitted -->
+<code>PACKAGE DESCRIPTION:</code><!-- raw HTML omitted -->
+<code>sigil: sigil (Multi-platform WYSIWYG ebook editor)</code><!-- raw HTML omitted -->
+<code>sigil:</code><!-- raw HTML omitted -->
+<code>sigil: Sigil is a multi-platform WYSIWYG ebook editor. It is designed to</code><!-- raw HTML omitted -->
+<code>sigil: edit books in ePub format.</code><!-- raw HTML omitted -->
+<code>sigil:</code><!-- raw HTML omitted -->
+<code>sigil: Homepage: https://sigil-ebook.com/</code><!-- raw HTML omitted -->
+<code>sigil:</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>It then goes on and displays a <em>file list</em> of all of the files contained by the package and where they were installed.</p>
+<p>Armed with the above information, you can the <code>cd</code> to the <code>/tmp</code> directory and find the package itself:</p>
+<blockquote>
+<p><code>$ cd /tmp</code><!-- raw HTML omitted -->
+<code>$ ls -l sigil-0.9.12-x86_64-1_SBo.tgz </code><!-- raw HTML omitted -->
+<code>-rw-r--r-- 1 root root 8070041 May 29 16:24 sigil-0.9.12-x86_64-1_SBo.tgz</code><!-- raw HTML omitted -->
+<code>$ </code><!-- raw HTML omitted --></p>
+</blockquote>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/cli/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Cli</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/slackware/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Slackware</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/slackbuilds/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Slackbuilds</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/motd/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Motd</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

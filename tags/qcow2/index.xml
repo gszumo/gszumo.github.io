@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qcow2 on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/qcow2/</link>
+    <description>Recent content in Qcow2 on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 May 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/qcow2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to convert VirtualBox VDI to KVM qcow2</title>
+      <link>http://localhost:1313/posts/h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1/</link>
+      <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1/</guid>
+      <description>&lt;p&gt;It is easy to convert a VirtualBox VDI image to a KVM qcow2 file. You have to use the RAW file format as an intermediate.&lt;/p&gt;&#xA;&lt;p&gt;Make sure the VirtualBox machine is shutdown.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Convert the VDI to a raw disk image. &lt;!-- raw HTML omitted --&gt;&#xA;Note: VDIs are compressed and raw images are not, so you will need to leave enough disk space for entire uncompressed disk.&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;$ VBoxManage clonehd &amp;ndash;format RAW vm.vdi vm.img&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;&#xA;&lt;li&gt;Then on your KVM host:&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;$ qemu-img convert -f raw vm.img -O qcow2 vm.qcow2&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/networking/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/tags/networking/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/networking/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/networking/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Networking">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Networking">
+  <meta itemprop="datePublished" content="2023-09-25T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-25T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Networking">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Networking
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/list-all-macs-on-the-local-network/" class="link black dim">
+        List All MACs on the Local Network
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Per the <em>manpage</em>:</p>
+<blockquote>
+<p>The <code>arp</code> tool manipulates or displays the kernel’s IPv4 network neighbor cache. It can add entries to the table, delete one or display the current content.
+ARP stands for Address Resolution Protocol, which is used to find the media access control address of a network neighbor for a given IPv4 Address.</p>
+</blockquote>
+<p>You can use the <code>arp</code> command to list all of the devices on the local network. It is often useful to find the identities of <em>hidden</em> devices on your network. For example, if you just plugged a Raspberry Pi into your local network and need to find its IP address in order to connect to it via SSH.</p>
+    </div>
+    <a href="/posts/list-all-macs-on-the-local-network/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/netstat6800/" class="link black dim">
+        Netstat
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>My most frequently used <code>netstat</code> command with parameters for checking port (active internet) connections is:</p>
+<blockquote>
+<p><code>$ netstat -tulpn </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>You can also pipe the output to <code>grep</code> to filter for specific ports or addresses.</p>
+<p>Here is a brief listing of some of the many options:</p>
+<blockquote>
+<p><code>$ netstat [options]</code><!-- raw HTML omitted --></p>
+</blockquote>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Option</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">-a</td>
+          <td>Display the state of all sockets, not just the active.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">-c</td>
+          <td>Continuously display information, updating every second.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">-i</td>
+          <td>Include network device statistics.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">-n</td>
+          <td>Display all network addresses as numbers.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">-o</td>
+          <td>Display additional information.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">-r</td>
+          <td>Display routing tables.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">-t</td>
+          <td>Display only the TCP sockets.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">-u</td>
+          <td>Display only the UDP sockets.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">-v</td>
+          <td>Print the netstat version number and exit.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">-w</td>
+          <td>List only the raw sockets.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">-x</td>
+          <td>Display only the Unix sockets.</td>
+      </tr>
+  </tbody>
+</table>
+    </div>
+    <a href="/posts/netstat6800/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/how-to-find-the-ip-addresses-of-virtual-machines-from-the-command/" class="link black dim">
+        Find the IP Addresses of KVM Virtual Machines (Command Line)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>To find details about the virtual network you can use these commands:</p>
+<blockquote>
+<p><code>root@slacker:~# virsh net-list</code><!-- raw HTML omitted -->
+<code> Name      State    Autostart   Persistent</code><!-- raw HTML omitted -->
+<code>--------------------------------------------</code><!-- raw HTML omitted -->
+<code> default   active   yes         yes</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>root@slacker:~# virsh net-info default</code><!-- raw HTML omitted -->
+<code>Name:           default</code><!-- raw HTML omitted -->
+<code>UUID:           14a90f27-9a85-42ca-b434-6ce6c142690c</code><!-- raw HTML omitted -->
+<code>Active:         yes</code><!-- raw HTML omitted -->
+<code>Persistent:     yes</code><!-- raw HTML omitted -->
+<code>Autostart:      yes</code><!-- raw HTML omitted -->
+<code>Bridge:         virbr0</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>root@slacker:~# virsh net-dhcp-leases default</code><!-- raw HTML omitted -->
+<code> Expiry Time           MAC address         Protocol   IP address           Hostname      Client ID or DUID</code><!-- raw HTML omitted -->
+<code>------------------------------------------------------------------------------------------------------------</code><!-- raw HTML omitted -->
+<code> 2023-07-22 16:18:45   52:54:00:dd:7b:62   ipv4       192.168.122.216/24   centos7-bbk   -</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/how-to-find-the-ip-addresses-of-virtual-machines-from-the-command/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/list-tcp-connections-sorted-by-host-and-most-connections/" class="link black dim">
+        List TCP Connections Sorted By Host and Most Connections
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Assuming your system still has <em>netstat</em> installed (Slackware 15.0 does :^), you can summarize the TCP connections on you host using the following command:</p>
+<blockquote>
+<p><code>$ netstat -ntu|awk '{print $5}'|cut -d: -f1 -s|sort|uniq -c|sort -nk1 -r</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>      3 52.50.230.xxx</code><!-- raw HTML omitted -->
+<code>      3 104.18.27.xxx</code><!-- raw HTML omitted -->
+<code>      3 104.18.26.xxx</code><!-- raw HTML omitted -->
+<code>      2 205.166.94.xx</code><!-- raw HTML omitted -->
+<code>      2 192.168.1.xx</code><!-- raw HTML omitted -->
+<code>      2 142.251.40.xxx</code><!-- raw HTML omitted -->
+<code>      2 104.18.13.xx</code><!-- raw HTML omitted -->
+<code>      1 74.120.9.xxx</code><!-- raw HTML omitted -->
+<code>      1 66.255.245.xxx</code><!-- raw HTML omitted -->
+<code>      1 54.154.65.xxx</code><!-- raw HTML omitted -->
+<code>      1 52.96.182.xxx</code><!-- raw HTML omitted -->
+<code>      1 45.56.116.xxx</code><!-- raw HTML omitted -->
+<code>      1 45.33.73.xxx</code><!-- raw HTML omitted -->
+<code>      1 34.117.65.xx</code><!-- raw HTML omitted -->
+<code>      1 20.190.135.xx</code><!-- raw HTML omitted -->
+<code>      1 192.168.122.xxx</code><!-- raw HTML omitted -->
+<code>      1 192.168.1.xx</code><!-- raw HTML omitted -->
+<code>      1 172.253.63.xxx</code><!-- raw HTML omitted -->
+<code>      1 162.159.61.x</code><!-- raw HTML omitted -->
+<code>      1 162.125.21.x</code><!-- raw HTML omitted -->
+<code>      1 142.251.40.xxx</code><!-- raw HTML omitted -->
+<code>      1 142.251.32.xxx</code><!-- raw HTML omitted -->
+<code>      1 142.251.16.xxx</code><!-- raw HTML omitted -->
+<code>      1 127.0.0.x</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/list-tcp-connections-sorted-by-host-and-most-connections/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/test-if-a-port-is-open-with-bash/" class="link black dim">
+        Test If a Port is Open with Bash
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If netcat isn&rsquo;t available on your machine and you don&rsquo;t have the priviledge to install it you can use this trick to test if a port is open or not. It will throw a connection refused message if a port is closed.</p>
+<blockquote>
+<p><code>$ : &lt;/dev/tcp/127.0.0.1/80</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>And you can use it in a script like this:</p>
+<blockquote>
+<p><code>(: &lt;/dev/tcp/127.0.0.1/80) &amp;&gt;/dev/null &amp;&amp; echo &quot;OPEN&quot; || echo &quot;CLOSED&quot;</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/test-if-a-port-is-open-with-bash/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/recover-your-wi-fi-password-from-windows-cli/" class="link black dim">
+        Recover Your Wi-Fi Password from Windows CLI
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>In case you misplaced your wi-fi password you can recover it very easily using 2 commands on Windoze:</p>
+<p>Open the Terminal or PowerShell</p>
+<blockquote>
+<p><code>PS C:\Users\user&gt; netsh wlan show profile</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>The output will be similar to this. You need to obtain the <em>User Profile</em> of the connection that you&rsquo;re interested in:</p>
+<blockquote>
+<p><code>Profiles on interface Wi-Fi:</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>Group policy profiles (read only)</code><!-- raw HTML omitted -->
+<code>---------------------------------</code><!-- raw HTML omitted -->
+<code>    &lt;None&gt;</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>User profiles</code><!-- raw HTML omitted -->
+<code>-------------</code><!-- raw HTML omitted -->
+<code>    All User Profile     : ROUTER21</code><!-- raw HTML omitted -->
+<code>    All User Profile     : 4YWD8-5G</code><!-- raw HTML omitted -->
+<code>    All User Profile     : 4YWD8</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/recover-your-wi-fi-password-from-windows-cli/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

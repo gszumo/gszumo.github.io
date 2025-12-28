@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Log File Maintenance and Cleanup | Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Log files sometimes take up a lot of disk space. Some applications have internal processes that run periodically to manage them and some do not. Often, this becomes a problems after a while as the logs consume all of your partition space.
+You can manage these files yourself with a simple script running in a cronjob (or systemd timers if you&rsquo;re so inclined) if they have a common naming convention and you have the proper access.">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="Gregg">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/log-file-maintenance-and-cleanup/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/log-file-maintenance-and-cleanup/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Log File Maintenance and Cleanup">
+  <meta property="og:description" content="Log files sometimes take up a lot of disk space. Some applications have internal processes that run periodically to manage them and some do not. Often, this becomes a problems after a while as the logs consume all of your partition space.
+You can manage these files yourself with a simple script running in a cronjob (or systemd timers if you’re so inclined) if they have a common naming convention and you have the proper access.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-09-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-09-16T00:00:00+00:00">
+    <meta property="article:tag" content="Cli">
+    <meta property="article:tag" content="Sysadmin">
+    <meta property="article:tag" content="Logs">
+    <meta property="article:tag" content="Find">
+    <meta property="article:tag" content="Motd">
+
+  <meta itemprop="name" content="Log File Maintenance and Cleanup">
+  <meta itemprop="description" content="Log files sometimes take up a lot of disk space. Some applications have internal processes that run periodically to manage them and some do not. Often, this becomes a problems after a while as the logs consume all of your partition space.
+You can manage these files yourself with a simple script running in a cronjob (or systemd timers if you’re so inclined) if they have a common naming convention and you have the proper access.">
+  <meta itemprop="datePublished" content="2023-09-16T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-16T00:00:00+00:00">
+  <meta itemprop="wordCount" content="185">
+  <meta itemprop="keywords" content="Cli,Sysadmin,Logs,Find,Motd">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Log File Maintenance and Cleanup">
+  <meta name="twitter:description" content="Log files sometimes take up a lot of disk space. Some applications have internal processes that run periodically to manage them and some do not. Often, this becomes a problems after a while as the logs consume all of your partition space.
+You can manage these files yourself with a simple script running in a cronjob (or systemd timers if you’re so inclined) if they have a common naming convention and you have the proper access.">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Log File Maintenance and Cleanup</h1>
+      
+      <p class="tracked"><strong>Gregg</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-09-16T00:00:00Z">September 16, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>Log files sometimes take up a lot of disk space. Some applications have internal processes that run periodically to manage them and some do not. Often, this becomes a problems after a while as the logs consume all of your partition space.</p>
+<p>You can manage these files yourself with a simple script running in a <em>cronjob</em> (or systemd timers if you&rsquo;re so inclined) if they have a common naming convention and you have the proper access.</p>
+<p>Let&rsquo;s say you have an application called <em>myapp</em> that keeps it&rsquo;s logs in a directory called <code>/opt/myapp/logs</code> and those files all end with a <code>.log</code> file extension.</p>
+<blockquote>
+<p><code>cat &gt;logmanage.sh &lt;&lt;&quot;EOF&quot;</code><!-- raw HTML omitted -->
+<code>#!/bin/sh</code><!-- raw HTML omitted -->
+<code>LOGDIR=&quot;/opt/myapp/logs&quot;</code><!-- raw HTML omitted -->
+<code># Compress all of the files older than a day</code><!-- raw HTML omitted -->
+<code>find ${LOGDIR} -name '*.log' -mtime +0 -exec compress {} \;</code><!-- raw HTML omitted -->
+<code># Purge all of the logs older than a week</code><!-- raw HTML omitted -->
+<code>find ${LOGDIR} -name '*.Z' -mtime +7 -exec rm -f {} \;</code><!-- raw HTML omitted -->
+<code>EOF</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>These two commands will compress those files that are more than older than a day and remove the compressed files after a week.</p>
+<p>Add a crontab entry to run this everyday and you&rsquo;re all set.</p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/cli/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Cli</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/sysadmin/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Sysadmin</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/logs/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Logs</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/find/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Find</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/motd/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Motd</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mutt on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/mutt/</link>
+    <description>Recent content in Mutt on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 07 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mutt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sending Email from the Command Line with mutt</title>
+      <link>http://localhost:1313/posts/sending-email-from-the-command-line-with-mutt27176/</link>
+      <pubDate>Wed, 07 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/sending-email-from-the-command-line-with-mutt27176/</guid>
+      <description>&lt;p&gt;If you prefer using &lt;code&gt;mutt&lt;/code&gt; as your command line email tool, then here are a couple of examples of using &lt;code&gt;mutt&lt;/code&gt; to send emails which can be automated quite easily to use in scripts.&lt;/p&gt;&#xA;&lt;p&gt;Sending a file attachment (-a) and an empty message body:&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;$ mutt  -s &amp;quot;System Logs&amp;quot; -a /var/log/somelog.log -- username@example.com &amp;lt; /dev/null&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Sending a message body using redirection:&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;$ mutt -s &amp;quot;Email Subject&amp;quot; username@example.com &amp;lt; email.html&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Sending a file attachment along with a message body:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sending Email from the Command Line</title>
+      <link>http://localhost:1313/posts/sending-email-from-the-command-line8566/</link>
+      <pubDate>Thu, 11 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/sending-email-from-the-command-line8566/</guid>
+      <description>&lt;h4 id=&#34;mutt-examples&#34;&gt;mutt Examples&lt;!-- raw HTML omitted --&gt;&lt;/h4&gt;&#xA;&lt;p&gt;Sending just a file attachment (-a) and an empty message body:&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;$ mutt  -s &amp;ldquo;System logs&amp;rdquo; -a /opt/backup.sql &amp;ndash; &lt;a href=&#34;mailto:user@example.com&#34;&gt;user@example.com&lt;/a&gt; &amp;lt; /dev/null&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;Sending a message body using redirection:&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;$ mutt -s &amp;ldquo;Email subject&amp;rdquo; &lt;a href=&#34;mailto:test@example.com&#34;&gt;test@example.com&lt;/a&gt; &amp;lt; email.html&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;Sending a file attachment along with a message body:&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;$ echo $message | mutt -s &amp;ldquo;Subject&amp;rdquo; -a attachment.txt &amp;ndash; &lt;a href=&#34;mailto:me@myemail.com&#34;&gt;me@myemail.com&lt;/a&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

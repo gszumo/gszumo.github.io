@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ssl on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/ssl/</link>
+    <description>Recent content in Ssl on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ssl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Finding the SSL Directory on a Server</title>
+      <link>http://localhost:1313/posts/finding-the-ssl-directory-on-a-server32368/</link>
+      <pubDate>Mon, 21 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/finding-the-ssl-directory-on-a-server32368/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve had situations where I was configuring a secure connection to an application and needed to know where the SSL certificates are stored on the server. You can easily find out this information using the &lt;code&gt;openssl&lt;/code&gt; and &lt;code&gt;grep&lt;/code&gt; commands:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ openssl version -a | grep OPENSSLDIR&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;OPENSSLDIR: &amp;quot;/etc/pki/tls&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+  </channel>
+</rss>

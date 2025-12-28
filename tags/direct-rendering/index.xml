@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Direct-Rendering on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/direct-rendering/</link>
+    <description>Recent content in Direct-Rendering on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/direct-rendering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Speed Up Firefox</title>
+      <link>http://localhost:1313/posts/speed-up-firefox24999/</link>
+      <pubDate>Wed, 21 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/speed-up-firefox24999/</guid>
+      <description>&lt;p&gt;If you are experiencing &lt;em&gt;tearing&lt;/em&gt; while using &lt;code&gt;Firefox&lt;/code&gt; you may want to see if graphics accelleration is enabled on the browser. You can try this tip to force hardware accelleration on in the browser.&lt;/p&gt;&#xA;&lt;p&gt;First, check to make sure that your Linux desktop installation supports it by running the following command and making sure that &lt;code&gt;direct rendering&lt;/code&gt; returns &lt;code&gt;Yes&lt;/code&gt;:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ glxinfo | grep render&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;direct rendering: Yes&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

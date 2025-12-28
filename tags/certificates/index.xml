@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Certificates on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/certificates/</link>
+    <description>Recent content in Certificates on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/certificates/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Extracting Client Certificates</title>
+      <link>http://localhost:1313/posts/extracting-client-certificates237/</link>
+      <pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/extracting-client-certificates237/</guid>
+      <description>&lt;p&gt;You can display all of the server&amp;rsquo;s certificates using the following command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ openssl s_client -showcerts server.name:port | sed -n &#39;/-----BEGIN CERTIFICATE-----/,/-----END CERTIFICATE-----/p&#39;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This output can be piped or copy/pasted to a text file (only keep the parts between the &lt;em&gt;BEGIN&lt;/em&gt; and &lt;em&gt;END CERTIFICATE&lt;/em&gt; sections) and give it a &lt;code&gt;.crt&lt;/code&gt; file extension. You can then use it as input to whatever client app needs it.&lt;/p&gt;&#xA;&lt;p&gt;In the below example we pipe the &lt;code&gt;openssl&lt;/code&gt; output to &lt;code&gt;grep&lt;/code&gt; to remove the identifiers of the certificates. You may not get your &lt;em&gt;prompt&lt;/em&gt; back until the command times out, so you should wait a bit and after a bit you should get something similar to the following output:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tokens on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/tokens/</link>
+    <description>Recent content in Tokens on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 May 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tokens/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How To Use Github Tokens on the Command Line</title>
+      <link>http://localhost:1313/posts/how-to-use-github-tokens-on-the-command-line1357/</link>
+      <pubDate>Fri, 12 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-use-github-tokens-on-the-command-line1357/</guid>
+      <description>&lt;p&gt;GitHub’s access policy requires you to use tokens instead of username/password to update your repositories.&lt;/p&gt;&#xA;&lt;p&gt;To adapt your existing local / cloned repos to token based auth:&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;$ git remote remove origin&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;$ git remote add origin https://[TOKEN]@github.com/[USER]/[REPO]&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;$ git push&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;Clone repos using token based authentication (non public repos)&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;$ git clone https://[username]:[token]@github.com/[accountname]/[reponame]&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

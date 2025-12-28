@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Calibre on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/calibre/</link>
+    <description>Recent content in Calibre on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 26 May 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/calibre/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Calibre Server Installation on a Raspberry Pi</title>
+      <link>http://localhost:1313/posts/calibre-server-installation-on-a-raspberry-pi/</link>
+      <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/calibre-server-installation-on-a-raspberry-pi/</guid>
+      <description>&lt;p&gt;These instructions are for installing the Calibre book management software on a Raspberry Pi 4 running Ubuntu 20.04 but should work with Raspian or other Debian-derived operating systems. This is just a briefer version of the same instructions that are posted &lt;a href=&#34;https://www.digitalocean.com/community/tutorials/how-to-create-a-calibre-ebook-server-on-ubuntu-20-04&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Install the calibre-bin package and its dependencies:&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;$ sudo apt update &amp;amp;&amp;amp; sudo apt install -y &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ sudo apt install calibre-bin&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

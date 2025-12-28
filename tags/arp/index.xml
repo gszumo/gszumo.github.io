@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arp on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/arp/</link>
+    <description>Recent content in Arp on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/arp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>List All MACs on the Local Network</title>
+      <link>http://localhost:1313/posts/list-all-macs-on-the-local-network/</link>
+      <pubDate>Mon, 25 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/list-all-macs-on-the-local-network/</guid>
+      <description>&lt;p&gt;Per the &lt;em&gt;manpage&lt;/em&gt;:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;The &lt;code&gt;arp&lt;/code&gt; tool manipulates or displays the kernel’s IPv4 network neighbor cache. It can add entries to the table, delete one or display the current content.&#xA;ARP stands for Address Resolution Protocol, which is used to find the media access control address of a network neighbor for a given IPv4 Address.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;You can use the &lt;code&gt;arp&lt;/code&gt; command to list all of the devices on the local network. It is often useful to find the identities of &lt;em&gt;hidden&lt;/em&gt; devices on your network. For example, if you just plugged a Raspberry Pi into your local network and need to find its IP address in order to connect to it via SSH.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

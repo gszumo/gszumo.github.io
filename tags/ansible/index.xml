@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ansible on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/ansible/</link>
+    <description>Recent content in Ansible on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Updating My Home Lab using Ansible</title>
+      <link>http://localhost:1313/posts/updating-my-home-lab-using-ansible/</link>
+      <pubDate>Tue, 26 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/updating-my-home-lab-using-ansible/</guid>
+      <description>&lt;p&gt;I have a variety of Raspberry Pis that I use for various tasks like my Tiny-Tiny RSS server, Gitea server, and Calibre server among other things. In order to keep them updated I use Ansible.&lt;/p&gt;&#xA;&lt;p&gt;My update script is fairly simple:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cat update-pis.sh &#xA;#!/bin/bash&#xA;ansible-playbook ./playbooks/apt.yml --user memyselfandi \&#xA;     --ask-pass --ask-become-pass -i ./inventory/hosts $@&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The YAML playbook is likewise very simple:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ cat ./playbooks/apt.yml &#xA;- hosts: &amp;#34;*&amp;#34;&#xA;  become: yes&#xA;  tasks:&#xA;  - name: Update System Package Cache (apt)&#xA;    apt:&#xA;      update_cache: yes&#xA;      upgrade: &amp;#39;yes&amp;#39;&#xA; &#xA;  - name: Upgrade System Packages (apt)&#xA;    apt: upgrade=full&#xA;&#xA;  - name: Remove unused dependencies&#xA;    apt: autoremove=true&#xA;&#xA;  - name: Check if reboot is required&#xA;    shell: &amp;#34;[ -f /var/run/reboot-required ]&amp;#34;&#xA;    failed_when: False&#xA;    register: reboot_required&#xA;    changed_when: reboot_required.rc == 0&#xA;    notify: reboot&#xA;&#xA;  handlers:&#xA;  - name: reboot&#xA;    command: /sbin/reboot&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Although I can run this in a cronjob, I tend to run it manually (for now). I&amp;rsquo;m thinking about doing some major revisions to my Pi configuration anyway. Stay tuned for more on that subject.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ansible Cheatsheet</title>
+      <link>http://localhost:1313/posts/ansible-cheatsheet19575/</link>
+      <pubDate>Sat, 05 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ansible-cheatsheet19575/</guid>
+      <description>&lt;p&gt;Ping all hosts:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ansible all -i hosts -m ping&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Ping a specific host:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ansible raspberry-pi  -m ping&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Check uptime on all hosts:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ansible -m shell -a &#39;uptime&#39; all&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Check uname on all hosts:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ansible -m shell -a &#39;uname -a&#39; all&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Run playbook on more than one host:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ansible-playbook playbook1.yml  -l &#39;host1.com,host2com&#39;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

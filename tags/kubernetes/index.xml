@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes Cheatsheet</title>
+      <link>http://localhost:1313/posts/kubernetes-cheatsheet26628/</link>
+      <pubDate>Thu, 28 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kubernetes-cheatsheet26628/</guid>
+      <description>&lt;p&gt;The &lt;code&gt;get&lt;/code&gt; parameter is a powerful way of discovering your kubenetes resources. You can use it to query:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;namespace&lt;/li&gt;&#xA;&lt;li&gt;pod&lt;/li&gt;&#xA;&lt;li&gt;node&lt;/li&gt;&#xA;&lt;li&gt;deployment&lt;/li&gt;&#xA;&lt;li&gt;service&lt;/li&gt;&#xA;&lt;li&gt;replicasets&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ kubectl get nodes&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ kubectl get ns # ns is an abreviation for namespace&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ kubectl get pods -n kube-system&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;The &lt;code&gt;create&lt;/code&gt; command can do just that for:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;service&lt;/li&gt;&#xA;&lt;li&gt;cronjob&lt;/li&gt;&#xA;&lt;li&gt;deployment&lt;/li&gt;&#xA;&lt;li&gt;job&lt;/li&gt;&#xA;&lt;li&gt;namespace (or ns)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ kubectl create ns hello-world&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ kubectl create cronjob my-cronjob --image=alpine  --schedule=&amp;quot;*/15 * * * *&amp;quot; -- echo &amp;quot;hi there&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

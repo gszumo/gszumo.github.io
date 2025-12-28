@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mtime on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/mtime/</link>
+    <description>Recent content in Mtime on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 26 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mtime/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Move Files Older Than So Many Days with Find</title>
+      <link>http://localhost:1313/posts/move-files-older-than-so-many-days-with-find/</link>
+      <pubDate>Wed, 26 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/move-files-older-than-so-many-days-with-find/</guid>
+      <description>&lt;p&gt;You may want to clean up a directory that has files older than a certain number of days, for example, 30 days. You can do this with the &lt;em&gt;find&lt;/em&gt; command:&lt;/p&gt;&#xA;&lt;p&gt;To move files older than 30 days in current folder to the &lt;em&gt;old&lt;/em&gt; folder:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ find . -mtime +30 -exec mv {} old/ \;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+  </channel>
+</rss>

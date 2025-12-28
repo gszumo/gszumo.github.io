@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ps on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/ps/</link>
+    <description>Recent content in Ps on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ps/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Find System Hogs and Child Processes</title>
+      <link>http://localhost:1313/posts/find-system-hogs-and-child-processes30247/</link>
+      <pubDate>Sun, 25 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/find-system-hogs-and-child-processes30247/</guid>
+      <description>&lt;p&gt;There are a lot of tools out there that can help you to do this that are both GUI or command line-based but sometimes you&amp;rsquo;re on a production server that may have limited tools and sometimes the simplest tools are best in cases like this.&lt;/p&gt;&#xA;&lt;p&gt;List the processes that are not owned by you that are using a lot of CPU:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ps aux --sort=-%cpu | grep -m 8 -v&lt;/code&gt;whoami&lt;code&gt; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

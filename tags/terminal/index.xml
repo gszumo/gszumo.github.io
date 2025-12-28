@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terminal on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/terminal/</link>
+    <description>Recent content in Terminal on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows Terminal Keyboard Shortcuts</title>
+      <link>http://localhost:1313/posts/windows-terminal-keyboard-shortcuts30027/</link>
+      <pubDate>Fri, 02 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/windows-terminal-keyboard-shortcuts30027/</guid>
+      <description>&lt;p&gt;I have to use Windows where I work but I use the terminal as often as possible. Microsoft&amp;rsquo;s Windows Terminal application makes that experience tolerable. You can even think that you&amp;rsquo;re using &lt;code&gt;tmux&lt;/code&gt; at times&amp;hellip;well, not really, but you get the idea.&lt;/p&gt;&#xA;&lt;p&gt;Here are some of the keyboard shortcuts that I use:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Split current terminal window&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;Alt Shift&lt;/code&gt; - split pane horizontal&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;Alt Shift&lt;/code&gt; - split pane vertical&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Jump to other console&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

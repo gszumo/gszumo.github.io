@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>K3b on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/k3b/</link>
+    <description>Recent content in K3b on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/k3b/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unable to Burn .ISO File to DVD With K3B</title>
+      <link>http://localhost:1313/posts/unable-to-burn-iso-file-to-dvd-with-k3b/</link>
+      <pubDate>Fri, 09 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/unable-to-burn-iso-file-to-dvd-with-k3b/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re having a problem as a &amp;lsquo;regular&amp;rsquo; Slackware user burning an ISO file to a blank DVD, this may resolve your issue:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# chown root:cdrom /usr/bin/cdrecord /usr/bin/cdrdao&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# chmod 4750 /usr/bin/cdrecord /usr/bin/cdrdao&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+  </channel>
+</rss>

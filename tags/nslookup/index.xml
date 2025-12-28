@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nslookup on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/nslookup/</link>
+    <description>Recent content in Nslookup on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/nslookup/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Find Your External IP Address</title>
+      <link>http://localhost:1313/posts/find-your-external-ip-address16428/</link>
+      <pubDate>Wed, 13 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/find-your-external-ip-address16428/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s easy to find your internal IP address my using tools like ifconfig or ip a but to find your external IP address (the one that connects you to the outside world) you must use other means. Here are 3 simple commands that you can use to do just that:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ curl ifcfg.me&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;72.76.yyy.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ curl icanhazip.com&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;72.76.yyy.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ nslookup myip.opendns.com. resolver1.opendns.com&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Server:&#x9;&#x9;resolver1.opendns.com&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Address:&#x9;208.67.222.222#53&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Non-authoritative answer:&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Name:&#x9;myip.opendns.com&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Address: 72.76.yyy.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

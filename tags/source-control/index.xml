@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Source-Control on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/source-control/</link>
+    <description>Recent content in Source-Control on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 23 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/source-control/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git: Deleting Multiple Commits</title>
+      <link>http://localhost:1313/posts/git-deleting-multiple-commits24780/</link>
+      <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-deleting-multiple-commits24780/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s say that you want to delete the last 3 commits that you&amp;rsquo;ve already pushed to the remote repository. In this example, you want &lt;code&gt;566dab6&lt;/code&gt; to be the new HEAD revision.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ git log --pretty=oneline --abbrev-commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;57bc36b (HEAD -&amp;gt; master, origin/master, origin/HEAD) 3nd set of bad entries on 6th commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;dfb4bd3 2nd set of bad entries on 5th commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;0fd1e16 First set of bad entries on 4th commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;566dab6 Yet more good entries on third commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;d50370a More good entries on second commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;b5fbc6d Good entries on first commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;2cad4c7 Initial commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

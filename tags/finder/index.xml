@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Finder on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/finder/</link>
+    <description>Recent content in Finder on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/finder/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to reveal dot files in finder?</title>
+      <link>http://localhost:1313/posts/how-to-reveal-dot-files-in-finder29256/</link>
+      <pubDate>Mon, 04 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-reveal-dot-files-in-finder29256/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s one from my &lt;em&gt;archives&lt;/em&gt;. To reveal dot files in macOS &lt;em&gt;Finder&lt;/em&gt;, open your Terminal (/Applications/Utilities) application and then enter,&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;defaults write com.apple.finder AppleShowAllFiles YES&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Then restart Finder by holding down &lt;code&gt;Option&lt;/code&gt; and &lt;code&gt;Control&lt;/code&gt;, or right-clicking on the Finder&amp;rsquo;s icon in your Dock and choosing &amp;ldquo;Relaunch&amp;rdquo;.&lt;/p&gt;&#xA;&lt;p&gt;To revert this behavior, simply change the &lt;code&gt;YES&lt;/code&gt; to &lt;code&gt;NO&lt;/code&gt; in that defaults command.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

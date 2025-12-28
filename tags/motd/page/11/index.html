@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/motd/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/tags/motd/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/motd/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/motd/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Motd">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Motd">
+  <meta itemprop="datePublished" content="2023-09-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-28T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Motd">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Motd
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/exporting-your-pocket-list-data2865/" class="link black dim">
+        Exporting your Pocket List Data
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>The links you save to your Pocket are stored on Pocket’s servers. In other words, they’re stored “in the cloud”.</p>
+<p>This means that your List will be available on any computer or mobile device (phone or tablet) that is connected to your Pocket account. To log in to Pocket, please visit our website or download any of our mobile apps, then log in with your Pocket username and password.</p>
+<p>Because your List is stored in the cloud, you do not need to create special backups of your saved Pocket items. However, If you wish to download your list for other uses you can use our export tool which creates a downloadable HTML file with your List and Archive.</p>
+    </div>
+    <a href="/posts/exporting-your-pocket-list-data2865/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/parsing-bitwarden-cli4247/" class="link black dim">
+        Parsing Bitwarden CLI
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you use the excellent Bitwarden app for you password storage you may not be aware that they also have a command line version on Linux. It outputs data using the JSON format. You can install the <code>jq</code> JSON parser and pipe the output of the CLI&rsquo;s query to it in order to extract the username and password for a specific site in your search:</p>
+<blockquote>
+<p><code>$ bw list items --search accounts.google.com | jq '.[] | .login.uris[].uri,.login.username,.login.password'</code><!-- raw HTML omitted -->
+<code>&quot;https://accounts.google.com&quot;</code><!-- raw HTML omitted -->
+<code>&quot;john.doe@gmail.com&quot;</code><!-- raw HTML omitted -->
+<code>&quot;** password1 **&quot;</code><!-- raw HTML omitted -->
+<code>&quot;https://accounts.google.com&quot;</code><!-- raw HTML omitted -->
+<code>&quot;jdoe@gmail.com&quot;</code><!-- raw HTML omitted -->
+<code>&quot;** password2 **&quot;</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/parsing-bitwarden-cli4247/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/export-virtualbox-vdi-using-cli1819/" class="link black dim">
+        Export VirtualBox VDI using CLI
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Sometimes you may want to move a virtual machine in VirtualBox from one server to another. Once way of doing that is to export it from the command line.</p>
+<ol>
+<li>Locate the virtual machine that you want to export (I&rsquo;ll use the name UbuntuServer for the one to be exported and name the new one UbuntuServerNew), and then</li>
+<li>Run the export command as follows:</li>
+</ol>
+<blockquote>
+<p><code>$ vboxmanage export UbuntuServer -o UbuntuServerNew.ova</code></p>
+</blockquote>
+    </div>
+    <a href="/posts/export-virtualbox-vdi-using-cli1819/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/install-mimic-text-to-speech-on-slackware-1526910/" class="link black dim">
+        Install mimic Text-To-Speech on Slackware 15
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Per the manpage: Mimic  is  a command line tool for synthesizing speech from text. If outfile.wav is omitted mimic will output the utterance using the computer sound card.</p>
+<p>Mimic is based on <a href="http://www.cmuflite.org">flite</a> and strives  to  extend  functionality and add more languages while keeping the application fast and light.</p>
+<p>Mandatory arguments to long options are mandatory for short options too.</p>
+<blockquote>
+<p><code>$  git clone https://github.com/MycroftAI/mimic1.git</code><!-- raw HTML omitted -->
+<code>$  cd mimic1/</code><!-- raw HTML omitted -->
+<code>$  ./dependencies.sh --prefix=&quot;/usr/local&quot;</code><!-- raw HTML omitted -->
+<code>$  ./autogen.sh </code><!-- raw HTML omitted -->
+<code>$  ./configure --prefix=&quot;/usr/local&quot;</code><!-- raw HTML omitted -->
+<code>$  make</code><!-- raw HTML omitted -->
+<code>$  make check</code><!-- raw HTML omitted -->
+<code>$  su -c &quot;make install&quot;</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/install-mimic-text-to-speech-on-slackware-1526910/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/install-svox-package-on-slackware-150-for-better-text-to-speech/" class="link black dim">
+        Install svox Package on Slackware 15.0 for Better Text-to-Speech
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>I was having issues finding a good voice synthesis for Foliate to read my books to me. I have always had issues with the sound of the <code>espeak</code> and <code>espeak-ng</code> voices. So I was searching for an alternative. I couldn&rsquo;t find a way to build <code>festival</code> on Slackware (yet) but while searching around found a package called <code>svox</code> that had a SlackBuild so I thought I&rsquo;d give it a try.</p>
+    </div>
+    <a href="/posts/install-svox-package-on-slackware-150-for-better-text-to-speech/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rename-files-downloaded-using-youtube-dl10234/" class="link black dim">
+        Rename Files Downloaded Using youtube-dl
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you have used <code>youtube-dl</code> to download content from YouTube then you know that the file names can get to be rather long. In addition to the video&rsquo;s title there is a dash followed by what appears to be a random sequence of characters just before the file extension. If you find this to be annoying then here is a code snippet that you can use to remove it.</p>
+<p>This will remove the last field separated by a &lsquo;-&rsquo; and replace it with the file extension of your choice, .mp4 is used in this example:</p>
+    </div>
+    <a href="/posts/rename-files-downloaded-using-youtube-dl10234/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/unable-to-burn-iso-file-to-dvd-with-k3b/" class="link black dim">
+        Unable to Burn .ISO File to DVD With K3B
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you&rsquo;re having a problem as a &lsquo;regular&rsquo; Slackware user burning an ISO file to a blank DVD, this may resolve your issue:</p>
+<blockquote>
+<p><code># chown root:cdrom /usr/bin/cdrecord /usr/bin/cdrdao</code><!-- raw HTML omitted -->
+<code># chmod 4750 /usr/bin/cdrecord /usr/bin/cdrdao</code></p>
+</blockquote>
+    </div>
+    <a href="/posts/unable-to-burn-iso-file-to-dvd-with-k3b/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/lxc-in-slackware22712/" class="link black dim">
+        LXC in Slackware
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Following directions from: <a href="https://docs.slackware.com/howtos:misc:lxc">lxc</a> for Slackware 14.2. I haven&rsquo;t tested on Slackware 15 yet. You will have to set this up while running as <code>root</code>.</p>
+<ol>
+<li>
+<p>Create the file  <code>'/etc/default/lxc-net'</code> and add the line <code>USE_LXC_BRIDGE=&quot;true&quot;</code> to it.</p>
+</li>
+<li>
+<p>Create the directory <code>'/var/lib/misc'</code></p>
+</li>
+<li>
+<p>Start the service: <code># /usr/libexec/lxc/lxc-net start</code></p>
+</li>
+<li>
+<p>Create a config file:</p>
+</li>
+</ol>
+<blockquote>
+<p><!-- raw HTML omitted --># cat &gt;slac-xlc.con &laquo;&ldquo;EOF&rdquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --> lxc.network.type = veth<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --> lxc.network.flags = up<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --> lxc.network.link = lxcbr0<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->EOF<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/lxc-in-slackware22712/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/sending-email-from-the-command-line-with-mutt27176/" class="link black dim">
+        Sending Email from the Command Line with mutt
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you prefer using <code>mutt</code> as your command line email tool, then here are a couple of examples of using <code>mutt</code> to send emails which can be automated quite easily to use in scripts.</p>
+<p>Sending a file attachment (-a) and an empty message body:</p>
+<p><code>$ mutt  -s &quot;System Logs&quot; -a /var/log/somelog.log -- username@example.com &lt; /dev/null</code></p>
+<p>Sending a message body using redirection:</p>
+<p><code>$ mutt -s &quot;Email Subject&quot; username@example.com &lt; email.html</code></p>
+<p>Sending a file attachment along with a message body:</p>
+    </div>
+    <a href="/posts/sending-email-from-the-command-line-with-mutt27176/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/sending-email-from-the-command-line-with-curl/" class="link black dim">
+        Sending Email from the Command Line with cURL
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Let&rsquo;s assume that you had a RFC 5822 formatted file named <code>mail.txt</code> as follows:</p>
+<pre tabindex="0"><code>From: Some Sender &lt;some.sender@gmail.com&gt;
+To: Some Recipient &lt;some.recipient@example.com&gt;
+Subject: Saying Hello
+Date: Tue, 6 Jun 2023 04:15:06 -0100
+Message-ID: &lt;1234@local.machine.example&gt;
+
+This is a message just to say hello.
+So, &#34;Hello&#34;.
+</code></pre><p>You can forward this to a email recipient using Google&rsquo;s SMTP with the following <code>curl</code> command provided you have a Google app password:</p>
+<pre tabindex="0"><code>$ curl --url &#39;smtps://smtp.gmail.com:465&#39; --ssl-reqd \
+ --mail-from &#39;some.sender@gmail.com&#39; \ 
+ --mail-rcpt &#39;some.recipient@example.com&#39; \
+ --upload-file mail.txt \
+ --user &#39;some.sender@gmail.com:your-gmail-app-password&#39;
+</code></pre><p>Output should be something like this:</p>
+    </div>
+    <a href="/posts/sending-email-from-the-command-line-with-curl/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/tags/motd/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/10/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/9/" aria-label="Page 9" class="page-link" role="button">9</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/10/" aria-label="Page 10" class="page-link" role="button">10</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 11" class="page-link" role="button">11</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/12/" aria-label="Page 12" class="page-link" role="button">12</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/13/" aria-label="Page 13" class="page-link" role="button">13</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/12/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/15/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

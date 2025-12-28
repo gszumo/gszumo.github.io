@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>How To Get Information on Linux | Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="The manpages are historically the place to go for any information about the software and utilities installed on a Linux machine. I believe that the info page seems to be the best place for newbies to go because it is so much easier to navigate, and, like manpages, it is a still a great place to get information about your system.
+Suppose you want to get information about socket. You would type:">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="Gregg">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/how-to-get-information-on-linux25688/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/how-to-get-information-on-linux25688/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="How To Get Information on Linux">
+  <meta property="og:description" content="The manpages are historically the place to go for any information about the software and utilities installed on a Linux machine. I believe that the info page seems to be the best place for newbies to go because it is so much easier to navigate, and, like manpages, it is a still a great place to get information about your system.
+Suppose you want to get information about socket. You would type:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-02T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-08-02T00:00:00+00:00">
+    <meta property="article:tag" content="Cli">
+    <meta property="article:tag" content="Man">
+    <meta property="article:tag" content="Apropos">
+    <meta property="article:tag" content="Whereis">
+    <meta property="article:tag" content="Whatis">
+    <meta property="article:tag" content="Motd">
+
+  <meta itemprop="name" content="How To Get Information on Linux">
+  <meta itemprop="description" content="The manpages are historically the place to go for any information about the software and utilities installed on a Linux machine. I believe that the info page seems to be the best place for newbies to go because it is so much easier to navigate, and, like manpages, it is a still a great place to get information about your system.
+Suppose you want to get information about socket. You would type:">
+  <meta itemprop="datePublished" content="2023-08-02T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-08-02T00:00:00+00:00">
+  <meta itemprop="wordCount" content="476">
+  <meta itemprop="keywords" content="Cli,Man,Apropos,Whereis,Whatis,Motd">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How To Get Information on Linux">
+  <meta name="twitter:description" content="The manpages are historically the place to go for any information about the software and utilities installed on a Linux machine. I believe that the info page seems to be the best place for newbies to go because it is so much easier to navigate, and, like manpages, it is a still a great place to get information about your system.
+Suppose you want to get information about socket. You would type:">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">How To Get Information on Linux</h1>
+      
+      <p class="tracked"><strong>Gregg</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-08-02T00:00:00Z">August 2, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>The <em>manpages</em> are historically <strong>the place to go</strong> for any information about the software and utilities installed on a Linux machine. I believe that the <em>info</em> page seems to be the best place for <em>newbies</em> to go because it is so much easier to navigate, and, like <em>manpages</em>, it is a still a great place to get information about your system.</p>
+<p>Suppose you want to get information about <em>socket</em>. You would type:</p>
+<blockquote>
+<p><code>$ info socket</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>and you&rsquo;d get a page that looks similar to a <em>manpage</em> but it can be navigated by using keyboard shortcuts:</p>
+<blockquote>
+<p><code> </code>q<code>- exits back to the shell</code><!-- raw HTML omitted -->
+<code> </code>u<code>- moves up one level</code><!-- raw HTML omitted -->
+<code> </code>n<code>- moves to the next node on the current level</code><!-- raw HTML omitted -->
+<code> </code>p<code>- moves to the previous node on the current level</code><!-- raw HTML omitted -->
+<code> </code>space<code>- goes to the selected node under the cursor</code><!-- raw HTML omitted -->
+<code> </code>H<code>- lists all of the Info commands</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>The commands <em>whatis</em> and <em>whereis</em> are also very useful in finding information on the system.</p>
+<blockquote>
+<p><code>$ whatis printf</code><!-- raw HTML omitted -->
+<code>printf (3)           - formatted output conversion</code><!-- raw HTML omitted -->
+<code>printf (1)           - format and print data</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>The <em>whatis</em> command will list the set of manpages for a specific keyword. The keyword <em>printf</em> is used in the <em>bash</em> shell as well as the <em>c</em> programming language. Here you see separate pages for each usage. To view them you would specify the section number in your command to <em>man</em>, i.e., <code>$ man 3 printf</code> or <code>man printf</code> (which defaults to section 1). This is the same output as entering <code>$ man -f printf</code>.</p>
+<p>The <em>whereis</em> command will list which system files reference a specified keyword or command. For example,</p>
+<blockquote>
+<p><code>$ whereis socket</code><!-- raw HTML omitted -->
+<code>socket: /usr/man/man7/socket.7.gz /usr/man/mann/socket.n.gz /usr/man/man2/socket.2.gz</code><!-- raw HTML omitted -->
+<code>$ whereis printf</code><!-- raw HTML omitted -->
+<code>printf: /usr/bin/printf /bin/printf /usr/man/man3/printf.3.gz /usr/man/man1/printf.1.gz</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>In case you aren&rsquo;t really sure of what you&rsquo;re looking for you can use a &lsquo;keyword&rsquo; search to the <em>man</em> or <em>apropos</em> commands which will use the <em>keyword</em> you enter as a <em>regex</em> (regular expression) to find all of the matches throughout the manpages:</p>
+<blockquote>
+<p><code>$ man -k printf</code><!-- raw HTML omitted -->
+<code>aa_printf (3)        - print text to AA-lib output buffers.</code><!-- raw HTML omitted -->
+<code>asprintf (3)         - print to allocated string</code><!-- raw HTML omitted -->
+<code>ber_printf (3)       - OpenLDAP LBER simplified Basic Encoding Rules library routines f...</code><!-- raw HTML omitted -->
+<code>BIO_printf (3)       - formatted output to a BIO</code><!-- raw HTML omitted -->
+<code>BIO_snprintf (3)     - formatted output to a BIO</code><!-- raw HTML omitted -->
+<code>BIO_vprintf (3)      - formatted output to a BIO</code><!-- raw HTML omitted -->
+<code>BIO_vsnprintf (3)    - formatted output to a BIO</code><!-- raw HTML omitted -->
+<code>buffer_printf.c (3)  - Buffer management functions.</code><!-- raw HTML omitted -->
+<code>curl_mprintf (3)     - formatted output conversion</code><!-- raw HTML omitted -->
+<code>dprintf (3)          - formatted output conversion</code><!-- raw HTML omitted -->
+<code>format (n)           - Format a string in the style of sprintf</code><!-- raw HTML omitted -->
+<code>fprintf (3)          - formatted output conversion</code><!-- raw HTML omitted -->
+<code>etc... </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>In case you are interested, the <em>manpages</em> are broken down into different sections as listed here:</p>
+<blockquote>
+<p><code>1  General Commands</code><!-- raw HTML omitted -->
+<code>2  System Calls and Error Numbers</code><!-- raw HTML omitted -->
+<code>3  C Libraries</code><!-- raw HTML omitted -->
+<code>3p perl</code><!-- raw HTML omitted -->
+<code>4  Devices and device drivers</code><!-- raw HTML omitted -->
+<code>5  File Formats and config files</code><!-- raw HTML omitted -->
+<code>6  Game instructions</code><!-- raw HTML omitted -->
+<code>7  Miscellaneous information</code><!-- raw HTML omitted -->
+<code>8  System maintenance</code><!-- raw HTML omitted -->
+<code>9  Kernel internals</code><!-- raw HTML omitted --></p>
+</blockquote>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/cli/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Cli</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/man/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Man</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/apropos/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Apropos</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/whereis/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Whereis</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/whatis/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Whatis</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/motd/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Motd</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

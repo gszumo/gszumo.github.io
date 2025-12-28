@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Whatis on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/whatis/</link>
+    <description>Recent content in Whatis on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/whatis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How To Get Information on Linux</title>
+      <link>http://localhost:1313/posts/how-to-get-information-on-linux25688/</link>
+      <pubDate>Wed, 02 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-get-information-on-linux25688/</guid>
+      <description>&lt;p&gt;The &lt;em&gt;manpages&lt;/em&gt; are historically &lt;strong&gt;the place to go&lt;/strong&gt; for any information about the software and utilities installed on a Linux machine. I believe that the &lt;em&gt;info&lt;/em&gt; page seems to be the best place for &lt;em&gt;newbies&lt;/em&gt; to go because it is so much easier to navigate, and, like &lt;em&gt;manpages&lt;/em&gt;, it is a still a great place to get information about your system.&lt;/p&gt;&#xA;&lt;p&gt;Suppose you want to get information about &lt;em&gt;socket&lt;/em&gt;. You would type:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

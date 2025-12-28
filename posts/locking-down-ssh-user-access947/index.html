@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Locking Down SSH User Access | Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="To secure your system, you shouldn&rsquo;t allow root to login remotely.  Instead, if an admin needs to use the root account they should login using their own account and then su - or sudo to the root account as needed.
+Edit the /etc/ssh/sshd_config file and change the following lines:
+
+PermitRootLogin no
+PermitEmptyPasswords no
+
+Some of these properties may be commented out in the file, so all you&rsquo;d need to do is remove the # sign.">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="Gregg">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/locking-down-ssh-user-access947/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/locking-down-ssh-user-access947/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Locking Down SSH User Access">
+  <meta property="og:description" content="To secure your system, you shouldn’t allow root to login remotely. Instead, if an admin needs to use the root account they should login using their own account and then su - or sudo to the root account as needed.
+Edit the /etc/ssh/sshd_config file and change the following lines:
+PermitRootLogin no PermitEmptyPasswords no
+Some of these properties may be commented out in the file, so all you’d need to do is remove the # sign.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-08-01T00:00:00+00:00">
+    <meta property="article:tag" content="Cli">
+    <meta property="article:tag" content="Ssh">
+    <meta property="article:tag" content="Ssh-Config">
+    <meta property="article:tag" content="Motd">
+
+  <meta itemprop="name" content="Locking Down SSH User Access">
+  <meta itemprop="description" content="To secure your system, you shouldn’t allow root to login remotely. Instead, if an admin needs to use the root account they should login using their own account and then su - or sudo to the root account as needed.
+Edit the /etc/ssh/sshd_config file and change the following lines:
+PermitRootLogin no PermitEmptyPasswords no
+Some of these properties may be commented out in the file, so all you’d need to do is remove the # sign.">
+  <meta itemprop="datePublished" content="2023-08-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-08-01T00:00:00+00:00">
+  <meta itemprop="wordCount" content="167">
+  <meta itemprop="keywords" content="Cli,Ssh,Ssh-Config,Motd">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Locking Down SSH User Access">
+  <meta name="twitter:description" content="To secure your system, you shouldn’t allow root to login remotely. Instead, if an admin needs to use the root account they should login using their own account and then su - or sudo to the root account as needed.
+Edit the /etc/ssh/sshd_config file and change the following lines:
+PermitRootLogin no PermitEmptyPasswords no
+Some of these properties may be commented out in the file, so all you’d need to do is remove the # sign.">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Locking Down SSH User Access</h1>
+      
+      <p class="tracked"><strong>Gregg</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-08-01T00:00:00Z">August 1, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>To secure your system, you shouldn&rsquo;t allow root to login remotely.  Instead, if an admin needs to use the <em>root</em> account they should login using their own account and then <code>su -</code> or <code>sudo</code> to the <em>root</em> account as needed.</p>
+<p>Edit the <code>/etc/ssh/sshd_config</code> file and change the following lines:</p>
+<blockquote>
+<p><code>PermitRootLogin no</code><!-- raw HTML omitted -->
+<code>PermitEmptyPasswords no</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Some of these properties may be commented out in the file, so all you&rsquo;d need to do is remove the <em>#</em> sign.</p>
+<p>Once these changes are made you should then restart ssh. On my system this is done by:</p>
+<blockquote>
+<p><code># /etc/rc.d/rc.sshd restart</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>After the restart your changes will be in affect. However, root can still login &ldquo;from the local terminal&rdquo;.</p>
+<p>You can go a step further and restrict only specific users access to login via ssh. For example, if you wanted only <em>user1</em> and <em>user2</em> the ability to login with ssh you can add a line to the above file:</p>
+<blockquote>
+<p><code>AllowUsers user1 user2</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Everyone except these two users will be denied access via ssh.</p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/cli/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Cli</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/ssh/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Ssh</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/ssh-config/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Ssh-Config</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/motd/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Motd</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

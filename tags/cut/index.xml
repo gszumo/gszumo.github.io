@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cut on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/cut/</link>
+    <description>Recent content in Cut on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 11 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/cut/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to recursively find the latest modified file in a directory</title>
+      <link>http://localhost:1313/posts/how-to-recursively-find-the-latest-modified-file-in-a-directory/</link>
+      <pubDate>Tue, 11 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-recursively-find-the-latest-modified-file-in-a-directory/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;find . -type f -printf &#39;%T@ %p\n&#39; | sort -n | tail -1 | cut -f2- -d&amp;quot; &amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+  </channel>
+</rss>

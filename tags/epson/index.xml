@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Epson on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/epson/</link>
+    <description>Recent content in Epson on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/epson/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install Epson ET-3850 Printer Driver on Slackware 15.0</title>
+      <link>http://localhost:1313/posts/install-epson-et-3850-printer-driver-on-slackware-150/</link>
+      <pubDate>Sun, 03 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-epson-et-3850-printer-driver-on-slackware-150/</guid>
+      <description>&lt;p&gt;I recently bought an &lt;em&gt;Epson ET-3850&lt;/em&gt; printer from &lt;em&gt;Costco&lt;/em&gt; to replace my &lt;em&gt;HP OfficeJet&lt;/em&gt; which was about 10 years old and the family was starting to have issues with establishing a wi-fi connection to it on their Windoze laptops. It took quite a while to setup. The &lt;em&gt;Epson&lt;/em&gt; seems to be doing the job. Time will tell, however I discovered that setting it up for &lt;em&gt;Slackware&lt;/em&gt; would also take a bit of effort. Drivers are only available on the &lt;em&gt;Epson&lt;/em&gt; website in &lt;em&gt;RPM&lt;/em&gt; or &lt;em&gt;DEB&lt;/em&gt; format so I had to create a &lt;em&gt;Slackware&lt;/em&gt; package to install it. Here&amp;rsquo;s how I went about doing that.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

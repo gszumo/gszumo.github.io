@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Netcat on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/netcat/</link>
+    <description>Recent content in Netcat on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 05 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/netcat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Transfering Files Using netcat</title>
+      <link>http://localhost:1313/posts/transfering-files-using-netcat20089/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/transfering-files-using-netcat20089/</guid>
+      <description>&lt;p&gt;You can use &lt;code&gt;netcat&lt;/code&gt; to transfer a file from one machine to another machine.&#xA;On the receiving machine enter the following command:&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;$ netcat -l 12345 &amp;gt; file.txt&lt;/code&gt; or&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;$ netcat -l -p 12345 &amp;gt; file.pdf&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Then, on the sending machine use this command:&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;$ netcat $MY_IP_ADDRESS 12345 &amp;lt; file.txt&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

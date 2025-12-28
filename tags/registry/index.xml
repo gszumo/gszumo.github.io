@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Registry on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/registry/</link>
+    <description>Recent content in Registry on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/registry/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating a Docker Registry</title>
+      <link>http://localhost:1313/posts/creating-a-docker-registry8450/</link>
+      <pubDate>Fri, 28 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/creating-a-docker-registry8450/</guid>
+      <description>&lt;p&gt;Creating a docker registry is rather straightforward, but you may need to do some &lt;em&gt;tweaking&lt;/em&gt; of your docker installation in order to get it working as indicated below.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s assume that you already have docker up and running on your machine.&lt;/p&gt;&#xA;&lt;p&gt;We are going to set up a Docker registry on our local server. This server will not have a secure connection and will only be used internally, so we will need to allow this access by creating a file in &lt;code&gt;/etc/docker&lt;/code&gt; called &lt;em&gt;daemon.json&lt;/em&gt; to designate this:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

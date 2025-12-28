@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Backups on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/backups/</link>
+    <description>Recent content in Backups on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/backups/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using rsync to Sync Two Directories</title>
+      <link>http://localhost:1313/posts/using-rsync-to-sync-two-directories17585/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/using-rsync-to-sync-two-directories17585/</guid>
+      <description>&lt;p&gt;You can sync two directories using &lt;em&gt;rsync&lt;/em&gt; tool. The following command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ rsync -a -v --delete sending_directory target_directory;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;will copy &lt;em&gt;sending_directory&lt;/em&gt; to &lt;em&gt;target_directory&lt;/em&gt; creating a directory structure of &lt;em&gt;sending_directory/target_directory&lt;/em&gt;. The &lt;code&gt;--delete&lt;/code&gt; flag will ensure that any files that were previously in &lt;em&gt;sending_directory/target_directory&lt;/em&gt; that are not in &lt;em&gt;sending_directory&lt;/em&gt; will be deleted so that the contents of the two directories are the same.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Backup Files with Specific File Extension</title>
+      <link>http://localhost:1313/posts/backup-files-with-specific-file-extension29561/</link>
+      <pubDate>Fri, 07 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/backup-files-with-specific-file-extension29561/</guid>
+      <description>&lt;p&gt;Here is how you can use &lt;code&gt;rsync&lt;/code&gt; to backup only the &lt;em&gt;.ogg&lt;/em&gt; files in the &lt;em&gt;Music&lt;/em&gt; directory to the &lt;em&gt;OGG&lt;/em&gt; directory:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ rsync -a --prune-empty-dirs --include=&#39;*/&#39; --include=&#39;*.ogg&#39; --exclude=&#39;*&#39; Music/ OGG/ &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+  </channel>
+</rss>

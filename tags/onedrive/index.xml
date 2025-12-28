@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Onedrive on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/onedrive/</link>
+    <description>Recent content in Onedrive on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/onedrive/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using RClone to Mount Your OneDrive Folder in Linux</title>
+      <link>http://localhost:1313/posts/using-rclone-to-mount-your-onedrive-folder-in-linux4329/</link>
+      <pubDate>Sun, 23 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/using-rclone-to-mount-your-onedrive-folder-in-linux4329/</guid>
+      <description>&lt;p&gt;If you have a Microsoft Office 365 account you know that it comes with 1TB of storage. You can use &lt;em&gt;RClone&lt;/em&gt; to mount your &lt;em&gt;OneDrive&lt;/em&gt; locally on your Linux machine so that you can read and write documents stored there.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Install &lt;em&gt;rclone&lt;/em&gt; from whatever package repository that your Linux operating system uses.&lt;/li&gt;&#xA;&lt;li&gt;Follow the instructions &lt;a href=&#34;https://rclone.org/onedrive/&#34;&gt;here&lt;/a&gt; to configure your &lt;em&gt;OneDrive&lt;/em&gt; environment.&#xA;The instructions are rather straightforward and a couple pieces of extra advice follows:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;In the first section, type &lt;code&gt;n&lt;/code&gt; for a &lt;em&gt;new&lt;/em&gt; installation and give your mountpoint a name:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

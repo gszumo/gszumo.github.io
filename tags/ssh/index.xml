@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ssh on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/ssh/</link>
+    <description>Recent content in Ssh on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Locking Down SSH User Access</title>
+      <link>http://localhost:1313/posts/locking-down-ssh-user-access947/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/locking-down-ssh-user-access947/</guid>
+      <description>&lt;p&gt;To secure your system, you shouldn&amp;rsquo;t allow root to login remotely.  Instead, if an admin needs to use the &lt;em&gt;root&lt;/em&gt; account they should login using their own account and then &lt;code&gt;su -&lt;/code&gt; or &lt;code&gt;sudo&lt;/code&gt; to the &lt;em&gt;root&lt;/em&gt; account as needed.&lt;/p&gt;&#xA;&lt;p&gt;Edit the &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt; file and change the following lines:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;PermitRootLogin no&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;PermitEmptyPasswords no&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Some of these properties may be commented out in the file, so all you&amp;rsquo;d need to do is remove the &lt;em&gt;#&lt;/em&gt; sign.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SSH Escape Sequences</title>
+      <link>http://localhost:1313/posts/ssh-escape-sequences24826/</link>
+      <pubDate>Fri, 21 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ssh-escape-sequences24826/</guid>
+      <description>&lt;p&gt;Have you ever had an SSH connection timeout on you and you&amp;rsquo;re left with what looks like a locked session. Repeatedly hitting the &lt;em&gt;Enter&lt;/em&gt; key does nothing. It seems that there is nothing that you can do except close the console terminal session&amp;hellip;or is there something else?&lt;/p&gt;&#xA;&lt;p&gt;Many people are not aware that SSH has its own set of keyboard shortcuts. The solution to the above problem is to terminate the connection using the first of these shortcuts.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bind to a Remote Port Using SSH</title>
+      <link>http://localhost:1313/posts/bind-to-a-remote-port-using-ssh22839/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bind-to-a-remote-port-using-ssh22839/</guid>
+      <description>&lt;p&gt;If you are trying to access the web page of an application running on a remote machine and you find that you are blocked, you can bind to it using SSH with similar parameters to this:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ssh pi@raspberrypi.local -L 8384:127.0.0.1:8384 -N&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Where:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;pi@raspberrypi.local&lt;/code&gt; is the remote server,&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;8384&lt;/code&gt; is the port number on the remote that you wish to connect with,&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;127.0.0.1:8384&lt;/code&gt; is the local machine and the port that you want to redirect to, and&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;-N&lt;/code&gt; is a flag telling &lt;code&gt;ssh&lt;/code&gt; not to execute a remote command.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Diff 2 Folders Over SSH</title>
+      <link>http://localhost:1313/posts/diff-2-folders-over-ssh28479/</link>
+      <pubDate>Fri, 19 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/diff-2-folders-over-ssh28479/</guid>
+      <description>&lt;p&gt;If you need to do a &amp;lsquo;diff&amp;rsquo; on 2 folders and one of them is remote then you can accomplish that as follows:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ diff &amp;lt;(ssh username@192.168.1.60 ls -R /home/username/dir1) &amp;lt;(ls -R /home/username/dir2) &#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>Creating Passwordless SSH Keys</title>
+      <link>http://localhost:1313/posts/creating-passwordless-ssh-keys6962/</link>
+      <pubDate>Sun, 14 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/creating-passwordless-ssh-keys6962/</guid>
+      <description>&lt;p&gt;&lt;!-- raw HTML omitted --&gt;Create the key. Note those are two single quotes after the -N (for a blank passwd)&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $ ssh-keygen -t rsa -b 4096 -N &amp;rsquo;&amp;rsquo; &lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;Copy it to the target server&#xA;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt; $ cat .ssh/id_rsa.pub | ssh &lt;a href=&#34;mailto:username@192.168.1.123&#34;&gt;username@192.168.1.123&lt;/a&gt;  &amp;lsquo;cat &amp;raquo; .ssh/authorized_keys&amp;rsquo; &lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;Test it&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;$ ssh &lt;a href=&#34;mailto:username@192.168.1.123&#34;&gt;username@192.168.1.123&lt;/a&gt;&#xA;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SSH Directory Permissions Settings</title>
+      <link>http://localhost:1313/posts/ssh-directory-permissions-settings10237/</link>
+      <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ssh-directory-permissions-settings10237/</guid>
+      <description>&lt;p&gt;It is important to set the directory and file permissions for your ~/.ssh correctly.&lt;/p&gt;&#xA;&lt;p&gt;Typically you want the permissions to be:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;.ssh directory: 700 (drwx&amp;mdash;&amp;mdash;)&lt;/li&gt;&#xA;&lt;li&gt;public key (.pub file): 644 (-rw-r&amp;ndash;r&amp;ndash;)&lt;/li&gt;&#xA;&lt;li&gt;private key (id_rsa): 600 (-rw&amp;mdash;&amp;mdash;-)&lt;/li&gt;&#xA;&lt;li&gt;lastly your home directory should not be writeable by the group or others (at most 755 (drwxr-xr-x)).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;For example, to set this permissions do:&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $ chmod 700 ~/.ssh &lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $ chmod 600 ~/.ssh/* &lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $ chmod 644 ~/.ssh/*.pub &lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $ ls -ltr ~/.ssh/&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

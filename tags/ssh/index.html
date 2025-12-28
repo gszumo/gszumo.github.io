@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/ssh/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/tags/ssh/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/ssh/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/ssh/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Ssh">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Ssh">
+  <meta itemprop="datePublished" content="2023-08-01T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-08-01T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ssh">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Ssh
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/locking-down-ssh-user-access947/" class="link black dim">
+        Locking Down SSH User Access
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>To secure your system, you shouldn&rsquo;t allow root to login remotely.  Instead, if an admin needs to use the <em>root</em> account they should login using their own account and then <code>su -</code> or <code>sudo</code> to the <em>root</em> account as needed.</p>
+<p>Edit the <code>/etc/ssh/sshd_config</code> file and change the following lines:</p>
+<blockquote>
+<p><code>PermitRootLogin no</code><!-- raw HTML omitted -->
+<code>PermitEmptyPasswords no</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Some of these properties may be commented out in the file, so all you&rsquo;d need to do is remove the <em>#</em> sign.</p>
+    </div>
+    <a href="/posts/locking-down-ssh-user-access947/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/ssh-escape-sequences24826/" class="link black dim">
+        SSH Escape Sequences
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Have you ever had an SSH connection timeout on you and you&rsquo;re left with what looks like a locked session. Repeatedly hitting the <em>Enter</em> key does nothing. It seems that there is nothing that you can do except close the console terminal session&hellip;or is there something else?</p>
+<p>Many people are not aware that SSH has its own set of keyboard shortcuts. The solution to the above problem is to terminate the connection using the first of these shortcuts.</p>
+    </div>
+    <a href="/posts/ssh-escape-sequences24826/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/bind-to-a-remote-port-using-ssh22839/" class="link black dim">
+        Bind to a Remote Port Using SSH
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you are trying to access the web page of an application running on a remote machine and you find that you are blocked, you can bind to it using SSH with similar parameters to this:</p>
+<blockquote>
+<p><code>$ ssh pi@raspberrypi.local -L 8384:127.0.0.1:8384 -N</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Where:</p>
+<ul>
+<li><code>pi@raspberrypi.local</code> is the remote server,</li>
+<li><code>8384</code> is the port number on the remote that you wish to connect with,</li>
+<li><code>127.0.0.1:8384</code> is the local machine and the port that you want to redirect to, and</li>
+<li><code>-N</code> is a flag telling <code>ssh</code> not to execute a remote command.</li>
+</ul>
+    </div>
+    <a href="/posts/bind-to-a-remote-port-using-ssh22839/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/diff-2-folders-over-ssh28479/" class="link black dim">
+        Diff 2 Folders Over SSH
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you need to do a &lsquo;diff&rsquo; on 2 folders and one of them is remote then you can accomplish that as follows:</p>
+<pre tabindex="0"><code>$ diff &lt;(ssh username@192.168.1.60 ls -R /home/username/dir1) &lt;(ls -R /home/username/dir2) 
+</code></pre>
+    </div>
+    <a href="/posts/diff-2-folders-over-ssh28479/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/creating-passwordless-ssh-keys6962/" class="link black dim">
+        Creating Passwordless SSH Keys
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><!-- raw HTML omitted -->Create the key. Note those are two single quotes after the -N (for a blank passwd)
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --> $ ssh-keygen -t rsa -b 4096 -N &rsquo;&rsquo; <!-- raw HTML omitted --> <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->Copy it to the target server
+<!-- raw HTML omitted --> <!-- raw HTML omitted --> $ cat .ssh/id_rsa.pub | ssh <a href="mailto:username@192.168.1.123">username@192.168.1.123</a>  &lsquo;cat &raquo; .ssh/authorized_keys&rsquo; <!-- raw HTML omitted --> <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+Test it
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+$ ssh <a href="mailto:username@192.168.1.123">username@192.168.1.123</a>
+<!-- raw HTML omitted --> <!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/creating-passwordless-ssh-keys6962/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/ssh-directory-permissions-settings10237/" class="link black dim">
+        SSH Directory Permissions Settings
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>It is important to set the directory and file permissions for your ~/.ssh correctly.</p>
+<p>Typically you want the permissions to be:</p>
+<ul>
+<li>.ssh directory: 700 (drwx&mdash;&mdash;)</li>
+<li>public key (.pub file): 644 (-rw-r&ndash;r&ndash;)</li>
+<li>private key (id_rsa): 600 (-rw&mdash;&mdash;-)</li>
+<li>lastly your home directory should not be writeable by the group or others (at most 755 (drwxr-xr-x)).</li>
+</ul>
+<p><!-- raw HTML omitted -->For example, to set this permissions do:
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --> $ chmod 700 ~/.ssh <!-- raw HTML omitted --> <!-- raw HTML omitted -->
+<!-- raw HTML omitted --> $ chmod 600 ~/.ssh/* <!-- raw HTML omitted --> <!-- raw HTML omitted -->
+<!-- raw HTML omitted --> $ chmod 644 ~/.ssh/*.pub <!-- raw HTML omitted --> <!-- raw HTML omitted -->
+<!-- raw HTML omitted --> $ ls -ltr ~/.ssh/<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/ssh-directory-permissions-settings10237/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

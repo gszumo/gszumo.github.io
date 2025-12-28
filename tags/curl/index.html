@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/curl/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/tags/curl/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/curl/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/curl/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Curl">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Curl">
+  <meta itemprop="datePublished" content="2023-09-13T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-13T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Curl">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Curl
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/find-your-external-ip-address16428/" class="link black dim">
+        Find Your External IP Address
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>It&rsquo;s easy to find your internal IP address my using tools like ifconfig or ip a but to find your external IP address (the one that connects you to the outside world) you must use other means. Here are 3 simple commands that you can use to do just that:</p>
+<blockquote>
+<p><code>$ curl ifcfg.me</code><!-- raw HTML omitted -->
+<code>72.76.yyy.xxx</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>$ curl icanhazip.com</code><!-- raw HTML omitted -->
+<code>72.76.yyy.xxx</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>$ nslookup myip.opendns.com. resolver1.opendns.com</code><!-- raw HTML omitted -->
+<code>Server:		resolver1.opendns.com</code><!-- raw HTML omitted -->
+<code>Address:	208.67.222.222#53</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>Non-authoritative answer:</code><!-- raw HTML omitted -->
+<code>Name:	myip.opendns.com</code><!-- raw HTML omitted -->
+<code>Address: 72.76.yyy.xxx</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/find-your-external-ip-address16428/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/sending-email-from-the-command-line-with-curl/" class="link black dim">
+        Sending Email from the Command Line with cURL
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Let&rsquo;s assume that you had a RFC 5822 formatted file named <code>mail.txt</code> as follows:</p>
+<pre tabindex="0"><code>From: Some Sender &lt;some.sender@gmail.com&gt;
+To: Some Recipient &lt;some.recipient@example.com&gt;
+Subject: Saying Hello
+Date: Tue, 6 Jun 2023 04:15:06 -0100
+Message-ID: &lt;1234@local.machine.example&gt;
+
+This is a message just to say hello.
+So, &#34;Hello&#34;.
+</code></pre><p>You can forward this to a email recipient using Google&rsquo;s SMTP with the following <code>curl</code> command provided you have a Google app password:</p>
+<pre tabindex="0"><code>$ curl --url &#39;smtps://smtp.gmail.com:465&#39; --ssl-reqd \
+ --mail-from &#39;some.sender@gmail.com&#39; \ 
+ --mail-rcpt &#39;some.recipient@example.com&#39; \
+ --upload-file mail.txt \
+ --user &#39;some.sender@gmail.com:your-gmail-app-password&#39;
+</code></pre><p>Output should be something like this:</p>
+    </div>
+    <a href="/posts/sending-email-from-the-command-line-with-curl/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/mastodon-automated-postings-using-the-api10012/" class="link black dim">
+        Mastodon Automated Postings using the API
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>You can post to Mastodon using their API using <code>cURL</code>.</p>
+<h4 id="create-or-find-your-access-token">Create or Find Your Access Token</h4>
+<p>Once you have a Mastodon account, you need your account&rsquo;s access token. The steps you need to get that:</p>
+<ol>
+<li>Sign into your Mastodon account</li>
+<li>Click on In the <code>&quot;Preferences&quot;</code> link.</li>
+<li>On the bottom left corner of that page, click the <code>&quot;Development&quot;</code> link.</li>
+<li>On the <code>&quot;Your Applications&quot;</code> page, click the blue <code>NEW APPLICATION</code> button.</li>
+<li>Give your application a name, and decide what kind of access you want to have when you connect to your account via the Mastodon API (i<code>read</code>, <code>write</code>, and <code>follow</code> are the defaults). You can always change this later.</li>
+<li>At the bottom of the page, click the blue <code>SUBMIT</code> button.</li>
+<li>You will be directed back to the <code>Your applications</code> page, but now you should see your application name. Click that.</li>
+<li>In your application&rsquo;s page, there are three tokens. For this tutorial, you need the <code>Your access token</code> one.
+Note: if your access token is ever compromised, you can click regenerate, and your old access token will stop working, and you&rsquo;ll be shown a new one.</li>
+</ol>
+<h4 id="post-a-status-update-using-curl">Post a Status Update using cURL</h4>
+<!-- raw HTML omitted -->
+    </div>
+    <a href="/posts/mastodon-automated-postings-using-the-api10012/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

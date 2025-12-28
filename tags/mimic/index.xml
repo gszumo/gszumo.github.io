@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mimic on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/mimic/</link>
+    <description>Recent content in Mimic on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mimic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install mimic Text-To-Speech on Slackware 15</title>
+      <link>http://localhost:1313/posts/install-mimic-text-to-speech-on-slackware-1526910/</link>
+      <pubDate>Tue, 13 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-mimic-text-to-speech-on-slackware-1526910/</guid>
+      <description>&lt;p&gt;Per the manpage: Mimic  is  a command line tool for synthesizing speech from text. If outfile.wav is omitted mimic will output the utterance using the computer sound card.&lt;/p&gt;&#xA;&lt;p&gt;Mimic is based on &lt;a href=&#34;http://www.cmuflite.org&#34;&gt;flite&lt;/a&gt; and strives  to  extend  functionality and add more languages while keeping the application fast and light.&lt;/p&gt;&#xA;&lt;p&gt;Mandatory arguments to long options are mandatory for short options too.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$  git clone https://github.com/MycroftAI/mimic1.git&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  cd mimic1/&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  ./dependencies.sh --prefix=&amp;quot;/usr/local&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  ./autogen.sh &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  ./configure --prefix=&amp;quot;/usr/local&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  make&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  make check&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  su -c &amp;quot;make install&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/mail/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/tags/mail/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/mail/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/mail/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Mail">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Mail">
+  <meta itemprop="datePublished" content="2023-06-07T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-06-07T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Mail">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Mail
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/sending-email-from-the-command-line-with-mutt27176/" class="link black dim">
+        Sending Email from the Command Line with mutt
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you prefer using <code>mutt</code> as your command line email tool, then here are a couple of examples of using <code>mutt</code> to send emails which can be automated quite easily to use in scripts.</p>
+<p>Sending a file attachment (-a) and an empty message body:</p>
+<p><code>$ mutt  -s &quot;System Logs&quot; -a /var/log/somelog.log -- username@example.com &lt; /dev/null</code></p>
+<p>Sending a message body using redirection:</p>
+<p><code>$ mutt -s &quot;Email Subject&quot; username@example.com &lt; email.html</code></p>
+<p>Sending a file attachment along with a message body:</p>
+    </div>
+    <a href="/posts/sending-email-from-the-command-line-with-mutt27176/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/sending-email-from-the-command-line-with-curl/" class="link black dim">
+        Sending Email from the Command Line with cURL
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Let&rsquo;s assume that you had a RFC 5822 formatted file named <code>mail.txt</code> as follows:</p>
+<pre tabindex="0"><code>From: Some Sender &lt;some.sender@gmail.com&gt;
+To: Some Recipient &lt;some.recipient@example.com&gt;
+Subject: Saying Hello
+Date: Tue, 6 Jun 2023 04:15:06 -0100
+Message-ID: &lt;1234@local.machine.example&gt;
+
+This is a message just to say hello.
+So, &#34;Hello&#34;.
+</code></pre><p>You can forward this to a email recipient using Google&rsquo;s SMTP with the following <code>curl</code> command provided you have a Google app password:</p>
+<pre tabindex="0"><code>$ curl --url &#39;smtps://smtp.gmail.com:465&#39; --ssl-reqd \
+ --mail-from &#39;some.sender@gmail.com&#39; \ 
+ --mail-rcpt &#39;some.recipient@example.com&#39; \
+ --upload-file mail.txt \
+ --user &#39;some.sender@gmail.com:your-gmail-app-password&#39;
+</code></pre><p>Output should be something like this:</p>
+    </div>
+    <a href="/posts/sending-email-from-the-command-line-with-curl/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/sending-email-from-the-command-line8566/" class="link black dim">
+        Sending Email from the Command Line
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h4 id="mutt-examples">mutt Examples<!-- raw HTML omitted --></h4>
+<p>Sending just a file attachment (-a) and an empty message body:<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+$ mutt  -s &ldquo;System logs&rdquo; -a /opt/backup.sql &ndash; <a href="mailto:user@example.com">user@example.com</a> &lt; /dev/null
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+Sending a message body using redirection:<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+$ mutt -s &ldquo;Email subject&rdquo; <a href="mailto:test@example.com">test@example.com</a> &lt; email.html
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+Sending a file attachment along with a message body:<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+$ echo $message | mutt -s &ldquo;Subject&rdquo; -a attachment.txt &ndash; <a href="mailto:me@myemail.com">me@myemail.com</a>
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/sending-email-from-the-command-line8566/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

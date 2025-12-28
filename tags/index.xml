@@ -1,0 +1,1349 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cheatsheet</title>
+      <link>http://localhost:1313/tags/cheatsheet/</link>
+      <pubDate>Thu, 28 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/cheatsheet/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cli</title>
+      <link>http://localhost:1313/tags/cli/</link>
+      <pubDate>Thu, 28 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/cli/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>http://localhost:1313/tags/kubernetes/</link>
+      <pubDate>Thu, 28 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Motd</title>
+      <link>http://localhost:1313/tags/motd/</link>
+      <pubDate>Thu, 28 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/motd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tar</title>
+      <link>http://localhost:1313/tags/tar/</link>
+      <pubDate>Wed, 27 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tar/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ansible</title>
+      <link>http://localhost:1313/tags/ansible/</link>
+      <pubDate>Tue, 26 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ansible/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Arp</title>
+      <link>http://localhost:1313/tags/arp/</link>
+      <pubDate>Mon, 25 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/arp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Networking</title>
+      <link>http://localhost:1313/tags/networking/</link>
+      <pubDate>Mon, 25 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/networking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kvm</title>
+      <link>http://localhost:1313/tags/kvm/</link>
+      <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/kvm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Libvirt</title>
+      <link>http://localhost:1313/tags/libvirt/</link>
+      <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/libvirt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network</title>
+      <link>http://localhost:1313/tags/network/</link>
+      <pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/network/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sbopkg</title>
+      <link>http://localhost:1313/tags/sbopkg/</link>
+      <pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sbopkg/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Slackware</title>
+      <link>http://localhost:1313/tags/slackware/</link>
+      <pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/slackware/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Copying</title>
+      <link>http://localhost:1313/tags/copying/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/copying/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bash</title>
+      <link>http://localhost:1313/tags/bash/</link>
+      <pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/bash/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rename</title>
+      <link>http://localhost:1313/tags/rename/</link>
+      <pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/rename/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Xkb</title>
+      <link>http://localhost:1313/tags/xkb/</link>
+      <pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/xkb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ip-Address</title>
+      <link>http://localhost:1313/tags/ip-address/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ip-address/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Networks</title>
+      <link>http://localhost:1313/tags/networks/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/networks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Copy</title>
+      <link>http://localhost:1313/tags/copy/</link>
+      <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/copy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ranges</title>
+      <link>http://localhost:1313/tags/ranges/</link>
+      <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ranges/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vim</title>
+      <link>http://localhost:1313/tags/vim/</link>
+      <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/vim/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Find</title>
+      <link>http://localhost:1313/tags/find/</link>
+      <pubDate>Sat, 16 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/find/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Logs</title>
+      <link>http://localhost:1313/tags/logs/</link>
+      <pubDate>Sat, 16 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/logs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sysadmin</title>
+      <link>http://localhost:1313/tags/sysadmin/</link>
+      <pubDate>Sat, 16 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sysadmin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Exfat</title>
+      <link>http://localhost:1313/tags/exfat/</link>
+      <pubDate>Thu, 14 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/exfat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Parted</title>
+      <link>http://localhost:1313/tags/parted/</link>
+      <pubDate>Thu, 14 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/parted/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Curl</title>
+      <link>http://localhost:1313/tags/curl/</link>
+      <pubDate>Wed, 13 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/curl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nslookup</title>
+      <link>http://localhost:1313/tags/nslookup/</link>
+      <pubDate>Wed, 13 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/nslookup/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Awk</title>
+      <link>http://localhost:1313/tags/awk/</link>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/awk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Duplicates</title>
+      <link>http://localhost:1313/tags/duplicates/</link>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/duplicates/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Virsh</title>
+      <link>http://localhost:1313/tags/virsh/</link>
+      <pubDate>Sun, 10 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/virsh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Virt-Manager</title>
+      <link>http://localhost:1313/tags/virt-manager/</link>
+      <pubDate>Sun, 10 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/virt-manager/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ova</title>
+      <link>http://localhost:1313/tags/ova/</link>
+      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ova/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Qemu</title>
+      <link>http://localhost:1313/tags/qemu/</link>
+      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/qemu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Virtualization</title>
+      <link>http://localhost:1313/tags/virtualization/</link>
+      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/virtualization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C</title>
+      <link>http://localhost:1313/tags/c/</link>
+      <pubDate>Fri, 08 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/c/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cpp</title>
+      <link>http://localhost:1313/tags/cpp/</link>
+      <pubDate>Fri, 08 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/cpp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multilib</title>
+      <link>http://localhost:1313/tags/multilib/</link>
+      <pubDate>Fri, 08 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/multilib/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>http://localhost:1313/tags/programming/</link>
+      <pubDate>Fri, 08 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Clean</title>
+      <link>http://localhost:1313/tags/clean/</link>
+      <pubDate>Wed, 06 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/clean/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Disk-Space</title>
+      <link>http://localhost:1313/tags/disk-space/</link>
+      <pubDate>Wed, 06 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/disk-space/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fedora</title>
+      <link>http://localhost:1313/tags/fedora/</link>
+      <pubDate>Wed, 06 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/fedora/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Resize</title>
+      <link>http://localhost:1313/tags/resize/</link>
+      <pubDate>Wed, 06 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/resize/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Flatpak</title>
+      <link>http://localhost:1313/tags/flatpak/</link>
+      <pubDate>Tue, 05 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/flatpak/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spotify</title>
+      <link>http://localhost:1313/tags/spotify/</link>
+      <pubDate>Tue, 05 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/spotify/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Finder</title>
+      <link>http://localhost:1313/tags/finder/</link>
+      <pubDate>Mon, 04 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/finder/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MacOS</title>
+      <link>http://localhost:1313/tags/macos/</link>
+      <pubDate>Mon, 04 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/macos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Epson</title>
+      <link>http://localhost:1313/tags/epson/</link>
+      <pubDate>Sun, 03 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/epson/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Printers</title>
+      <link>http://localhost:1313/tags/printers/</link>
+      <pubDate>Sun, 03 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/printers/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shortcuts</title>
+      <link>http://localhost:1313/tags/shortcuts/</link>
+      <pubDate>Sat, 02 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/shortcuts/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Compiling</title>
+      <link>http://localhost:1313/tags/compiling/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/compiling/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linkers</title>
+      <link>http://localhost:1313/tags/linkers/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/linkers/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fuse</title>
+      <link>http://localhost:1313/tags/fuse/</link>
+      <pubDate>Thu, 31 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/fuse/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sshfs</title>
+      <link>http://localhost:1313/tags/sshfs/</link>
+      <pubDate>Thu, 31 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sshfs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Joplin</title>
+      <link>http://localhost:1313/tags/joplin/</link>
+      <pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/joplin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Note-Apps</title>
+      <link>http://localhost:1313/tags/note-apps/</link>
+      <pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/note-apps/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Slackbuilds</title>
+      <link>http://localhost:1313/tags/slackbuilds/</link>
+      <pubDate>Tue, 29 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/slackbuilds/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gid</title>
+      <link>http://localhost:1313/tags/gid/</link>
+      <pubDate>Sun, 27 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/gid/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Uid</title>
+      <link>http://localhost:1313/tags/uid/</link>
+      <pubDate>Sun, 27 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/uid/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Netstat</title>
+      <link>http://localhost:1313/tags/netstat/</link>
+      <pubDate>Sat, 26 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/netstat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Certificates</title>
+      <link>http://localhost:1313/tags/certificates/</link>
+      <pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/certificates/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Openssl</title>
+      <link>http://localhost:1313/tags/openssl/</link>
+      <pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/openssl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Timezones</title>
+      <link>http://localhost:1313/tags/timezones/</link>
+      <pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/timezones/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Zdump</title>
+      <link>http://localhost:1313/tags/zdump/</link>
+      <pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/zdump/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Logger</title>
+      <link>http://localhost:1313/tags/logger/</link>
+      <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/logger/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Logging</title>
+      <link>http://localhost:1313/tags/logging/</link>
+      <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/logging/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Systemd</title>
+      <link>http://localhost:1313/tags/systemd/</link>
+      <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/systemd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Encryption</title>
+      <link>http://localhost:1313/tags/encryption/</link>
+      <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/encryption/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ssl</title>
+      <link>http://localhost:1313/tags/ssl/</link>
+      <pubDate>Mon, 21 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ssl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aliases</title>
+      <link>http://localhost:1313/tags/aliases/</link>
+      <pubDate>Thu, 17 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/aliases/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Git</title>
+      <link>http://localhost:1313/tags/git/</link>
+      <pubDate>Thu, 17 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gcc</title>
+      <link>http://localhost:1313/tags/gcc/</link>
+      <pubDate>Wed, 16 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/gcc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shell-Scripting</title>
+      <link>http://localhost:1313/tags/shell-scripting/</link>
+      <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/shell-scripting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Printing</title>
+      <link>http://localhost:1313/tags/printing/</link>
+      <pubDate>Wed, 09 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/printing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Virtualbox</title>
+      <link>http://localhost:1313/tags/virtualbox/</link>
+      <pubDate>Wed, 09 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/virtualbox/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sbotools</title>
+      <link>http://localhost:1313/tags/sbotools/</link>
+      <pubDate>Tue, 08 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sbotools/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sort</title>
+      <link>http://localhost:1313/tags/sort/</link>
+      <pubDate>Mon, 07 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sort/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crontab</title>
+      <link>http://localhost:1313/tags/crontab/</link>
+      <pubDate>Sun, 06 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/crontab/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Iso</title>
+      <link>http://localhost:1313/tags/iso/</link>
+      <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/iso/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mount</title>
+      <link>http://localhost:1313/tags/mount/</link>
+      <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/mount/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Email</title>
+      <link>http://localhost:1313/tags/email/</link>
+      <pubDate>Thu, 03 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/email/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ssmtp</title>
+      <link>http://localhost:1313/tags/ssmtp/</link>
+      <pubDate>Thu, 03 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ssmtp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Apropos</title>
+      <link>http://localhost:1313/tags/apropos/</link>
+      <pubDate>Wed, 02 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/apropos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Man</title>
+      <link>http://localhost:1313/tags/man/</link>
+      <pubDate>Wed, 02 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/man/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Whatis</title>
+      <link>http://localhost:1313/tags/whatis/</link>
+      <pubDate>Wed, 02 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/whatis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Whereis</title>
+      <link>http://localhost:1313/tags/whereis/</link>
+      <pubDate>Wed, 02 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/whereis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ssh</title>
+      <link>http://localhost:1313/tags/ssh/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ssh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ssh-Config</title>
+      <link>http://localhost:1313/tags/ssh-config/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ssh-config/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Chattr</title>
+      <link>http://localhost:1313/tags/chattr/</link>
+      <pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/chattr/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lsattr</title>
+      <link>http://localhost:1313/tags/lsattr/</link>
+      <pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/lsattr/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Launchpad</title>
+      <link>http://localhost:1313/tags/launchpad/</link>
+      <pubDate>Sat, 29 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/launchpad/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>http://localhost:1313/tags/docker/</link>
+      <pubDate>Fri, 28 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Registry</title>
+      <link>http://localhost:1313/tags/registry/</link>
+      <pubDate>Fri, 28 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/registry/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Backups</title>
+      <link>http://localhost:1313/tags/backups/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/backups/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rsync</title>
+      <link>http://localhost:1313/tags/rsync/</link>
+      <pubDate>Thu, 27 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/rsync/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mtime</title>
+      <link>http://localhost:1313/tags/mtime/</link>
+      <pubDate>Wed, 26 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/mtime/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mv</title>
+      <link>http://localhost:1313/tags/mv/</link>
+      <pubDate>Wed, 26 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/mv/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Search</title>
+      <link>http://localhost:1313/tags/search/</link>
+      <pubDate>Mon, 24 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/search/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Onedrive</title>
+      <link>http://localhost:1313/tags/onedrive/</link>
+      <pubDate>Sun, 23 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/onedrive/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rclone</title>
+      <link>http://localhost:1313/tags/rclone/</link>
+      <pubDate>Sun, 23 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/rclone/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Html</title>
+      <link>http://localhost:1313/tags/html/</link>
+      <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/html/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lshw</title>
+      <link>http://localhost:1313/tags/lshw/</link>
+      <pubDate>Thu, 20 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/lshw/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Wi-Fi</title>
+      <link>http://localhost:1313/tags/wi-fi/</link>
+      <pubDate>Mon, 17 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/wi-fi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sed</title>
+      <link>http://localhost:1313/tags/sed/</link>
+      <pubDate>Sun, 16 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/sed/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Password-Managers</title>
+      <link>http://localhost:1313/tags/password-managers/</link>
+      <pubDate>Fri, 14 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/password-managers/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Inode</title>
+      <link>http://localhost:1313/tags/inode/</link>
+      <pubDate>Thu, 13 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/inode/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Scp</title>
+      <link>http://localhost:1313/tags/scp/</link>
+      <pubDate>Wed, 12 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/scp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Xargs</title>
+      <link>http://localhost:1313/tags/xargs/</link>
+      <pubDate>Wed, 12 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/xargs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cut</title>
+      <link>http://localhost:1313/tags/cut/</link>
+      <pubDate>Tue, 11 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/cut/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tail</title>
+      <link>http://localhost:1313/tags/tail/</link>
+      <pubDate>Tue, 11 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tail/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Redirection</title>
+      <link>http://localhost:1313/tags/redirection/</link>
+      <pubDate>Sat, 08 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/redirection/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Scripting</title>
+      <link>http://localhost:1313/tags/scripting/</link>
+      <pubDate>Sat, 08 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/scripting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Distros</title>
+      <link>http://localhost:1313/tags/distros/</link>
+      <pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/distros/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rhel</title>
+      <link>http://localhost:1313/tags/rhel/</link>
+      <pubDate>Tue, 04 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/rhel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dnf</title>
+      <link>http://localhost:1313/tags/dnf/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/dnf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Package-Managers</title>
+      <link>http://localhost:1313/tags/package-managers/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/package-managers/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pip</title>
+      <link>http://localhost:1313/tags/pip/</link>
+      <pubDate>Sun, 02 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/pip/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
+      <pubDate>Sun, 02 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Requirements</title>
+      <link>http://localhost:1313/tags/requirements/</link>
+      <pubDate>Sun, 02 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/requirements/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Environment</title>
+      <link>http://localhost:1313/tags/environment/</link>
+      <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/environment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Venv</title>
+      <link>http://localhost:1313/tags/venv/</link>
+      <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/venv/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Virtual</title>
+      <link>http://localhost:1313/tags/virtual/</link>
+      <pubDate>Sat, 01 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/virtual/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Alpine-Linux</title>
+      <link>http://localhost:1313/tags/alpine-linux/</link>
+      <pubDate>Thu, 29 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/alpine-linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ipad</title>
+      <link>http://localhost:1313/tags/ipad/</link>
+      <pubDate>Thu, 29 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ipad/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ish</title>
+      <link>http://localhost:1313/tags/ish/</link>
+      <pubDate>Thu, 29 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ish/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cloud-Init</title>
+      <link>http://localhost:1313/tags/cloud-init/</link>
+      <pubDate>Wed, 28 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/cloud-init/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ubuntu</title>
+      <link>http://localhost:1313/tags/ubuntu/</link>
+      <pubDate>Wed, 28 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Qcow</title>
+      <link>http://localhost:1313/tags/qcow/</link>
+      <pubDate>Mon, 26 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/qcow/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Processes</title>
+      <link>http://localhost:1313/tags/processes/</link>
+      <pubDate>Sun, 25 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/processes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ps</title>
+      <link>http://localhost:1313/tags/ps/</link>
+      <pubDate>Sun, 25 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ps/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rpm</title>
+      <link>http://localhost:1313/tags/rpm/</link>
+      <pubDate>Sat, 24 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/rpm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Yum</title>
+      <link>http://localhost:1313/tags/yum/</link>
+      <pubDate>Sat, 24 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/yum/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Source-Control</title>
+      <link>http://localhost:1313/tags/source-control/</link>
+      <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/source-control/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>http://localhost:1313/tags/linux/</link>
+      <pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Power</title>
+      <link>http://localhost:1313/tags/power/</link>
+      <pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/power/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Solus</title>
+      <link>http://localhost:1313/tags/solus/</link>
+      <pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/solus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Accelleration</title>
+      <link>http://localhost:1313/tags/accelleration/</link>
+      <pubDate>Wed, 21 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/accelleration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Direct-Rendering</title>
+      <link>http://localhost:1313/tags/direct-rendering/</link>
+      <pubDate>Wed, 21 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/direct-rendering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Firefox</title>
+      <link>http://localhost:1313/tags/firefox/</link>
+      <pubDate>Wed, 21 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/firefox/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Glxinfo</title>
+      <link>http://localhost:1313/tags/glxinfo/</link>
+      <pubDate>Wed, 21 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/glxinfo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tearing</title>
+      <link>http://localhost:1313/tags/tearing/</link>
+      <pubDate>Wed, 21 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tearing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Grep</title>
+      <link>http://localhost:1313/tags/grep/</link>
+      <pubDate>Tue, 20 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/grep/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Convert</title>
+      <link>http://localhost:1313/tags/convert/</link>
+      <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/convert/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ffmpeg</title>
+      <link>http://localhost:1313/tags/ffmpeg/</link>
+      <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ffmpeg/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mp4</title>
+      <link>http://localhost:1313/tags/mp4/</link>
+      <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/mp4/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Video</title>
+      <link>http://localhost:1313/tags/video/</link>
+      <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/video/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Webm</title>
+      <link>http://localhost:1313/tags/webm/</link>
+      <pubDate>Mon, 19 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/webm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Debugging</title>
+      <link>http://localhost:1313/tags/debugging/</link>
+      <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/debugging/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gdb</title>
+      <link>http://localhost:1313/tags/gdb/</link>
+      <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/gdb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kde</title>
+      <link>http://localhost:1313/tags/kde/</link>
+      <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/kde/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bookmarks</title>
+      <link>http://localhost:1313/tags/bookmarks/</link>
+      <pubDate>Sat, 17 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/bookmarks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pocket</title>
+      <link>http://localhost:1313/tags/pocket/</link>
+      <pubDate>Sat, 17 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/pocket/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bitwarden</title>
+      <link>http://localhost:1313/tags/bitwarden/</link>
+      <pubDate>Thu, 15 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/bitwarden/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Json</title>
+      <link>http://localhost:1313/tags/json/</link>
+      <pubDate>Thu, 15 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/json/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mimic</title>
+      <link>http://localhost:1313/tags/mimic/</link>
+      <pubDate>Tue, 13 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/mimic/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Text-to-Speech</title>
+      <link>http://localhost:1313/tags/text-to-speech/</link>
+      <pubDate>Tue, 13 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/text-to-speech/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Audio</title>
+      <link>http://localhost:1313/tags/audio/</link>
+      <pubDate>Mon, 12 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/audio/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pico2audio</title>
+      <link>http://localhost:1313/tags/pico2audio/</link>
+      <pubDate>Mon, 12 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/pico2audio/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Svox</title>
+      <link>http://localhost:1313/tags/svox/</link>
+      <pubDate>Mon, 12 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/svox/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Renaming</title>
+      <link>http://localhost:1313/tags/renaming/</link>
+      <pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/renaming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Youtube</title>
+      <link>http://localhost:1313/tags/youtube/</link>
+      <pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/youtube/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dvd</title>
+      <link>http://localhost:1313/tags/dvd/</link>
+      <pubDate>Fri, 09 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/dvd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>K3b</title>
+      <link>http://localhost:1313/tags/k3b/</link>
+      <pubDate>Fri, 09 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/k3b/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Containers</title>
+      <link>http://localhost:1313/tags/containers/</link>
+      <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/containers/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lxc</title>
+      <link>http://localhost:1313/tags/lxc/</link>
+      <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/lxc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mail</title>
+      <link>http://localhost:1313/tags/mail/</link>
+      <pubDate>Wed, 07 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/mail/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mutt</title>
+      <link>http://localhost:1313/tags/mutt/</link>
+      <pubDate>Wed, 07 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/mutt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nc</title>
+      <link>http://localhost:1313/tags/nc/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/nc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Netcat</title>
+      <link>http://localhost:1313/tags/netcat/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/netcat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Openbox</title>
+      <link>http://localhost:1313/tags/openbox/</link>
+      <pubDate>Sun, 04 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/openbox/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Packaging</title>
+      <link>http://localhost:1313/tags/packaging/</link>
+      <pubDate>Sat, 03 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/packaging/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terminal</title>
+      <link>http://localhost:1313/tags/terminal/</link>
+      <pubDate>Fri, 02 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/terminal/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Windows</title>
+      <link>http://localhost:1313/tags/windows/</link>
+      <pubDate>Fri, 02 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/windows/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Av</title>
+      <link>http://localhost:1313/tags/av/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/av/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kooha</title>
+      <link>http://localhost:1313/tags/kooha/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/kooha/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Recording</title>
+      <link>http://localhost:1313/tags/recording/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/recording/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Broadcom</title>
+      <link>http://localhost:1313/tags/broadcom/</link>
+      <pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/broadcom/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ebooks</title>
+      <link>http://localhost:1313/tags/ebooks/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ebooks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Calibre</title>
+      <link>http://localhost:1313/tags/calibre/</link>
+      <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/calibre/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Raspberry-Pi</title>
+      <link>http://localhost:1313/tags/raspberry-pi/</link>
+      <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/raspberry-pi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gitea</title>
+      <link>http://localhost:1313/tags/gitea/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/gitea/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Diff</title>
+      <link>http://localhost:1313/tags/diff/</link>
+      <pubDate>Fri, 19 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/diff/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Epub</title>
+      <link>http://localhost:1313/tags/epub/</link>
+      <pubDate>Wed, 17 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/epub/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pandoc</title>
+      <link>http://localhost:1313/tags/pandoc/</link>
+      <pubDate>Wed, 17 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/pandoc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Api</title>
+      <link>http://localhost:1313/tags/api/</link>
+      <pubDate>Tue, 16 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/api/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mastodon</title>
+      <link>http://localhost:1313/tags/mastodon/</link>
+      <pubDate>Tue, 16 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/mastodon/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Github</title>
+      <link>http://localhost:1313/tags/github/</link>
+      <pubDate>Fri, 12 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/github/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tokens</title>
+      <link>http://localhost:1313/tags/tokens/</link>
+      <pubDate>Fri, 12 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tokens/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Qcow2</title>
+      <link>http://localhost:1313/tags/qcow2/</link>
+      <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/qcow2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Uniq</title>
+      <link>http://localhost:1313/tags/uniq/</link>
+      <pubDate>Tue, 09 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/uniq/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

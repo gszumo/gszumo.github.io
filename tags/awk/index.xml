@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Awk on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/awk/</link>
+    <description>Recent content in Awk on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 11 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/awk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Finding Duplicate Files in a Directory Tree</title>
+      <link>http://localhost:1313/posts/finding-duplicate-files-in-a-directory-tree/</link>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/finding-duplicate-files-in-a-directory-tree/</guid>
+      <description>&lt;p&gt;Sometimes I need to find all of the duplicate files in a directory tree. I have this issue all of the time when I move my music collection. Here is a nifty script to sort these things out:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;#!/bin/bash&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;find -not -empty -type f -printf &amp;quot;%s\n&amp;quot; | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 -D --all-repeated=separate&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Printing Numbers using Thousand Separators</title>
+      <link>http://localhost:1313/posts/printing-numbers-using-thousand-separators/</link>
+      <pubDate>Fri, 30 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/printing-numbers-using-thousand-separators/</guid>
+      <description>&lt;p&gt;You can use a pipe to &lt;code&gt;awk&lt;/code&gt; to output numbers with thousands separators (commas). For Example, here&amp;rsquo;s how you can total the 5th column of the &lt;code&gt;ls -l&lt;/code&gt; command and print it with thousands separators:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ls -l | awk &#39;{total = total + $5}END{print total}&#39; | LC_ALL=en_US.UTF-8 awk &#39;{printf(&amp;quot;%&#39;&amp;quot;&#39;&amp;quot;&#39;d\n&amp;quot;, $0) }&#39; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;21,387 &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This can be adapted to other commands as necessary.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Archive Only Files In a Directory</title>
+      <link>http://localhost:1313/posts/archive-only-files-in-a-directory23013/</link>
+      <pubDate>Mon, 29 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/archive-only-files-in-a-directory23013/</guid>
+      <description>&lt;p&gt;If you want to create a tar archive of only the files of a directory and exclude any subdirectories you can use the &lt;code&gt;ls -la&lt;/code&gt; command and pipe the output to &lt;code&gt;awk&lt;/code&gt;. However you need to remove the first 8 fields from the output and leave all of the remaining parts of the line in case there are spaces in the filename. One quick and dirty way of doing that is to set each of the 8 fields to a blank and then use &lt;code&gt;sed&lt;/code&gt; to trim the leading spaces. You can optionally add quotation marks around the filename in your output too.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Echo File Until a Blank Line Is Reached</title>
+      <link>http://localhost:1313/posts/echo-file-until-a-blank-line-is-reached/</link>
+      <pubDate>Sat, 27 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/echo-file-until-a-blank-line-is-reached/</guid>
+      <description>&lt;p&gt;You can use the &lt;code&gt;awk&lt;/code&gt; program to search and print lines in a file. If you wanted to print a file until the first blank line is reached you can use the  following command to do that:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;awk &amp;#39;$0 ~ /^$/ {exit;} {print $0;}&amp;#39; somefile.txt&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>How To Find All of the Shell Scripts In a Directory</title>
+      <link>http://localhost:1313/posts/how-to-find-all-of-the-shell-scripts-in-a-directory/</link>
+      <pubDate>Sun, 21 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-find-all-of-the-shell-scripts-in-a-directory/</guid>
+      <description>&lt;p&gt;This is a quick and dirty way which will list all of the files that are shell scripts:&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt; for i in * &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; do &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     type=$(file ${i}|awk -F, &amp;lsquo;{print $2}&amp;rsquo;)&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     if [[ &amp;ldquo;${type}&amp;rdquo; = &amp;quot; ASCII text executable&amp;quot; ]]; then &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;         echo &amp;ldquo;${i} is a shell script&amp;rdquo;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     fi&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; done&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

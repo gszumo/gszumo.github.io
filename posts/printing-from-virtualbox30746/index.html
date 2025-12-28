@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Printing from Virtualbox | Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="If you want to set up your system so that you can access your Linux host&rsquo;s printer from a Windows VirtualBox client then:
+On Your Linux Host
+
+Install your printer driver. Get your printer working on your host first.
+Install CUPS if it is not already installed.
+Add your printer to CUPS at http://localhost:631/admin.
+Set your virtual machine&rsquo;s Network to Bridged Adapter (eth0) in Settings and connect the cable as necessary (Advanced menu).
+Startup VirtualBox.
+In a terminal, enter ifconfig to list your current network settings and copy down your host&rsquo;s (eth0) address or you can optionally access this address using Network Manager.
+
+On You Windows Client">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="Gregg">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/printing-from-virtualbox30746/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/printing-from-virtualbox30746/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Printing from Virtualbox">
+  <meta property="og:description" content="If you want to set up your system so that you can access your Linux host’s printer from a Windows VirtualBox client then:
+On Your Linux Host
+Install your printer driver. Get your printer working on your host first. Install CUPS if it is not already installed. Add your printer to CUPS at http://localhost:631/admin. Set your virtual machine’s Network to Bridged Adapter (eth0) in Settings and connect the cable as necessary (Advanced menu). Startup VirtualBox. In a terminal, enter ifconfig to list your current network settings and copy down your host’s (eth0) address or you can optionally access this address using Network Manager. On You Windows Client">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-08-09T00:00:00+00:00">
+    <meta property="article:tag" content="Cli">
+    <meta property="article:tag" content="Virtualbox">
+    <meta property="article:tag" content="Printing">
+    <meta property="article:tag" content="Motd">
+
+  <meta itemprop="name" content="Printing from Virtualbox">
+  <meta itemprop="description" content="If you want to set up your system so that you can access your Linux host’s printer from a Windows VirtualBox client then:
+On Your Linux Host
+Install your printer driver. Get your printer working on your host first. Install CUPS if it is not already installed. Add your printer to CUPS at http://localhost:631/admin. Set your virtual machine’s Network to Bridged Adapter (eth0) in Settings and connect the cable as necessary (Advanced menu). Startup VirtualBox. In a terminal, enter ifconfig to list your current network settings and copy down your host’s (eth0) address or you can optionally access this address using Network Manager. On You Windows Client">
+  <meta itemprop="datePublished" content="2023-08-09T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-08-09T00:00:00+00:00">
+  <meta itemprop="wordCount" content="170">
+  <meta itemprop="keywords" content="Cli,Virtualbox,Printing,Motd">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Printing from Virtualbox">
+  <meta name="twitter:description" content="If you want to set up your system so that you can access your Linux host’s printer from a Windows VirtualBox client then:
+On Your Linux Host
+Install your printer driver. Get your printer working on your host first. Install CUPS if it is not already installed. Add your printer to CUPS at http://localhost:631/admin. Set your virtual machine’s Network to Bridged Adapter (eth0) in Settings and connect the cable as necessary (Advanced menu). Startup VirtualBox. In a terminal, enter ifconfig to list your current network settings and copy down your host’s (eth0) address or you can optionally access this address using Network Manager. On You Windows Client">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Printing from Virtualbox</h1>
+      
+      <p class="tracked"><strong>Gregg</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-08-09T00:00:00Z">August 9, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>If you want to set up your system so that you can access your Linux host&rsquo;s printer from a Windows VirtualBox client then:</p>
+<p><strong>On Your Linux Host</strong></p>
+<ol>
+<li>Install your printer driver. Get your printer working on your host first.</li>
+<li>Install <em>CUPS</em> if it is not already installed.</li>
+<li>Add your printer to <em>CUPS</em> at <code>http://localhost:631/admin</code>.</li>
+<li>Set your virtual machine&rsquo;s Network to <em>Bridged Adapter (eth0)</em> in Settings and connect the cable as necessary (Advanced menu).</li>
+<li>Startup VirtualBox.</li>
+<li>In a terminal, enter <code>ifconfig</code> to list your current network settings and copy down your host&rsquo;s (eth0) address or you can optionally access this address using Network Manager.</li>
+</ol>
+<p><strong>On You Windows Client</strong></p>
+<ol>
+<li>Add a new Network printer in &ldquo;<em>Printers and Faxes</em>&rdquo; from the <em>Control Panel</em></li>
+<li>Enter the URL address of your host&rsquo;s printer, i.e., <code>http://192.168.0.2:631/printers/Your_printer's_name</code>. You need the <code>:631</code> after your host&rsquo;s address as this is the port that <em>CUPS</em> listens to. The <em>Your_printer&rsquo;s_name</em> is the name of the printer you added to <em>CUPS</em>.</li>
+</ol>
+<p>If you can&rsquo;t establish a connection then check your firewall settings.</p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/cli/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Cli</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/virtualbox/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Virtualbox</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/printing/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Printing</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/motd/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Motd</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

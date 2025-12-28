@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linkers on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/linkers/</link>
+    <description>Recent content in Linkers on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/linkers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linkers</title>
+      <link>http://localhost:1313/posts/linkers20614/</link>
+      <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/linkers20614/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re a developer who is interested in &amp;ldquo;how the sausage is made&amp;rdquo; then you might want to check out Ian Lance Taylor&amp;rsquo;s &lt;a href=&#34;https://www.airs.com/blog/feed&#34;&gt;blog&lt;/a&gt; which contains a series of articles discussed on Klaatu&amp;rsquo;s GNU World Order &lt;a href=&#34;https://gnuworldorder.info/audiophile/gnuWorldOrder_400.ogg&#34;&gt;Episode 400&lt;/a&gt; about the &lt;a href=&#34;https://www.airs.com/blog/archives/date/2007/08&#34;&gt;linker&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here are the links to the articles:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.airs.com/blog/archives/38&#34;&gt;Linkers part 1&lt;/a&gt;&#xA;&lt;a href=&#34;https://www.airs.com/blog/archives/39&#34;&gt;Linkers part 2&lt;/a&gt;&#xA;&lt;a href=&#34;https://www.airs.com/blog/archives/40&#34;&gt;Linkers part 3&lt;/a&gt;&#xA;&lt;a href=&#34;https://www.airs.com/blog/archives/41&#34;&gt;Linkers part 4&lt;/a&gt;&#xA;&lt;a href=&#34;https://www.airs.com/blog/archives/42&#34;&gt;Linkers part 5&lt;/a&gt;&#xA;&lt;a href=&#34;https://www.airs.com/blog/archives/43&#34;&gt;Linkers part 6&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

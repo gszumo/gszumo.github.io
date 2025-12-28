@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ebooks on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/ebooks/</link>
+    <description>Recent content in Ebooks on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 May 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ebooks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Installing Foliate Ebook Reader on Slackware 15</title>
+      <link>http://localhost:1313/posts/installing-foliate-ebook-reader-on-slackware-1517738/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/installing-foliate-ebook-reader-on-slackware-1517738/</guid>
+      <description>&lt;p&gt;I don&amp;rsquo;t know about you, but I love reading ebooks and I&amp;rsquo;ve used Foliate before on other distributions but can&amp;rsquo;t find it for my OS of choice, Slackware. So, here&amp;rsquo;s how to install it from source:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Download the foliate software tarball from &lt;a href=&#34;https://github.com/johnfactotum/foliate/releases&#34;&gt;here&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Install appstream-glib (which provides dependency appstream-util) using sboinstall&lt;/li&gt;&#xA;&lt;li&gt;Install webkit2gtk (which provides dependency WebKit2) using sboinstall&lt;/li&gt;&#xA;&lt;li&gt;Build foliate. Instructions are on the GitHub &lt;a href=&#34;https://github.com/johnfactotum/foliate&#34;&gt;page&lt;/a&gt; or just extract the tarball, cd into the directory and then execute the following on the command line:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;$ tar zxvf foliate-2.6.4.tar.gz &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ cd foliate-2.6.4&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ meson build &amp;ndash;prefix=/usr&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ ninja -c build&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ ninja -C build&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ su -c &amp;ldquo;ninja -C build install&amp;rdquo;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

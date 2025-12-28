@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Slackware on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/slackware/</link>
+    <description>Recent content in Slackware on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/slackware/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install sbopkg on Slackware</title>
+      <link>http://localhost:1313/posts/install-sbopkg-on-slackware2055/</link>
+      <pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-sbopkg-on-slackware2055/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Sbopkg&lt;/em&gt; is a command‐line and dialog‐based tool to interact with the SlackBuilds.org repository, a collection of third‐party SlackBuild scripts to build Slackware packages.&lt;/p&gt;&#xA;&lt;p&gt;Here are the steps for installing the latest version of &lt;em&gt;sbopkg&lt;/em&gt; with Slackware.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Download the latest Slackware package from &lt;code&gt;https://www.sbopkg.org/downloads.php&lt;/code&gt; using whatever method you find most convenient. At the time of this writing the latest version is &lt;code&gt;https://github.com/sbopkg/sbopkg/releases/download/0.38.2/sbopkg-0.38.2-noarch-1_wsr.tgz&lt;/code&gt;. I will use that version in the commands below. If the version has changed, you would use the new filename in the commands. You can also use &lt;code&gt;wget &amp;lt;packagename&amp;gt;&lt;/code&gt; to download it directly.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Swapping the CMD and Control Keys on a Macbook Running Linux</title>
+      <link>http://localhost:1313/posts/swapping-the-cmd-and-control-keys-on-a-macbook-running-linux/</link>
+      <pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/swapping-the-cmd-and-control-keys-on-a-macbook-running-linux/</guid>
+      <description>&lt;p&gt;I find it annoying not having a CTRL key available for both hands so I tend to swap the Command and CTRL key settings on my 2012 &amp;ldquo;Slackbook&amp;rdquo;.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Launch a terminal&lt;/li&gt;&#xA;&lt;li&gt;Edit the X11 Keyboard Extension&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# vim /usr/share/X11/xkb/symbols/pc&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;Make the following changes. Ensure your file looks like this:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;key &amp;lt;LCTL&amp;gt; {    [ Super_L       ]   };&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;key &amp;lt;LWIN&amp;gt; {    [ Control_L     ]   };&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;...&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;key &amp;lt;RCTL&amp;gt; {    [ Super_R       ]   };&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;key &amp;lt;RWIN&amp;gt; {    [ Control_R     ]   };&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install Epson ET-3850 Printer Driver on Slackware 15.0</title>
+      <link>http://localhost:1313/posts/install-epson-et-3850-printer-driver-on-slackware-150/</link>
+      <pubDate>Sun, 03 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-epson-et-3850-printer-driver-on-slackware-150/</guid>
+      <description>&lt;p&gt;I recently bought an &lt;em&gt;Epson ET-3850&lt;/em&gt; printer from &lt;em&gt;Costco&lt;/em&gt; to replace my &lt;em&gt;HP OfficeJet&lt;/em&gt; which was about 10 years old and the family was starting to have issues with establishing a wi-fi connection to it on their Windoze laptops. It took quite a while to setup. The &lt;em&gt;Epson&lt;/em&gt; seems to be doing the job. Time will tell, however I discovered that setting it up for &lt;em&gt;Slackware&lt;/em&gt; would also take a bit of effort. Drivers are only available on the &lt;em&gt;Epson&lt;/em&gt; website in &lt;em&gt;RPM&lt;/em&gt; or &lt;em&gt;DEB&lt;/em&gt; format so I had to create a &lt;em&gt;Slackware&lt;/em&gt; package to install it. Here&amp;rsquo;s how I went about doing that.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install Joplin on Slackware 15.0</title>
+      <link>http://localhost:1313/posts/install-joplin-on-slackware-150/</link>
+      <pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-joplin-on-slackware-150/</guid>
+      <description>&lt;p&gt;On a recent episode of &lt;a href=&#34;https://hackerpublicradio.org/eps/hpr3929/index.html&#34;&gt;Hacker Public Radio&lt;/a&gt;, the host, &lt;a href=&#34;https://hackerpublicradio.org/correspondents/0403.html&#34;&gt;Lee&lt;/a&gt; listed several note-taking apps that he had tried to use. One of them was &lt;a href=&#34;https://joplinapp.org/&#34;&gt;Joplin&lt;/a&gt; which I have been using for several years now. I feel that it is probably one of the best note-taking apps available that:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Supports Markdown&lt;/li&gt;&#xA;&lt;li&gt;Is cross-platform&lt;/li&gt;&#xA;&lt;li&gt;Supports vim keyboard mappings (I can&amp;rsquo;t live without this)&lt;/li&gt;&#xA;&lt;li&gt;Integrates with multiple cloud storage environments.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I use it on a daily basis for almost all of my notes but it also supports checklists on my iPhone, iPad, Windoze laptop, and all of my Slackware devices (desktop and laptops). Give it a try!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>SlackBuilds: Where Are They Located?</title>
+      <link>http://localhost:1313/posts/slackbuilds-where-are-they-located/</link>
+      <pubDate>Tue, 29 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/slackbuilds-where-are-they-located/</guid>
+      <description>&lt;p&gt;You should find a file in &lt;code&gt;/var/log/packages&lt;/code&gt; for each &lt;em&gt;SlackBuild&lt;/em&gt; that you have installed. You can distinguish the &lt;em&gt;SlackBuilds&lt;/em&gt; package from standard Slackware packages by the substring &lt;em&gt;SBo&lt;/em&gt; embedded in the filename. So you can create a list of all of the &lt;em&gt;SlackBuilds&lt;/em&gt; installed on your machine by just doing an &lt;code&gt;ls *SBo*&lt;/code&gt; in that directory.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;ls /var/log/packages | grep SBo&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;or&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;ls /var/log/packages/*SBo&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Slackware Kernel Upgrade (elilo)</title>
+      <link>http://localhost:1313/posts/slackware-kernel-upgrade-elilo24510/</link>
+      <pubDate>Mon, 28 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/slackware-kernel-upgrade-elilo24510/</guid>
+      <description>&lt;p&gt;If you are using &lt;code&gt;elilo&lt;/code&gt; with Slackware, after running the &lt;code&gt;slackpkg --upgrade-all&lt;/code&gt; script and you see that a new kernel was installed, you need to run the following commands to move the latest kernel to its proper location in order to boot:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;geninitrd&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;cp /boot/vmlinuz-generic /boot/efi/EFI/Slackware/vmlinuz&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;cp /boot/initrd.gz /boot/efi/EFI/Slackware/initrd.gz&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Installing and Using sbotools in Slackware 15.0</title>
+      <link>http://localhost:1313/posts/installing-and-using-sbotools-in-slackware-150/</link>
+      <pubDate>Tue, 08 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/installing-and-using-sbotools-in-slackware-150/</guid>
+      <description>&lt;p&gt;Slackware was the first Linux distribution that I ever used but I was always curious and did a lot of distro-hopping from Slackware, Caldera, Turbo Linux, Mandrake, Red Hat, Ubuntu, multiple Ubuntu derivatives, then Fedora for quite a while until I finally settled on…(drum roll please)…Slackware! Yeah, I’ve come full circle.&lt;/p&gt;&#xA;&lt;p&gt;One of the reasons why I was doing so much hopping around is that I was never really happy with something about the distribution that I was currently using. Maybe it was the default colors (Ubuntu, come on with all of that orange stuff), choice of default software, difficulty with setting it up. Whatever. With Slackware it was always the (lack of) a decent package management system. That is until I found “sbotools”.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Slackware Current: Minimal Installation</title>
+      <link>http://localhost:1313/posts/slackware-current-minimal-installation26343/</link>
+      <pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/slackware-current-minimal-installation26343/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been looking for a way to install a minimal version of Slackware (current) in a VM and the smallest that I&amp;rsquo;ve safely come up with so far is this:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Package group A&lt;/li&gt;&#xA;&lt;li&gt;Package group AP&lt;/li&gt;&#xA;&lt;li&gt;Package group D&lt;/li&gt;&#xA;&lt;li&gt;Package group F&lt;/li&gt;&#xA;&lt;li&gt;Package group K&lt;/li&gt;&#xA;&lt;li&gt;Package group L&lt;/li&gt;&#xA;&lt;li&gt;Package group N&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I will try to get it smaller but I need this startup environment for another &lt;em&gt;experiment&lt;/em&gt; so I&amp;rsquo;ll settle for this. Yes, it is still a wopping 12GB. Geez&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install KDbg - A KDE gdb GUI on Slackware 15.0</title>
+      <link>http://localhost:1313/posts/install-kdbg---a-kde-gdb-gui-on-slackware-150/</link>
+      <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-kdbg---a-kde-gdb-gui-on-slackware-150/</guid>
+      <description>&lt;p&gt;What is KDbg?&lt;/p&gt;&#xA;&lt;p&gt;From the &lt;a href=&#34;https://www.kdbg.org/&#34;&gt;homepage&lt;/a&gt;:&lt;/p&gt;&#xA;&lt;p&gt;KDbg is a graphical user interface to gdb, the GNU debugger. It provides an intuitive interface for setting breakpoints, inspecting variables, and stepping through code.&lt;/p&gt;&#xA;&lt;p&gt;KDbg requires KDE, the K Desktop Environment, but you can of course debug any program.&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s how to install it on Slackware 15 but this should work on any system that has KDE:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ git clone -b maint https://github.com/j6t/kdbg.git&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ cd kdbg/&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ cmake .&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ make&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ su -c &amp;quot;make install&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install mimic Text-To-Speech on Slackware 15</title>
+      <link>http://localhost:1313/posts/install-mimic-text-to-speech-on-slackware-1526910/</link>
+      <pubDate>Tue, 13 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-mimic-text-to-speech-on-slackware-1526910/</guid>
+      <description>&lt;p&gt;Per the manpage: Mimic  is  a command line tool for synthesizing speech from text. If outfile.wav is omitted mimic will output the utterance using the computer sound card.&lt;/p&gt;&#xA;&lt;p&gt;Mimic is based on &lt;a href=&#34;http://www.cmuflite.org&#34;&gt;flite&lt;/a&gt; and strives  to  extend  functionality and add more languages while keeping the application fast and light.&lt;/p&gt;&#xA;&lt;p&gt;Mandatory arguments to long options are mandatory for short options too.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$  git clone https://github.com/MycroftAI/mimic1.git&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  cd mimic1/&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  ./dependencies.sh --prefix=&amp;quot;/usr/local&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  ./autogen.sh &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  ./configure --prefix=&amp;quot;/usr/local&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  make&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  make check&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$  su -c &amp;quot;make install&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Unable to Burn .ISO File to DVD With K3B</title>
+      <link>http://localhost:1313/posts/unable-to-burn-iso-file-to-dvd-with-k3b/</link>
+      <pubDate>Fri, 09 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/unable-to-burn-iso-file-to-dvd-with-k3b/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re having a problem as a &amp;lsquo;regular&amp;rsquo; Slackware user burning an ISO file to a blank DVD, this may resolve your issue:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# chown root:cdrom /usr/bin/cdrecord /usr/bin/cdrdao&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# chmod 4750 /usr/bin/cdrecord /usr/bin/cdrdao&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>LXC in Slackware</title>
+      <link>http://localhost:1313/posts/lxc-in-slackware22712/</link>
+      <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/lxc-in-slackware22712/</guid>
+      <description>&lt;p&gt;Following directions from: &lt;a href=&#34;https://docs.slackware.com/howtos:misc:lxc&#34;&gt;lxc&lt;/a&gt; for Slackware 14.2. I haven&amp;rsquo;t tested on Slackware 15 yet. You will have to set this up while running as &lt;code&gt;root&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Create the file  &lt;code&gt;&#39;/etc/default/lxc-net&#39;&lt;/code&gt; and add the line &lt;code&gt;USE_LXC_BRIDGE=&amp;quot;true&amp;quot;&lt;/code&gt; to it.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Create the directory &lt;code&gt;&#39;/var/lib/misc&#39;&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Start the service: &lt;code&gt;# /usr/libexec/lxc/lxc-net start&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Create a config file:&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;# cat &amp;gt;slac-xlc.con &amp;laquo;&amp;ldquo;EOF&amp;rdquo;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; lxc.network.type = veth&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; lxc.network.flags = up&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; lxc.network.link = lxcbr0&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;EOF&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Install Openbox on Slackware</title>
+      <link>http://localhost:1313/posts/install-openbox-on-slackware31274/</link>
+      <pubDate>Sun, 04 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-openbox-on-slackware31274/</guid>
+      <description>&lt;p&gt;I have been running blackbox on my Slackware desktop and decided that I&amp;rsquo;d try a different &amp;lsquo;flavor&amp;rsquo; called openbox which are in the SBo repositories. I started by executing &lt;code&gt;sbopkg&lt;/code&gt; at the &lt;code&gt;root&lt;/code&gt; prompt and found these packages available:&lt;/p&gt;&#xA;&lt;p&gt;There is the primary &lt;code&gt;openbox&lt;/code&gt; package and there are 4 optional packages listed:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;openbox&lt;/li&gt;&#xA;&lt;li&gt;libfm-extra&lt;/li&gt;&#xA;&lt;li&gt;lxmenu-data&lt;/li&gt;&#xA;&lt;li&gt;menu-cache&lt;/li&gt;&#xA;&lt;li&gt;openbox-menu&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;And several theme packages:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;arc-openbox&lt;/li&gt;&#xA;&lt;li&gt;openbox-simple-theme&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The openbox-menu and openbox-simple-theme downloads failed but I was able to get away with using &lt;code&gt;obconf&lt;/code&gt; and &lt;code&gt;obmenu&lt;/code&gt; tools.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Update Slackware Broadcom Driver</title>
+      <link>http://localhost:1313/posts/update-slackware-broadcom-driver27466/</link>
+      <pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/update-slackware-broadcom-driver27466/</guid>
+      <description>&lt;p&gt;It doesn&amp;rsquo;t happen often, but whenever there&amp;rsquo;s a new kernel package for Slackware on my laptop I need to update the Broadcom driver. To do this:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Update your OS, as usual.&lt;/li&gt;&#xA;&lt;li&gt;Reboot&lt;/li&gt;&#xA;&lt;li&gt;Plug in the ethernet cable, if necessary&lt;/li&gt;&#xA;&lt;li&gt;Login as root&lt;/li&gt;&#xA;&lt;li&gt;Perform sbopkg -i broadcom-sta&lt;/li&gt;&#xA;&lt;li&gt;Done&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;You can read more about it on the Slackware wiki &lt;a href=&#34;https://www.slackwiki.com/Broadcom_Wireless&#34;&gt;here&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Installing Foliate Ebook Reader on Slackware 15</title>
+      <link>http://localhost:1313/posts/installing-foliate-ebook-reader-on-slackware-1517738/</link>
+      <pubDate>Tue, 30 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/installing-foliate-ebook-reader-on-slackware-1517738/</guid>
+      <description>&lt;p&gt;I don&amp;rsquo;t know about you, but I love reading ebooks and I&amp;rsquo;ve used Foliate before on other distributions but can&amp;rsquo;t find it for my OS of choice, Slackware. So, here&amp;rsquo;s how to install it from source:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Download the foliate software tarball from &lt;a href=&#34;https://github.com/johnfactotum/foliate/releases&#34;&gt;here&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Install appstream-glib (which provides dependency appstream-util) using sboinstall&lt;/li&gt;&#xA;&lt;li&gt;Install webkit2gtk (which provides dependency WebKit2) using sboinstall&lt;/li&gt;&#xA;&lt;li&gt;Build foliate. Instructions are on the GitHub &lt;a href=&#34;https://github.com/johnfactotum/foliate&#34;&gt;page&lt;/a&gt; or just extract the tarball, cd into the directory and then execute the following on the command line:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;$ tar zxvf foliate-2.6.4.tar.gz &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ cd foliate-2.6.4&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ meson build &amp;ndash;prefix=/usr&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ ninja -c build&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ ninja -C build&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;$ su -c &amp;ldquo;ninja -C build install&amp;rdquo;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

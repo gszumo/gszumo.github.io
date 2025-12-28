@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Virtualbox on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/virtualbox/</link>
+    <description>Recent content in Virtualbox on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Printing from Virtualbox</title>
+      <link>http://localhost:1313/posts/printing-from-virtualbox30746/</link>
+      <pubDate>Wed, 09 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/printing-from-virtualbox30746/</guid>
+      <description>&lt;p&gt;If you want to set up your system so that you can access your Linux host&amp;rsquo;s printer from a Windows VirtualBox client then:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;On Your Linux Host&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Install your printer driver. Get your printer working on your host first.&lt;/li&gt;&#xA;&lt;li&gt;Install &lt;em&gt;CUPS&lt;/em&gt; if it is not already installed.&lt;/li&gt;&#xA;&lt;li&gt;Add your printer to &lt;em&gt;CUPS&lt;/em&gt; at &lt;code&gt;http://localhost:631/admin&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Set your virtual machine&amp;rsquo;s Network to &lt;em&gt;Bridged Adapter (eth0)&lt;/em&gt; in Settings and connect the cable as necessary (Advanced menu).&lt;/li&gt;&#xA;&lt;li&gt;Startup VirtualBox.&lt;/li&gt;&#xA;&lt;li&gt;In a terminal, enter &lt;code&gt;ifconfig&lt;/code&gt; to list your current network settings and copy down your host&amp;rsquo;s (eth0) address or you can optionally access this address using Network Manager.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;strong&gt;On You Windows Client&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Export VirtualBox VDI using CLI</title>
+      <link>http://localhost:1313/posts/export-virtualbox-vdi-using-cli1819/</link>
+      <pubDate>Wed, 14 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/export-virtualbox-vdi-using-cli1819/</guid>
+      <description>&lt;p&gt;Sometimes you may want to move a virtual machine in VirtualBox from one server to another. Once way of doing that is to export it from the command line.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Locate the virtual machine that you want to export (I&amp;rsquo;ll use the name UbuntuServer for the one to be exported and name the new one UbuntuServerNew), and then&lt;/li&gt;&#xA;&lt;li&gt;Run the export command as follows:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ vboxmanage export UbuntuServer -o UbuntuServerNew.ova&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>How to convert VirtualBox VDI to KVM qcow2</title>
+      <link>http://localhost:1313/posts/h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1/</link>
+      <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1/</guid>
+      <description>&lt;p&gt;It is easy to convert a VirtualBox VDI image to a KVM qcow2 file. You have to use the RAW file format as an intermediate.&lt;/p&gt;&#xA;&lt;p&gt;Make sure the VirtualBox machine is shutdown.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Convert the VDI to a raw disk image. &lt;!-- raw HTML omitted --&gt;&#xA;Note: VDIs are compressed and raw images are not, so you will need to leave enough disk space for entire uncompressed disk.&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;$ VBoxManage clonehd &amp;ndash;format RAW vm.vdi vm.img&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;&#xA;&lt;li&gt;Then on your KVM host:&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;$ qemu-img convert -f raw vm.img -O qcow2 vm.qcow2&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+  </channel>
+</rss>

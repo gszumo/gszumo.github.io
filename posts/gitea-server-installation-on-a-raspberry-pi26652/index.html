@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gitea Server Installation on a Raspberry Pi | Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Create a &lsquo;git&rsquo; user:
+$ sudo adduser git
+Login as the &lsquo;git&rsquo; user and download the gitea binary from the gitea website (choose the latest version):
+wget -O gitea https://dl.gitea.io/gitea/1.14.5/gitea-1.14.5-linux-amd64
+chmod &#43;x gitea
+Create a service. We&rsquo;re keeping it simple here so we don&rsquo;t need a lot of the database-specific stuff:">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="Gregg">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/gitea-server-installation-on-a-raspberry-pi26652/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/gitea-server-installation-on-a-raspberry-pi26652/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Gitea Server Installation on a Raspberry Pi">
+  <meta property="og:description" content="Create a ‘git’ user:
+$ sudo adduser git Login as the ‘git’ user and download the gitea binary from the gitea website (choose the latest version):
+wget -O gitea https://dl.gitea.io/gitea/1.14.5/gitea-1.14.5-linux-amd64 chmod &#43;x gitea
+Create a service. We’re keeping it simple here so we don’t need a lot of the database-specific stuff:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-05-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-05-25T00:00:00+00:00">
+    <meta property="article:tag" content="Git">
+    <meta property="article:tag" content="Gitea">
+    <meta property="article:tag" content="Raspberry-Pi">
+    <meta property="article:tag" content="Motd">
+
+  <meta itemprop="name" content="Gitea Server Installation on a Raspberry Pi">
+  <meta itemprop="description" content="Create a ‘git’ user:
+$ sudo adduser git Login as the ‘git’ user and download the gitea binary from the gitea website (choose the latest version):
+wget -O gitea https://dl.gitea.io/gitea/1.14.5/gitea-1.14.5-linux-amd64 chmod &#43;x gitea
+Create a service. We’re keeping it simple here so we don’t need a lot of the database-specific stuff:">
+  <meta itemprop="datePublished" content="2023-05-25T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-05-25T00:00:00+00:00">
+  <meta itemprop="wordCount" content="152">
+  <meta itemprop="keywords" content="Git,Gitea,Raspberry-Pi,Motd">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Gitea Server Installation on a Raspberry Pi">
+  <meta name="twitter:description" content="Create a ‘git’ user:
+$ sudo adduser git Login as the ‘git’ user and download the gitea binary from the gitea website (choose the latest version):
+wget -O gitea https://dl.gitea.io/gitea/1.14.5/gitea-1.14.5-linux-amd64 chmod &#43;x gitea
+Create a service. We’re keeping it simple here so we don’t need a lot of the database-specific stuff:">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Gitea Server Installation on a Raspberry Pi</h1>
+      
+      <p class="tracked"><strong>Gregg</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-05-25T00:00:00Z">May 25, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>Create a &lsquo;git&rsquo; user:</p>
+<pre tabindex="0"><code>$ sudo adduser git
+</code></pre><p>Login as the &lsquo;git&rsquo; user and download the gitea binary from the gitea website (choose the latest version):</p>
+<p><!-- raw HTML omitted -->wget -O gitea <a href="https://dl.gitea.io/gitea/1.14.5/gitea-1.14.5-linux-amd64">https://dl.gitea.io/gitea/1.14.5/gitea-1.14.5-linux-amd64</a><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->chmod +x gitea<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>Create a service. We&rsquo;re keeping it simple here so we don&rsquo;t need a lot of the database-specific stuff:</p>
+<p><!-- raw HTML omitted -->[Unit]<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->Description=Gitea (Git with a cup of tea)<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->After=syslog.target<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->After=network.target<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->[Service]<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --># Modify these two values and uncomment them if you have<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --># repos with lots of files and get an HTTP error 500 because<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --># of that<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->#LimitMEMLOCK=infinity<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->#LimitNOFILE=65535<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->RestartSec=2s<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->Type=simple<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->User=git<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->Group=git<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->WorkingDirectory=/home/git/<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --># If using Unix socket: tells systemd to create the /run/gitea folder, which will contain the gitea.sock file<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --># (manually creating /run/gitea doesn&rsquo;t work, because it would not persist across reboots)<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->#RuntimeDirectory=gitea<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->ExecStart=/home/git/gitea web &ndash;config /home/git/custom/conf/app.ini<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->Restart=always<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->Environment=USER=git HOME=/home/git GITEA_WORK_DIR=/home/git<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->[Install]<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->WantedBy=multi-user.target<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>Enable and start Gitea at boot:</p>
+<p><!-- raw HTML omitted -->sudo systemctl enable gitea<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->sudo systemctl start gitea<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/git/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Git</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/gitea/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Gitea</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/raspberry-pi/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Raspberry-Pi</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/motd/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Motd</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

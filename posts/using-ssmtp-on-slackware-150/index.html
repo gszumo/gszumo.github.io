@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Using sSMTP on Slackware 15.0 | Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="How to Install and Use ssmtp to Send Emails from the Linux Terminal
+ssmtp is a simple utility that can be used to send emails from a Linux system to a specified email address. It is just an MTA (Mail Transfer Agent); it does not receive mail, expand aliases, or manage a queue. Instead, it forwards automated emails to an external email address. This can be useful for forwarding system alerts or other automated emails from your system to an external email address.">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="Gregg">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/using-ssmtp-on-slackware-150/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/using-ssmtp-on-slackware-150/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Using sSMTP on Slackware 15.0">
+  <meta property="og:description" content="How to Install and Use ssmtp to Send Emails from the Linux Terminal
+ssmtp is a simple utility that can be used to send emails from a Linux system to a specified email address. It is just an MTA (Mail Transfer Agent); it does not receive mail, expand aliases, or manage a queue. Instead, it forwards automated emails to an external email address. This can be useful for forwarding system alerts or other automated emails from your system to an external email address.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-03T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-08-03T00:00:00+00:00">
+    <meta property="article:tag" content="Cli">
+    <meta property="article:tag" content="Ssmtp">
+    <meta property="article:tag" content="Email">
+    <meta property="article:tag" content="Motd">
+
+  <meta itemprop="name" content="Using sSMTP on Slackware 15.0">
+  <meta itemprop="description" content="How to Install and Use ssmtp to Send Emails from the Linux Terminal
+ssmtp is a simple utility that can be used to send emails from a Linux system to a specified email address. It is just an MTA (Mail Transfer Agent); it does not receive mail, expand aliases, or manage a queue. Instead, it forwards automated emails to an external email address. This can be useful for forwarding system alerts or other automated emails from your system to an external email address.">
+  <meta itemprop="datePublished" content="2023-08-03T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-08-03T00:00:00+00:00">
+  <meta itemprop="wordCount" content="516">
+  <meta itemprop="keywords" content="Cli,Ssmtp,Email,Motd">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Using sSMTP on Slackware 15.0">
+  <meta name="twitter:description" content="How to Install and Use ssmtp to Send Emails from the Linux Terminal
+ssmtp is a simple utility that can be used to send emails from a Linux system to a specified email address. It is just an MTA (Mail Transfer Agent); it does not receive mail, expand aliases, or manage a queue. Instead, it forwards automated emails to an external email address. This can be useful for forwarding system alerts or other automated emails from your system to an external email address.">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Using sSMTP on Slackware 15.0</h1>
+      
+      <p class="tracked"><strong>Gregg</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-08-03T00:00:00Z">August 3, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p><strong>How to Install and Use ssmtp to Send Emails from the Linux Terminal</strong></p>
+<p>ssmtp is a simple utility that can be used to send emails from a Linux system to a specified email address. It is just an MTA (Mail Transfer Agent); it does not receive mail, expand aliases, or manage a queue. Instead, it forwards automated emails to an external email address. This can be useful for forwarding system alerts or other automated emails from your system to an external email address.</p>
+<p>According to the SlackBuild comments:</p>
+<p>sSMTP, replaces sendmail on workstations that should send their mail via the departmental mailhub from which they pick up their mail (via pop, imap, rsmtp, pop_fetch, NFS&hellip; or the like). This program accepts mail and sends it to the mailhub, optionally replacing the domain in the From: line with a different one.</p>
+<p>Normally, when using ssmtp, you want to remove the OS&rsquo;s MTA package(s), sendmail and/or postfix. In this case, ssmtp will be symlinked to /usr/sbin/sendmail, and software that sends mail shouldn&rsquo;t have to be modified. If you keep sendmail/postfix installed, there&rsquo;s no conflict, but any software that sends mail will have to be configured or modified to use /usr/sbin/ssmtp.</p>
+<p>NOTE: After installing, you&rsquo;ll want to edit &ldquo;/etc/ssmtp/ssmtp.conf&rdquo;. There&rsquo;s a man page for it (man ssmtp.conf).</p>
+<p>In this post, we&rsquo;ll show you how to install and use ssmtp to send an email from the command-line interface.</p>
+<p><strong>Step 1: Install ssmtp</strong></p>
+<p>By default, the ssmtp package is not included in the default install of Slackware but you can install it by running the following command if you use sbotools:</p>
+<blockquote>
+<p><code># sboinstall ssmtp </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p><strong>Step 2: Configure ssmtp</strong></p>
+<p>Next, you&rsquo;ll need to define your Gmail or other SMTP servers in the ssmtp configuration file. You can do this by editing the <code>/etc/ssmtp/ssmtp.conf</code> file:</p>
+<blockquote>
+<p><code>vim /etc/ssmtp/ssmtp.conf</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Add the following lines:</p>
+<blockquote>
+<p><code>UseSTARTTLS=YES</code><!-- raw HTML omitted -->
+<code>root=user@your-isp.com</code><!-- raw HTML omitted -->
+<code>mailhub=smtp-mail.your-isp.com:587</code><!-- raw HTML omitted -->
+<code>rewriteDomain=192.168.1.12</code><!-- raw HTML omitted -->
+<code>hostname=192.168.1.12</code><!-- raw HTML omitted -->
+<code>FromLineOverride=YES</code><!-- raw HTML omitted -->
+<code>AuthUser=user@your-isp.com</code><!-- raw HTML omitted -->
+<code>AuthPass=your-email-password</code><!-- raw HTML omitted -->
+<code>AuthMethod=LOGIN</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Save and close the file when you&rsquo;re finished. ssmtp is now configured to use your SMTP server address to send an email.</p>
+<p>Also modify the revaliases file in the same directory. A reverse alias gives the From: address placed on a user&rsquo;s outgoing messages and (optionally) the mailhub these messages will be sent through. Example:</p>
+<blockquote>
+<p><code>root:jdoe@isp.com:mail.isp.com</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Messages root sends will be identified as from <a href="mailto:jdoe@isp.com">jdoe@isp.com</a> and sent through mail.isp.com.</p>
+<blockquote>
+<p><code>$ cat /etc/ssmtp/revaliases</code><!-- raw HTML omitted -->
+<code># sSMTP aliases</code><!-- raw HTML omitted -->
+<code># </code><!-- raw HTML omitted -->
+<code># Format:	local_account:outgoing_address:mailhub</code><!-- raw HTML omitted -->
+<code>#</code><!-- raw HTML omitted -->
+<code># Example: root:your_login@your.domain:mailhub.your.domain[:port]</code><!-- raw HTML omitted -->
+<code># where [:port] is an optional port number that defaults to 25.</code><!-- raw HTML omitted -->
+<code>user:user@your-isp.com:smtp.your-isp.com:587</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p><strong>Step 3: Send an Email with ssmtp</strong></p>
+<p>First, create a text file and write some content:</p>
+<blockquote>
+<p><code>vim file.txt</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Add the following lines:</p>
+<blockquote>
+<p><code>Subject: This is Subject Line</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>Email content line 1</code><!-- raw HTML omitted -->
+<code>Email content line 2</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Save and close the file, then send an email with attachment <code>file.txt</code> to the external address <code>user@your-isp.com</code>:</p>
+<blockquote>
+<p><code>ssmtp -v user@your-isp.com &lt; file.txt</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>If everything is fine, you should see output indicating that the email was sent successfully.</p>
+<p>And that&rsquo;s it! You&rsquo;ve successfully installed and used ssmtp to send an email from the Linux terminal. This can be a useful tool for sending automated emails from your system to an external email address.</p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/cli/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Cli</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/ssmtp/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Ssmtp</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/email/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Email</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/motd/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Motd</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

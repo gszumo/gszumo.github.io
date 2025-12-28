@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fedora on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/fedora/</link>
+    <description>Recent content in Fedora on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/fedora/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Clean Up the Fedora Root Folder</title>
+      <link>http://localhost:1313/posts/how-to-clean-up-the-fedora-root-folder/</link>
+      <pubDate>Wed, 06 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-clean-up-the-fedora-root-folder/</guid>
+      <description>&lt;p&gt;OK, so you&amp;rsquo;re running &lt;em&gt;Fedora&lt;/em&gt; and you&amp;rsquo;re getting warnings that you&amp;rsquo;re running out of disk space on the &lt;em&gt;root&lt;/em&gt; folder. What are your options?&lt;/p&gt;&#xA;&lt;p&gt;The first thing to consider is &lt;em&gt;resizing&lt;/em&gt; the root partition size. For that you can find instructions &lt;a href=&#34;https://gist.github.com/181192/cf7eb42a25538ccdb8d0bb7dd57cf236&#34;&gt;here&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;If that is not an option, then the next thing you probably should do is find out which folders/directories are causing the issue. You can use the &lt;code&gt;du&lt;/code&gt; command and some piping to figure this out:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Speed Up DNF Package Manager</title>
+      <link>http://localhost:1313/posts/speed-up-dnf-package-manager7346/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/speed-up-dnf-package-manager7346/</guid>
+      <description>&lt;p&gt;You can increase the download speed for installing packages using DNF by updating the maximum number of simultaneous package downloads.&lt;/p&gt;&#xA;&lt;p&gt;Start by editing the &lt;code&gt;/etc/dnf/dnf.conf&lt;/code&gt; file:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo nano /etc/dnf/dnf.conf &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Add the following line to enable DNF parallel downloads:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;max_parallel_downloads=10 &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Another option is to select the fastest mirror from the Fedora public mirrors by adding the following line:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;fastestmirror=True &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to List Installed Packages in Fedora, RHEL, CentOS</title>
+      <link>http://localhost:1313/posts/how-to-list-installed-packages-in-fedora-rhel-centos/</link>
+      <pubDate>Sat, 24 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-list-installed-packages-in-fedora-rhel-centos/</guid>
+      <description>&lt;p&gt;Listing installed packages with YUM:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo yum list installed&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;To display details about a package:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ yum info nginx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;You can cat all installed packages to a file, copy the file to another machine and duplicate the system:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo yum list installed &amp;gt; installed-packages.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ sudo yum -y install $(cat installed-packages.txt)&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;List installed packages with RPM:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

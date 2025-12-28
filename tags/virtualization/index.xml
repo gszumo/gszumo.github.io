@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Virtualization on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/virtualization/</link>
+    <description>Recent content in Virtualization on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/virtualization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>KVM: Importing an OVA appliance</title>
+      <link>http://localhost:1313/posts/kvm-importing-an-ova-appliance56/</link>
+      <pubDate>Sat, 09 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/kvm-importing-an-ova-appliance56/</guid>
+      <description>&lt;p&gt;You may or may not be aware if it, but an &lt;em&gt;OVA&lt;/em&gt; file is just a tar archive containing an &lt;code&gt;.ovf&lt;/code&gt; and a &lt;code&gt;.vmdk&lt;/code&gt; files, respectively the VM configuration and disk.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ls *.ova&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;HTAOE.ova&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ tar tf HTAOE.ova &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;HTAOE.ovf&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;HTAOE-disk001.vmdk&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;HTAOE.mf&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;So, you can simply extract the files:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Export VirtualBox VDI using CLI</title>
+      <link>http://localhost:1313/posts/export-virtualbox-vdi-using-cli1819/</link>
+      <pubDate>Wed, 14 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/export-virtualbox-vdi-using-cli1819/</guid>
+      <description>&lt;p&gt;Sometimes you may want to move a virtual machine in VirtualBox from one server to another. Once way of doing that is to export it from the command line.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Locate the virtual machine that you want to export (I&amp;rsquo;ll use the name UbuntuServer for the one to be exported and name the new one UbuntuServerNew), and then&lt;/li&gt;&#xA;&lt;li&gt;Run the export command as follows:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ vboxmanage export UbuntuServer -o UbuntuServerNew.ova&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>How to convert VirtualBox VDI to KVM qcow2</title>
+      <link>http://localhost:1313/posts/h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1/</link>
+      <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1/</guid>
+      <description>&lt;p&gt;It is easy to convert a VirtualBox VDI image to a KVM qcow2 file. You have to use the RAW file format as an intermediate.&lt;/p&gt;&#xA;&lt;p&gt;Make sure the VirtualBox machine is shutdown.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Convert the VDI to a raw disk image. &lt;!-- raw HTML omitted --&gt;&#xA;Note: VDIs are compressed and raw images are not, so you will need to leave enough disk space for entire uncompressed disk.&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;$ VBoxManage clonehd &amp;ndash;format RAW vm.vdi vm.img&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;&#xA;&lt;li&gt;Then on your KVM host:&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;$ qemu-img convert -f raw vm.img -O qcow2 vm.qcow2&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+  </channel>
+</rss>

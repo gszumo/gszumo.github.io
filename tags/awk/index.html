@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/awk/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/tags/awk/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/awk/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/awk/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Awk">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Awk">
+  <meta itemprop="datePublished" content="2023-09-11T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-11T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Awk">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Awk
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/finding-duplicate-files-in-a-directory-tree/" class="link black dim">
+        Finding Duplicate Files in a Directory Tree
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Sometimes I need to find all of the duplicate files in a directory tree. I have this issue all of the time when I move my music collection. Here is a nifty script to sort these things out:</p>
+<blockquote>
+<p><code>#!/bin/bash</code><!-- raw HTML omitted -->
+<code>find -not -empty -type f -printf &quot;%s\n&quot; | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 -D --all-repeated=separate</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/finding-duplicate-files-in-a-directory-tree/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/printing-numbers-using-thousand-separators/" class="link black dim">
+        Printing Numbers using Thousand Separators
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>You can use a pipe to <code>awk</code> to output numbers with thousands separators (commas). For Example, here&rsquo;s how you can total the 5th column of the <code>ls -l</code> command and print it with thousands separators:</p>
+<blockquote>
+<p><code>$ ls -l | awk '{total = total + $5}END{print total}' | LC_ALL=en_US.UTF-8 awk '{printf(&quot;%'&quot;'&quot;'d\n&quot;, $0) }' </code><!-- raw HTML omitted -->
+<code>21,387 </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>This can be adapted to other commands as necessary.</p>
+    </div>
+    <a href="/posts/printing-numbers-using-thousand-separators/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/archive-only-files-in-a-directory23013/" class="link black dim">
+        Archive Only Files In a Directory
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you want to create a tar archive of only the files of a directory and exclude any subdirectories you can use the <code>ls -la</code> command and pipe the output to <code>awk</code>. However you need to remove the first 8 fields from the output and leave all of the remaining parts of the line in case there are spaces in the filename. One quick and dirty way of doing that is to set each of the 8 fields to a blank and then use <code>sed</code> to trim the leading spaces. You can optionally add quotation marks around the filename in your output too.</p>
+    </div>
+    <a href="/posts/archive-only-files-in-a-directory23013/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/echo-file-until-a-blank-line-is-reached/" class="link black dim">
+        Echo File Until a Blank Line Is Reached
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>You can use the <code>awk</code> program to search and print lines in a file. If you wanted to print a file until the first blank line is reached you can use the  following command to do that:</p>
+<pre tabindex="0"><code>awk &#39;$0 ~ /^$/ {exit;} {print $0;}&#39; somefile.txt
+</code></pre>
+    </div>
+    <a href="/posts/echo-file-until-a-blank-line-is-reached/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/how-to-find-all-of-the-shell-scripts-in-a-directory/" class="link black dim">
+        How To Find All of the Shell Scripts In a Directory
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>This is a quick and dirty way which will list all of the files that are shell scripts:</p>
+<p><!-- raw HTML omitted --> for i in * <!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --> do <!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->     type=$(file ${i}|awk -F, &lsquo;{print $2}&rsquo;)<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->     if [[ &ldquo;${type}&rdquo; = &quot; ASCII text executable&quot; ]]; then <!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->         echo &ldquo;${i} is a shell script&rdquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->     fi<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --> done<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/how-to-find-all-of-the-shell-scripts-in-a-directory/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

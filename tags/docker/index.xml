@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/docker/</link>
+    <description>Recent content in Docker on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating a Docker Registry</title>
+      <link>http://localhost:1313/posts/creating-a-docker-registry8450/</link>
+      <pubDate>Fri, 28 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/creating-a-docker-registry8450/</guid>
+      <description>&lt;p&gt;Creating a docker registry is rather straightforward, but you may need to do some &lt;em&gt;tweaking&lt;/em&gt; of your docker installation in order to get it working as indicated below.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s assume that you already have docker up and running on your machine.&lt;/p&gt;&#xA;&lt;p&gt;We are going to set up a Docker registry on our local server. This server will not have a secure connection and will only be used internally, so we will need to allow this access by creating a file in &lt;code&gt;/etc/docker&lt;/code&gt; called &lt;em&gt;daemon.json&lt;/em&gt; to designate this:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Build, Tag, and Push a Docker Image with One Command</title>
+      <link>http://localhost:1313/posts/build-tag-and-push-a-docker-image-with-one-command/</link>
+      <pubDate>Tue, 25 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/build-tag-and-push-a-docker-image-with-one-command/</guid>
+      <description>&lt;p&gt;You can build, tag, and push a docker image to a remote all in one command with the &amp;ndash;quiet parameter on docker build, which only outputs the SHA256 hash (annoyingly prefixed with SHA256:, but nothing a little cutting can’t fix).&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ docker tag $(docker build . -q | cut -c 8-999) myregid/imagename:1.0.1 &amp;amp;&amp;amp; docker push myregid/imagename &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+  </channel>
+</rss>

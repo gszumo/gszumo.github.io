@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Find on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/find/</link>
+    <description>Recent content in Find on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 16 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/find/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Log File Maintenance and Cleanup</title>
+      <link>http://localhost:1313/posts/log-file-maintenance-and-cleanup/</link>
+      <pubDate>Sat, 16 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/log-file-maintenance-and-cleanup/</guid>
+      <description>&lt;p&gt;Log files sometimes take up a lot of disk space. Some applications have internal processes that run periodically to manage them and some do not. Often, this becomes a problems after a while as the logs consume all of your partition space.&lt;/p&gt;&#xA;&lt;p&gt;You can manage these files yourself with a simple script running in a &lt;em&gt;cronjob&lt;/em&gt; (or systemd timers if you&amp;rsquo;re so inclined) if they have a common naming convention and you have the proper access.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Finding Duplicate Files in a Directory Tree</title>
+      <link>http://localhost:1313/posts/finding-duplicate-files-in-a-directory-tree/</link>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/finding-duplicate-files-in-a-directory-tree/</guid>
+      <description>&lt;p&gt;Sometimes I need to find all of the duplicate files in a directory tree. I have this issue all of the time when I move my music collection. Here is a nifty script to sort these things out:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;#!/bin/bash&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;find -not -empty -type f -printf &amp;quot;%s\n&amp;quot; | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 -D --all-repeated=separate&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Processing The Results of The Find Command</title>
+      <link>http://localhost:1313/posts/processing-the-results-of-the-find-command10607/</link>
+      <pubDate>Sat, 19 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/processing-the-results-of-the-find-command10607/</guid>
+      <description>&lt;p&gt;As mentioned in the previous post, the find command searches for files, but it has another very useful feature in that it can also perform an action on the files it finds.&lt;/p&gt;&#xA;&lt;p&gt;I am a &lt;em&gt;vim&lt;/em&gt; user, and let&amp;rsquo;s assume that I want to find my editor&amp;rsquo;s backup files in the current directory trees. These filesall end with a  tilda (~) character. We would use this command to search for them:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using the Find Command to Search for Files</title>
+      <link>http://localhost:1313/posts/using-the-find-command-to-search-for-files28509/</link>
+      <pubDate>Fri, 18 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/using-the-find-command-to-search-for-files28509/</guid>
+      <description>&lt;p&gt;One of the most useful and flexible GNU utilities is the &lt;em&gt;find&lt;/em&gt; command. Understanding how to use this command is very important to make you Linux life more efficient.&lt;/p&gt;&#xA;&lt;p&gt;The general syntax of the find command is:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;find [-H] [-L] [-P] [-D debugopts] [-Olevel] [starting-point...] [expression]&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;That looks like a lot, but most of the time you may only need 2 things:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;find [path] [expression]&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Move Files Older Than So Many Days with Find</title>
+      <link>http://localhost:1313/posts/move-files-older-than-so-many-days-with-find/</link>
+      <pubDate>Wed, 26 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/move-files-older-than-so-many-days-with-find/</guid>
+      <description>&lt;p&gt;You may want to clean up a directory that has files older than a certain number of days, for example, 30 days. You can do this with the &lt;em&gt;find&lt;/em&gt; command:&lt;/p&gt;&#xA;&lt;p&gt;To move files older than 30 days in current folder to the &lt;em&gt;old&lt;/em&gt; folder:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ find . -mtime +30 -exec mv {} old/ \;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Rename Files That Start With a Special Character</title>
+      <link>http://localhost:1313/posts/rename-files-that-start-with-a-special-character22468/</link>
+      <pubDate>Thu, 13 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rename-files-that-start-with-a-special-character22468/</guid>
+      <description>&lt;p&gt;Suppose you find that you have a file with a &lt;em&gt;special&lt;/em&gt; character and you want to delete it:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ls&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;-badfile.txt              PrintHood                   reg57.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Favorites                 Recent                      scripts&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ rm -badfile.txt &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;rm: invalid option -- &#39;b&#39;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Try &#39;rm ./-badfile.txt&#39; to remove the file &#39;-badfile.txt&#39;.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Try &#39;rm --help&#39; for more information.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ ls *.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;ls: invalid option -- &#39;e&#39;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Try &#39;ls --help&#39; for more information.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to recursively find the latest modified file in a directory</title>
+      <link>http://localhost:1313/posts/how-to-recursively-find-the-latest-modified-file-in-a-directory/</link>
+      <pubDate>Tue, 11 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-recursively-find-the-latest-modified-file-in-a-directory/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;find . -type f -printf &#39;%T@ %p\n&#39; | sort -n | tail -1 | cut -f2- -d&amp;quot; &amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>How To Count All The Files Extension Recursively In Linux</title>
+      <link>http://localhost:1313/posts/how-to-count-all-the-files-extension-recursively-in-linux/</link>
+      <pubDate>Tue, 09 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-count-all-the-files-extension-recursively-in-linux/</guid>
+      <description>&lt;p&gt;To count all the files by file extension recursively on the command line&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $ find . -type f | sed -n &amp;rsquo;s/..*.//p&amp;rsquo; | sort | uniq -c &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     40 3g2&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      5 AVI&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     13 DS_Store&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     28 JPG&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     30 MOV&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;    133 MP4&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     64 THM&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      1 docx&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     18 jpg&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      1 json&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      4 m3u&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     89 m4a&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      2 m4r&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;    156 m4v&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     41 mkv&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;    112 mov&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     38 mp3&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;    587 mp4&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      1 nfo&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      2 osp&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     30 png&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      1 sh&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      4 srt&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      6 svg&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     10 torrent&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      6 txt&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      5 webm&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     10 zip&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

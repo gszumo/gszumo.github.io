@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Renaming on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/renaming/</link>
+    <description>Recent content in Renaming on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 10 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/renaming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rename Files Downloaded Using youtube-dl</title>
+      <link>http://localhost:1313/posts/rename-files-downloaded-using-youtube-dl10234/</link>
+      <pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rename-files-downloaded-using-youtube-dl10234/</guid>
+      <description>&lt;p&gt;If you have used &lt;code&gt;youtube-dl&lt;/code&gt; to download content from YouTube then you know that the file names can get to be rather long. In addition to the video&amp;rsquo;s title there is a dash followed by what appears to be a random sequence of characters just before the file extension. If you find this to be annoying then here is a code snippet that you can use to remove it.&lt;/p&gt;&#xA;&lt;p&gt;This will remove the last field separated by a &amp;lsquo;-&amp;rsquo; and replace it with the file extension of your choice, .mp4 is used in this example:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

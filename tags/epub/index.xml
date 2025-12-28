@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Epub on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/epub/</link>
+    <description>Recent content in Epub on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 17 May 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/epub/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Convert HTML Files to EPUB Using Pandoc</title>
+      <link>http://localhost:1313/posts/convert-html-files-to-epub-using-pandoc8802/</link>
+      <pubDate>Wed, 17 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/convert-html-files-to-epub-using-pandoc8802/</guid>
+      <description>&lt;p&gt;If you want to convert one or more HTML files to EPUB quickly using the command line you can try &lt;a href=&#34;http://johnmacfarlane.net/pandoc/&#34;&gt;pandoc&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pandoc -f html -t epub3 -o output.epub input.html&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can add metadata for epub:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;pandoc -f html -t epub3 --epub-metadata=metadata.xml -o output.epub input.html&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can find other resources here:&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://linuxconfig.org/how-to-convert-various-ebook-formats-for-amazon-kindle-on-linux&#34;&gt;How to convert various eBook formats for Amazon Kindle on Linux&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

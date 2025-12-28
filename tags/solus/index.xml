@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Solus on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/solus/</link>
+    <description>Recent content in Solus on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/solus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Solus OS: Prevent Laptop from Sleeping When Closing the Lid</title>
+      <link>http://localhost:1313/posts/solus-os-prevent-laptop-from-sleeping-when-closing-the-lid/</link>
+      <pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/solus-os-prevent-laptop-from-sleeping-when-closing-the-lid/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re using a laptop with an external monitor and you&amp;rsquo;ve recently installed Solus OS you might have noticed that the laptop goes to sleep when you close the lid and there is no way to adjust for this in the power settings. You can get around this by manually editing &lt;code&gt;/etc/systemd/logind.conf&lt;/code&gt;, then uncommenting and changing the line:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;#HandleLidSwitch=suspend&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;to&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;HandleLidSwitch=ignore&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Note: The &amp;lsquo;#&amp;rsquo; (comment) at the beginning of the line needs to be removed and the value needs to be changed from &lt;code&gt;suspend&lt;/code&gt; to &lt;code&gt;ignore&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

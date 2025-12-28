@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spotify on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/spotify/</link>
+    <description>Recent content in Spotify on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/spotify/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install Spotify using Flatpak using Command Line</title>
+      <link>http://localhost:1313/posts/install-spotify-using-flatpak-using-command-line/</link>
+      <pubDate>Tue, 05 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-spotify-using-flatpak-using-command-line/</guid>
+      <description>&lt;p&gt;If &lt;em&gt;Flatpak&lt;/em&gt; is not installed, then install it:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo dnf install -y flatpak   # Fedora&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ sudo apt install flatpak      # Ubuntu-based&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ sudo zypper install flatpak   # SUSE&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ sudo pacman -S flatpak        # Arch-based&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Since &lt;em&gt;flathub.org&lt;/em&gt; is the most popular flatpak repository we will use the command line to enable it:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

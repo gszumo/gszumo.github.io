@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Using RClone to Mount Your OneDrive Folder in Linux | Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="If you have a Microsoft Office 365 account you know that it comes with 1TB of storage. You can use RClone to mount your OneDrive locally on your Linux machine so that you can read and write documents stored there.
+
+Install rclone from whatever package repository that your Linux operating system uses.
+Follow the instructions here to configure your OneDrive environment.
+The instructions are rather straightforward and a couple pieces of extra advice follows:
+
+In the first section, type n for a new installation and give your mountpoint a name:">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="Gregg">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/using-rclone-to-mount-your-onedrive-folder-in-linux4329/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/using-rclone-to-mount-your-onedrive-folder-in-linux4329/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Using RClone to Mount Your OneDrive Folder in Linux">
+  <meta property="og:description" content="If you have a Microsoft Office 365 account you know that it comes with 1TB of storage. You can use RClone to mount your OneDrive locally on your Linux machine so that you can read and write documents stored there.
+Install rclone from whatever package repository that your Linux operating system uses. Follow the instructions here to configure your OneDrive environment. The instructions are rather straightforward and a couple pieces of extra advice follows: In the first section, type n for a new installation and give your mountpoint a name:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-07-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-07-23T00:00:00+00:00">
+    <meta property="article:tag" content="Cli">
+    <meta property="article:tag" content="Rclone">
+    <meta property="article:tag" content="Onedrive">
+    <meta property="article:tag" content="Motd">
+
+  <meta itemprop="name" content="Using RClone to Mount Your OneDrive Folder in Linux">
+  <meta itemprop="description" content="If you have a Microsoft Office 365 account you know that it comes with 1TB of storage. You can use RClone to mount your OneDrive locally on your Linux machine so that you can read and write documents stored there.
+Install rclone from whatever package repository that your Linux operating system uses. Follow the instructions here to configure your OneDrive environment. The instructions are rather straightforward and a couple pieces of extra advice follows: In the first section, type n for a new installation and give your mountpoint a name:">
+  <meta itemprop="datePublished" content="2023-07-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-07-23T00:00:00+00:00">
+  <meta itemprop="wordCount" content="790">
+  <meta itemprop="keywords" content="Cli,Rclone,Onedrive,Motd">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Using RClone to Mount Your OneDrive Folder in Linux">
+  <meta name="twitter:description" content="If you have a Microsoft Office 365 account you know that it comes with 1TB of storage. You can use RClone to mount your OneDrive locally on your Linux machine so that you can read and write documents stored there.
+Install rclone from whatever package repository that your Linux operating system uses. Follow the instructions here to configure your OneDrive environment. The instructions are rather straightforward and a couple pieces of extra advice follows: In the first section, type n for a new installation and give your mountpoint a name:">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Using RClone to Mount Your OneDrive Folder in Linux</h1>
+      
+      <p class="tracked"><strong>Gregg</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-07-23T00:00:00Z">July 23, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>If you have a Microsoft Office 365 account you know that it comes with 1TB of storage. You can use <em>RClone</em> to mount your <em>OneDrive</em> locally on your Linux machine so that you can read and write documents stored there.</p>
+<ol>
+<li>Install <em>rclone</em> from whatever package repository that your Linux operating system uses.</li>
+<li>Follow the instructions <a href="https://rclone.org/onedrive/">here</a> to configure your <em>OneDrive</em> environment.
+The instructions are rather straightforward and a couple pieces of extra advice follows:</li>
+</ol>
+<p>In the first section, type <code>n</code> for a <em>new</em> installation and give your mountpoint a name:</p>
+<blockquote>
+<p><code>$ rclone config</code><!-- raw HTML omitted -->
+<code>No remotes found - make a new one</code><!-- raw HTML omitted -->
+<code>n) New remote</code><!-- raw HTML omitted -->
+<code>s) Set configuration password</code><!-- raw HTML omitted -->
+<code>q) Quit config</code><!-- raw HTML omitted -->
+<code>n/s/q&gt;</code>n<code> </code><!-- raw HTML omitted -->
+<code>name&gt; remote</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>In the next section just press enter to accept the default:</p>
+<blockquote>
+<p><code>Type of storage to configure.</code><!-- raw HTML omitted -->
+<code>Enter a string value. Press Enter for the default (&quot;&quot;).</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Now you have to choose the <em>vendor</em> of the service you&rsquo;re configuring. There are a lot of selections hereso just look for <em>Microsoft OneDrive</em>, in my case it was <em>26</em>:</p>
+<blockquote>
+<p><code>Choose a number from below, or type in your own value</code><!-- raw HTML omitted -->
+<code> 1 / 1Fichier</code><!-- raw HTML omitted -->
+<code>   \ &quot;fichier&quot;</code><!-- raw HTML omitted -->
+<code> 2 / Alias for an existing remote</code><!-- raw HTML omitted -->
+<code>   \ &quot;alias&quot;</code><!-- raw HTML omitted -->
+<code>etc.</code><!-- raw HTML omitted -->
+<code>25 / Microsoft Azure Blob Storage</code><!-- raw HTML omitted -->
+<code>   \ &quot;azureblob&quot;</code><!-- raw HTML omitted -->
+<code>26 / Microsoft OneDrive</code><!-- raw HTML omitted -->
+<code>   \ &quot;onedrive&quot;</code><!-- raw HTML omitted -->
+<code>27 / OpenDrive</code><!-- raw HTML omitted -->
+<code>   \ &quot;opendrive&quot;</code><!-- raw HTML omitted -->
+<code>28 / OpenStack Swift (Rackspace Cloud Files, Memset Memstore, OVH)</code><!-- raw HTML omitted -->
+<code>   \ &quot;swift&quot;</code><!-- raw HTML omitted -->
+<code>Storage&gt; 26</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>The next couple of selections are just the default, so press the <em>Enter</em> key:</p>
+<blockquote>
+<p><code>OAuth Client Id</code><!-- raw HTML omitted -->
+<code>Leave blank normally.</code><!-- raw HTML omitted -->
+<code>Enter a string value. Press Enter for the default (&quot;&quot;).</code><!-- raw HTML omitted -->
+<code>client_id&gt; </code><!-- raw HTML omitted -->
+<code>OAuth Client Secret</code><!-- raw HTML omitted -->
+<code>Leave blank normally.</code><!-- raw HTML omitted -->
+<code>Enter a string value. Press Enter for the default (&quot;&quot;).</code><!-- raw HTML omitted -->
+<code>client_secret&gt; </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Now select the <em>global</em> choice:</p>
+<blockquote>
+<p><code>Choose national cloud region for OneDrive.</code><!-- raw HTML omitted -->
+<code>Enter a string value. Press Enter for the default (&quot;global&quot;).</code><!-- raw HTML omitted -->
+<code>Choose a number from below, or type in your own value</code><!-- raw HTML omitted -->
+<code> 1 / Microsoft Cloud Global</code><!-- raw HTML omitted -->
+<code>   \ &quot;global&quot;</code><!-- raw HTML omitted -->
+<code> 2 / Microsoft Cloud for US Government</code><!-- raw HTML omitted -->
+<code>   \ &quot;us&quot;</code><!-- raw HTML omitted -->
+<code> 3 / Microsoft Cloud Germany</code><!-- raw HTML omitted -->
+<code>   \ &quot;de&quot;</code><!-- raw HTML omitted -->
+<code> 4 / Azure and Office 365 operated by 21Vianet in China</code><!-- raw HTML omitted -->
+<code>   \ &quot;cn&quot;</code><!-- raw HTML omitted -->
+<code>region&gt; 1</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Select the <em>default</em> here:</p>
+<blockquote>
+<p><code>Edit advanced config? (y/n)</code><!-- raw HTML omitted -->
+<code>y) Yes</code><!-- raw HTML omitted -->
+<code>n) No (default)</code><!-- raw HTML omitted -->
+<code>y/n&gt; n</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Select the <em>default</em> here:</p>
+<blockquote>
+<p><code>Remote config</code><!-- raw HTML omitted -->
+<code>Use auto config?</code><!-- raw HTML omitted -->
+<code> * Say Y if not sure</code><!-- raw HTML omitted -->
+<code> * Say N if you are working on a remote or headless machine</code><!-- raw HTML omitted -->
+<code>y) Yes (default)</code><!-- raw HTML omitted -->
+<code>n) No</code><!-- raw HTML omitted -->
+<code>y/n&gt; y</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Now the browser should open and you should provide your Microsoft credentials:</p>
+<blockquote>
+<p><code>If your browser doesn't open automatically go to the following link: http://127.0.0.1:53682/auth?state=&lt;some long key here&gt;</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>Log in and authorize rclone for access</code><!-- raw HTML omitted -->
+<code>Waiting for code...</code><!-- raw HTML omitted -->
+<code>Got code</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Select <em>1</em> for <em>Personal or Business</em>:</p>
+<blockquote>
+<p><code>Choose a number from below, or type in an existing value</code><!-- raw HTML omitted -->
+<code> 1 / OneDrive Personal or Business</code><!-- raw HTML omitted -->
+<code>   \ &quot;onedrive&quot;</code><!-- raw HTML omitted -->
+<code> 2 / Root Sharepoint site</code><!-- raw HTML omitted -->
+<code>   \ &quot;sharepoint&quot;</code><!-- raw HTML omitted -->
+<code> 3 / Sharepoint site name or URL (e.g. mysite or https://contoso.sharepoint.com/sites/mysite)</code><!-- raw HTML omitted -->
+<code>   \ &quot;url&quot;</code><!-- raw HTML omitted -->
+<code> 4 / Search for a Sharepoint site</code><!-- raw HTML omitted -->
+<code>   \ &quot;search&quot;</code><!-- raw HTML omitted -->
+<code> 5 / Type in driveID (advanced)</code><!-- raw HTML omitted -->
+<code>   \ &quot;driveid&quot;</code><!-- raw HTML omitted -->
+<code> 6 / Type in SiteID (advanced)</code><!-- raw HTML omitted -->
+<code>   \ &quot;siteid&quot;</code><!-- raw HTML omitted -->
+<code> 7 / Sharepoint server-relative path (advanced, e.g. /teams/hr)</code><!-- raw HTML omitted -->
+<code>   \ &quot;path&quot;</code><!-- raw HTML omitted -->
+<code>Your choice&gt; 1</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Select the drive number from the list, there will probably be only one to choose from, and then select the default:</p>
+<blockquote>
+<p><code>Found 1 drives, please select the one you want to use:</code><!-- raw HTML omitted -->
+<code>0:  (personal) id=&lt;id key&gt;</code><!-- raw HTML omitted -->
+<code>Chose drive to use:&gt; 0</code><!-- raw HTML omitted -->
+<code>Found drive 'root' of type 'personal', URL: https://onedrive.live.com/?cid=&lt;id key&gt;</code><!-- raw HTML omitted -->
+<code>Is that okay?</code><!-- raw HTML omitted -->
+<code>y) Yes (default)</code><!-- raw HTML omitted -->
+<code>n) No</code><!-- raw HTML omitted -->
+<code>y/n&gt; y</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Now <em>rclone</em> will list out the configuration information and ask for confirmation. If all looks good then select <em>y</em> and you&rsquo;re done:</p>
+<blockquote>
+<p><code>--------------------</code><!-- raw HTML omitted -->
+<code>[remote]</code><!-- raw HTML omitted -->
+<code>type = onedrive</code><!-- raw HTML omitted -->
+<code>region = global</code><!-- raw HTML omitted -->
+<code>token = &lt;some long token string here&gt;</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>drive_id = &lt;some long token string here&gt;</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>drive_type = personal</code><!-- raw HTML omitted -->
+<code>--------------------</code><!-- raw HTML omitted -->
+<code>y) Yes this is OK (default)</code><!-- raw HTML omitted -->
+<code>e) Edit this remote</code><!-- raw HTML omitted -->
+<code>d) Delete this remote</code><!-- raw HTML omitted -->
+<code>y/e/d&gt; y</code><!-- raw HTML omitted -->
+<code>Current remotes:</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>Name                 Type</code><!-- raw HTML omitted -->
+<code>====                 ====</code><!-- raw HTML omitted -->
+<code>remote               onedrive</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>e) Edit existing remote</code><!-- raw HTML omitted -->
+<code>n) New remote</code><!-- raw HTML omitted -->
+<code>d) Delete remote</code><!-- raw HTML omitted -->
+<code>r) Rename remote</code><!-- raw HTML omitted -->
+<code>c) Copy remote</code><!-- raw HTML omitted -->
+<code>s) Set configuration password</code><!-- raw HTML omitted -->
+<code>q) Quit config</code><!-- raw HTML omitted -->
+<code>e/n/d/r/c/s/q&gt; q</code><!-- raw HTML omitted --></p>
+</blockquote>
+<ol start="3">
+<li>Now you should be able to list the contents of the OneDrive directory on the console:</li>
+</ol>
+<blockquote>
+<p><code>$ rclone lsd remote:</code><!-- raw HTML omitted -->
+<code>          -1 2023-06-23 04:15:30         3 .Trash-1000</code><!-- raw HTML omitted -->
+<code>          -1 2023-07-23 15:21:03         1 Apps</code><!-- raw HTML omitted -->
+<code>          -1 2017-09-20 15:34:22         0 Attachments</code><!-- raw HTML omitted -->
+<code>          -1 2023-07-04 23:53:04         0 Desktop</code><!-- raw HTML omitted -->
+<code>          -1 2023-07-23 14:33:10       472 Documents</code><!-- raw HTML omitted -->
+<code>          -1 2023-07-22 02:43:07       135 Documents from Macbook</code><!-- raw HTML omitted -->
+<code>          -1 2019-11-08 21:22:23         0 Email attachments</code><!-- raw HTML omitted -->
+<code>          -1 2019-11-08 21:22:23         0 Movies</code><!-- raw HTML omitted -->
+<code>          -1 2023-07-23 03:39:57        53 Music</code><!-- raw HTML omitted -->
+<code>          -1 2023-07-02 16:34:04        37 Pictures</code><!-- raw HTML omitted -->
+<code>          -1 2022-05-24 10:39:02         2 Public</code><!-- raw HTML omitted -->
+<code>          -1 2021-08-01 13:47:30         2 SyncFusion</code><!-- raw HTML omitted -->
+<code>          -1 2023-06-20 11:41:24         4 Videos</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>If for some reason it isn&rsquo;t mounted you can mount it manually with the following command:</p>
+<blockquote>
+<p><code>$ rclone --vfs-cache-mode writes mount remote: ~/OneDrive &amp;</code><!-- raw HTML omitted -->
+<code>[2] 69267</code><!-- raw HTML omitted --></p>
+</blockquote>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/cli/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Cli</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/rclone/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Rclone</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/onedrive/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Onedrive</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/motd/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Motd</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

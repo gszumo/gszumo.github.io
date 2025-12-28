@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mount on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/mount/</link>
+    <description>Recent content in Mount on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mount/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mounting an ISO Image as a File System</title>
+      <link>http://localhost:1313/posts/mounting-an-iso-image-as-a-file-system14927/</link>
+      <pubDate>Fri, 04 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/mounting-an-iso-image-as-a-file-system14927/</guid>
+      <description>&lt;p&gt;If you need to get one or more files from an ISO image and don&amp;rsquo;t have a CD/DVD drive you can mount the ISO image to a directory and navigate to the file(s) you need using a terminal or file explorer. You&amp;rsquo;ll have to do this as &lt;em&gt;root&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# mkdir /mnt/iso&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# mount -o loop -t iso9660 /home/user/Downloads/Custom-Build/custom.iso /mnt/iso&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;mount: /mnt/iso: WARNING: source write-protected, mounted read-only.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# cd /mnt/iso/&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# ls&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;DateBuilt  System/  boot/  boot.catalog  efi.img  initrd  linux  mach_kernel  slint.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

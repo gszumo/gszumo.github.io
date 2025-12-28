@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Git Aliases | Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Once you start developing some experience with using git on the command line, you will sometimes find yourself typing some long commands over and over again. You can create aliases in git that are very similar to the bash alias shortcuts you use in the shell.
+Steps to do this are highlighted in chapter 2.7 of the Git Book authored by Scott Chacon and Ben Straub and published by Apress.
+One of the commands that I use a lot is:">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="Gregg">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/git-aliases20780/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/git-aliases20780/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Git Aliases">
+  <meta property="og:description" content="Once you start developing some experience with using git on the command line, you will sometimes find yourself typing some long commands over and over again. You can create aliases in git that are very similar to the bash alias shortcuts you use in the shell.
+Steps to do this are highlighted in chapter 2.7 of the Git Book authored by Scott Chacon and Ben Straub and published by Apress.
+One of the commands that I use a lot is:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-08-17T00:00:00+00:00">
+    <meta property="article:tag" content="Cli">
+    <meta property="article:tag" content="Git">
+    <meta property="article:tag" content="Aliases">
+    <meta property="article:tag" content="Motd">
+
+  <meta itemprop="name" content="Git Aliases">
+  <meta itemprop="description" content="Once you start developing some experience with using git on the command line, you will sometimes find yourself typing some long commands over and over again. You can create aliases in git that are very similar to the bash alias shortcuts you use in the shell.
+Steps to do this are highlighted in chapter 2.7 of the Git Book authored by Scott Chacon and Ben Straub and published by Apress.
+One of the commands that I use a lot is:">
+  <meta itemprop="datePublished" content="2023-08-17T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-08-17T00:00:00+00:00">
+  <meta itemprop="wordCount" content="438">
+  <meta itemprop="keywords" content="Cli,Git,Aliases,Motd">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Git Aliases">
+  <meta name="twitter:description" content="Once you start developing some experience with using git on the command line, you will sometimes find yourself typing some long commands over and over again. You can create aliases in git that are very similar to the bash alias shortcuts you use in the shell.
+Steps to do this are highlighted in chapter 2.7 of the Git Book authored by Scott Chacon and Ben Straub and published by Apress.
+One of the commands that I use a lot is:">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Git Aliases</h1>
+      
+      <p class="tracked"><strong>Gregg</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-08-17T00:00:00Z">August 17, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>Once you start developing some experience with using <em>git</em> on the command line, you will sometimes find yourself typing some long commands over and over again. You can create <em>aliases</em> in <em>git</em> that are very similar to the <em>bash alias</em> shortcuts you use in the shell.</p>
+<p>Steps to do this are highlighted in chapter 2.7 of the <a href="https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases">Git Book</a> authored by Scott Chacon and Ben Straub and published by Apress.</p>
+<p>One of the commands that I use a lot is:</p>
+<blockquote>
+<p><code>$ git log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>which provides a nice colorized listing of the project&rsquo;s activity and looks something like this:</p>
+<blockquote>
+<p><code>*   2f6cc07 (HEAD -&gt; automation, origin/master, origin/HEAD, master) Updated merge for README.md</code><!-- raw HTML omitted -->
+<code>|\  </code><!-- raw HTML omitted -->
+<code>| * 84e20c2 Initial commit</code><!-- raw HTML omitted -->
+<code>* 8dc456f Completed migration for github site.</code><!-- raw HTML omitted -->
+<code>* bf67601 fixed head before sed</code><!-- raw HTML omitted -->
+<code>*   89780c3 Merge pull request #124 from thalios1973/feat/pandoc-test-fix</code><!-- raw HTML omitted -->
+<code>|\  </code><!-- raw HTML omitted -->
+<code>| * c9a297c Added additional check that will allow the use of pandoc without the --strict flag or 'hsmarkdown' hack.</code><!-- raw HTML omitted -->
+<code>* |   025cf79 Merge pull request #125 from thalios1973/feat/body-end-file</code><!-- raw HTML omitted -->
+<code>|\ \  </code><!-- raw HTML omitted -->
+<code>| |/  </code><!-- raw HTML omitted -->
+<code>|/|   </code><!-- raw HTML omitted -->
+<code>| * 272b1b6 Added ability to include custom code just before the &lt;/body&gt; tag. body_end_file global config variable added.</code><!-- raw HTML omitted -->
+<code>|/  </code><!-- raw HTML omitted -->
+<code>* 9f66ad0 README formatting</code><!-- raw HTML omitted -->
+<code>* 500253e Support for static, not managed by bashblog html files. Close #92</code><!-- raw HTML omitted -->
+<code>* 3c73ef6 Deleted the now defunct Twitter JSON API for share count. Fix #117</code><!-- raw HTML omitted -->
+<code>* b5a4590 bump version to 2.8</code><!-- raw HTML omitted -->
+<code>* 5c8e0e5 Revert changes in #116</code><!-- raw HTML omitted -->
+<code>*   5fc037f Merge branch 'master' of github.com:cfenollosa/bashblog</code><!-- raw HTML omitted -->
+<code>|\  </code><!-- raw HTML omitted -->
+<code>| * c6a9bef Revert tag management from #116</code><!-- raw HTML omitted -->
+<code>| * 6222672 Better error message for $EDITOR. Close #112</code><!-- raw HTML omitted -->
+<code>| * 36d79b5 support Markdown.pl in bashblog folder. Close #113</code><!-- raw HTML omitted -->
+<code>| *   7154c07 Merge pull request #116 from McDutchie/master</code><!-- raw HTML omitted -->
+<code>| |\  </code><!-- raw HTML omitted -->
+<code>| | * f50a17c tags_in_post(): bugfix for non-GNU 'sed'</code><!-- raw HTML omitted -->
+<code>| | * 2a29b22 Fix renaming using 'bb.sh edit -n'. Suppress 'which' errmsg.</code><!-- raw HTML omitted -->
+<code>| | *   62a26bb Merge remote-tracking branch 'upstream/master' Resolve minor editing 2.6-to-2.7 editing conflict in bb.sh</code><!-- raw HTML omitted -->
+<code>| | |\  </code><!-- raw HTML omitted -->
+<code>| | * | 54cc0c8 More code refactoring. Limit word splitting and disable globbing by default.</code><!-- raw HTML omitted -->
+<code>| | * |   d1a84d6 Merge remote-tracking branch 'upstream/master'</code><!-- raw HTML omitted -->
+<code>| | |\ \  </code><!-- raw HTML omitted -->
+<code>| | * | | a674ec5 rebuild_tags(): use array for more robust file handling</code><!-- raw HTML omitted -->
+<code>| * | | | 2157b92 Slavic language support, thanks to Tomasz Jadowski</code><!-- raw HTML omitted -->
+<code>| | |_|/  </code><!-- raw HTML omitted -->
+<code>| |/| |   </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>but nicer than this website can depict (for now).</p>
+<p>Rather than typing this long command every time, I just create an alias:</p>
+<blockquote>
+<p><code>$ git config --global alias.lola 'log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local'</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Then all I need to type from now on is:</p>
+<blockquote>
+<p><code>$ git lola</code><!-- raw HTML omitted --></p>
+</blockquote>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/cli/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Cli</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/git/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Git</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/aliases/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Aliases</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/motd/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Motd</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

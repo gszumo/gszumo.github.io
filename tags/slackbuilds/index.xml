@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Slackbuilds on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/slackbuilds/</link>
+    <description>Recent content in Slackbuilds on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/slackbuilds/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SlackBuilds: Where Are They Located?</title>
+      <link>http://localhost:1313/posts/slackbuilds-where-are-they-located/</link>
+      <pubDate>Tue, 29 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/slackbuilds-where-are-they-located/</guid>
+      <description>&lt;p&gt;You should find a file in &lt;code&gt;/var/log/packages&lt;/code&gt; for each &lt;em&gt;SlackBuild&lt;/em&gt; that you have installed. You can distinguish the &lt;em&gt;SlackBuilds&lt;/em&gt; package from standard Slackware packages by the substring &lt;em&gt;SBo&lt;/em&gt; embedded in the filename. So you can create a list of all of the &lt;em&gt;SlackBuilds&lt;/em&gt; installed on your machine by just doing an &lt;code&gt;ls *SBo*&lt;/code&gt; in that directory.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;ls /var/log/packages | grep SBo&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;or&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;ls /var/log/packages/*SBo&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Installing and Using sbotools in Slackware 15.0</title>
+      <link>http://localhost:1313/posts/installing-and-using-sbotools-in-slackware-150/</link>
+      <pubDate>Tue, 08 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/installing-and-using-sbotools-in-slackware-150/</guid>
+      <description>&lt;p&gt;Slackware was the first Linux distribution that I ever used but I was always curious and did a lot of distro-hopping from Slackware, Caldera, Turbo Linux, Mandrake, Red Hat, Ubuntu, multiple Ubuntu derivatives, then Fedora for quite a while until I finally settled on…(drum roll please)…Slackware! Yeah, I’ve come full circle.&lt;/p&gt;&#xA;&lt;p&gt;One of the reasons why I was doing so much hopping around is that I was never really happy with something about the distribution that I was currently using. Maybe it was the default colors (Ubuntu, come on with all of that orange stuff), choice of default software, difficulty with setting it up. Whatever. With Slackware it was always the (lack of) a decent package management system. That is until I found “sbotools”.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

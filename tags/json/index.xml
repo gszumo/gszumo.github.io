@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Json on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/json/</link>
+    <description>Recent content in Json on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/json/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Parsing Bitwarden CLI</title>
+      <link>http://localhost:1313/posts/parsing-bitwarden-cli4247/</link>
+      <pubDate>Thu, 15 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/parsing-bitwarden-cli4247/</guid>
+      <description>&lt;p&gt;If you use the excellent Bitwarden app for you password storage you may not be aware that they also have a command line version on Linux. It outputs data using the JSON format. You can install the &lt;code&gt;jq&lt;/code&gt; JSON parser and pipe the output of the CLI&amp;rsquo;s query to it in order to extract the username and password for a specific site in your search:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ bw list items --search accounts.google.com | jq &#39;.[] | .login.uris[].uri,.login.username,.login.password&#39;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;https://accounts.google.com&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;john.doe@gmail.com&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;** password1 **&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;https://accounts.google.com&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;jdoe@gmail.com&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;&amp;quot;** password2 **&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

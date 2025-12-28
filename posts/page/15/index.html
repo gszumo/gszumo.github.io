@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/posts/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/posts/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Posts">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Posts">
+  <meta itemprop="datePublished" content="2023-09-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-28T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Posts">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/copy-entire-directory-structure-using-tar3546/" class="link black dim">
+        Copy Entire Directory Structure Using Tar
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Sometimes you need to copy an entire directory structure to another location on the command line. Here is a quick way to do it using the tar command:</p>
+<p><!-- raw HTML omitted --> tar cf - * | ( cd /target; tar xfp -) <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/copy-entire-directory-structure-using-tar3546/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/fixing-screen-resolution-on-second-monitor-in-linux4621/" class="link black dim">
+        Fixing Screen Resolution on Second Monitor in Linux
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>I recently installed a 2nd hard drive in my Macbook Pro dedicated to Linux. When I hooked up a secondary monitor to it I found that I could not get a reasonable resolution. After some research I found that I can add a new mode to the &ldquo;Display&rdquo; choices by entering the following in a terminal console:</p>
+<p><!-- raw HTML omitted --> xrandr <!-- raw HTML omitted --> # to find the device name <!-- raw HTML omitted -->
+<!-- raw HTML omitted --> cvt 1920 1080 <!-- raw HTML omitted --> # to generate the mode for the xrandr program. <!-- raw HTML omitted -->
+<!-- raw HTML omitted --> xrandr &ndash;newmode &ldquo;1920x1080_60.00&rdquo; 173.00 1920 2048 2248 2576 1080 1083 1088 1120 -hsync +vsync <!-- raw HTML omitted --> # to add the new mode to the monitor choices. <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->xrandr &ndash;addmode DP1 1920x1080_60.00 <!-- raw HTML omitted --> # to associate the new mode to the monitor.   <!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/fixing-screen-resolution-on-second-monitor-in-linux4621/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/sort-directory-by-file-size1118/" class="link black dim">
+        Sort Directory by File Size
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>To sort files in a directory and to list them by the biggest file first:<!-- raw HTML omitted --></p>
+<pre tabindex="0"><code>$ du -a | sort -n -r | more
+</code></pre><p><!-- raw HTML omitted -->Alternatively you can use:<!-- raw HTML omitted --></p>
+<pre tabindex="0"><code>$ du -s * | sort -n -r | more
+</code></pre><!-- raw HTML omitted -->
+    </div>
+    <a href="/posts/sort-directory-by-file-size1118/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/count-occurences-of-a-character-in-a-string32529/" class="link black dim">
+        Count Occurences of a Character in a String
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Sometimes I need to know how many times a specific character occurs in a string. The best tool to use for something like that is AWK. Let&rsquo;s say we&rsquo;re looking for the count of commas in a string:
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->string=&ldquo;text,text,text,text&rdquo; <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->char=&quot;,&quot; <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->echo &ldquo;${string}&rdquo; | awk -F&quot;${char}&quot; &lsquo;{print NF-1}&rsquo; <!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/count-occurences-of-a-character-in-a-string32529/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/talkin-trash19647/" class="link black dim">
+        Talkin&#39; Trash
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Having trouble getting the &ldquo;Empty Trash&rdquo; working in Thunar? Remove <code>&quot;~/.config/xfce4/xfconf/xfce-perchannel-xml/thunar*&quot;</code>.</p>
+    </div>
+    <a href="/posts/talkin-trash19647/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/uptime-statistics-for-windows/" class="link black dim">
+        Uptime Statistics for Windows
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>To find the uptime for a Windows machine do</p>
+<pre tabindex="0"><code>C:&gt; net statistics server 
+</code></pre>
+    </div>
+    <a href="/posts/uptime-statistics-for-windows/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/alternative-to-using-cp/" class="link black dim">
+        Alternative to Using cp
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>To backup files from a source directory to a backup directory:</p>
+<pre tabindex="0"><code>$ mkdir /path/to/backup/directory
+$ cd $HOME/source/directory
+$ tar cf - . | (cd /path/to/backup/directory &amp;&amp; tar xBvf -)
+</code></pre><p>Define the following alias:</p>
+<pre tabindex="0"><code>tar cvf - . | ( cd \!* ; tar xvf - )
+</code></pre><p>or as an alias:</p>
+<pre tabindex="0"><code>alias cpbytar=&#39;tar cvf - . | ( cd \!* ; tar xvf - )&#39;
+</code></pre><p>(The alias definition above is for Bash)</p>
+<p>To do a recursive copy of a directory to another location, preserving the PERMISSIONS and OWNERSHIP of the files.  &ldquo;cd&rdquo; to the source location and invoke the following alias:</p>
+    </div>
+    <a href="/posts/alternative-to-using-cp/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/git-tips/" class="link black dim">
+        git Tips
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>A useful tip to beautify your output is to use:</p>
+<pre tabindex="0"><code>$ git log --graph --decorate --oneline --abbrev-commit --all --date=local
+</code></pre><p>when looking at your log entries.
+Or you can add</p>
+<pre tabindex="0"><code>[alias]
+</code></pre><pre tabindex="0"><code>   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
+</code></pre><p>to your ~/.gitconfig file to use <code>$ git lola</code> as an alias.</p>
+    </div>
+    <a href="/posts/git-tips/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/posts/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/14/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/11/" aria-label="Page 11" class="page-link" role="button">11</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/12/" aria-label="Page 12" class="page-link" role="button">12</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/13/" aria-label="Page 13" class="page-link" role="button">13</a>
+      </li>
+      <li class="page-item">
+        <a href="/posts/page/14/" aria-label="Page 14" class="page-link" role="button">14</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 15" class="page-link" role="button">15</a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

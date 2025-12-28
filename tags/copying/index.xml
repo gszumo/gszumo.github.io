@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Copying on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/copying/</link>
+    <description>Recent content in Copying on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 22 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/copying/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Copying a Directory Tree Recursively Using tar</title>
+      <link>http://localhost:1313/posts/copying-a-directory-tree-recursively-using-tar/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/copying-a-directory-tree-recursively-using-tar/</guid>
+      <description>&lt;p&gt;You can use &lt;code&gt;tar&lt;/code&gt; to copy a directory tree to another directory in &lt;em&gt;one shot&lt;/em&gt; along with preserving ownership, permissions and timestamps. This also avoids making an intermediary &lt;em&gt;tarfile&lt;/em&gt; which may cause problems if the size of the file copy is large and the storage resources are low. Just &lt;code&gt;cd&lt;/code&gt; to the top of the directory that you want to copy and begin.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s assume that you want to copy the contents of the &lt;em&gt;source&lt;/em&gt; directory to a &lt;em&gt;target&lt;/em&gt; directory:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

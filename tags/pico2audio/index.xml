@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pico2audio on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/pico2audio/</link>
+    <description>Recent content in Pico2audio on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/pico2audio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install svox Package on Slackware 15.0 for Better Text-to-Speech</title>
+      <link>http://localhost:1313/posts/install-svox-package-on-slackware-150-for-better-text-to-speech/</link>
+      <pubDate>Mon, 12 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-svox-package-on-slackware-150-for-better-text-to-speech/</guid>
+      <description>&lt;p&gt;I was having issues finding a good voice synthesis for Foliate to read my books to me. I have always had issues with the sound of the &lt;code&gt;espeak&lt;/code&gt; and &lt;code&gt;espeak-ng&lt;/code&gt; voices. So I was searching for an alternative. I couldn&amp;rsquo;t find a way to build &lt;code&gt;festival&lt;/code&gt; on Slackware (yet) but while searching around found a package called &lt;code&gt;svox&lt;/code&gt; that had a SlackBuild so I thought I&amp;rsquo;d give it a try.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

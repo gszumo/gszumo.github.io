@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/motd/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/tags/motd/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/motd/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/motd/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Motd">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Motd">
+  <meta itemprop="datePublished" content="2023-09-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-28T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Motd">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Motd
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/using-rsync-to-sync-two-directories17585/" class="link black dim">
+        Using rsync to Sync Two Directories
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>You can sync two directories using <em>rsync</em> tool. The following command:</p>
+<blockquote>
+<p><code>$ rsync -a -v --delete sending_directory target_directory;</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>will copy <em>sending_directory</em> to <em>target_directory</em> creating a directory structure of <em>sending_directory/target_directory</em>. The <code>--delete</code> flag will ensure that any files that were previously in <em>sending_directory/target_directory</em> that are not in <em>sending_directory</em> will be deleted so that the contents of the two directories are the same.</p>
+    </div>
+    <a href="/posts/using-rsync-to-sync-two-directories17585/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/move-files-older-than-so-many-days-with-find/" class="link black dim">
+        Move Files Older Than So Many Days with Find
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>You may want to clean up a directory that has files older than a certain number of days, for example, 30 days. You can do this with the <em>find</em> command:</p>
+<p>To move files older than 30 days in current folder to the <em>old</em> folder:</p>
+<blockquote>
+<p><code>$ find . -mtime +30 -exec mv {} old/ \;</code><!-- raw HTML omitted --></p>
+</blockquote>
+    </div>
+    <a href="/posts/move-files-older-than-so-many-days-with-find/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/build-tag-and-push-a-docker-image-with-one-command/" class="link black dim">
+        Build, Tag, and Push a Docker Image with One Command
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>You can build, tag, and push a docker image to a remote all in one command with the &ndash;quiet parameter on docker build, which only outputs the SHA256 hash (annoyingly prefixed with SHA256:, but nothing a little cutting can’t fix).</p>
+<blockquote>
+<p><code>$ docker tag $(docker build . -q | cut -c 8-999) myregid/imagename:1.0.1 &amp;&amp; docker push myregid/imagename </code><!-- raw HTML omitted --></p>
+</blockquote>
+    </div>
+    <a href="/posts/build-tag-and-push-a-docker-image-with-one-command/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/vim-tips-searching-a-file-for-multiple-strings/" class="link black dim">
+        Vim Tips: Searching a File for Multiple Strings
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>In Vim you can perform a search like this: /string1/;/string2</p>
+<p>This will will combine two searches. It tells Vim:</p>
+<ol>
+<li>Search for string1, then</li>
+<li>From there search for string2 on any line that also contains string1.</li>
+</ol>
+    </div>
+    <a href="/posts/vim-tips-searching-a-file-for-multiple-strings/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/using-rclone-to-mount-your-onedrive-folder-in-linux4329/" class="link black dim">
+        Using RClone to Mount Your OneDrive Folder in Linux
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you have a Microsoft Office 365 account you know that it comes with 1TB of storage. You can use <em>RClone</em> to mount your <em>OneDrive</em> locally on your Linux machine so that you can read and write documents stored there.</p>
+<ol>
+<li>Install <em>rclone</em> from whatever package repository that your Linux operating system uses.</li>
+<li>Follow the instructions <a href="https://rclone.org/onedrive/">here</a> to configure your <em>OneDrive</em> environment.
+The instructions are rather straightforward and a couple pieces of extra advice follows:</li>
+</ol>
+<p>In the first section, type <code>n</code> for a <em>new</em> installation and give your mountpoint a name:</p>
+    </div>
+    <a href="/posts/using-rclone-to-mount-your-onedrive-folder-in-linux4329/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/how-to-find-the-ip-addresses-of-virtual-machines-from-the-command/" class="link black dim">
+        Find the IP Addresses of KVM Virtual Machines (Command Line)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>To find details about the virtual network you can use these commands:</p>
+<blockquote>
+<p><code>root@slacker:~# virsh net-list</code><!-- raw HTML omitted -->
+<code> Name      State    Autostart   Persistent</code><!-- raw HTML omitted -->
+<code>--------------------------------------------</code><!-- raw HTML omitted -->
+<code> default   active   yes         yes</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>root@slacker:~# virsh net-info default</code><!-- raw HTML omitted -->
+<code>Name:           default</code><!-- raw HTML omitted -->
+<code>UUID:           14a90f27-9a85-42ca-b434-6ce6c142690c</code><!-- raw HTML omitted -->
+<code>Active:         yes</code><!-- raw HTML omitted -->
+<code>Persistent:     yes</code><!-- raw HTML omitted -->
+<code>Autostart:      yes</code><!-- raw HTML omitted -->
+<code>Bridge:         virbr0</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>root@slacker:~# virsh net-dhcp-leases default</code><!-- raw HTML omitted -->
+<code> Expiry Time           MAC address         Protocol   IP address           Hostname      Client ID or DUID</code><!-- raw HTML omitted -->
+<code>------------------------------------------------------------------------------------------------------------</code><!-- raw HTML omitted -->
+<code> 2023-07-22 16:18:45   52:54:00:dd:7b:62   ipv4       192.168.122.216/24   centos7-bbk   -</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/how-to-find-the-ip-addresses-of-virtual-machines-from-the-command/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/ssh-escape-sequences24826/" class="link black dim">
+        SSH Escape Sequences
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Have you ever had an SSH connection timeout on you and you&rsquo;re left with what looks like a locked session. Repeatedly hitting the <em>Enter</em> key does nothing. It seems that there is nothing that you can do except close the console terminal session&hellip;or is there something else?</p>
+<p>Many people are not aware that SSH has its own set of keyboard shortcuts. The solution to the above problem is to terminate the connection using the first of these shortcuts.</p>
+    </div>
+    <a href="/posts/ssh-escape-sequences24826/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/view-lshw-output-as-a-html-page/" class="link black dim">
+        View lshw Output as a HTML Page
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>You can use the <em>lshw</em> command to output your hardware configuration to an <em>html</em> file by passing the <em>-html</em> parameter to it:</p>
+<blockquote>
+<p><code>$ sudo lshw -html &gt;hardware.html</code><!-- raw HTML omitted --></p>
+</blockquote>
+    </div>
+    <a href="/posts/view-lshw-output-as-a-html-page/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/list-tcp-connections-sorted-by-host-and-most-connections/" class="link black dim">
+        List TCP Connections Sorted By Host and Most Connections
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Assuming your system still has <em>netstat</em> installed (Slackware 15.0 does :^), you can summarize the TCP connections on you host using the following command:</p>
+<blockquote>
+<p><code>$ netstat -ntu|awk '{print $5}'|cut -d: -f1 -s|sort|uniq -c|sort -nk1 -r</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>      3 52.50.230.xxx</code><!-- raw HTML omitted -->
+<code>      3 104.18.27.xxx</code><!-- raw HTML omitted -->
+<code>      3 104.18.26.xxx</code><!-- raw HTML omitted -->
+<code>      2 205.166.94.xx</code><!-- raw HTML omitted -->
+<code>      2 192.168.1.xx</code><!-- raw HTML omitted -->
+<code>      2 142.251.40.xxx</code><!-- raw HTML omitted -->
+<code>      2 104.18.13.xx</code><!-- raw HTML omitted -->
+<code>      1 74.120.9.xxx</code><!-- raw HTML omitted -->
+<code>      1 66.255.245.xxx</code><!-- raw HTML omitted -->
+<code>      1 54.154.65.xxx</code><!-- raw HTML omitted -->
+<code>      1 52.96.182.xxx</code><!-- raw HTML omitted -->
+<code>      1 45.56.116.xxx</code><!-- raw HTML omitted -->
+<code>      1 45.33.73.xxx</code><!-- raw HTML omitted -->
+<code>      1 34.117.65.xx</code><!-- raw HTML omitted -->
+<code>      1 20.190.135.xx</code><!-- raw HTML omitted -->
+<code>      1 192.168.122.xxx</code><!-- raw HTML omitted -->
+<code>      1 192.168.1.xx</code><!-- raw HTML omitted -->
+<code>      1 172.253.63.xxx</code><!-- raw HTML omitted -->
+<code>      1 162.159.61.x</code><!-- raw HTML omitted -->
+<code>      1 162.125.21.x</code><!-- raw HTML omitted -->
+<code>      1 142.251.40.xxx</code><!-- raw HTML omitted -->
+<code>      1 142.251.32.xxx</code><!-- raw HTML omitted -->
+<code>      1 142.251.16.xxx</code><!-- raw HTML omitted -->
+<code>      1 127.0.0.x</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/list-tcp-connections-sorted-by-host-and-most-connections/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/test-if-a-port-is-open-with-bash/" class="link black dim">
+        Test If a Port is Open with Bash
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If netcat isn&rsquo;t available on your machine and you don&rsquo;t have the priviledge to install it you can use this trick to test if a port is open or not. It will throw a connection refused message if a port is closed.</p>
+<blockquote>
+<p><code>$ : &lt;/dev/tcp/127.0.0.1/80</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>And you can use it in a script like this:</p>
+<blockquote>
+<p><code>(: &lt;/dev/tcp/127.0.0.1/80) &amp;&gt;/dev/null &amp;&amp; echo &quot;OPEN&quot; || echo &quot;CLOSED&quot;</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/test-if-a-port-is-open-with-bash/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/tags/motd/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/6/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/6/" aria-label="Page 6" class="page-link" role="button">6</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 7" class="page-link" role="button">7</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/8/" aria-label="Page 8" class="page-link" role="button">8</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/9/" aria-label="Page 9" class="page-link" role="button">9</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/8/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/15/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

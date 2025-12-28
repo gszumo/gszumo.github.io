@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/sysadmin/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/tags/sysadmin/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/sysadmin/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/sysadmin/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Sysadmin">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Sysadmin">
+  <meta itemprop="datePublished" content="2023-09-16T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-16T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sysadmin">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Sysadmin
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/log-file-maintenance-and-cleanup/" class="link black dim">
+        Log File Maintenance and Cleanup
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Log files sometimes take up a lot of disk space. Some applications have internal processes that run periodically to manage them and some do not. Often, this becomes a problems after a while as the logs consume all of your partition space.</p>
+<p>You can manage these files yourself with a simple script running in a <em>cronjob</em> (or systemd timers if you&rsquo;re so inclined) if they have a common naming convention and you have the proper access.</p>
+    </div>
+    <a href="/posts/log-file-maintenance-and-cleanup/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/how-to-clean-up-the-fedora-root-folder/" class="link black dim">
+        How to Clean Up the Fedora Root Folder
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>OK, so you&rsquo;re running <em>Fedora</em> and you&rsquo;re getting warnings that you&rsquo;re running out of disk space on the <em>root</em> folder. What are your options?</p>
+<p>The first thing to consider is <em>resizing</em> the root partition size. For that you can find instructions <a href="https://gist.github.com/181192/cf7eb42a25538ccdb8d0bb7dd57cf236">here</a></p>
+<p>If that is not an option, then the next thing you probably should do is find out which folders/directories are causing the issue. You can use the <code>du</code> command and some piping to figure this out:</p>
+    </div>
+    <a href="/posts/how-to-clean-up-the-fedora-root-folder/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/how-to-change-the-uid-or-gid-for-a-user-or-group/" class="link black dim">
+        How to Change the UID or GID for a User or Group
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Let&rsquo;s assume we have a user, Jane Doe, with the username of jdoe and the <em>UID</em> of 1001 who we need to move to another <em>UID</em> (for some reason or another).</p>
+<p>First, change the <em>UID</em> of the user:</p>
+<blockquote>
+<p><code># usermod -u 3001 jdoe </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Next, use search and change all file’s ownership owned by this user:</p>
+<blockquote>
+<p><code># find / -user 1001 -exec chown -h jdoe {} \; </code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/how-to-change-the-uid-or-gid-for-a-user-or-group/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/how-to-enable-the-administrator-account-in-windows19625/" class="link black dim">
+        How to Enable the Administrator Account in Windows
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>To activate the Administrator account on Windows, open the Command Prompt as Administrator from the Start Menu, or you can right-click on the &ldquo;Start&rdquo; menu and select the &ldquo;Powershell&rdquo; menu item, then enter:</p>
+<pre tabindex="0"><code>net user administrator /active: yes
+</code></pre><p>into the window. You should disable the account again when you&rsquo;re done.</p>
+    </div>
+    <a href="/posts/how-to-enable-the-administrator-account-in-windows19625/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

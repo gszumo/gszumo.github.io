@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Parted on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/parted/</link>
+    <description>Recent content in Parted on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/parted/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Format Disk using exFat on Command Line</title>
+      <link>http://localhost:1313/posts/format-disk-using-exfat-on-command-line32603/</link>
+      <pubDate>Thu, 14 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/format-disk-using-exfat-on-command-line32603/</guid>
+      <description>&lt;p&gt;You may not always be working on a Linux system using a GUI, like a server or a system with very low resources. Sometimes you may need to format a disk to exFat using the Command Line. It&amp;rsquo;s not really that difficult.&lt;/p&gt;&#xA;&lt;p&gt;The first thing you need to do is to know which device is to be formatted so before you connect the disk or USB make sure you run the &lt;code&gt;lsblk&lt;/code&gt; command before and after doing so. This way you will be certain not to format the wrong disk by mistake and cause a data loss.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Openssl on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/openssl/</link>
+    <description>Recent content in Openssl on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/openssl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Extracting Client Certificates</title>
+      <link>http://localhost:1313/posts/extracting-client-certificates237/</link>
+      <pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/extracting-client-certificates237/</guid>
+      <description>&lt;p&gt;You can display all of the server&amp;rsquo;s certificates using the following command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ openssl s_client -showcerts server.name:port | sed -n &#39;/-----BEGIN CERTIFICATE-----/,/-----END CERTIFICATE-----/p&#39;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This output can be piped or copy/pasted to a text file (only keep the parts between the &lt;em&gt;BEGIN&lt;/em&gt; and &lt;em&gt;END CERTIFICATE&lt;/em&gt; sections) and give it a &lt;code&gt;.crt&lt;/code&gt; file extension. You can then use it as input to whatever client app needs it.&lt;/p&gt;&#xA;&lt;p&gt;In the below example we pipe the &lt;code&gt;openssl&lt;/code&gt; output to &lt;code&gt;grep&lt;/code&gt; to remove the identifiers of the certificates. You may not get your &lt;em&gt;prompt&lt;/em&gt; back until the command times out, so you should wait a bit and after a bit you should get something similar to the following output:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Encrypting Files using OpenSSL</title>
+      <link>http://localhost:1313/posts/encrypting-files-using-openssl23222/</link>
+      <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/encrypting-files-using-openssl23222/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s say we have a file that contains sensitive information and we want to encyrpt it. You can encrypt a file very easily using the &lt;code&gt;openssl&lt;/code&gt; command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ cat secret.txt &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;This file contains some very secret stuff&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ openssl enc -e -aes-256-cbc -pbkdf2 -a -salt -in secret.txt -out secret.enc&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;enter aes-256-cbc encryption password: &amp;lt;enter-a-password&amp;gt;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt; Verifying - enter aes-256-cbc encryption password:  &amp;lt;enter-a-password&amp;gt;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ cat secret.enc &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;U2FsdGVkX19Rnz48WjLeljd19wvNOhQy+zzYwxCANezCTkqpGMl9zs4HdwdUzZjl&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;VQkUsCJ7b0rUpRi83UlcwA==&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Finding the SSL Directory on a Server</title>
+      <link>http://localhost:1313/posts/finding-the-ssl-directory-on-a-server32368/</link>
+      <pubDate>Mon, 21 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/finding-the-ssl-directory-on-a-server32368/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve had situations where I was configuring a secure connection to an application and needed to know where the SSL certificates are stored on the server. You can easily find out this information using the &lt;code&gt;openssl&lt;/code&gt; and &lt;code&gt;grep&lt;/code&gt; commands:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ openssl version -a | grep OPENSSLDIR&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;OPENSSLDIR: &amp;quot;/etc/pki/tls&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+  </channel>
+</rss>

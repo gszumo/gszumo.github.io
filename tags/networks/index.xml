@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Networks on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/networks/</link>
+    <description>Recent content in Networks on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/networks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IP Address Blocks</title>
+      <link>http://localhost:1313/posts/ip-address-blocks26740/</link>
+      <pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ip-address-blocks26740/</guid>
+      <description>&lt;p&gt;There are 4 classes of IPv4 networks:&lt;/p&gt;&#xA;&lt;p&gt;A &lt;em&gt;Class A network&lt;/em&gt; can have 16,777,214 computers on it. It has an IP address that starts with a number in the range 0 to 126. 127 is reserved for the local loopback. (Only 127.0.0.1 is ever used although this may change in the future).&lt;/p&gt;&#xA;&lt;p&gt;A &lt;em&gt;Class B&lt;/em&gt; network can have 65,534 computers on it. It has an IP address that starts in the range of 128 to 191.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Broadcom on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/broadcom/</link>
+    <description>Recent content in Broadcom on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 31 May 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/broadcom/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Update Slackware Broadcom Driver</title>
+      <link>http://localhost:1313/posts/update-slackware-broadcom-driver27466/</link>
+      <pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/update-slackware-broadcom-driver27466/</guid>
+      <description>&lt;p&gt;It doesn&amp;rsquo;t happen often, but whenever there&amp;rsquo;s a new kernel package for Slackware on my laptop I need to update the Broadcom driver. To do this:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Update your OS, as usual.&lt;/li&gt;&#xA;&lt;li&gt;Reboot&lt;/li&gt;&#xA;&lt;li&gt;Plug in the ethernet cable, if necessary&lt;/li&gt;&#xA;&lt;li&gt;Login as root&lt;/li&gt;&#xA;&lt;li&gt;Perform sbopkg -i broadcom-sta&lt;/li&gt;&#xA;&lt;li&gt;Done&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;You can read more about it on the Slackware wiki &lt;a href=&#34;https://www.slackwiki.com/Broadcom_Wireless&#34;&gt;here&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

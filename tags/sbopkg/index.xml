@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sbopkg on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/sbopkg/</link>
+    <description>Recent content in Sbopkg on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 23 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/sbopkg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install sbopkg on Slackware</title>
+      <link>http://localhost:1313/posts/install-sbopkg-on-slackware2055/</link>
+      <pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-sbopkg-on-slackware2055/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Sbopkg&lt;/em&gt; is a command‐line and dialog‐based tool to interact with the SlackBuilds.org repository, a collection of third‐party SlackBuild scripts to build Slackware packages.&lt;/p&gt;&#xA;&lt;p&gt;Here are the steps for installing the latest version of &lt;em&gt;sbopkg&lt;/em&gt; with Slackware.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Download the latest Slackware package from &lt;code&gt;https://www.sbopkg.org/downloads.php&lt;/code&gt; using whatever method you find most convenient. At the time of this writing the latest version is &lt;code&gt;https://github.com/sbopkg/sbopkg/releases/download/0.38.2/sbopkg-0.38.2-noarch-1_wsr.tgz&lt;/code&gt;. I will use that version in the commands below. If the version has changed, you would use the new filename in the commands. You can also use &lt;code&gt;wget &amp;lt;packagename&amp;gt;&lt;/code&gt; to download it directly.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

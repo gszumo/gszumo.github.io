@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/cli/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/tags/cli/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/cli/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/cli/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Cli">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Cli">
+  <meta itemprop="datePublished" content="2023-09-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-28T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cli">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Cli
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/how-to-list-installed-packages-in-fedora-rhel-centos/" class="link black dim">
+        How to List Installed Packages in Fedora, RHEL, CentOS
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Listing installed packages with YUM:</p>
+<blockquote>
+<p><code>$ sudo yum list installed</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>To display details about a package:</p>
+<blockquote>
+<p><code>$ yum info nginx</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>You can cat all installed packages to a file, copy the file to another machine and duplicate the system:</p>
+<blockquote>
+<p><code>$ sudo yum list installed &gt; installed-packages.txt</code><!-- raw HTML omitted -->
+<code>$ sudo yum -y install $(cat installed-packages.txt)</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>List installed packages with RPM:</p>
+    </div>
+    <a href="/posts/how-to-list-installed-packages-in-fedora-rhel-centos/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/git-deleting-multiple-commits24780/" class="link black dim">
+        Git: Deleting Multiple Commits
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Let&rsquo;s say that you want to delete the last 3 commits that you&rsquo;ve already pushed to the remote repository. In this example, you want <code>566dab6</code> to be the new HEAD revision.</p>
+<blockquote>
+<p><code>$ git log --pretty=oneline --abbrev-commit</code><!-- raw HTML omitted -->
+<code>57bc36b (HEAD -&gt; master, origin/master, origin/HEAD) 3nd set of bad entries on 6th commit</code><!-- raw HTML omitted -->
+<code>dfb4bd3 2nd set of bad entries on 5th commit</code><!-- raw HTML omitted -->
+<code>0fd1e16 First set of bad entries on 4th commit</code><!-- raw HTML omitted -->
+<code>566dab6 Yet more good entries on third commit</code><!-- raw HTML omitted -->
+<code>d50370a More good entries on second commit</code><!-- raw HTML omitted -->
+<code>b5fbc6d Good entries on first commit</code><!-- raw HTML omitted -->
+<code>2cad4c7 Initial commit</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/git-deleting-multiple-commits24780/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/deleting-blank-lines-using-grep16496/" class="link black dim">
+        Deleting Blank Lines Using Grep
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you have a file (or a stream) that has blank lines you want to remove, you can use this command:</p>
+<blockquote>
+<p><code>$ grep -v &quot;^ *$&quot; file-with-blanks.txt &gt; output-file.txt</code></p>
+</blockquote>
+<p>where <code>file-with-blanks.txt</code> is the input file and has blank lines and <code>output-file.txt</code> will
+be the output file without the blank lines.</p>
+<p>You have to keep the <code>space</code> between the <code>^</code> and the <code>*$</code> otherwise blank lines which include
+spaces will not be removed.</p>
+    </div>
+    <a href="/posts/deleting-blank-lines-using-grep16496/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/convert-webm-to-mp429535/" class="link black dim">
+        Convert webm to mp4
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>You can use ffmpeg to convert webm to mp4 on the command line very easily:</p>
+<blockquote>
+<p><code>$ ffmpeg -i file.webm -c copy file.mp4</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>This will stream copy (re-mux) and avoid re-encoding.</p>
+    </div>
+    <a href="/posts/convert-webm-to-mp429535/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/parsing-bitwarden-cli4247/" class="link black dim">
+        Parsing Bitwarden CLI
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you use the excellent Bitwarden app for you password storage you may not be aware that they also have a command line version on Linux. It outputs data using the JSON format. You can install the <code>jq</code> JSON parser and pipe the output of the CLI&rsquo;s query to it in order to extract the username and password for a specific site in your search:</p>
+<blockquote>
+<p><code>$ bw list items --search accounts.google.com | jq '.[] | .login.uris[].uri,.login.username,.login.password'</code><!-- raw HTML omitted -->
+<code>&quot;https://accounts.google.com&quot;</code><!-- raw HTML omitted -->
+<code>&quot;john.doe@gmail.com&quot;</code><!-- raw HTML omitted -->
+<code>&quot;** password1 **&quot;</code><!-- raw HTML omitted -->
+<code>&quot;https://accounts.google.com&quot;</code><!-- raw HTML omitted -->
+<code>&quot;jdoe@gmail.com&quot;</code><!-- raw HTML omitted -->
+<code>&quot;** password2 **&quot;</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/parsing-bitwarden-cli4247/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/export-virtualbox-vdi-using-cli1819/" class="link black dim">
+        Export VirtualBox VDI using CLI
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Sometimes you may want to move a virtual machine in VirtualBox from one server to another. Once way of doing that is to export it from the command line.</p>
+<ol>
+<li>Locate the virtual machine that you want to export (I&rsquo;ll use the name UbuntuServer for the one to be exported and name the new one UbuntuServerNew), and then</li>
+<li>Run the export command as follows:</li>
+</ol>
+<blockquote>
+<p><code>$ vboxmanage export UbuntuServer -o UbuntuServerNew.ova</code></p>
+</blockquote>
+    </div>
+    <a href="/posts/export-virtualbox-vdi-using-cli1819/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/rename-files-downloaded-using-youtube-dl10234/" class="link black dim">
+        Rename Files Downloaded Using youtube-dl
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you have used <code>youtube-dl</code> to download content from YouTube then you know that the file names can get to be rather long. In addition to the video&rsquo;s title there is a dash followed by what appears to be a random sequence of characters just before the file extension. If you find this to be annoying then here is a code snippet that you can use to remove it.</p>
+<p>This will remove the last field separated by a &lsquo;-&rsquo; and replace it with the file extension of your choice, .mp4 is used in this example:</p>
+    </div>
+    <a href="/posts/rename-files-downloaded-using-youtube-dl10234/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/sending-email-from-the-command-line-with-mutt27176/" class="link black dim">
+        Sending Email from the Command Line with mutt
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you prefer using <code>mutt</code> as your command line email tool, then here are a couple of examples of using <code>mutt</code> to send emails which can be automated quite easily to use in scripts.</p>
+<p>Sending a file attachment (-a) and an empty message body:</p>
+<p><code>$ mutt  -s &quot;System Logs&quot; -a /var/log/somelog.log -- username@example.com &lt; /dev/null</code></p>
+<p>Sending a message body using redirection:</p>
+<p><code>$ mutt -s &quot;Email Subject&quot; username@example.com &lt; email.html</code></p>
+<p>Sending a file attachment along with a message body:</p>
+    </div>
+    <a href="/posts/sending-email-from-the-command-line-with-mutt27176/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/sending-email-from-the-command-line-with-curl/" class="link black dim">
+        Sending Email from the Command Line with cURL
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Let&rsquo;s assume that you had a RFC 5822 formatted file named <code>mail.txt</code> as follows:</p>
+<pre tabindex="0"><code>From: Some Sender &lt;some.sender@gmail.com&gt;
+To: Some Recipient &lt;some.recipient@example.com&gt;
+Subject: Saying Hello
+Date: Tue, 6 Jun 2023 04:15:06 -0100
+Message-ID: &lt;1234@local.machine.example&gt;
+
+This is a message just to say hello.
+So, &#34;Hello&#34;.
+</code></pre><p>You can forward this to a email recipient using Google&rsquo;s SMTP with the following <code>curl</code> command provided you have a Google app password:</p>
+<pre tabindex="0"><code>$ curl --url &#39;smtps://smtp.gmail.com:465&#39; --ssl-reqd \
+ --mail-from &#39;some.sender@gmail.com&#39; \ 
+ --mail-rcpt &#39;some.recipient@example.com&#39; \
+ --upload-file mail.txt \
+ --user &#39;some.sender@gmail.com:your-gmail-app-password&#39;
+</code></pre><p>Output should be something like this:</p>
+    </div>
+    <a href="/posts/sending-email-from-the-command-line-with-curl/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/transfering-files-using-netcat20089/" class="link black dim">
+        Transfering Files Using netcat
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>You can use <code>netcat</code> to transfer a file from one machine to another machine.
+On the receiving machine enter the following command:</p>
+<p><code>$ netcat -l 12345 &gt; file.txt</code> or</p>
+<p><code>$ netcat -l -p 12345 &gt; file.pdf</code></p>
+<p>Then, on the sending machine use this command:</p>
+<p><code>$ netcat $MY_IP_ADDRESS 12345 &lt; file.txt</code></p>
+    </div>
+    <a href="/posts/transfering-files-using-netcat20089/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/tags/cli/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/cli/page/9/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/cli/page/8/" aria-label="Page 8" class="page-link" role="button">8</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/cli/page/9/" aria-label="Page 9" class="page-link" role="button">9</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 10" class="page-link" role="button">10</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/cli/page/11/" aria-label="Page 11" class="page-link" role="button">11</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/cli/page/12/" aria-label="Page 12" class="page-link" role="button">12</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/cli/page/11/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/cli/page/12/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Create a QEMU/KVM Virtual Machine from the Command Line | Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="You can use a combination of command line tools to create and configure a virtual machine. Here we will use few tools from the QEMU and libvirt packages to do this.
+Use QEMU to create a 15GB QCOW disk image:
+
+$ qemu-img create -f qcow2 /home/user/KVM/CentOS-Stream-9.qcow2 15G
+Formatting &#39;/home/user/KVM/CentOS-Stream-9.qcow2&#39;, fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=16106127360 lazy_refcounts=off refcount_bits=16
+
+Start the installation:
+
+$ sudo virt-install --name=CentOS-Stream-9 --vcpus=1 --memory=1024 --location=/home/user/Downloads/CentOS-Stream-9-20230704.1-x86_64-boot.iso --os-variant=centos8 --network bridge:virbr0 --disk path=/home/user/KVM/CentOS-Stream-9.qcow2 --disk size=15
+Password: 
+WARNING  Requested memory 1024 MiB is less than the recommended 1536 MiB for OS centos8
+  
+Starting install...
+Retrieving &#39;vmlinuz&#39;                                               |    0 B  00:00:00 ... 
+Retrieving &#39;initrd.img&#39;                                            |    0 B  00:00:00 ... 
+Allocating &#39;CentOS-Stream-9.qcow2&#39;                                 | 2.5 MB  00:00:03 ... 
+WARNING  Overriding memory to 3072 MiB needed for centos8 network install.
+Creating domain...                                                 |    0 B  00:00:00     
+Running graphical console command: virt-viewer --connect qemu:///system --wait CentOS-Stream-9">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="Gregg">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/create-a-qemukvm-virtual-machine-from-the-command-line/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/create-a-qemukvm-virtual-machine-from-the-command-line/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Create a QEMU/KVM Virtual Machine from the Command Line">
+  <meta property="og:description" content="You can use a combination of command line tools to create and configure a virtual machine. Here we will use few tools from the QEMU and libvirt packages to do this.
+Use QEMU to create a 15GB QCOW disk image:
+$ qemu-img create -f qcow2 /home/user/KVM/CentOS-Stream-9.qcow2 15G Formatting &#39;/home/user/KVM/CentOS-Stream-9.qcow2&#39;, fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=16106127360 lazy_refcounts=off refcount_bits=16
+Start the installation:
+$ sudo virt-install --name=CentOS-Stream-9 --vcpus=1 --memory=1024 --location=/home/user/Downloads/CentOS-Stream-9-20230704.1-x86_64-boot.iso --os-variant=centos8 --network bridge:virbr0 --disk path=/home/user/KVM/CentOS-Stream-9.qcow2 --disk size=15 Password: WARNING Requested memory 1024 MiB is less than the recommended 1536 MiB for OS centos8 Starting install... Retrieving &#39;vmlinuz&#39; | 0 B 00:00:00 ... Retrieving &#39;initrd.img&#39; | 0 B 00:00:00 ... Allocating &#39;CentOS-Stream-9.qcow2&#39; | 2.5 MB 00:00:03 ... WARNING Overriding memory to 3072 MiB needed for centos8 network install. Creating domain... | 0 B 00:00:00 Running graphical console command: virt-viewer --connect qemu:///system --wait CentOS-Stream-9">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-07-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-07-15T00:00:00+00:00">
+    <meta property="article:tag" content="Cli">
+    <meta property="article:tag" content="Qemu">
+    <meta property="article:tag" content="Kvm">
+    <meta property="article:tag" content="Motd">
+
+  <meta itemprop="name" content="Create a QEMU/KVM Virtual Machine from the Command Line">
+  <meta itemprop="description" content="You can use a combination of command line tools to create and configure a virtual machine. Here we will use few tools from the QEMU and libvirt packages to do this.
+Use QEMU to create a 15GB QCOW disk image:
+$ qemu-img create -f qcow2 /home/user/KVM/CentOS-Stream-9.qcow2 15G Formatting &#39;/home/user/KVM/CentOS-Stream-9.qcow2&#39;, fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=16106127360 lazy_refcounts=off refcount_bits=16
+Start the installation:
+$ sudo virt-install --name=CentOS-Stream-9 --vcpus=1 --memory=1024 --location=/home/user/Downloads/CentOS-Stream-9-20230704.1-x86_64-boot.iso --os-variant=centos8 --network bridge:virbr0 --disk path=/home/user/KVM/CentOS-Stream-9.qcow2 --disk size=15 Password: WARNING Requested memory 1024 MiB is less than the recommended 1536 MiB for OS centos8 Starting install... Retrieving &#39;vmlinuz&#39; | 0 B 00:00:00 ... Retrieving &#39;initrd.img&#39; | 0 B 00:00:00 ... Allocating &#39;CentOS-Stream-9.qcow2&#39; | 2.5 MB 00:00:03 ... WARNING Overriding memory to 3072 MiB needed for centos8 network install. Creating domain... | 0 B 00:00:00 Running graphical console command: virt-viewer --connect qemu:///system --wait CentOS-Stream-9">
+  <meta itemprop="datePublished" content="2023-07-15T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-07-15T00:00:00+00:00">
+  <meta itemprop="wordCount" content="290">
+  <meta itemprop="keywords" content="Cli,Qemu,Kvm,Motd">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Create a QEMU/KVM Virtual Machine from the Command Line">
+  <meta name="twitter:description" content="You can use a combination of command line tools to create and configure a virtual machine. Here we will use few tools from the QEMU and libvirt packages to do this.
+Use QEMU to create a 15GB QCOW disk image:
+$ qemu-img create -f qcow2 /home/user/KVM/CentOS-Stream-9.qcow2 15G Formatting &#39;/home/user/KVM/CentOS-Stream-9.qcow2&#39;, fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=16106127360 lazy_refcounts=off refcount_bits=16
+Start the installation:
+$ sudo virt-install --name=CentOS-Stream-9 --vcpus=1 --memory=1024 --location=/home/user/Downloads/CentOS-Stream-9-20230704.1-x86_64-boot.iso --os-variant=centos8 --network bridge:virbr0 --disk path=/home/user/KVM/CentOS-Stream-9.qcow2 --disk size=15 Password: WARNING Requested memory 1024 MiB is less than the recommended 1536 MiB for OS centos8 Starting install... Retrieving &#39;vmlinuz&#39; | 0 B 00:00:00 ... Retrieving &#39;initrd.img&#39; | 0 B 00:00:00 ... Allocating &#39;CentOS-Stream-9.qcow2&#39; | 2.5 MB 00:00:03 ... WARNING Overriding memory to 3072 MiB needed for centos8 network install. Creating domain... | 0 B 00:00:00 Running graphical console command: virt-viewer --connect qemu:///system --wait CentOS-Stream-9">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Create a QEMU/KVM Virtual Machine from the Command Line</h1>
+      
+      <p class="tracked"><strong>Gregg</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-07-15T00:00:00Z">July 15, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>You can use a combination of command line tools to create and configure a virtual machine. Here we will use few tools from the <em>QEMU</em> and <em>libvirt</em> packages to do this.</p>
+<p>Use QEMU to create a 15GB QCOW disk image:</p>
+<blockquote>
+<p><code>$ qemu-img create -f qcow2 /home/user/KVM/CentOS-Stream-9.qcow2 15G</code><!-- raw HTML omitted -->
+<code>Formatting '/home/user/KVM/CentOS-Stream-9.qcow2', fmt=qcow2 cluster_size=65536 extended_l2=off compression_type=zlib size=16106127360 lazy_refcounts=off refcount_bits=16</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Start the installation:</p>
+<blockquote>
+<p><code>$ sudo virt-install --name=CentOS-Stream-9 --vcpus=1 --memory=1024 --location=/home/user/Downloads/CentOS-Stream-9-20230704.1-x86_64-boot.iso --os-variant=centos8 --network bridge:virbr0 --disk path=/home/user/KVM/CentOS-Stream-9.qcow2 --disk size=15</code><!-- raw HTML omitted -->
+<code>Password: </code><!-- raw HTML omitted -->
+<code>WARNING  Requested memory 1024 MiB is less than the recommended 1536 MiB for OS centos8</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>Starting install...</code><!-- raw HTML omitted -->
+<code>Retrieving 'vmlinuz'                                               |    0 B  00:00:00 ... </code><!-- raw HTML omitted -->
+<code>Retrieving 'initrd.img'                                            |    0 B  00:00:00 ... </code><!-- raw HTML omitted -->
+<code>Allocating 'CentOS-Stream-9.qcow2'                                 | 2.5 MB  00:00:03 ... </code><!-- raw HTML omitted -->
+<code>WARNING  Overriding memory to 3072 MiB needed for centos8 network install.</code><!-- raw HTML omitted -->
+<code>Creating domain...                                                 |    0 B  00:00:00     </code><!-- raw HTML omitted -->
+<code>Running graphical console command: virt-viewer --connect qemu:///system --wait CentOS-Stream-9</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Once this gets to this point another window should open up by the <code>virt-viewer</code> application (which you should install if you didn&rsquo;t already) and you can complete the installation and reboot. You&rsquo;ll use the same <code>virt-viewer</code> window to use the shell or desktop (depending upon the distro you installed).</p>
+<p>When you are done and close the <code>virt-viewer</code> GUI you can find the VM in the <em>running</em> state using <code>virsh</code>:</p>
+<blockquote>
+<p><code>$ sudo virsh list --all</code><!-- raw HTML omitted -->
+<code>Password: </code><!-- raw HTML omitted -->
+<code> Id   Name                State</code><!-- raw HTML omitted -->
+<code>------------------------------------</code><!-- raw HTML omitted -->
+<code> 5    CentOS-Stream-9     running</code><!-- raw HTML omitted -->
+<code> -    slackware-current   shut off</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Then you can shut it down:</p>
+<blockquote>
+<p><code>$ sudo virsh shutdown 5</code><!-- raw HTML omitted -->
+<code>Password: </code><!-- raw HTML omitted -->
+<code>Domain '5' is being shutdown</code><!-- raw HTML omitted -->
+<code>$ sudo virsh list --all</code><!-- raw HTML omitted -->
+<code>Password: </code><!-- raw HTML omitted -->
+<code> Id   Name                State</code><!-- raw HTML omitted -->
+<code>------------------------------------</code><!-- raw HTML omitted -->
+<code> -    CentOS-Stream-9     shut off</code><!-- raw HTML omitted -->
+<code> -    slackware-current   shut off</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Optionally, you can delete the VM domain and the QCOW file using the <code>undefine</code> parameter:</p>
+<blockquote>
+<p><code>$ sudo virsh undefine --domain CentOS-Stream-9 --remove-all-storage</code><!-- raw HTML omitted -->
+<code>Password: </code><!-- raw HTML omitted -->
+<code>Domain 'CentOS-Stream-9' has been undefined</code><!-- raw HTML omitted -->
+<code>Volume 'vda'(/home/user/KVM/CentOS-Stream-9.qcow2) removed.</code><!-- raw HTML omitted --></p>
+</blockquote>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/cli/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Cli</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/qemu/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Qemu</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/kvm/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Kvm</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/motd/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Motd</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

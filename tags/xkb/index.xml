@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xkb on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/xkb/</link>
+    <description>Recent content in Xkb on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/xkb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swapping the CMD and Control Keys on a Macbook Running Linux</title>
+      <link>http://localhost:1313/posts/swapping-the-cmd-and-control-keys-on-a-macbook-running-linux/</link>
+      <pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/swapping-the-cmd-and-control-keys-on-a-macbook-running-linux/</guid>
+      <description>&lt;p&gt;I find it annoying not having a CTRL key available for both hands so I tend to swap the Command and CTRL key settings on my 2012 &amp;ldquo;Slackbook&amp;rdquo;.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Launch a terminal&lt;/li&gt;&#xA;&lt;li&gt;Edit the X11 Keyboard Extension&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# vim /usr/share/X11/xkb/symbols/pc&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;Make the following changes. Ensure your file looks like this:&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;key &amp;lt;LCTL&amp;gt; {    [ Super_L       ]   };&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;key &amp;lt;LWIN&amp;gt; {    [ Control_L     ]   };&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;...&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;key &amp;lt;RCTL&amp;gt; {    [ Super_R       ]   };&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;key &amp;lt;RWIN&amp;gt; {    [ Control_R     ]   };&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Diff on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/diff/</link>
+    <description>Recent content in Diff on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 19 May 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/diff/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Diff 2 Folders Over SSH</title>
+      <link>http://localhost:1313/posts/diff-2-folders-over-ssh28479/</link>
+      <pubDate>Fri, 19 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/diff-2-folders-over-ssh28479/</guid>
+      <description>&lt;p&gt;If you need to do a &amp;lsquo;diff&amp;rsquo; on 2 folders and one of them is remote then you can accomplish that as follows:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ diff &amp;lt;(ssh username@192.168.1.60 ls -R /home/username/dir1) &amp;lt;(ls -R /home/username/dir2) &#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+  </channel>
+</rss>

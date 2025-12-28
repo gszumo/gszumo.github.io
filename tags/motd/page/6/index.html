@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/motd/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/tags/motd/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/motd/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/motd/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Motd">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Motd">
+  <meta itemprop="datePublished" content="2023-09-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-28T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Motd">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Motd
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/using-crontab25619/" class="link black dim">
+        Using crontab
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Crontab is a utility found on Linux and UNIX that allows you to schedule repetitive tasks on your system, like backups, updates, etc.</p>
+<p>The crontab command manages a table containing specially formatted lines of text which is processed periodically by the system. Each line consists of a &ldquo;schedule&rdquo; followed by one or more commands to be processed at the scheduled time.</p>
+<p>If you want to use the vim, emacs or nano editor for editing cron jobs, then, set the following in your environment and in your <code>~/.bash_profile</code> file:</p>
+    </div>
+    <a href="/posts/using-crontab25619/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/ansible-cheatsheet19575/" class="link black dim">
+        Ansible Cheatsheet
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Ping all hosts:</p>
+<blockquote>
+<p><code>$ ansible all -i hosts -m ping</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Ping a specific host:</p>
+<blockquote>
+<p><code>$ ansible raspberry-pi  -m ping</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Check uptime on all hosts:</p>
+<blockquote>
+<p><code>$ ansible -m shell -a 'uptime' all</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Check uname on all hosts:</p>
+<blockquote>
+<p><code>$ ansible -m shell -a 'uname -a' all</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Run playbook on more than one host:</p>
+<blockquote>
+<p><code>$ ansible-playbook playbook1.yml  -l 'host1.com,host2com'</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/ansible-cheatsheet19575/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/mounting-an-iso-image-as-a-file-system14927/" class="link black dim">
+        Mounting an ISO Image as a File System
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you need to get one or more files from an ISO image and don&rsquo;t have a CD/DVD drive you can mount the ISO image to a directory and navigate to the file(s) you need using a terminal or file explorer. You&rsquo;ll have to do this as <em>root</em>.</p>
+<blockquote>
+<p><code># mkdir /mnt/iso</code><!-- raw HTML omitted -->
+<code># mount -o loop -t iso9660 /home/user/Downloads/Custom-Build/custom.iso /mnt/iso</code><!-- raw HTML omitted -->
+<code>mount: /mnt/iso: WARNING: source write-protected, mounted read-only.</code><!-- raw HTML omitted -->
+<code># cd /mnt/iso/</code><!-- raw HTML omitted -->
+<code># ls</code><!-- raw HTML omitted -->
+<code>DateBuilt  System/  boot/  boot.catalog  efi.img  initrd  linux  mach_kernel  slint.txt</code><!-- raw HTML omitted -->
+<code># </code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/mounting-an-iso-image-as-a-file-system14927/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/using-ssmtp-on-slackware-150/" class="link black dim">
+        Using sSMTP on Slackware 15.0
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>How to Install and Use ssmtp to Send Emails from the Linux Terminal</strong></p>
+<p>ssmtp is a simple utility that can be used to send emails from a Linux system to a specified email address. It is just an MTA (Mail Transfer Agent); it does not receive mail, expand aliases, or manage a queue. Instead, it forwards automated emails to an external email address. This can be useful for forwarding system alerts or other automated emails from your system to an external email address.</p>
+    </div>
+    <a href="/posts/using-ssmtp-on-slackware-150/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/how-to-get-information-on-linux25688/" class="link black dim">
+        How To Get Information on Linux
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>The <em>manpages</em> are historically <strong>the place to go</strong> for any information about the software and utilities installed on a Linux machine. I believe that the <em>info</em> page seems to be the best place for <em>newbies</em> to go because it is so much easier to navigate, and, like <em>manpages</em>, it is a still a great place to get information about your system.</p>
+<p>Suppose you want to get information about <em>socket</em>. You would type:</p>
+    </div>
+    <a href="/posts/how-to-get-information-on-linux25688/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/locking-down-ssh-user-access947/" class="link black dim">
+        Locking Down SSH User Access
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>To secure your system, you shouldn&rsquo;t allow root to login remotely.  Instead, if an admin needs to use the <em>root</em> account they should login using their own account and then <code>su -</code> or <code>sudo</code> to the <em>root</em> account as needed.</p>
+<p>Edit the <code>/etc/ssh/sshd_config</code> file and change the following lines:</p>
+<blockquote>
+<p><code>PermitRootLogin no</code><!-- raw HTML omitted -->
+<code>PermitEmptyPasswords no</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Some of these properties may be commented out in the file, so all you&rsquo;d need to do is remove the <em>#</em> sign.</p>
+    </div>
+    <a href="/posts/locking-down-ssh-user-access947/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/make-a-file-immutable19051/" class="link black dim">
+        Make a File Immutable
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>You can use the <em>chattr</em> command (as <em>root</em>) to make a file &ldquo;unalterable&rdquo; so that even the root user cannot modify or delete it without using the <em>chattr</em> command to revert the change.  This is done by using <em>chattr</em>&rsquo;s <code>+i</code> and <code>-i</code> flags.</p>
+<p><em>chattr</em> changes a file&rsquo;s attributes on a Linux file system.</p>
+<p>Set the flag as root:</p>
+<blockquote>
+<p><code># chattr +i xrdp-notes.txt</code><!-- raw HTML omitted -->
+<code># lsattr xrdp-notes.txt</code><!-- raw HTML omitted -->
+<code>----i---------e------- xrdp-notes.txt</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/make-a-file-immutable19051/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/set-mac-hostname15613/" class="link black dim">
+        Set Mac Hostname
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>To set the host name of your Mac (in my case macbook-pro) in the command prompt, type the following command:</p>
+<blockquote>
+<p><code>$ sudo scutil --set HostName &quot;macbook-pro&quot;</code><!-- raw HTML omitted -->
+<code>$ sudo scutil --set LocalHostName &quot;macbook-pro&quot;</code><!-- raw HTML omitted --></p>
+</blockquote>
+    </div>
+    <a href="/posts/set-mac-hostname15613/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/reset-mac-launchpad/" class="link black dim">
+        Reset Mac Launchpad
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>To reset the Mac LaunchPad to default enter the following:</p>
+<blockquote>
+<p><code>rm ~/Library/Application\ Support/Dock/*.db ; killall Dock</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>This will however put all of the Apple apps on the first page and all of your remaining apps will be sorted alphabetically on the remaining pages.</p>
+    </div>
+    <a href="/posts/reset-mac-launchpad/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/creating-a-docker-registry8450/" class="link black dim">
+        Creating a Docker Registry
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Creating a docker registry is rather straightforward, but you may need to do some <em>tweaking</em> of your docker installation in order to get it working as indicated below.</p>
+<p>Let&rsquo;s assume that you already have docker up and running on your machine.</p>
+<p>We are going to set up a Docker registry on our local server. This server will not have a secure connection and will only be used internally, so we will need to allow this access by creating a file in <code>/etc/docker</code> called <em>daemon.json</em> to designate this:</p>
+    </div>
+    <a href="/posts/creating-a-docker-registry8450/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/tags/motd/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/5/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 6" class="page-link" role="button">6</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/7/" aria-label="Page 7" class="page-link" role="button">7</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/8/" aria-label="Page 8" class="page-link" role="button">8</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/7/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/15/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Curl on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/curl/</link>
+    <description>Recent content in Curl on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/curl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Find Your External IP Address</title>
+      <link>http://localhost:1313/posts/find-your-external-ip-address16428/</link>
+      <pubDate>Wed, 13 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/find-your-external-ip-address16428/</guid>
+      <description>&lt;p&gt;It&amp;rsquo;s easy to find your internal IP address my using tools like ifconfig or ip a but to find your external IP address (the one that connects you to the outside world) you must use other means. Here are 3 simple commands that you can use to do just that:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ curl ifcfg.me&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;72.76.yyy.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ curl icanhazip.com&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;72.76.yyy.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ nslookup myip.opendns.com. resolver1.opendns.com&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Server:&#x9;&#x9;resolver1.opendns.com&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Address:&#x9;208.67.222.222#53&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Non-authoritative answer:&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Name:&#x9;myip.opendns.com&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Address: 72.76.yyy.xxx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Sending Email from the Command Line with cURL</title>
+      <link>http://localhost:1313/posts/sending-email-from-the-command-line-with-curl/</link>
+      <pubDate>Tue, 06 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/sending-email-from-the-command-line-with-curl/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s assume that you had a RFC 5822 formatted file named &lt;code&gt;mail.txt&lt;/code&gt; as follows:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;From: Some Sender &amp;lt;some.sender@gmail.com&amp;gt;&#xA;To: Some Recipient &amp;lt;some.recipient@example.com&amp;gt;&#xA;Subject: Saying Hello&#xA;Date: Tue, 6 Jun 2023 04:15:06 -0100&#xA;Message-ID: &amp;lt;1234@local.machine.example&amp;gt;&#xA;&#xA;This is a message just to say hello.&#xA;So, &amp;#34;Hello&amp;#34;.&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can forward this to a email recipient using Google&amp;rsquo;s SMTP with the following &lt;code&gt;curl&lt;/code&gt; command provided you have a Google app password:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ curl --url &amp;#39;smtps://smtp.gmail.com:465&amp;#39; --ssl-reqd \&#xA; --mail-from &amp;#39;some.sender@gmail.com&amp;#39; \ &#xA; --mail-rcpt &amp;#39;some.recipient@example.com&amp;#39; \&#xA; --upload-file mail.txt \&#xA; --user &amp;#39;some.sender@gmail.com:your-gmail-app-password&amp;#39;&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Output should be something like this:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Mastodon Automated Postings using the API</title>
+      <link>http://localhost:1313/posts/mastodon-automated-postings-using-the-api10012/</link>
+      <pubDate>Tue, 16 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/mastodon-automated-postings-using-the-api10012/</guid>
+      <description>&lt;p&gt;You can post to Mastodon using their API using &lt;code&gt;cURL&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;h4 id=&#34;create-or-find-your-access-token&#34;&gt;Create or Find Your Access Token&lt;/h4&gt;&#xA;&lt;p&gt;Once you have a Mastodon account, you need your account&amp;rsquo;s access token. The steps you need to get that:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Sign into your Mastodon account&lt;/li&gt;&#xA;&lt;li&gt;Click on In the &lt;code&gt;&amp;quot;Preferences&amp;quot;&lt;/code&gt; link.&lt;/li&gt;&#xA;&lt;li&gt;On the bottom left corner of that page, click the &lt;code&gt;&amp;quot;Development&amp;quot;&lt;/code&gt; link.&lt;/li&gt;&#xA;&lt;li&gt;On the &lt;code&gt;&amp;quot;Your Applications&amp;quot;&lt;/code&gt; page, click the blue &lt;code&gt;NEW APPLICATION&lt;/code&gt; button.&lt;/li&gt;&#xA;&lt;li&gt;Give your application a name, and decide what kind of access you want to have when you connect to your account via the Mastodon API (i&lt;code&gt;read&lt;/code&gt;, &lt;code&gt;write&lt;/code&gt;, and &lt;code&gt;follow&lt;/code&gt; are the defaults). You can always change this later.&lt;/li&gt;&#xA;&lt;li&gt;At the bottom of the page, click the blue &lt;code&gt;SUBMIT&lt;/code&gt; button.&lt;/li&gt;&#xA;&lt;li&gt;You will be directed back to the &lt;code&gt;Your applications&lt;/code&gt; page, but now you should see your application name. Click that.&lt;/li&gt;&#xA;&lt;li&gt;In your application&amp;rsquo;s page, there are three tokens. For this tutorial, you need the &lt;code&gt;Your access token&lt;/code&gt; one.&#xA;Note: if your access token is ever compromised, you can click regenerate, and your old access token will stop working, and you&amp;rsquo;ll be shown a new one.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h4 id=&#34;post-a-status-update-using-curl&#34;&gt;Post a Status Update using cURL&lt;/h4&gt;&#xA;&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+  </channel>
+</rss>

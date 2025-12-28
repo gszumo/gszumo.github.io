@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/slackware/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/tags/slackware/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/slackware/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/slackware/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Slackware">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Slackware">
+  <meta itemprop="datePublished" content="2023-09-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-23T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Slackware">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Slackware
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/install-sbopkg-on-slackware2055/" class="link black dim">
+        Install sbopkg on Slackware
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><em>Sbopkg</em> is a command‐line and dialog‐based tool to interact with the SlackBuilds.org repository, a collection of third‐party SlackBuild scripts to build Slackware packages.</p>
+<p>Here are the steps for installing the latest version of <em>sbopkg</em> with Slackware.</p>
+<ol>
+<li>
+<p>Download the latest Slackware package from <code>https://www.sbopkg.org/downloads.php</code> using whatever method you find most convenient. At the time of this writing the latest version is <code>https://github.com/sbopkg/sbopkg/releases/download/0.38.2/sbopkg-0.38.2-noarch-1_wsr.tgz</code>. I will use that version in the commands below. If the version has changed, you would use the new filename in the commands. You can also use <code>wget &lt;packagename&gt;</code> to download it directly.</p>
+    </div>
+    <a href="/posts/install-sbopkg-on-slackware2055/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/swapping-the-cmd-and-control-keys-on-a-macbook-running-linux/" class="link black dim">
+        Swapping the CMD and Control Keys on a Macbook Running Linux
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>I find it annoying not having a CTRL key available for both hands so I tend to swap the Command and CTRL key settings on my 2012 &ldquo;Slackbook&rdquo;.</p>
+<ol>
+<li>Launch a terminal</li>
+<li>Edit the X11 Keyboard Extension</li>
+</ol>
+<blockquote>
+<p><code># vim /usr/share/X11/xkb/symbols/pc</code><!-- raw HTML omitted --></p>
+</blockquote>
+<ol start="3">
+<li>Make the following changes. Ensure your file looks like this:</li>
+</ol>
+<blockquote>
+<p><code>key &lt;LCTL&gt; {    [ Super_L       ]   };</code><!-- raw HTML omitted -->
+<code>key &lt;LWIN&gt; {    [ Control_L     ]   };</code><!-- raw HTML omitted -->
+<code>...</code><!-- raw HTML omitted -->
+<code>key &lt;RCTL&gt; {    [ Super_R       ]   };</code><!-- raw HTML omitted -->
+<code>key &lt;RWIN&gt; {    [ Control_R     ]   };</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/swapping-the-cmd-and-control-keys-on-a-macbook-running-linux/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/install-epson-et-3850-printer-driver-on-slackware-150/" class="link black dim">
+        Install Epson ET-3850 Printer Driver on Slackware 15.0
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>I recently bought an <em>Epson ET-3850</em> printer from <em>Costco</em> to replace my <em>HP OfficeJet</em> which was about 10 years old and the family was starting to have issues with establishing a wi-fi connection to it on their Windoze laptops. It took quite a while to setup. The <em>Epson</em> seems to be doing the job. Time will tell, however I discovered that setting it up for <em>Slackware</em> would also take a bit of effort. Drivers are only available on the <em>Epson</em> website in <em>RPM</em> or <em>DEB</em> format so I had to create a <em>Slackware</em> package to install it. Here&rsquo;s how I went about doing that.</p>
+    </div>
+    <a href="/posts/install-epson-et-3850-printer-driver-on-slackware-150/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/install-joplin-on-slackware-150/" class="link black dim">
+        Install Joplin on Slackware 15.0
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>On a recent episode of <a href="https://hackerpublicradio.org/eps/hpr3929/index.html">Hacker Public Radio</a>, the host, <a href="https://hackerpublicradio.org/correspondents/0403.html">Lee</a> listed several note-taking apps that he had tried to use. One of them was <a href="https://joplinapp.org/">Joplin</a> which I have been using for several years now. I feel that it is probably one of the best note-taking apps available that:</p>
+<ul>
+<li>Supports Markdown</li>
+<li>Is cross-platform</li>
+<li>Supports vim keyboard mappings (I can&rsquo;t live without this)</li>
+<li>Integrates with multiple cloud storage environments.</li>
+</ul>
+<p>I use it on a daily basis for almost all of my notes but it also supports checklists on my iPhone, iPad, Windoze laptop, and all of my Slackware devices (desktop and laptops). Give it a try!</p>
+    </div>
+    <a href="/posts/install-joplin-on-slackware-150/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/slackbuilds-where-are-they-located/" class="link black dim">
+        SlackBuilds: Where Are They Located?
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>You should find a file in <code>/var/log/packages</code> for each <em>SlackBuild</em> that you have installed. You can distinguish the <em>SlackBuilds</em> package from standard Slackware packages by the substring <em>SBo</em> embedded in the filename. So you can create a list of all of the <em>SlackBuilds</em> installed on your machine by just doing an <code>ls *SBo*</code> in that directory.</p>
+<blockquote>
+<p><code>ls /var/log/packages | grep SBo</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p><code>ls /var/log/packages/*SBo</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/slackbuilds-where-are-they-located/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/slackware-kernel-upgrade-elilo24510/" class="link black dim">
+        Slackware Kernel Upgrade (elilo)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you are using <code>elilo</code> with Slackware, after running the <code>slackpkg --upgrade-all</code> script and you see that a new kernel was installed, you need to run the following commands to move the latest kernel to its proper location in order to boot:</p>
+<blockquote>
+<p><code>geninitrd</code><!-- raw HTML omitted -->
+<code>cp /boot/vmlinuz-generic /boot/efi/EFI/Slackware/vmlinuz</code><!-- raw HTML omitted -->
+<code>cp /boot/initrd.gz /boot/efi/EFI/Slackware/initrd.gz</code><!-- raw HTML omitted --></p>
+</blockquote>
+    </div>
+    <a href="/posts/slackware-kernel-upgrade-elilo24510/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/installing-and-using-sbotools-in-slackware-150/" class="link black dim">
+        Installing and Using sbotools in Slackware 15.0
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Slackware was the first Linux distribution that I ever used but I was always curious and did a lot of distro-hopping from Slackware, Caldera, Turbo Linux, Mandrake, Red Hat, Ubuntu, multiple Ubuntu derivatives, then Fedora for quite a while until I finally settled on…(drum roll please)…Slackware! Yeah, I’ve come full circle.</p>
+<p>One of the reasons why I was doing so much hopping around is that I was never really happy with something about the distribution that I was currently using. Maybe it was the default colors (Ubuntu, come on with all of that orange stuff), choice of default software, difficulty with setting it up. Whatever. With Slackware it was always the (lack of) a decent package management system. That is until I found “sbotools”.</p>
+    </div>
+    <a href="/posts/installing-and-using-sbotools-in-slackware-150/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/slackware-current-minimal-installation26343/" class="link black dim">
+        Slackware Current: Minimal Installation
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>I&rsquo;ve been looking for a way to install a minimal version of Slackware (current) in a VM and the smallest that I&rsquo;ve safely come up with so far is this:</p>
+<ul>
+<li>Package group A</li>
+<li>Package group AP</li>
+<li>Package group D</li>
+<li>Package group F</li>
+<li>Package group K</li>
+<li>Package group L</li>
+<li>Package group N</li>
+</ul>
+<p>I will try to get it smaller but I need this startup environment for another <em>experiment</em> so I&rsquo;ll settle for this. Yes, it is still a wopping 12GB. Geez&hellip;</p>
+    </div>
+    <a href="/posts/slackware-current-minimal-installation26343/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/install-kdbg---a-kde-gdb-gui-on-slackware-150/" class="link black dim">
+        Install KDbg - A KDE gdb GUI on Slackware 15.0
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>What is KDbg?</p>
+<p>From the <a href="https://www.kdbg.org/">homepage</a>:</p>
+<p>KDbg is a graphical user interface to gdb, the GNU debugger. It provides an intuitive interface for setting breakpoints, inspecting variables, and stepping through code.</p>
+<p>KDbg requires KDE, the K Desktop Environment, but you can of course debug any program.</p>
+<p>Here&rsquo;s how to install it on Slackware 15 but this should work on any system that has KDE:</p>
+<blockquote>
+<p><code>$ git clone -b maint https://github.com/j6t/kdbg.git</code><!-- raw HTML omitted -->
+<code>$ cd kdbg/</code><!-- raw HTML omitted -->
+<code>$ cmake .</code><!-- raw HTML omitted -->
+<code>$ make</code><!-- raw HTML omitted -->
+<code>$ su -c &quot;make install&quot;</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/install-kdbg---a-kde-gdb-gui-on-slackware-150/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/install-mimic-text-to-speech-on-slackware-1526910/" class="link black dim">
+        Install mimic Text-To-Speech on Slackware 15
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Per the manpage: Mimic  is  a command line tool for synthesizing speech from text. If outfile.wav is omitted mimic will output the utterance using the computer sound card.</p>
+<p>Mimic is based on <a href="http://www.cmuflite.org">flite</a> and strives  to  extend  functionality and add more languages while keeping the application fast and light.</p>
+<p>Mandatory arguments to long options are mandatory for short options too.</p>
+<blockquote>
+<p><code>$  git clone https://github.com/MycroftAI/mimic1.git</code><!-- raw HTML omitted -->
+<code>$  cd mimic1/</code><!-- raw HTML omitted -->
+<code>$  ./dependencies.sh --prefix=&quot;/usr/local&quot;</code><!-- raw HTML omitted -->
+<code>$  ./autogen.sh </code><!-- raw HTML omitted -->
+<code>$  ./configure --prefix=&quot;/usr/local&quot;</code><!-- raw HTML omitted -->
+<code>$  make</code><!-- raw HTML omitted -->
+<code>$  make check</code><!-- raw HTML omitted -->
+<code>$  su -c &quot;make install&quot;</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/install-mimic-text-to-speech-on-slackware-1526910/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    
+    <ul class="pagination pagination-default">
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/slackware/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/slackware/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/slackware/page/2/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

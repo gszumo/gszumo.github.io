@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MacOS on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/macos/</link>
+    <description>Recent content in MacOS on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to reveal dot files in finder?</title>
+      <link>http://localhost:1313/posts/how-to-reveal-dot-files-in-finder29256/</link>
+      <pubDate>Mon, 04 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-reveal-dot-files-in-finder29256/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s one from my &lt;em&gt;archives&lt;/em&gt;. To reveal dot files in macOS &lt;em&gt;Finder&lt;/em&gt;, open your Terminal (/Applications/Utilities) application and then enter,&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;defaults write com.apple.finder AppleShowAllFiles YES&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Then restart Finder by holding down &lt;code&gt;Option&lt;/code&gt; and &lt;code&gt;Control&lt;/code&gt;, or right-clicking on the Finder&amp;rsquo;s icon in your Dock and choosing &amp;ldquo;Relaunch&amp;rdquo;.&lt;/p&gt;&#xA;&lt;p&gt;To revert this behavior, simply change the &lt;code&gt;YES&lt;/code&gt; to &lt;code&gt;NO&lt;/code&gt; in that defaults command.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Set Mac Hostname</title>
+      <link>http://localhost:1313/posts/set-mac-hostname15613/</link>
+      <pubDate>Sun, 30 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/set-mac-hostname15613/</guid>
+      <description>&lt;p&gt;To set the host name of your Mac (in my case macbook-pro) in the command prompt, type the following command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo scutil --set HostName &amp;quot;macbook-pro&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ sudo scutil --set LocalHostName &amp;quot;macbook-pro&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Reset Mac Launchpad</title>
+      <link>http://localhost:1313/posts/reset-mac-launchpad/</link>
+      <pubDate>Sat, 29 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/reset-mac-launchpad/</guid>
+      <description>&lt;p&gt;To reset the Mac LaunchPad to default enter the following:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;rm ~/Library/Application\ Support/Dock/*.db ; killall Dock&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This will however put all of the Apple apps on the first page and all of your remaining apps will be sorted alphabetically on the remaining pages.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

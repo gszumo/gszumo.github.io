@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ish on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/ish/</link>
+    <description>Recent content in Ish on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 29 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ish/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GCC can&#39;t find stdio.h in Alpine Linux</title>
+      <link>http://localhost:1313/posts/gcc-cant-find-stdioh-in-alpine-linux/</link>
+      <pubDate>Thu, 29 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gcc-cant-find-stdioh-in-alpine-linux/</guid>
+      <description>&lt;p&gt;A while ago, I installed the &lt;a href=&#34;https://github.com/ish-app/ish&#34;&gt;iSH&lt;/a&gt; app on my iPad which made it possible for me to develop Python and C code as well as use it as an SSH client. However, I ran into an issue when trying to compile C code because the compiler couldn&amp;rsquo;t resolve &lt;code&gt;stdio.h&lt;/code&gt;. The following excerpt from &lt;a href=&#34;http://stackoverflow.com/questions/42366739/ddg#42366740&#34;&gt;StackOverflow&lt;/a&gt; resolves the issue:&lt;/p&gt;&#xA;&lt;p&gt;Install &lt;code&gt;libc-dev&lt;/code&gt; in addition to &lt;code&gt;GCC&lt;/code&gt;, or just install &lt;code&gt;build-base&lt;/code&gt; for everything (&lt;code&gt;alpine-sdk&lt;/code&gt; is probably an overkill). To install run the following command:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

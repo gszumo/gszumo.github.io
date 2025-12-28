@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Duplicates on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/duplicates/</link>
+    <description>Recent content in Duplicates on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 11 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/duplicates/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Finding Duplicate Files in a Directory Tree</title>
+      <link>http://localhost:1313/posts/finding-duplicate-files-in-a-directory-tree/</link>
+      <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/finding-duplicate-files-in-a-directory-tree/</guid>
+      <description>&lt;p&gt;Sometimes I need to find all of the duplicate files in a directory tree. I have this issue all of the time when I move my music collection. Here is a nifty script to sort these things out:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;#!/bin/bash&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;find -not -empty -type f -printf &amp;quot;%s\n&amp;quot; | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 -D --all-repeated=separate&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

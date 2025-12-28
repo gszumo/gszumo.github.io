@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rhel on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/rhel/</link>
+    <description>Recent content in Rhel on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/rhel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Red Hat Subscription Service</title>
+      <link>http://localhost:1313/posts/red-hat-subscription-service27393/</link>
+      <pubDate>Tue, 04 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/red-hat-subscription-service27393/</guid>
+      <description>&lt;p&gt;Once you have installed RHEL 9, register your RHEL subscription by running the following command on the terminal. The username and password are the login details to your Red Hat account.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo subscription-manager register --username=username --password=password &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;To confirm that the system is registered to Red Hat Subscription Management (RHSM), run the command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo subscription-manager list --installed   &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Then refresh and subscribe:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Speed Up DNF Package Manager</title>
+      <link>http://localhost:1313/posts/speed-up-dnf-package-manager7346/</link>
+      <pubDate>Mon, 03 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/speed-up-dnf-package-manager7346/</guid>
+      <description>&lt;p&gt;You can increase the download speed for installing packages using DNF by updating the maximum number of simultaneous package downloads.&lt;/p&gt;&#xA;&lt;p&gt;Start by editing the &lt;code&gt;/etc/dnf/dnf.conf&lt;/code&gt; file:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo nano /etc/dnf/dnf.conf &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Add the following line to enable DNF parallel downloads:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;max_parallel_downloads=10 &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Another option is to select the fastest mirror from the Fedora public mirrors by adding the following line:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;fastestmirror=True &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Red Hat Subscripion Manager - Registering</title>
+      <link>http://localhost:1313/posts/red-hat-subscripion-manager---registering/</link>
+      <pubDate>Tue, 27 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/red-hat-subscripion-manager---registering/</guid>
+      <description>&lt;p&gt;Registering your RHEL instance with Red Hat is straightforward assuming that you already have an account:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# subscription-manager register --username &amp;lt;your-rh-user&amp;gt; --password &amp;lt;password&amp;gt; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;List the available repos or just go with a default:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# subscription-manager list --available &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# subscription-manager attach --auto &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Then you can do your update:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# yum update &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>RHEL QCOW Image Password</title>
+      <link>http://localhost:1313/posts/rhel-qcow-image-password23397/</link>
+      <pubDate>Mon, 26 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rhel-qcow-image-password23397/</guid>
+      <description>&lt;p&gt;Did you know that although you can install RHEL from an &lt;code&gt;ISO&lt;/code&gt;, you can also download a &lt;code&gt;QCOW2&lt;/code&gt; image from Red Hat. However, when you try to start it up under &lt;code&gt;virt-manager&lt;/code&gt; you&amp;rsquo;ll see that it boots to a &lt;code&gt;root&lt;/code&gt; prompt and you don&amp;rsquo;t know what the password is. This can be fixed by running the following from the host&amp;rsquo;s terminal:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# virt-customize -a &amp;lt;qcow2-image-file-name&amp;gt; --root-password password:&amp;lt;password&amp;gt; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to List Installed Packages in Fedora, RHEL, CentOS</title>
+      <link>http://localhost:1313/posts/how-to-list-installed-packages-in-fedora-rhel-centos/</link>
+      <pubDate>Sat, 24 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-list-installed-packages-in-fedora-rhel-centos/</guid>
+      <description>&lt;p&gt;Listing installed packages with YUM:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo yum list installed&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;To display details about a package:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ yum info nginx&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;You can cat all installed packages to a file, copy the file to another machine and duplicate the system:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ sudo yum list installed &amp;gt; installed-packages.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ sudo yum -y install $(cat installed-packages.txt)&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;List installed packages with RPM:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

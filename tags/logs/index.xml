@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Logs on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/logs/</link>
+    <description>Recent content in Logs on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 16 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/logs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Log File Maintenance and Cleanup</title>
+      <link>http://localhost:1313/posts/log-file-maintenance-and-cleanup/</link>
+      <pubDate>Sat, 16 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/log-file-maintenance-and-cleanup/</guid>
+      <description>&lt;p&gt;Log files sometimes take up a lot of disk space. Some applications have internal processes that run periodically to manage them and some do not. Often, this becomes a problems after a while as the logs consume all of your partition space.&lt;/p&gt;&#xA;&lt;p&gt;You can manage these files yourself with a simple script running in a &lt;em&gt;cronjob&lt;/em&gt; (or systemd timers if you&amp;rsquo;re so inclined) if they have a common naming convention and you have the proper access.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

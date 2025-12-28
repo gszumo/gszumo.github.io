@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ssh-Config on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/ssh-config/</link>
+    <description>Recent content in Ssh-Config on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ssh-config/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Locking Down SSH User Access</title>
+      <link>http://localhost:1313/posts/locking-down-ssh-user-access947/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/locking-down-ssh-user-access947/</guid>
+      <description>&lt;p&gt;To secure your system, you shouldn&amp;rsquo;t allow root to login remotely.  Instead, if an admin needs to use the &lt;em&gt;root&lt;/em&gt; account they should login using their own account and then &lt;code&gt;su -&lt;/code&gt; or &lt;code&gt;sudo&lt;/code&gt; to the &lt;em&gt;root&lt;/em&gt; account as needed.&lt;/p&gt;&#xA;&lt;p&gt;Edit the &lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt; file and change the following lines:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;PermitRootLogin no&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;PermitEmptyPasswords no&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Some of these properties may be commented out in the file, so all you&amp;rsquo;d need to do is remove the &lt;em&gt;#&lt;/em&gt; sign.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

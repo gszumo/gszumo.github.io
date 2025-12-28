@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/git/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/tags/git/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/git/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/git/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Git">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Git">
+  <meta itemprop="datePublished" content="2023-08-17T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-08-17T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Git">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Git
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/git-aliases20780/" class="link black dim">
+        Git Aliases
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Once you start developing some experience with using <em>git</em> on the command line, you will sometimes find yourself typing some long commands over and over again. You can create <em>aliases</em> in <em>git</em> that are very similar to the <em>bash alias</em> shortcuts you use in the shell.</p>
+<p>Steps to do this are highlighted in chapter 2.7 of the <a href="https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases">Git Book</a> authored by Scott Chacon and Ben Straub and published by Apress.</p>
+<p>One of the commands that I use a lot is:</p>
+    </div>
+    <a href="/posts/git-aliases20780/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/setting-up-git-to-ignore-elf-binaries-cc-output-on-linux/" class="link black dim">
+        Setting Up Git to Ignore ELF Binaries (C/C&#43;&#43; Output on Linux)
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>The starting point for this experiment was from <a href="https://stackoverflow.com/questions/5711120/gitignore-binary-files-that-have-no-extension">here</a></p>
+<p><strong>An Example using C Program Source</strong></p>
+<p>Let&rsquo;s say we have a pre-existing directory of some C source code files:</p>
+<blockquote>
+<p><code>$ ls</code><!-- raw HTML omitted -->
+<code>Makefile  print  print.c  print.h  print.o</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>And we initialize a new git repository in that directory:</p>
+<blockquote>
+<p><code>$ git init</code><!-- raw HTML omitted -->
+<code>Initialized empty Git repository in /home/user/tmp/printer/.git/</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>$ cat .gitignore</code><!-- raw HTML omitted -->
+<code># Ignore all </code><!-- raw HTML omitted -->
+<code>* </code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code># Unignore all with extensions </code><!-- raw HTML omitted -->
+<code>!*.* </code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code># Unignore all dirs </code><!-- raw HTML omitted -->
+<code>!*/ </code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code># Unignore make files</code><!-- raw HTML omitted -->
+<code>!Makefile</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code># Ignore .o files</code><!-- raw HTML omitted -->
+<code>*.o</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code># Ignore</code>bin<code>dir </code><!-- raw HTML omitted -->
+<code>bin/ </code><!-- raw HTML omitted -->
+<code># or </code><!-- raw HTML omitted -->
+<code>*/bin/* </code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/setting-up-git-to-ignore-elf-binaries-cc-output-on-linux/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/convert-a-git-repo-to-a-bare-repo/" class="link black dim">
+        Convert a Git Repo to a Bare Repo
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you have a git repository that you haven&rsquo;t cloned from a remote location, i.e., one that was created locally, it is easy to convert it to a <em>bare</em> repository. This process describes how to:</p>
+<ol>
+<li>Take a &ldquo;normal&rdquo; git repository</li>
+<li>Move the .git directory to another location</li>
+<li>Convert it to a <em>bare</em> repository</li>
+</ol>
+<p>Suppose you have a git repository called <em>repo</em>. To convert it to a <em>bare</em> repository, execute the following commands:</p>
+    </div>
+    <a href="/posts/convert-a-git-repo-to-a-bare-repo/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/git-working-with-git-for-the-first-time/" class="link black dim">
+        Git: Working with Git for the First Time
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Here&rsquo;s the first step every user should start with after downloading and installing git but <strong>BEFORE</strong> doing anything else: Set up your <em>global</em> environment variables! If you don&rsquo;t do this git will abort your commit and give you an annoying message like this one:</p>
+<blockquote>
+<p><code>$ git commit file.txt </code><!-- raw HTML omitted -->
+<code>Author identity unknown</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>*** Please tell me who you are.</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>Run</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>  git config --global user.email &quot;you@example.com&quot;</code><!-- raw HTML omitted -->
+<code>  git config --global user.name &quot;Your Name&quot;</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>to set your account's default identity.</code><!-- raw HTML omitted -->
+<code>Omit --global to set the identity only in this repository.</code><!-- raw HTML omitted -->
+<code>  </code><!-- raw HTML omitted -->
+<code>fatal: empty ident name (for &lt;user@localhost&gt;) not allowed</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/git-working-with-git-for-the-first-time/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/git-committing-to-a-different-branch12884/" class="link black dim">
+        Git: Committing to a Different Branch
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Let&rsquo;s imaging that you&rsquo;ve made some changes to files in your work directory and then realized that you aren&rsquo;t in the correct branch. Now you want to get the changes you&rsquo;ve made to the right branch but no change the current branch. What do you do?</p>
+<p>There is no <em>git</em> command to do this but you can use the <em>git stash</em> command to fix this.</p>
+<p>This involves:</p>
+<ol>
+<li>Using the <em>git stash</em> command to temporarily store our changes elsewhere,</li>
+<li>Checkout the correct branch, and</li>
+<li>&ldquo;Unstash&rdquo; the changes to the correct branch.</li>
+</ol>
+<p>Let&rsquo;s say that we&rsquo;ve made some changes in our repository&rsquo;s new-release branch but they should have been made in the new-feature branch.</p>
+    </div>
+    <a href="/posts/git-committing-to-a-different-branch12884/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/git-deleting-multiple-commits24780/" class="link black dim">
+        Git: Deleting Multiple Commits
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Let&rsquo;s say that you want to delete the last 3 commits that you&rsquo;ve already pushed to the remote repository. In this example, you want <code>566dab6</code> to be the new HEAD revision.</p>
+<blockquote>
+<p><code>$ git log --pretty=oneline --abbrev-commit</code><!-- raw HTML omitted -->
+<code>57bc36b (HEAD -&gt; master, origin/master, origin/HEAD) 3nd set of bad entries on 6th commit</code><!-- raw HTML omitted -->
+<code>dfb4bd3 2nd set of bad entries on 5th commit</code><!-- raw HTML omitted -->
+<code>0fd1e16 First set of bad entries on 4th commit</code><!-- raw HTML omitted -->
+<code>566dab6 Yet more good entries on third commit</code><!-- raw HTML omitted -->
+<code>d50370a More good entries on second commit</code><!-- raw HTML omitted -->
+<code>b5fbc6d Good entries on first commit</code><!-- raw HTML omitted -->
+<code>2cad4c7 Initial commit</code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/git-deleting-multiple-commits24780/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/gitea-server-installation-on-a-raspberry-pi26652/" class="link black dim">
+        Gitea Server Installation on a Raspberry Pi
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Create a &lsquo;git&rsquo; user:</p>
+<pre tabindex="0"><code>$ sudo adduser git
+</code></pre><p>Login as the &lsquo;git&rsquo; user and download the gitea binary from the gitea website (choose the latest version):</p>
+<p><!-- raw HTML omitted -->wget -O gitea <a href="https://dl.gitea.io/gitea/1.14.5/gitea-1.14.5-linux-amd64">https://dl.gitea.io/gitea/1.14.5/gitea-1.14.5-linux-amd64</a><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->chmod +x gitea<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>Create a service. We&rsquo;re keeping it simple here so we don&rsquo;t need a lot of the database-specific stuff:</p>
+    </div>
+    <a href="/posts/gitea-server-installation-on-a-raspberry-pi26652/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/git-tips/" class="link black dim">
+        git Tips
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>A useful tip to beautify your output is to use:</p>
+<pre tabindex="0"><code>$ git log --graph --decorate --oneline --abbrev-commit --all --date=local
+</code></pre><p>when looking at your log entries.
+Or you can add</p>
+<pre tabindex="0"><code>[alias]
+</code></pre><pre tabindex="0"><code>   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local
+</code></pre><p>to your ~/.gitconfig file to use <code>$ git lola</code> as an alias.</p>
+    </div>
+    <a href="/posts/git-tips/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

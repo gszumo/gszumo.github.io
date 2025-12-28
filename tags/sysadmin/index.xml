@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sysadmin on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/sysadmin/</link>
+    <description>Recent content in Sysadmin on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 16 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/sysadmin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Log File Maintenance and Cleanup</title>
+      <link>http://localhost:1313/posts/log-file-maintenance-and-cleanup/</link>
+      <pubDate>Sat, 16 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/log-file-maintenance-and-cleanup/</guid>
+      <description>&lt;p&gt;Log files sometimes take up a lot of disk space. Some applications have internal processes that run periodically to manage them and some do not. Often, this becomes a problems after a while as the logs consume all of your partition space.&lt;/p&gt;&#xA;&lt;p&gt;You can manage these files yourself with a simple script running in a &lt;em&gt;cronjob&lt;/em&gt; (or systemd timers if you&amp;rsquo;re so inclined) if they have a common naming convention and you have the proper access.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to Clean Up the Fedora Root Folder</title>
+      <link>http://localhost:1313/posts/how-to-clean-up-the-fedora-root-folder/</link>
+      <pubDate>Wed, 06 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-clean-up-the-fedora-root-folder/</guid>
+      <description>&lt;p&gt;OK, so you&amp;rsquo;re running &lt;em&gt;Fedora&lt;/em&gt; and you&amp;rsquo;re getting warnings that you&amp;rsquo;re running out of disk space on the &lt;em&gt;root&lt;/em&gt; folder. What are your options?&lt;/p&gt;&#xA;&lt;p&gt;The first thing to consider is &lt;em&gt;resizing&lt;/em&gt; the root partition size. For that you can find instructions &lt;a href=&#34;https://gist.github.com/181192/cf7eb42a25538ccdb8d0bb7dd57cf236&#34;&gt;here&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;If that is not an option, then the next thing you probably should do is find out which folders/directories are causing the issue. You can use the &lt;code&gt;du&lt;/code&gt; command and some piping to figure this out:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to Change the UID or GID for a User or Group</title>
+      <link>http://localhost:1313/posts/how-to-change-the-uid-or-gid-for-a-user-or-group/</link>
+      <pubDate>Sun, 27 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-change-the-uid-or-gid-for-a-user-or-group/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s assume we have a user, Jane Doe, with the username of jdoe and the &lt;em&gt;UID&lt;/em&gt; of 1001 who we need to move to another &lt;em&gt;UID&lt;/em&gt; (for some reason or another).&lt;/p&gt;&#xA;&lt;p&gt;First, change the &lt;em&gt;UID&lt;/em&gt; of the user:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# usermod -u 3001 jdoe &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Next, use search and change all file’s ownership owned by this user:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# find / -user 1001 -exec chown -h jdoe {} \; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to Enable the Administrator Account in Windows</title>
+      <link>http://localhost:1313/posts/how-to-enable-the-administrator-account-in-windows19625/</link>
+      <pubDate>Thu, 18 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-enable-the-administrator-account-in-windows19625/</guid>
+      <description>&lt;p&gt;To activate the Administrator account on Windows, open the Command Prompt as Administrator from the Start Menu, or you can right-click on the &amp;ldquo;Start&amp;rdquo; menu and select the &amp;ldquo;Powershell&amp;rdquo; menu item, then enter:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;net user administrator /active: yes&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;into the window. You should disable the account again when you&amp;rsquo;re done.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

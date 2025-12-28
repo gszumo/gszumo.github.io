@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gcc on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/gcc/</link>
+    <description>Recent content in Gcc on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 16 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/gcc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting Up Git to Ignore ELF Binaries (C/C&#43;&#43; Output on Linux)</title>
+      <link>http://localhost:1313/posts/setting-up-git-to-ignore-elf-binaries-cc-output-on-linux/</link>
+      <pubDate>Wed, 16 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/setting-up-git-to-ignore-elf-binaries-cc-output-on-linux/</guid>
+      <description>&lt;p&gt;The starting point for this experiment was from &lt;a href=&#34;https://stackoverflow.com/questions/5711120/gitignore-binary-files-that-have-no-extension&#34;&gt;here&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;An Example using C Program Source&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s say we have a pre-existing directory of some C source code files:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ls&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Makefile  print  print.c  print.h  print.o&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;And we initialize a new git repository in that directory:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ git init&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Initialized empty Git repository in /home/user/tmp/printer/.git/&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ cat .gitignore&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Ignore all &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;* &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Unignore all with extensions &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;!*.* &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Unignore all dirs &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;!*/ &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Unignore make files&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;!Makefile&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Ignore .o files&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;*.o&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Ignore&lt;/code&gt;bin&lt;code&gt;dir &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;bin/ &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# or &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;*/bin/* &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GCC can&#39;t find stdio.h in Alpine Linux</title>
+      <link>http://localhost:1313/posts/gcc-cant-find-stdioh-in-alpine-linux/</link>
+      <pubDate>Thu, 29 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gcc-cant-find-stdioh-in-alpine-linux/</guid>
+      <description>&lt;p&gt;A while ago, I installed the &lt;a href=&#34;https://github.com/ish-app/ish&#34;&gt;iSH&lt;/a&gt; app on my iPad which made it possible for me to develop Python and C code as well as use it as an SSH client. However, I ran into an issue when trying to compile C code because the compiler couldn&amp;rsquo;t resolve &lt;code&gt;stdio.h&lt;/code&gt;. The following excerpt from &lt;a href=&#34;http://stackoverflow.com/questions/42366739/ddg#42366740&#34;&gt;StackOverflow&lt;/a&gt; resolves the issue:&lt;/p&gt;&#xA;&lt;p&gt;Install &lt;code&gt;libc-dev&lt;/code&gt; in addition to &lt;code&gt;GCC&lt;/code&gt;, or just install &lt;code&gt;build-base&lt;/code&gt; for everything (&lt;code&gt;alpine-sdk&lt;/code&gt; is probably an overkill). To install run the following command:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/motd/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/tags/motd/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/motd/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/motd/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Motd">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Motd">
+  <meta itemprop="datePublished" content="2023-09-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-28T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Motd">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Motd
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/backup-files-with-specific-file-extension29561/" class="link black dim">
+        Backup Files with Specific File Extension
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Here is how you can use <code>rsync</code> to backup only the <em>.ogg</em> files in the <em>Music</em> directory to the <em>OGG</em> directory:</p>
+<blockquote>
+<p><code>$ rsync -a --prune-empty-dirs --include='*/' --include='*.ogg' --exclude='*' Music/ OGG/ </code><!-- raw HTML omitted --></p>
+</blockquote>
+    </div>
+    <a href="/posts/backup-files-with-specific-file-extension29561/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/some-sed-tips27116/" class="link black dim">
+        Some sed Tips
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Put an * between the number 5 and 6</p>
+<blockquote>
+<p><code>$ echo '12345678901234567890'| sed  -e 's/^.\{5\}/&amp;*/' </code><!-- raw HTML omitted -->
+<code>12345*678901234567890 </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Put a comma between each number</p>
+<blockquote>
+<p><code>$ echo &quot;1234567890&quot; |sed  -e 's/./&amp;,/g' -e 's/,$//' </code><!-- raw HTML omitted -->
+<code>1,2,3,4,5,6,7,8,9,0 </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Put comma after every 2, if not even then last number exist by itself</p>
+<blockquote>
+<p><code>$ echo &quot;1234567890&quot; |sed  -e 's/../&amp;,/g' -e 's/,$//' </code><!-- raw HTML omitted -->
+<code>12,34,56,78,90 </code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/some-sed-tips27116/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/slackware-current-minimal-installation26343/" class="link black dim">
+        Slackware Current: Minimal Installation
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>I&rsquo;ve been looking for a way to install a minimal version of Slackware (current) in a VM and the smallest that I&rsquo;ve safely come up with so far is this:</p>
+<ul>
+<li>Package group A</li>
+<li>Package group AP</li>
+<li>Package group D</li>
+<li>Package group F</li>
+<li>Package group K</li>
+<li>Package group L</li>
+<li>Package group N</li>
+</ul>
+<p>I will try to get it smaller but I need this startup environment for another <em>experiment</em> so I&rsquo;ll settle for this. Yes, it is still a wopping 12GB. Geez&hellip;</p>
+    </div>
+    <a href="/posts/slackware-current-minimal-installation26343/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/red-hat-subscription-service27393/" class="link black dim">
+        Red Hat Subscription Service
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Once you have installed RHEL 9, register your RHEL subscription by running the following command on the terminal. The username and password are the login details to your Red Hat account.</p>
+<blockquote>
+<p><code>$ sudo subscription-manager register --username=username --password=password </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>To confirm that the system is registered to Red Hat Subscription Management (RHSM), run the command:</p>
+<blockquote>
+<p><code>$ sudo subscription-manager list --installed   </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Then refresh and subscribe:</p>
+    </div>
+    <a href="/posts/red-hat-subscription-service27393/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/speed-up-dnf-package-manager7346/" class="link black dim">
+        Speed Up DNF Package Manager
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>You can increase the download speed for installing packages using DNF by updating the maximum number of simultaneous package downloads.</p>
+<p>Start by editing the <code>/etc/dnf/dnf.conf</code> file:</p>
+<blockquote>
+<p><code>$ sudo nano /etc/dnf/dnf.conf </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Add the following line to enable DNF parallel downloads:</p>
+<blockquote>
+<p><code>max_parallel_downloads=10 </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Another option is to select the fastest mirror from the Fedora public mirrors by adding the following line:</p>
+<blockquote>
+<p><code>fastestmirror=True </code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/speed-up-dnf-package-manager7346/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/creating-a-python-requirementstxt-file/" class="link black dim">
+        Creating a Python requirements.txt File
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>This can be done quickly by typing:</p>
+<blockquote>
+<p><code>$ pip freeze &gt;requirements.txt </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>at the command line.</p>
+<p>To install packages using a <code>requirements</code> file just use <code>pip</code>:</p>
+<blockquote>
+<p><code>$ pip install -r requirements.txt </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>To check if the packages in your <code>requirements.txt</code> file are up-to-date use:</p>
+<blockquote>
+<p><code>$ pip list --outdated </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>and to update those packages:</p>
+<blockquote>
+<p><code>$ pip install -U &lt;packagename&gt; </code><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/creating-a-python-requirementstxt-file/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/python-initializing-a-new-project-using-venv/" class="link black dim">
+        Python: Initializing a New Project using venv
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Start out by creating a new directory or cloning a repository (which creates a directory) and <em>cd</em> into it:</p>
+<blockquote>
+<p><code>$ git clone https://gitlab.com/username/proj-name</code><!-- raw HTML omitted -->
+<code>$ cd proj-name/</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Initialize the virtual environment:</p>
+<blockquote>
+<p><code>$ python3 -m venv venv</code><!-- raw HTML omitted -->
+<code>$ source venv/bin/activate</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Install whatever dependencies you need:</p>
+<blockquote>
+<p><code>$ pip install package1 package2</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>Then develop and/or run your program:</p>
+    </div>
+    <a href="/posts/python-initializing-a-new-project-using-venv/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/printing-numbers-using-thousand-separators/" class="link black dim">
+        Printing Numbers using Thousand Separators
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>You can use a pipe to <code>awk</code> to output numbers with thousands separators (commas). For Example, here&rsquo;s how you can total the 5th column of the <code>ls -l</code> command and print it with thousands separators:</p>
+<blockquote>
+<p><code>$ ls -l | awk '{total = total + $5}END{print total}' | LC_ALL=en_US.UTF-8 awk '{printf(&quot;%'&quot;'&quot;'d\n&quot;, $0) }' </code><!-- raw HTML omitted -->
+<code>21,387 </code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>This can be adapted to other commands as necessary.</p>
+    </div>
+    <a href="/posts/printing-numbers-using-thousand-separators/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/gcc-cant-find-stdioh-in-alpine-linux/" class="link black dim">
+        GCC can&#39;t find stdio.h in Alpine Linux
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>A while ago, I installed the <a href="https://github.com/ish-app/ish">iSH</a> app on my iPad which made it possible for me to develop Python and C code as well as use it as an SSH client. However, I ran into an issue when trying to compile C code because the compiler couldn&rsquo;t resolve <code>stdio.h</code>. The following excerpt from <a href="http://stackoverflow.com/questions/42366739/ddg#42366740">StackOverflow</a> resolves the issue:</p>
+<p>Install <code>libc-dev</code> in addition to <code>GCC</code>, or just install <code>build-base</code> for everything (<code>alpine-sdk</code> is probably an overkill). To install run the following command:</p>
+    </div>
+    <a href="/posts/gcc-cant-find-stdioh-in-alpine-linux/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/ubuntu-disable-cloud-init-on-startup9393/" class="link black dim">
+        Ubuntu: Disable cloud-init on Startup
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>In systems that use <code>systemd</code> and have a current (17.0+) version of <code>cloud-init</code>, upstream documentation describes the process for disabling <code>cloud-init</code> with either of the following:</p>
+<blockquote>
+<p><code>* touch /etc/cloud/cloud-init.disabled</code><!-- raw HTML omitted --></p>
+</blockquote>
+<p>or,</p>
+<blockquote>
+<p><code>* add cloud-init=disabled to the kernel command line.</code><!-- raw HTML omitted --></p>
+</blockquote>
+    </div>
+    <a href="/posts/ubuntu-disable-cloud-init-on-startup9393/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/tags/motd/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/8/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/7/" aria-label="Page 7" class="page-link" role="button">7</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/8/" aria-label="Page 8" class="page-link" role="button">8</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 9" class="page-link" role="button">9</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/10/" aria-label="Page 10" class="page-link" role="button">10</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/11/" aria-label="Page 11" class="page-link" role="button">11</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/10/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/15/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

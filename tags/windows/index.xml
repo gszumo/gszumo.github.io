@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/windows/</link>
+    <description>Recent content in Windows on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows Terminal Keyboard Shortcuts</title>
+      <link>http://localhost:1313/posts/windows-terminal-keyboard-shortcuts30027/</link>
+      <pubDate>Fri, 02 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/windows-terminal-keyboard-shortcuts30027/</guid>
+      <description>&lt;p&gt;I have to use Windows where I work but I use the terminal as often as possible. Microsoft&amp;rsquo;s Windows Terminal application makes that experience tolerable. You can even think that you&amp;rsquo;re using &lt;code&gt;tmux&lt;/code&gt; at times&amp;hellip;well, not really, but you get the idea.&lt;/p&gt;&#xA;&lt;p&gt;Here are some of the keyboard shortcuts that I use:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Split current terminal window&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;Alt Shift&lt;/code&gt; - split pane horizontal&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;Alt Shift&lt;/code&gt; - split pane vertical&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Jump to other console&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to Enable the Administrator Account in Windows</title>
+      <link>http://localhost:1313/posts/how-to-enable-the-administrator-account-in-windows19625/</link>
+      <pubDate>Thu, 18 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-enable-the-administrator-account-in-windows19625/</guid>
+      <description>&lt;p&gt;To activate the Administrator account on Windows, open the Command Prompt as Administrator from the Start Menu, or you can right-click on the &amp;ldquo;Start&amp;rdquo; menu and select the &amp;ldquo;Powershell&amp;rdquo; menu item, then enter:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;net user administrator /active: yes&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;into the window. You should disable the account again when you&amp;rsquo;re done.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Uptime Statistics for Windows</title>
+      <link>http://localhost:1313/posts/uptime-statistics-for-windows/</link>
+      <pubDate>Tue, 25 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/uptime-statistics-for-windows/</guid>
+      <description>&lt;p&gt;To find the uptime for a Windows machine do&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;C:&amp;gt; net statistics server &#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+  </channel>
+</rss>

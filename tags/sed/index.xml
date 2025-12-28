@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sed on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/sed/</link>
+    <description>Recent content in Sed on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/sed/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prefix The Output of Any Command with a Timestamp</title>
+      <link>http://localhost:1313/posts/prefix-the-output-of-any-command-with-a-timestamp/</link>
+      <pubDate>Sun, 16 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/prefix-the-output-of-any-command-with-a-timestamp/</guid>
+      <description>&lt;p&gt;You can prefix the output of every line with a timestamp by piping the command to the following &lt;em&gt;sed&lt;/em&gt; command:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt; $ command | sed &amp;quot;s/^/\[&lt;/code&gt;date +&amp;quot;%Y%m%d%H%M%S&amp;quot;&lt;code&gt;]/&amp;quot; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Some sed Tips</title>
+      <link>http://localhost:1313/posts/some-sed-tips27116/</link>
+      <pubDate>Thu, 06 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/some-sed-tips27116/</guid>
+      <description>&lt;p&gt;Put an * between the number 5 and 6&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ echo &#39;12345678901234567890&#39;| sed  -e &#39;s/^.\{5\}/&amp;amp;*/&#39; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;12345*678901234567890 &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Put a comma between each number&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ echo &amp;quot;1234567890&amp;quot; |sed  -e &#39;s/./&amp;amp;,/g&#39; -e &#39;s/,$//&#39; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;1,2,3,4,5,6,7,8,9,0 &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Put comma after every 2, if not even then last number exist by itself&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ echo &amp;quot;1234567890&amp;quot; |sed  -e &#39;s/../&amp;amp;,/g&#39; -e &#39;s/,$//&#39; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;12,34,56,78,90 &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Archive Only Files In a Directory</title>
+      <link>http://localhost:1313/posts/archive-only-files-in-a-directory23013/</link>
+      <pubDate>Mon, 29 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/archive-only-files-in-a-directory23013/</guid>
+      <description>&lt;p&gt;If you want to create a tar archive of only the files of a directory and exclude any subdirectories you can use the &lt;code&gt;ls -la&lt;/code&gt; command and pipe the output to &lt;code&gt;awk&lt;/code&gt;. However you need to remove the first 8 fields from the output and leave all of the remaining parts of the line in case there are spaces in the filename. One quick and dirty way of doing that is to set each of the 8 fields to a blank and then use &lt;code&gt;sed&lt;/code&gt; to trim the leading spaces. You can optionally add quotation marks around the filename in your output too.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How To Count All The Files Extension Recursively In Linux</title>
+      <link>http://localhost:1313/posts/how-to-count-all-the-files-extension-recursively-in-linux/</link>
+      <pubDate>Tue, 09 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-count-all-the-files-extension-recursively-in-linux/</guid>
+      <description>&lt;p&gt;To count all the files by file extension recursively on the command line&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $ find . -type f | sed -n &amp;rsquo;s/..*.//p&amp;rsquo; | sort | uniq -c &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     40 3g2&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      5 AVI&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     13 DS_Store&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     28 JPG&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     30 MOV&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;    133 MP4&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     64 THM&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      1 docx&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     18 jpg&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      1 json&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      4 m3u&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     89 m4a&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      2 m4r&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;    156 m4v&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     41 mkv&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;    112 mov&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     38 mp3&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;    587 mp4&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      1 nfo&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      2 osp&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     30 png&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      1 sh&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      4 srt&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      6 svg&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     10 torrent&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      6 txt&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;      5 webm&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;     10 zip&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

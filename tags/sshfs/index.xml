@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sshfs on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/sshfs/</link>
+    <description>Recent content in Sshfs on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 31 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/sshfs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mounting a Remote Drive using FUSE</title>
+      <link>http://localhost:1313/posts/mounting-a-remote-drive-using-fuse15177/</link>
+      <pubDate>Thu, 31 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/mounting-a-remote-drive-using-fuse15177/</guid>
+      <description>&lt;p&gt;If you have &lt;em&gt;FUSE&lt;/em&gt; (Filessystem in Userspace) installed, you can use &lt;em&gt;SSH&lt;/em&gt; to mount a remote drive locally. This is very simple to do and you don&amp;rsquo;t need to be &lt;em&gt;root&lt;/em&gt;. You just need &lt;em&gt;SSH&lt;/em&gt; access to the remote system. Just create a directory to mount the system and use the &lt;code&gt;sshfs&lt;/code&gt; command to connect the remote to it.&lt;/p&gt;&#xA;&lt;p&gt;Here I will mount my home directory on my remote server named &lt;em&gt;slacker&lt;/em&gt; locally to a directory on my laptop&amp;rsquo;s home directory:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/slackware/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/tags/slackware/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/slackware/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/slackware/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Slackware">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Slackware">
+  <meta itemprop="datePublished" content="2023-09-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-23T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Slackware">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Slackware
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/unable-to-burn-iso-file-to-dvd-with-k3b/" class="link black dim">
+        Unable to Burn .ISO File to DVD With K3B
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you&rsquo;re having a problem as a &lsquo;regular&rsquo; Slackware user burning an ISO file to a blank DVD, this may resolve your issue:</p>
+<blockquote>
+<p><code># chown root:cdrom /usr/bin/cdrecord /usr/bin/cdrdao</code><!-- raw HTML omitted -->
+<code># chmod 4750 /usr/bin/cdrecord /usr/bin/cdrdao</code></p>
+</blockquote>
+    </div>
+    <a href="/posts/unable-to-burn-iso-file-to-dvd-with-k3b/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/lxc-in-slackware22712/" class="link black dim">
+        LXC in Slackware
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Following directions from: <a href="https://docs.slackware.com/howtos:misc:lxc">lxc</a> for Slackware 14.2. I haven&rsquo;t tested on Slackware 15 yet. You will have to set this up while running as <code>root</code>.</p>
+<ol>
+<li>
+<p>Create the file  <code>'/etc/default/lxc-net'</code> and add the line <code>USE_LXC_BRIDGE=&quot;true&quot;</code> to it.</p>
+</li>
+<li>
+<p>Create the directory <code>'/var/lib/misc'</code></p>
+</li>
+<li>
+<p>Start the service: <code># /usr/libexec/lxc/lxc-net start</code></p>
+</li>
+<li>
+<p>Create a config file:</p>
+</li>
+</ol>
+<blockquote>
+<p><!-- raw HTML omitted --># cat &gt;slac-xlc.con &laquo;&ldquo;EOF&rdquo;<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --> lxc.network.type = veth<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --> lxc.network.flags = up<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --> lxc.network.link = lxcbr0<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->EOF<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/lxc-in-slackware22712/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/install-openbox-on-slackware31274/" class="link black dim">
+        Install Openbox on Slackware
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>I have been running blackbox on my Slackware desktop and decided that I&rsquo;d try a different &lsquo;flavor&rsquo; called openbox which are in the SBo repositories. I started by executing <code>sbopkg</code> at the <code>root</code> prompt and found these packages available:</p>
+<p>There is the primary <code>openbox</code> package and there are 4 optional packages listed:</p>
+<ul>
+<li>openbox</li>
+<li>libfm-extra</li>
+<li>lxmenu-data</li>
+<li>menu-cache</li>
+<li>openbox-menu</li>
+</ul>
+<p>And several theme packages:</p>
+<ul>
+<li>arc-openbox</li>
+<li>openbox-simple-theme</li>
+</ul>
+<p>The openbox-menu and openbox-simple-theme downloads failed but I was able to get away with using <code>obconf</code> and <code>obmenu</code> tools.</p>
+    </div>
+    <a href="/posts/install-openbox-on-slackware31274/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/update-slackware-broadcom-driver27466/" class="link black dim">
+        Update Slackware Broadcom Driver
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>It doesn&rsquo;t happen often, but whenever there&rsquo;s a new kernel package for Slackware on my laptop I need to update the Broadcom driver. To do this:</p>
+<ol>
+<li>Update your OS, as usual.</li>
+<li>Reboot</li>
+<li>Plug in the ethernet cable, if necessary</li>
+<li>Login as root</li>
+<li>Perform sbopkg -i broadcom-sta</li>
+<li>Done</li>
+</ol>
+<p>You can read more about it on the Slackware wiki <a href="https://www.slackwiki.com/Broadcom_Wireless">here</a></p>
+    </div>
+    <a href="/posts/update-slackware-broadcom-driver27466/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/installing-foliate-ebook-reader-on-slackware-1517738/" class="link black dim">
+        Installing Foliate Ebook Reader on Slackware 15
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>I don&rsquo;t know about you, but I love reading ebooks and I&rsquo;ve used Foliate before on other distributions but can&rsquo;t find it for my OS of choice, Slackware. So, here&rsquo;s how to install it from source:</p>
+<ol>
+<li>Download the foliate software tarball from <a href="https://github.com/johnfactotum/foliate/releases">here</a></li>
+<li>Install appstream-glib (which provides dependency appstream-util) using sboinstall</li>
+<li>Install webkit2gtk (which provides dependency WebKit2) using sboinstall</li>
+<li>Build foliate. Instructions are on the GitHub <a href="https://github.com/johnfactotum/foliate">page</a> or just extract the tarball, cd into the directory and then execute the following on the command line:</li>
+</ol>
+<p><!-- raw HTML omitted -->$ tar zxvf foliate-2.6.4.tar.gz <!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$ cd foliate-2.6.4<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$ meson build &ndash;prefix=/usr<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$ ninja -c build<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$ ninja -C build<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->$ su -c &ldquo;ninja -C build install&rdquo;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/installing-foliate-ebook-reader-on-slackware-1517738/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/tags/slackware/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/slackware/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/slackware/" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

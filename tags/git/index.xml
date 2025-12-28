@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/git/</link>
+    <description>Recent content in Git on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git Aliases</title>
+      <link>http://localhost:1313/posts/git-aliases20780/</link>
+      <pubDate>Thu, 17 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-aliases20780/</guid>
+      <description>&lt;p&gt;Once you start developing some experience with using &lt;em&gt;git&lt;/em&gt; on the command line, you will sometimes find yourself typing some long commands over and over again. You can create &lt;em&gt;aliases&lt;/em&gt; in &lt;em&gt;git&lt;/em&gt; that are very similar to the &lt;em&gt;bash alias&lt;/em&gt; shortcuts you use in the shell.&lt;/p&gt;&#xA;&lt;p&gt;Steps to do this are highlighted in chapter 2.7 of the &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases&#34;&gt;Git Book&lt;/a&gt; authored by Scott Chacon and Ben Straub and published by Apress.&lt;/p&gt;&#xA;&lt;p&gt;One of the commands that I use a lot is:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting Up Git to Ignore ELF Binaries (C/C&#43;&#43; Output on Linux)</title>
+      <link>http://localhost:1313/posts/setting-up-git-to-ignore-elf-binaries-cc-output-on-linux/</link>
+      <pubDate>Wed, 16 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/setting-up-git-to-ignore-elf-binaries-cc-output-on-linux/</guid>
+      <description>&lt;p&gt;The starting point for this experiment was from &lt;a href=&#34;https://stackoverflow.com/questions/5711120/gitignore-binary-files-that-have-no-extension&#34;&gt;here&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;An Example using C Program Source&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s say we have a pre-existing directory of some C source code files:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ls&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Makefile  print  print.c  print.h  print.o&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;And we initialize a new git repository in that directory:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ git init&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Initialized empty Git repository in /home/user/tmp/printer/.git/&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ cat .gitignore&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Ignore all &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;* &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Unignore all with extensions &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;!*.* &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Unignore all dirs &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;!*/ &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Unignore make files&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;!Makefile&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Ignore .o files&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;*.o&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# Ignore&lt;/code&gt;bin&lt;code&gt;dir &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;bin/ &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;# or &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;*/bin/* &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Convert a Git Repo to a Bare Repo</title>
+      <link>http://localhost:1313/posts/convert-a-git-repo-to-a-bare-repo/</link>
+      <pubDate>Sat, 12 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/convert-a-git-repo-to-a-bare-repo/</guid>
+      <description>&lt;p&gt;If you have a git repository that you haven&amp;rsquo;t cloned from a remote location, i.e., one that was created locally, it is easy to convert it to a &lt;em&gt;bare&lt;/em&gt; repository. This process describes how to:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Take a &amp;ldquo;normal&amp;rdquo; git repository&lt;/li&gt;&#xA;&lt;li&gt;Move the .git directory to another location&lt;/li&gt;&#xA;&lt;li&gt;Convert it to a &lt;em&gt;bare&lt;/em&gt; repository&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Suppose you have a git repository called &lt;em&gt;repo&lt;/em&gt;. To convert it to a &lt;em&gt;bare&lt;/em&gt; repository, execute the following commands:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git: Working with Git for the First Time</title>
+      <link>http://localhost:1313/posts/git-working-with-git-for-the-first-time/</link>
+      <pubDate>Fri, 11 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-working-with-git-for-the-first-time/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s the first step every user should start with after downloading and installing git but &lt;strong&gt;BEFORE&lt;/strong&gt; doing anything else: Set up your &lt;em&gt;global&lt;/em&gt; environment variables! If you don&amp;rsquo;t do this git will abort your commit and give you an annoying message like this one:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ git commit file.txt &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Author identity unknown&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;*** Please tell me who you are.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Run&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  git config --global user.email &amp;quot;you@example.com&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  git config --global user.name &amp;quot;Your Name&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;to set your account&#39;s default identity.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;Omit --global to set the identity only in this repository.&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;  &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;fatal: empty ident name (for &amp;lt;user@localhost&amp;gt;) not allowed&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git: Committing to a Different Branch</title>
+      <link>http://localhost:1313/posts/git-committing-to-a-different-branch12884/</link>
+      <pubDate>Thu, 10 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-committing-to-a-different-branch12884/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s imaging that you&amp;rsquo;ve made some changes to files in your work directory and then realized that you aren&amp;rsquo;t in the correct branch. Now you want to get the changes you&amp;rsquo;ve made to the right branch but no change the current branch. What do you do?&lt;/p&gt;&#xA;&lt;p&gt;There is no &lt;em&gt;git&lt;/em&gt; command to do this but you can use the &lt;em&gt;git stash&lt;/em&gt; command to fix this.&lt;/p&gt;&#xA;&lt;p&gt;This involves:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Using the &lt;em&gt;git stash&lt;/em&gt; command to temporarily store our changes elsewhere,&lt;/li&gt;&#xA;&lt;li&gt;Checkout the correct branch, and&lt;/li&gt;&#xA;&lt;li&gt;&amp;ldquo;Unstash&amp;rdquo; the changes to the correct branch.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s say that we&amp;rsquo;ve made some changes in our repository&amp;rsquo;s new-release branch but they should have been made in the new-feature branch.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git: Deleting Multiple Commits</title>
+      <link>http://localhost:1313/posts/git-deleting-multiple-commits24780/</link>
+      <pubDate>Fri, 23 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-deleting-multiple-commits24780/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s say that you want to delete the last 3 commits that you&amp;rsquo;ve already pushed to the remote repository. In this example, you want &lt;code&gt;566dab6&lt;/code&gt; to be the new HEAD revision.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ git log --pretty=oneline --abbrev-commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;57bc36b (HEAD -&amp;gt; master, origin/master, origin/HEAD) 3nd set of bad entries on 6th commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;dfb4bd3 2nd set of bad entries on 5th commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;0fd1e16 First set of bad entries on 4th commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;566dab6 Yet more good entries on third commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;d50370a More good entries on second commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;b5fbc6d Good entries on first commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;2cad4c7 Initial commit&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gitea Server Installation on a Raspberry Pi</title>
+      <link>http://localhost:1313/posts/gitea-server-installation-on-a-raspberry-pi26652/</link>
+      <pubDate>Thu, 25 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/gitea-server-installation-on-a-raspberry-pi26652/</guid>
+      <description>&lt;p&gt;Create a &amp;lsquo;git&amp;rsquo; user:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ sudo adduser git&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Login as the &amp;lsquo;git&amp;rsquo; user and download the gitea binary from the gitea website (choose the latest version):&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;wget -O gitea &lt;a href=&#34;https://dl.gitea.io/gitea/1.14.5/gitea-1.14.5-linux-amd64&#34;&gt;https://dl.gitea.io/gitea/1.14.5/gitea-1.14.5-linux-amd64&lt;/a&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;chmod +x gitea&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;p&gt;Create a service. We&amp;rsquo;re keeping it simple here so we don&amp;rsquo;t need a lot of the database-specific stuff:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>git Tips</title>
+      <link>http://localhost:1313/posts/git-tips/</link>
+      <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-tips/</guid>
+      <description>&lt;p&gt;A useful tip to beautify your output is to use:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ git log --graph --decorate --oneline --abbrev-commit --all --date=local&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;when looking at your log entries.&#xA;Or you can add&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[alias]&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --date=local&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;to your ~/.gitconfig file to use &lt;code&gt;$ git lola&lt;/code&gt; as an alias.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

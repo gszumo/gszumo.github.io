@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Install sbopkg on Slackware | Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Sbopkg is a command‐line and dialog‐based tool to interact with the SlackBuilds.org repository, a collection of third‐party SlackBuild scripts to build Slackware packages.
+Here are the steps for installing the latest version of sbopkg with Slackware.
+
+
+Download the latest Slackware package from https://www.sbopkg.org/downloads.php using whatever method you find most convenient. At the time of this writing the latest version is https://github.com/sbopkg/sbopkg/releases/download/0.38.2/sbopkg-0.38.2-noarch-1_wsr.tgz. I will use that version in the commands below. If the version has changed, you would use the new filename in the commands. You can also use wget &lt;packagename&gt; to download it directly.">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="Gregg">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/install-sbopkg-on-slackware2055/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/install-sbopkg-on-slackware2055/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Install sbopkg on Slackware">
+  <meta property="og:description" content="Sbopkg is a command‐line and dialog‐based tool to interact with the SlackBuilds.org repository, a collection of third‐party SlackBuild scripts to build Slackware packages.
+Here are the steps for installing the latest version of sbopkg with Slackware.
+Download the latest Slackware package from https://www.sbopkg.org/downloads.php using whatever method you find most convenient. At the time of this writing the latest version is https://github.com/sbopkg/sbopkg/releases/download/0.38.2/sbopkg-0.38.2-noarch-1_wsr.tgz. I will use that version in the commands below. If the version has changed, you would use the new filename in the commands. You can also use wget &lt;packagename&gt; to download it directly.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-09-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-09-23T00:00:00+00:00">
+    <meta property="article:tag" content="Cli">
+    <meta property="article:tag" content="Slackware">
+    <meta property="article:tag" content="Sbopkg">
+    <meta property="article:tag" content="Motd">
+
+  <meta itemprop="name" content="Install sbopkg on Slackware">
+  <meta itemprop="description" content="Sbopkg is a command‐line and dialog‐based tool to interact with the SlackBuilds.org repository, a collection of third‐party SlackBuild scripts to build Slackware packages.
+Here are the steps for installing the latest version of sbopkg with Slackware.
+Download the latest Slackware package from https://www.sbopkg.org/downloads.php using whatever method you find most convenient. At the time of this writing the latest version is https://github.com/sbopkg/sbopkg/releases/download/0.38.2/sbopkg-0.38.2-noarch-1_wsr.tgz. I will use that version in the commands below. If the version has changed, you would use the new filename in the commands. You can also use wget &lt;packagename&gt; to download it directly.">
+  <meta itemprop="datePublished" content="2023-09-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-23T00:00:00+00:00">
+  <meta itemprop="wordCount" content="150">
+  <meta itemprop="keywords" content="Cli,Slackware,Sbopkg,Motd">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Install sbopkg on Slackware">
+  <meta name="twitter:description" content="Sbopkg is a command‐line and dialog‐based tool to interact with the SlackBuilds.org repository, a collection of third‐party SlackBuild scripts to build Slackware packages.
+Here are the steps for installing the latest version of sbopkg with Slackware.
+Download the latest Slackware package from https://www.sbopkg.org/downloads.php using whatever method you find most convenient. At the time of this writing the latest version is https://github.com/sbopkg/sbopkg/releases/download/0.38.2/sbopkg-0.38.2-noarch-1_wsr.tgz. I will use that version in the commands below. If the version has changed, you would use the new filename in the commands. You can also use wget &lt;packagename&gt; to download it directly.">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Install sbopkg on Slackware</h1>
+      
+      <p class="tracked"><strong>Gregg</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-09-23T00:00:00Z">September 23, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p><em>Sbopkg</em> is a command‐line and dialog‐based tool to interact with the SlackBuilds.org repository, a collection of third‐party SlackBuild scripts to build Slackware packages.</p>
+<p>Here are the steps for installing the latest version of <em>sbopkg</em> with Slackware.</p>
+<ol>
+<li>
+<p>Download the latest Slackware package from <code>https://www.sbopkg.org/downloads.php</code> using whatever method you find most convenient. At the time of this writing the latest version is <code>https://github.com/sbopkg/sbopkg/releases/download/0.38.2/sbopkg-0.38.2-noarch-1_wsr.tgz</code>. I will use that version in the commands below. If the version has changed, you would use the new filename in the commands. You can also use <code>wget &lt;packagename&gt;</code> to download it directly.</p>
+</li>
+<li>
+<p>Open your favorite terminal and <code>su</code> to root.</p>
+</li>
+<li>
+<p>Change to the directory where you downloaded the package.</p>
+</li>
+<li>
+<p>Run the command <code>installpkg sbopkg-0.38.2-noarch-1_wsr.tgz</code></p>
+</li>
+</ol>
+<p>If all goes well, <em>sbopkg</em> will now be installed.</p>
+<p>To run <em>sbopkg</em>, open your favorite terminal, <code>su -</code> to root, and type <code>sbopkg</code>.</p>
+<p>As usual, see the <code>man</code> or <code>info</code> page for more information.</p>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/cli/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Cli</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/slackware/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Slackware</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/sbopkg/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Sbopkg</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/motd/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Motd</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

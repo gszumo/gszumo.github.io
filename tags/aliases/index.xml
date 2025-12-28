@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aliases on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/aliases/</link>
+    <description>Recent content in Aliases on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/aliases/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git Aliases</title>
+      <link>http://localhost:1313/posts/git-aliases20780/</link>
+      <pubDate>Thu, 17 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/git-aliases20780/</guid>
+      <description>&lt;p&gt;Once you start developing some experience with using &lt;em&gt;git&lt;/em&gt; on the command line, you will sometimes find yourself typing some long commands over and over again. You can create &lt;em&gt;aliases&lt;/em&gt; in &lt;em&gt;git&lt;/em&gt; that are very similar to the &lt;em&gt;bash alias&lt;/em&gt; shortcuts you use in the shell.&lt;/p&gt;&#xA;&lt;p&gt;Steps to do this are highlighted in chapter 2.7 of the &lt;a href=&#34;https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases&#34;&gt;Git Book&lt;/a&gt; authored by Scott Chacon and Ben Straub and published by Apress.&lt;/p&gt;&#xA;&lt;p&gt;One of the commands that I use a lot is:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

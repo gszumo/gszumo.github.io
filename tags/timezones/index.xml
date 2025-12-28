@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Timezones on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/timezones/</link>
+    <description>Recent content in Timezones on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/timezones/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use the zdump Command to Check Daylight Savings Time Settings</title>
+      <link>http://localhost:1313/posts/use-the-zdump-command-to-check-daylight-savings-time-settings/</link>
+      <pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/use-the-zdump-command-to-check-daylight-savings-time-settings/</guid>
+      <description>&lt;p&gt;If you are one of us &lt;em&gt;lucky&lt;/em&gt; folks who live in timezones that observe &lt;em&gt;Daylight Savings Time&lt;/em&gt;, you can use the &lt;code&gt;zdump&lt;/code&gt; timezone dumper command to view your server&amp;rsquo;s settings for same. This command prints the current time in each timezone provided on the command line.&lt;/p&gt;&#xA;&lt;p&gt;You can use &lt;code&gt;grep&lt;/code&gt; to reduce the output to just the lines that reference the current year:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ zdump -v EST5EDT |grep &#39;2023&#39;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;EST5EDT  Sun Mar 12 06:59:59 2023 UT = Sun Mar 12 01:59:59 2023 EST isdst=0 gmtoff=-18000&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;EST5EDT  Sun Mar 12 07:00:00 2023 UT = Sun Mar 12 03:00:00 2023 EDT isdst=1 gmtoff=-14400&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;EST5EDT  Sun Nov  5 05:59:59 2023 UT = Sun Nov  5 01:59:59 2023 EDT isdst=1 gmtoff=-14400&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;EST5EDT  Sun Nov  5 06:00:00 2023 UT = Sun Nov  5 01:00:00 2023 EST isdst=0 gmtoff=-18000&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

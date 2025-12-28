@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Distros on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/distros/</link>
+    <description>Recent content in Distros on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/distros/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Slackware Current: Minimal Installation</title>
+      <link>http://localhost:1313/posts/slackware-current-minimal-installation26343/</link>
+      <pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/slackware-current-minimal-installation26343/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been looking for a way to install a minimal version of Slackware (current) in a VM and the smallest that I&amp;rsquo;ve safely come up with so far is this:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Package group A&lt;/li&gt;&#xA;&lt;li&gt;Package group AP&lt;/li&gt;&#xA;&lt;li&gt;Package group D&lt;/li&gt;&#xA;&lt;li&gt;Package group F&lt;/li&gt;&#xA;&lt;li&gt;Package group K&lt;/li&gt;&#xA;&lt;li&gt;Package group L&lt;/li&gt;&#xA;&lt;li&gt;Package group N&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I will try to get it smaller but I need this startup environment for another &lt;em&gt;experiment&lt;/em&gt; so I&amp;rsquo;ll settle for this. Yes, it is still a wopping 12GB. Geez&amp;hellip;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

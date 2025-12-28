@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Virt-Manager on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/virt-manager/</link>
+    <description>Recent content in Virt-Manager on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/virt-manager/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Virt-Manager Pool Running Out of Space</title>
+      <link>http://localhost:1313/posts/virt-manager-pool-running-out-of-space17838/</link>
+      <pubDate>Sun, 10 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/virt-manager-pool-running-out-of-space17838/</guid>
+      <description>&lt;p&gt;Once upon a time, I had an issue with virt-manager&amp;rsquo;s pool space running low. I was creating too many VMs using the default configuration. This needed to be resolved because images are being created in /var/lib/libvirt/images which was part of my &lt;code&gt;root&lt;/code&gt; partition, which was also low. Since I am the only user on this machine, I decided to change this to default to my home directory:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Create &lt;code&gt;~/libvirt/images&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Run &lt;code&gt;$ sudo virsh pool-edit default&lt;/code&gt; as a privileged user or as the &lt;code&gt;root&lt;/code&gt; user.&lt;/li&gt;&#xA;&lt;li&gt;Change the path to point to your new directory.&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+    </item>
+  </channel>
+</rss>

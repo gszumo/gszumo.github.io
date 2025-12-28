@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/tags/motd/index.xml" rel="alternate" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      <link href="/tags/motd/index.xml" rel="feed" type="application/rss+xml" title="Gregg&#39;s MOTD" />
+      
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/tags/motd/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/tags/motd/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Motd">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="website">
+
+  <meta itemprop="name" content="Motd">
+  <meta itemprop="datePublished" content="2023-09-28T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-28T00:00:00+00:00">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Motd">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Motd
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray"></section>
+    <section class="flex-ns mt5 flex-wrap justify-around">
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/ssh-directory-permissions-settings10237/" class="link black dim">
+        SSH Directory Permissions Settings
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>It is important to set the directory and file permissions for your ~/.ssh correctly.</p>
+<p>Typically you want the permissions to be:</p>
+<ul>
+<li>.ssh directory: 700 (drwx&mdash;&mdash;)</li>
+<li>public key (.pub file): 644 (-rw-r&ndash;r&ndash;)</li>
+<li>private key (id_rsa): 600 (-rw&mdash;&mdash;-)</li>
+<li>lastly your home directory should not be writeable by the group or others (at most 755 (drwxr-xr-x)).</li>
+</ul>
+<p><!-- raw HTML omitted -->For example, to set this permissions do:
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --> $ chmod 700 ~/.ssh <!-- raw HTML omitted --> <!-- raw HTML omitted -->
+<!-- raw HTML omitted --> $ chmod 600 ~/.ssh/* <!-- raw HTML omitted --> <!-- raw HTML omitted -->
+<!-- raw HTML omitted --> $ chmod 644 ~/.ssh/*.pub <!-- raw HTML omitted --> <!-- raw HTML omitted -->
+<!-- raw HTML omitted --> $ ls -ltr ~/.ssh/<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/ssh-directory-permissions-settings10237/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/how-to-use-github-tokens-on-the-command-line1357/" class="link black dim">
+        How To Use Github Tokens on the Command Line
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>GitHub’s access policy requires you to use tokens instead of username/password to update your repositories.</p>
+<p>To adapt your existing local / cloned repos to token based auth:
+<!-- raw HTML omitted --><!-- raw HTML omitted -->$ git remote remove origin<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->$ git remote add origin https://[TOKEN]@github.com/[USER]/[REPO]<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->$ git push<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+Clone repos using token based authentication (non public repos)<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->$ git clone https://[username]:[token]@github.com/[accountname]/[reponame]<!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/how-to-use-github-tokens-on-the-command-line1357/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/sending-email-from-the-command-line8566/" class="link black dim">
+        Sending Email from the Command Line
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h4 id="mutt-examples">mutt Examples<!-- raw HTML omitted --></h4>
+<p>Sending just a file attachment (-a) and an empty message body:<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+$ mutt  -s &ldquo;System logs&rdquo; -a /opt/backup.sql &ndash; <a href="mailto:user@example.com">user@example.com</a> &lt; /dev/null
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+Sending a message body using redirection:<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+$ mutt -s &ldquo;Email subject&rdquo; <a href="mailto:test@example.com">test@example.com</a> &lt; email.html
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->
+Sending a file attachment along with a message body:<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+$ echo $message | mutt -s &ldquo;Subject&rdquo; -a attachment.txt &ndash; <a href="mailto:me@myemail.com">me@myemail.com</a>
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/sending-email-from-the-command-line8566/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1/" class="link black dim">
+        How to convert VirtualBox VDI to KVM qcow2
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>It is easy to convert a VirtualBox VDI image to a KVM qcow2 file. You have to use the RAW file format as an intermediate.</p>
+<p>Make sure the VirtualBox machine is shutdown.</p>
+<ol>
+<li>Convert the VDI to a raw disk image. <!-- raw HTML omitted -->
+Note: VDIs are compressed and raw images are not, so you will need to leave enough disk space for entire uncompressed disk.<!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+$ VBoxManage clonehd &ndash;format RAW vm.vdi vm.img
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+<li>Then on your KVM host:
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+$ qemu-img convert -f raw vm.img -O qcow2 vm.qcow2
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+</ol>
+    </div>
+    <a href="/posts/h1how-to-convert-virtualbox-vdi-to-kvm-qcow2h1/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/how-to-count-all-the-files-extension-recursively-in-linux/" class="link black dim">
+        How To Count All The Files Extension Recursively In Linux
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>To count all the files by file extension recursively on the command line<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --> $ find . -type f | sed -n &rsquo;s/..*.//p&rsquo; | sort | uniq -c <!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->     40 3g2<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->      5 AVI<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->     13 DS_Store<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->     28 JPG<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->     30 MOV<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->    133 MP4<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->     64 THM<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->      1 docx<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->     18 jpg<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->      1 json<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->      4 m3u<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->     89 m4a<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->      2 m4r<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->    156 m4v<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->     41 mkv<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->    112 mov<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->     38 mp3<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->    587 mp4<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->      1 nfo<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->      2 osp<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->     30 png<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->      1 sh<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->      4 srt<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->      6 svg<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->     10 torrent<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->      6 txt<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->      5 webm<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->     10 zip<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/how-to-count-all-the-files-extension-recursively-in-linux/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/untar-a-tarball-to-a-remote-directory5321/" class="link black dim">
+        Untar a Tarball to a Remote Directory
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Sometimes you may need to copy an entire directory structure to another system using the command line. Here is a quick way to do it using the tar command:</p>
+<p><!-- raw HTML omitted --> cat myfile.tgz | ssh user@host &ldquo;tar xzf - -C /some/dir&rdquo; <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/untar-a-tarball-to-a-remote-directory5321/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/gnome3-menu-icons11060/" class="link black dim">
+        Gnome3 Menu Icons
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>To add your own menu icons to a GNOME3 environment check out this link:
+<a href="https://developer.gnome.org/integration-guide/stable/desktop-files.html.en">Desktop files: putting your application in the desktop menus</a></p>
+    </div>
+    <a href="/posts/gnome3-menu-icons11060/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/getting-rid-of-m-line-endings-in-a-text-file20658/" class="link black dim">
+        Getting Rid of ^M Line Endings in a Text File
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>If you have a text file that has funny looking ^M characters at the end of each line, in most cases, you have to get rid of them before they can be used. This is especially the case when you&rsquo;ve copied or transferred a file from a Windows-based system to a *nix-based one. If these files are shell scripts meant to run on the *nix-based system they more often than not won&rsquo;t work. There are various solutions to this problem.</p>
+    </div>
+    <a href="/posts/getting-rid-of-m-line-endings-in-a-text-file20658/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/removing-m-characters-from-multiple-files19102/" class="link black dim">
+        Removing ^M Characters From Multiple Files
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>In my day job I find that I frequently need to remove those pesky &lsquo;^M&rsquo; line endings from text files that are transferred from one system to the other. Most of the time it is just one file that needs to be fixed so going into vi and typing</p>
+<p><!-- raw HTML omitted --> :%s/^M//g <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>solves the problem, but on occasion I might be confronted with performing this process on multiple files and sometimes recursively through many subdirectories. When that happens it becomes necessary to bring out the &ldquo;big guns&rdquo; and do:</p>
+    </div>
+    <a href="/posts/removing-m-characters-from-multiple-files19102/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/posts/get-the-hash-of-a-file-on-different-operating-systems17003/" class="link black dim">
+        Get the Hash of a File on Different Operating Systems
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Sometimes you just need to hash something. Here are some command lines to do just that.</p>
+<p>Windows PowerShell:</p>
+<p><!-- raw HTML omitted --> Get-FileHash C:\path\to\file.iso -Algorithm [MD5|SHA1|SHA256|SHA384|SHA512|MACTripleDES|RIPEMD160] <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>(SHA256 is the default if the parameter is omitted)</p>
+<p>Linux:</p>
+<p><!-- raw HTML omitted --> md5sum /path/to/file <!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --> sha1sum /path/to/file <!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --> sha256sum /path/to/file <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+    </div>
+    <a href="/posts/get-the-hash-of-a-file-on-different-operating-systems17003/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+    </section>
+    
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/tags/motd/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/13/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/11/" aria-label="Page 11" class="page-link" role="button">11</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/12/" aria-label="Page 12" class="page-link" role="button">12</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/13/" aria-label="Page 13" class="page-link" role="button">13</a>
+      </li>
+      <li class="page-item active">
+        <a aria-current="page" aria-label="Page 14" class="page-link" role="button">14</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/15/" aria-label="Page 15" class="page-link" role="button">15</a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/15/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/tags/motd/page/15/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

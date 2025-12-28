@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resize on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/resize/</link>
+    <description>Recent content in Resize on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/resize/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Clean Up the Fedora Root Folder</title>
+      <link>http://localhost:1313/posts/how-to-clean-up-the-fedora-root-folder/</link>
+      <pubDate>Wed, 06 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/how-to-clean-up-the-fedora-root-folder/</guid>
+      <description>&lt;p&gt;OK, so you&amp;rsquo;re running &lt;em&gt;Fedora&lt;/em&gt; and you&amp;rsquo;re getting warnings that you&amp;rsquo;re running out of disk space on the &lt;em&gt;root&lt;/em&gt; folder. What are your options?&lt;/p&gt;&#xA;&lt;p&gt;The first thing to consider is &lt;em&gt;resizing&lt;/em&gt; the root partition size. For that you can find instructions &lt;a href=&#34;https://gist.github.com/181192/cf7eb42a25538ccdb8d0bb7dd57cf236&#34;&gt;here&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;If that is not an option, then the next thing you probably should do is find out which folders/directories are causing the issue. You can use the &lt;code&gt;du&lt;/code&gt; command and some piping to figure this out:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

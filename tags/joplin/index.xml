@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Joplin on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/joplin/</link>
+    <description>Recent content in Joplin on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/joplin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install Joplin on Slackware 15.0</title>
+      <link>http://localhost:1313/posts/install-joplin-on-slackware-150/</link>
+      <pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/install-joplin-on-slackware-150/</guid>
+      <description>&lt;p&gt;On a recent episode of &lt;a href=&#34;https://hackerpublicradio.org/eps/hpr3929/index.html&#34;&gt;Hacker Public Radio&lt;/a&gt;, the host, &lt;a href=&#34;https://hackerpublicradio.org/correspondents/0403.html&#34;&gt;Lee&lt;/a&gt; listed several note-taking apps that he had tried to use. One of them was &lt;a href=&#34;https://joplinapp.org/&#34;&gt;Joplin&lt;/a&gt; which I have been using for several years now. I feel that it is probably one of the best note-taking apps available that:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Supports Markdown&lt;/li&gt;&#xA;&lt;li&gt;Is cross-platform&lt;/li&gt;&#xA;&lt;li&gt;Supports vim keyboard mappings (I can&amp;rsquo;t live without this)&lt;/li&gt;&#xA;&lt;li&gt;Integrates with multiple cloud storage environments.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I use it on a daily basis for almost all of my notes but it also supports checklists on my iPhone, iPad, Windoze laptop, and all of my Slackware devices (desktop and laptops). Give it a try!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

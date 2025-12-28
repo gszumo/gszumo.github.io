@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qcow on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/qcow/</link>
+    <description>Recent content in Qcow on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/qcow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RHEL QCOW Image Password</title>
+      <link>http://localhost:1313/posts/rhel-qcow-image-password23397/</link>
+      <pubDate>Mon, 26 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/rhel-qcow-image-password23397/</guid>
+      <description>&lt;p&gt;Did you know that although you can install RHEL from an &lt;code&gt;ISO&lt;/code&gt;, you can also download a &lt;code&gt;QCOW2&lt;/code&gt; image from Red Hat. However, when you try to start it up under &lt;code&gt;virt-manager&lt;/code&gt; you&amp;rsquo;ll see that it boots to a &lt;code&gt;root&lt;/code&gt; prompt and you don&amp;rsquo;t know what the password is. This can be fixed by running the following from the host&amp;rsquo;s terminal:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;# virt-customize -a &amp;lt;qcow2-image-file-name&amp;gt; --root-password password:&amp;lt;password&amp;gt; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

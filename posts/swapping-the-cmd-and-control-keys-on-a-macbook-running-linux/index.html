@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Swapping the CMD and Control Keys on a Macbook Running Linux | Gregg&#39;s MOTD</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="I find it annoying not having a CTRL key available for both hands so I tend to swap the Command and CTRL key settings on my 2012 &ldquo;Slackbook&rdquo;.
+
+Launch a terminal
+Edit the X11 Keyboard Extension
+
+
+# vim /usr/share/X11/xkb/symbols/pc
+
+
+Make the following changes. Ensure your file looks like this:
+
+
+key &lt;LCTL&gt; {    [ Super_L       ]   };
+key &lt;LWIN&gt; {    [ Control_L     ]   };
+...
+key &lt;RCTL&gt; {    [ Super_R       ]   };
+key &lt;RWIN&gt; {    [ Control_R     ]   };">
+    <meta name="generator" content="Hugo 0.152.2">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="author" content="Gregg">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/swapping-the-cmd-and-control-keys-on-a-macbook-running-linux/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/swapping-the-cmd-and-control-keys-on-a-macbook-running-linux/">
+  <meta property="og:site_name" content="Gregg&#39;s MOTD">
+  <meta property="og:title" content="Swapping the CMD and Control Keys on a Macbook Running Linux">
+  <meta property="og:description" content="I find it annoying not having a CTRL key available for both hands so I tend to swap the Command and CTRL key settings on my 2012 “Slackbook”.
+Launch a terminal Edit the X11 Keyboard Extension # vim /usr/share/X11/xkb/symbols/pc
+Make the following changes. Ensure your file looks like this: key &lt;LCTL&gt; { [ Super_L ] }; key &lt;LWIN&gt; { [ Control_L ] }; ... key &lt;RCTL&gt; { [ Super_R ] }; key &lt;RWIN&gt; { [ Control_R ] };">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-09-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2023-09-19T00:00:00+00:00">
+    <meta property="article:tag" content="Cli">
+    <meta property="article:tag" content="Slackware">
+    <meta property="article:tag" content="Xkb">
+    <meta property="article:tag" content="Motd">
+
+  <meta itemprop="name" content="Swapping the CMD and Control Keys on a Macbook Running Linux">
+  <meta itemprop="description" content="I find it annoying not having a CTRL key available for both hands so I tend to swap the Command and CTRL key settings on my 2012 “Slackbook”.
+Launch a terminal Edit the X11 Keyboard Extension # vim /usr/share/X11/xkb/symbols/pc
+Make the following changes. Ensure your file looks like this: key &lt;LCTL&gt; { [ Super_L ] }; key &lt;LWIN&gt; { [ Control_L ] }; ... key &lt;RCTL&gt; { [ Super_R ] }; key &lt;RWIN&gt; { [ Control_R ] };">
+  <meta itemprop="datePublished" content="2023-09-19T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2023-09-19T00:00:00+00:00">
+  <meta itemprop="wordCount" content="100">
+  <meta itemprop="keywords" content="Cli,Slackware,Xkb,Motd">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Swapping the CMD and Control Keys on a Macbook Running Linux">
+  <meta name="twitter:description" content="I find it annoying not having a CTRL key available for both hands so I tend to swap the Command and CTRL key settings on my 2012 “Slackbook”.
+Launch a terminal Edit the X11 Keyboard Extension # vim /usr/share/X11/xkb/symbols/pc
+Make the following changes. Ensure your file looks like this: key &lt;LCTL&gt; { [ Super_L ] }; key &lt;LWIN&gt; { [ Control_L ] }; ... key &lt;RCTL&gt; { [ Super_R ] }; key &lt;RWIN&gt; { [ Control_R ] };">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Gregg&#39;s MOTD
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Swapping the CMD and Control Keys on a Macbook Running Linux</h1>
+      
+      <p class="tracked"><strong>Gregg</strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-09-19T00:00:00Z">September 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>I find it annoying not having a CTRL key available for both hands so I tend to swap the Command and CTRL key settings on my 2012 &ldquo;Slackbook&rdquo;.</p>
+<ol>
+<li>Launch a terminal</li>
+<li>Edit the X11 Keyboard Extension</li>
+</ol>
+<blockquote>
+<p><code># vim /usr/share/X11/xkb/symbols/pc</code><!-- raw HTML omitted --></p>
+</blockquote>
+<ol start="3">
+<li>Make the following changes. Ensure your file looks like this:</li>
+</ol>
+<blockquote>
+<p><code>key &lt;LCTL&gt; {    [ Super_L       ]   };</code><!-- raw HTML omitted -->
+<code>key &lt;LWIN&gt; {    [ Control_L     ]   };</code><!-- raw HTML omitted -->
+<code>...</code><!-- raw HTML omitted -->
+<code>key &lt;RCTL&gt; {    [ Super_R       ]   };</code><!-- raw HTML omitted -->
+<code>key &lt;RWIN&gt; {    [ Control_R     ]   };</code><!-- raw HTML omitted --></p>
+</blockquote>
+<ol start="4">
+<li>Clear xkb&rsquo;s cache</li>
+</ol>
+<blockquote>
+<p><code># rm -rf /var/lib/xkb/*</code><!-- raw HTML omitted --></p>
+</blockquote>
+<ol start="5">
+<li>If the keys are not swapped after Step 4, restart your session or your computer.</li>
+</ol>
+<ul class="pa0">
+  
+   <li class="list di">
+     <a href="/tags/cli/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Cli</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/slackware/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Slackware</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/xkb/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Xkb</a>
+   </li>
+  
+   <li class="list di">
+     <a href="/tags/motd/" class="link f5 grow br-pill ba ph3 pv2 mb2 dib black sans-serif no-underline">Motd</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Gregg's MOTD 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

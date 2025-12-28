@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bash on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/bash/</link>
+    <description>Recent content in Bash on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Removing Blank Spaces from a Group of File Names</title>
+      <link>http://localhost:1313/posts/removing-blank-spaces-from-a-group-of-file-names/</link>
+      <pubDate>Thu, 21 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/removing-blank-spaces-from-a-group-of-file-names/</guid>
+      <description>&lt;p&gt;This set of commands iterate over each file in the current directory and will replace any blank spaces in a filename with an underscore (&lt;code&gt;_&lt;/code&gt;).&lt;/p&gt;&#xA;&lt;p&gt;First, we&amp;rsquo;ll create a set of sample files:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ for i in {0..9}; do touch &amp;quot;file-${i} (number-${i}).txt&amp;quot;; done&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;$ ls&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-0\ (number-0).txt  file-4\ (number-4).txt  file-8\ (number-8).txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-1\ (number-1).txt  file-5\ (number-5).txt  file-9\ (number-9).txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-2\ (number-2).txt  file-6\ (number-6).txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-3\ (number-3).txt  file-7\ (number-7).txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Remove Parentheses from File Names</title>
+      <link>http://localhost:1313/posts/remove-parentheses-from-file-names/</link>
+      <pubDate>Wed, 20 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/remove-parentheses-from-file-names/</guid>
+      <description>&lt;p&gt;This script will rename Windows backup files by removing the &amp;rsquo; (date)&amp;rsquo; from the filename. It will remove the parentheses and everything between them from the file name, so that a file with the name &lt;code&gt;file-1 (2023-09-10).txt&lt;/code&gt; will be renamed to &lt;code&gt;file-1.txt&lt;/code&gt;. Note that since the data between the parentheses will be removed, the resulting file name must be unique for this script to prevent data from being overwritten. Other than that it should work for any fileset that meets the beforementioned constraints.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Processing a List of Files from an Input File</title>
+      <link>http://localhost:1313/posts/processing-a-list-of-files-from-an-input-file7025/</link>
+      <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/processing-a-list-of-files-from-an-input-file7025/</guid>
+      <description>&lt;p&gt;Suppose we have a list of files stored in a text file and we want to perform an operation on each of them within a bash script. How would we go about doing that? Well, there are several options, here are a few.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ cat input-files.txt &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-1.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-2.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-3.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-4.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-5.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-6.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-7.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-8.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;file-9.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>String Processing with Bash</title>
+      <link>http://localhost:1313/posts/string-processing-with-bash16696/</link>
+      <pubDate>Sun, 13 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/string-processing-with-bash16696/</guid>
+      <description>&lt;p&gt;There are various tools built into &lt;em&gt;bash&lt;/em&gt; that enable you to manipulate a variable or string which come in handy when writing shell scripts. Here are a few notable ones:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Find the length of a string&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;${#string}&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Get a Substring from a String&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;${string:pos} or ${string:pos:len}&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Removing Substrings from a String&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;${string#substr}&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;${string%substr}&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;${string##substr}&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;${string%%substr}&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Test If a Port is Open with Bash</title>
+      <link>http://localhost:1313/posts/test-if-a-port-is-open-with-bash/</link>
+      <pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/test-if-a-port-is-open-with-bash/</guid>
+      <description>&lt;p&gt;If netcat isn&amp;rsquo;t available on your machine and you don&amp;rsquo;t have the priviledge to install it you can use this trick to test if a port is open or not. It will throw a connection refused message if a port is closed.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ : &amp;lt;/dev/tcp/127.0.0.1/80&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;And you can use it in a script like this:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;(: &amp;lt;/dev/tcp/127.0.0.1/80) &amp;amp;&amp;gt;/dev/null &amp;amp;&amp;amp; echo &amp;quot;OPEN&amp;quot; || echo &amp;quot;CLOSED&amp;quot;&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Command Line Redirection</title>
+      <link>http://localhost:1313/posts/command-line-redirection28985/</link>
+      <pubDate>Sat, 08 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/command-line-redirection28985/</guid>
+      <description>&lt;p&gt;Redirection is very significant in shell scripting. It provides you a means to save the output of a command to a file or multiple files (one for &lt;code&gt;stdout&lt;/code&gt; and one for &lt;code&gt;stderr&lt;/code&gt;).&lt;/p&gt;&#xA;&lt;p&gt;Below is a table of simple redirections that are the most useful in shell scripting. Here we are using the following naming conventions:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;stdout&lt;/code&gt; &amp;ndash; The output of the script/command&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;stderr&lt;/code&gt; &amp;ndash; The errors generated by the script/command&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;outfile&lt;/code&gt; &amp;ndash; A target filename where you wish to store the output&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;errfile&lt;/code&gt; &amp;ndash; A target filename where you wish to store the errors&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;Command&lt;/th&gt;&#xA;          &lt;th&gt;Description/Purpose&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;command 2&amp;gt;errfile&lt;/td&gt;&#xA;          &lt;td&gt;Redirect stderr to errfile&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;command &amp;gt;outfile 2&amp;gt;errfile&lt;/td&gt;&#xA;          &lt;td&gt;Redirect stderr to file named errfile and stdout to file named outfile&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;command &amp;amp;&amp;gt; outfile&lt;/td&gt;&#xA;          &lt;td&gt;Redirect stderr and stdout to outfile&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;command 2&amp;gt;&amp;amp;-&lt;/td&gt;&#xA;          &lt;td&gt;Just suppress error messages. No file created. No error message displayed on screen&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;command 2&amp;gt;&amp;amp;1&lt;/td&gt;&#xA;          &lt;td&gt;Redirect error messages to standard output. Useful in shell script when you need to forcefully display error messages on screen&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Printing Numbers using Thousand Separators</title>
+      <link>http://localhost:1313/posts/printing-numbers-using-thousand-separators/</link>
+      <pubDate>Fri, 30 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/printing-numbers-using-thousand-separators/</guid>
+      <description>&lt;p&gt;You can use a pipe to &lt;code&gt;awk&lt;/code&gt; to output numbers with thousands separators (commas). For Example, here&amp;rsquo;s how you can total the 5th column of the &lt;code&gt;ls -l&lt;/code&gt; command and print it with thousands separators:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ ls -l | awk &#39;{total = total + $5}END{print total}&#39; | LC_ALL=en_US.UTF-8 awk &#39;{printf(&amp;quot;%&#39;&amp;quot;&#39;&amp;quot;&#39;d\n&amp;quot;, $0) }&#39; &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;code&gt;21,387 &lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This can be adapted to other commands as necessary.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Bash Environment Variables</title>
+      <link>http://localhost:1313/posts/bash-environment-variables11985/</link>
+      <pubDate>Wed, 24 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bash-environment-variables11985/</guid>
+      <description>&lt;p&gt;Here are some bash environment variables that are useful to know when you&amp;rsquo;re using the command prompt:&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt; $0&lt;!-- raw HTML omitted --&gt; - name of shell or shell script &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $1, $2, $3, &amp;hellip;&lt;!-- raw HTML omitted --&gt; - positional parameters to script &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $#&lt;!-- raw HTML omitted --&gt; - count of positional parameters &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $?&lt;!-- raw HTML omitted --&gt; - exit status of most recent foreground task &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $-&lt;!-- raw HTML omitted --&gt; - current options that are set for the shell &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $$&lt;!-- raw HTML omitted --&gt; - PID of the current shell (not subshell) &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $!&lt;!-- raw HTML omitted --&gt; - the PID of the most recent background command &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $DESKTOP_SESSION&lt;!-- raw HTML omitted --&gt; - path to the current display manager &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $EDITOR&lt;!-- raw HTML omitted --&gt; - preferred text editor &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $LANG&lt;!-- raw HTML omitted --&gt; - current language &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $PATH&lt;!-- raw HTML omitted --&gt; - directory list to search for executables (programs) &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $PWD&lt;!-- raw HTML omitted --&gt; - current working directory &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $SHELL&lt;!-- raw HTML omitted --&gt; - current shell &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $USER&lt;!-- raw HTML omitted --&gt; - current username &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $HOME&lt;!-- raw HTML omitted --&gt; - current user&amp;rsquo;s home directory &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $HOSTNAME&lt;!-- raw HTML omitted --&gt; - current name of the host &lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; $TERM&lt;!-- raw HTML omitted --&gt; - current terminal &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

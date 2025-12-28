@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tar on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/tar/</link>
+    <description>Recent content in Tar on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 27 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tar/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Extract a Single File from a Tarball</title>
+      <link>http://localhost:1313/posts/extract-a-single-file-from-a-tarball/</link>
+      <pubDate>Wed, 27 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/extract-a-single-file-from-a-tarball/</guid>
+      <description>&lt;p&gt;Suppose I have a tarball (.tar.gz file) which is large and I only want to extract a specific file from it. If I know the name of the file all I have to do is pass the file&amp;rsquo;s relative path that it is stored under to the command line.&lt;/p&gt;&#xA;&lt;p&gt;Here is an example of the error you will get if you pass the incorrect file specification:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ tar zxvf dirtree-tarball.tar.gz file-7-30003.txt&#xA;tar: file-7-30003.txt: Not found in archive&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Since I don&amp;rsquo;t have the full path, I can just search for it:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Copying a Directory Tree Recursively Using tar</title>
+      <link>http://localhost:1313/posts/copying-a-directory-tree-recursively-using-tar/</link>
+      <pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/copying-a-directory-tree-recursively-using-tar/</guid>
+      <description>&lt;p&gt;You can use &lt;code&gt;tar&lt;/code&gt; to copy a directory tree to another directory in &lt;em&gt;one shot&lt;/em&gt; along with preserving ownership, permissions and timestamps. This also avoids making an intermediary &lt;em&gt;tarfile&lt;/em&gt; which may cause problems if the size of the file copy is large and the storage resources are low. Just &lt;code&gt;cd&lt;/code&gt; to the top of the directory that you want to copy and begin.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s assume that you want to copy the contents of the &lt;em&gt;source&lt;/em&gt; directory to a &lt;em&gt;target&lt;/em&gt; directory:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using Tar with a Text Input File</title>
+      <link>http://localhost:1313/posts/using-tar-with-a-text-input-file23818/</link>
+      <pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/using-tar-with-a-text-input-file23818/</guid>
+      <description>&lt;p&gt;If you have a lot of files in a directory and you only need to &lt;code&gt;tar&lt;/code&gt; a subset of them you can create a list of the files you want in a text file and pass it to the &lt;code&gt;tar&lt;/code&gt; command like this:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ tar -cvf tarball.tar -T filelist.txt&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;or&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;code&gt;$ tar cvf tarball.tar $(cat filelist.txt)&lt;/code&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+    <item>
+      <title>Archive Only Files In a Directory</title>
+      <link>http://localhost:1313/posts/archive-only-files-in-a-directory23013/</link>
+      <pubDate>Mon, 29 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/archive-only-files-in-a-directory23013/</guid>
+      <description>&lt;p&gt;If you want to create a tar archive of only the files of a directory and exclude any subdirectories you can use the &lt;code&gt;ls -la&lt;/code&gt; command and pipe the output to &lt;code&gt;awk&lt;/code&gt;. However you need to remove the first 8 fields from the output and leave all of the remaining parts of the line in case there are spaces in the filename. One quick and dirty way of doing that is to set each of the 8 fields to a blank and then use &lt;code&gt;sed&lt;/code&gt; to trim the leading spaces. You can optionally add quotation marks around the filename in your output too.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Untar a Tarball to a Remote Directory</title>
+      <link>http://localhost:1313/posts/untar-a-tarball-to-a-remote-directory5321/</link>
+      <pubDate>Mon, 08 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/untar-a-tarball-to-a-remote-directory5321/</guid>
+      <description>&lt;p&gt;Sometimes you may need to copy an entire directory structure to another system using the command line. Here is a quick way to do it using the tar command:&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt; cat myfile.tgz | ssh user@host &amp;ldquo;tar xzf - -C /some/dir&amp;rdquo; &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

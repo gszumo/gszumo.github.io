@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Containers on Gregg&#39;s MOTD</title>
+    <link>http://localhost:1313/tags/containers/</link>
+    <description>Recent content in Containers on Gregg&#39;s MOTD</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 08 Jun 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/containers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LXC in Slackware</title>
+      <link>http://localhost:1313/posts/lxc-in-slackware22712/</link>
+      <pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/lxc-in-slackware22712/</guid>
+      <description>&lt;p&gt;Following directions from: &lt;a href=&#34;https://docs.slackware.com/howtos:misc:lxc&#34;&gt;lxc&lt;/a&gt; for Slackware 14.2. I haven&amp;rsquo;t tested on Slackware 15 yet. You will have to set this up while running as &lt;code&gt;root&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Create the file  &lt;code&gt;&#39;/etc/default/lxc-net&#39;&lt;/code&gt; and add the line &lt;code&gt;USE_LXC_BRIDGE=&amp;quot;true&amp;quot;&lt;/code&gt; to it.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Create the directory &lt;code&gt;&#39;/var/lib/misc&#39;&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Start the service: &lt;code&gt;# /usr/libexec/lxc/lxc-net start&lt;/code&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Create a config file:&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;# cat &amp;gt;slac-xlc.con &amp;laquo;&amp;ldquo;EOF&amp;rdquo;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; lxc.network.type = veth&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; lxc.network.flags = up&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt; lxc.network.link = lxcbr0&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;EOF&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
